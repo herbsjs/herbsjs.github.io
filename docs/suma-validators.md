@@ -389,26 +389,3 @@ const result = validate(value, validations)
 The `type`, `length`, `numericality`, `format` and `datetime` validators won't validate a value if it's `null` or `undefined`.
 
 To ensure your your value is not null, use `allowNull: false` or `presence: true`.
-
-## TODO
-
-Validators:
-- [X] presence / null
-- [X] length 
-- [X] type 
-- [X] numericality (greater than, equal to, is integer, etc)
-- [X] format - regex
-- [X] date - earliest, latest
-- [X] url
-- [X] email
-- [X] enums/lists - validate if value exists in the given list
-- [X] reject list - validate if value does not exists in the given list 
-
-Features:
-- [X] Error message only
-- [X] No dependency 
-- [X] Doc every validators property
-- [ ] Allow a custom functions for validaton
-- [ ] Allow a conditional `if` functions for validaton
-- [ ] Be able to inject a diferent `checker`
-- [ ] Better checks on validator's `params`
