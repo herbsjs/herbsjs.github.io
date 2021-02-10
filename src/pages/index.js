@@ -71,7 +71,7 @@ const examples = [
     user.plan.monthlyCost = 10
 
     user.validate()`,
-    libImgUrl: '../static/img/logo-gotu.png'
+    libImgUrl: 'img/logo-gotu.png'
   },
   {
     description: `Suma helps with single value validations.
@@ -86,7 +86,7 @@ const examples = [
         value: null,
         errors: [{ cantBeEmpty: true }]
     } */`,
-    libImgUrl: '../static/img/logo-suma.png'
+    libImgUrl: 'img/logo-suma.png'
   },
   {
     description: `Suma helps with single value validations.
@@ -101,7 +101,7 @@ const examples = [
         value: null,
         errors: [{ cantBeEmpty: true }]
     } */`,
-    libImgUrl: '../static/img/logo-suma.png'
+    libImgUrl: 'img/logo-suma.png'
   }
 ]
 
