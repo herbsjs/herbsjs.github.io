@@ -6,17 +6,16 @@ slug: /introduction/architecture-guidelines
 
 ---
 
+## Architectural guidelines
 
-## Guidelines arquiteturais
+HerbsJS is an evolutionary and open source library, so we would love to see you contribute to it, making the library our best working tool. So we created some architectural guides that define HerbsJS to help you when it comes to consuming and contributing to the project:
 
-O herbsJS é uma biblioteca evolutiva e open source, portanto gostaríamos muito de te ver contribuindo com ela, fazendo da biblioteca ser a nossa melhor ferramenta de trabalho, enquanto desenvolvedores de software. Portando criamos alguns guias arquiteturais que definem bem o herbsJS e te ajudarão na hora de consumir e contribuir para o projeto:
+- **Modular** (Write programs that do one thing and do it well) - Libs need to be lean, with a single big goal and do this well.
 
-- **Modular** (Write programs that do one thing and do it well) - As libs precisam ser enxutas, com um único grande objetivo e fazer isto bem.
+- **Primitive libs and "glue" libs** - The herbsJS ecosystem is divided into two parts, the primitive libs, which work directly at the core of the application and the glue libs, which adapt/communicate the primary libs with the external layers of the software.
 
-- **Libs primitivas e libs "glue"** - O ecosistema do herbsJS é dividido em duas partes, as libs primitivas, que trabalham diretamente no core da aplicação e as libs colas, que fazem a adaptação/comunicação das libs primárias com as camadas externas do software.
+- **(Your) Configuration Convention** - The libs are flexible and have the possibility to receive many different configurations, this makes it much easier to build good tests.
 
-- **(Sua) Convenção sobre Configuração** - As libs são flexíveis e possuem possibilidade de receber injeções de configurações diversas, isso facilita muito na hora de construir bons testes.
+- **Emit meta-data (Write programs to work together)** - Especially the primary libs need to send metadata about everything that is happening there, so you can more easily create the secondary libs or connect third party libraries. In addition, this makes the code much easier to understand, audit and log.
 
-- **Emitir Meta-dados (Write programs to work together)** - Principalmente as libs primárias, precisam emitir metadados sobre tudo o que está acontecendo ali, assim você poderá criar mais facilmente as libs secundárias ou conectar bibliotecas de terceiros. Além de que isso transforma o código muito mais fácil de entender, auditar e logar.
-
-- **Testes** - TODO, sim, TODO software aqui dentro precisa ser testável, acreditamos MUITO no benefício de que um software bem testado trás. E por isso o herbsJS tenta ao máximo abraçar essa causa, receber em suas chamadas, a possibilidade de injeções de depêndencia e assim trazer isolamento com camadas externas, facilitanto assim a capacidade do software testar exatamente o que ele precisa testar.
+- **Tests** - all, yes, all software here needs to be testable, we strongly believe in the benefit that well-tested software brings, that is why herbsJS tries its best to embrace this cause, receive on your calls the possibility of dependency injections and thus bring insulation with external layers, thus facilitating the software's ability to test exactly what it needs to test.

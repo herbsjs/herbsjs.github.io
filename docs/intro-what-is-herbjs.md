@@ -14,10 +14,10 @@ HerbsJS is a powerful framework focused in Domain layers, we provide all resourc
 
 ## Clean Architecture
 
-A Clean Architecture foi criada por Robert C. Martin e promovida em seu livro Clean Architecture: A Craftsman’s Guide to Software Structure. Assim como outras filosofias de design de software, a Clean Architecture tenta fornecer uma metodologia a ser usada na codificação, a fim de facilitar o desenvolvimento códigos, permitir uma melhor manutenção, atualização e menos dependências.
+Clean Architecture was created by Robert C. Martin and promoted in his book Clean Architecture: A Craftsman’s Guide to Software Structure. Like other software design philosophies, Clean Architecture tries to provide a methodology to be used in coding, in order to facilitate code development, allow for better maintenance, updating and less dependencies.
 
-Um objetivo importante da Clean Architecture é fornecer aos desenvolvedores uma maneira de organizar o código de forma que encapsule a lógica de negócios, mas mantenha-o separado do mecanismo de entrega.
+An important goal of Clean Architecture is to provide developers with a way to organize code in a way that encapsulates business logic, but keeps it separate from the delivery mechanism.
 
-A Clean Architecture não foi o primeiro conceito de design de software que apareceu, ao longo do tempo as arquiteturas de software vêm sendo criadas com um mesmo objetivo de solucionar um princípio de design conhecido como SoC (separation of concerns).
+Clean Architecture was not the first software design concept that appeared, over time software architectures have been created with the same objective of solving a design principle known as SoC (separation of concerns).
 
-Você vai ouvir falar bastante de Clean Architecture por aqui, por isto recomendo a leitura do livro e/ou que você busque se aprofundar neste assunto: [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+You will hear a lot about Clean Architecture here, so I recommend reading the book and / or that you seek to delve into this subject: [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)

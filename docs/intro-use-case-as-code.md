@@ -5,9 +5,9 @@ sidebar_label: Use Case as Code
 slug: /introduction/use-cases
 ---
 
-Já falamos aqui sobre a complexidade das regras de negócio e como tentamos resolver isso com o herbsJS, porém se você olhar de perto, pode ver que no centro do conceito de clean architecture, notará que os *use cases* são o centro de tudo, é lá que a regra de negócio fica, juntamente das entidades que guiam e modelam o comportamento daquele sistema. O herbsJS nasceu dali, para tentar descrever regras de negócios complexas de maneira fácil para humanos e máquinas lerem.
+We’ve already talked about the complexity of business rules and how we try to solve this with herbsJS, but if you look closely you can see that at the center of the clean architecture concept, you’ll notice that * use cases * are at the center of everything, that's where the business rule is, along with the entities that guide and model the behavior of that system. HerbsJS was born from there, to try to describe complex business rules in an easy way for humans and machines to read.
 
-Aqui podemos ver um exemplo de caso de uso implementado com **buchu**, uma das libs do herbsJS:
+Here we can see an example of a use case implemented with ** buchu **, one of the herbsJS libs:
 
 ``` js
 usecase("Add or Update an Item on a to-do List", {
@@ -57,7 +57,7 @@ usecase("Add or Update an Item on a to-do List", {
     })
 ```
 
-Com apenas um método, você pode gerar a documentação daquele usecase:
+With just one method, you can generate documentation for that usecase:
 ``` js
 console.log(uc.doc())
 /*
@@ -87,7 +87,7 @@ console.log(uc.doc())
 }*/
 ```
 
-E com outro, você poderá auditá-lo:
+And with another, you can audit it:
 
 ``` js
 uc.audit()
@@ -122,35 +122,3 @@ uc.audit()
   elapsedTime: 802300n
 }*/
 ```
-
-## Guidelines arquiteturais
-
-O herbsJS é uma biblioteca evolutiva e open source, portanto gostaríamos muito de te ver contribuindo com ela, fazendo da biblioteca ser a nossa melhor ferramenta de trabalho, enquanto desenvolvedores de software. Portando criamos alguns guias arquiteturais que definem bem o herbsJS e te ajudarão na hora de consumir e contribuir para o projeto:
-
-- **Modular** (Write programs that do one thing and do it well) - As libs precisam ser enxutas, com um único grande objetivo e fazer isto bem.
-
-- **Libs primitivas e libs "glue"** - O ecosistema do herbsJS é dividido em duas partes, as libs primitivas, que trabalham diretamente no core da aplicação e as libs colas, que fazem a adaptação/comunicação das libs primárias com as camadas externas do software.
-
-- **(Sua) Convenção sobre Configuração** - As libs são flexíveis e possuem possibilidade de receber injeções de configurações diversas, isso facilita muito na hora de construir bons testes.
-
-- **Emitir Meta-dados (Write programs to work together)** - Principalmente as libs primárias, precisam emitir metadados sobre tudo o que está acontecendo ali, assim você poderá criar mais facilmente as libs secundárias ou conectar bibliotecas de terceiros. Além de que isso transforma o código muito mais fácil de entender, auditar e logar.
-
-- **Testes** - TODO, sim, TODO software aqui dentro precisa ser testável, acreditamos MUITO no benefício de que um software bem testado trás. E por isso o herbsJS tenta ao máximo abraçar essa causa, receber em suas chamadas, a possibilidade de injeções de depêndencia e assim trazer isolamento com camadas externas, facilitanto assim a capacidade do software testar exatamente o que ele precisa testar.
-
-
-## Bibliotecas
-
-Hoje o herbs conta com 3 bibliotecas primárias e algumas colas, que você poderá conhecer melhor no nosso repositório oficial do github [herbjs no github](https://github.com/herbsjs)
-
-Porém acho válido aqui destacar as 3 principais bibliotecas do herbsJS: **suma, gotu e buchu**.
-
-- **Suma** - Suma ajuda com validações de valor único. Extensível e código de erros apenas! Suma não valida esquemas ou objetos, apenas valores únicos.
-
-- **Gotu** - Gotu ajuda a definir suas entidades de negócios. Entidades: são o primeiro lugar natural onde devemos ter como objetivo colocar a lógica de negócios em aplicações orientadas a domínio.
-
-- **Buchu** - Biblioteca javascript de casos de usos uniforme, auditável e segura. Influenciado por Clean Architecture e Trailblazer
-
-
-![Libs herbsJS](/img/herbsjs_libs.png)
-
-Você também pode encontrar mais sobre HerbsJS nas universidade Vórtx ou nosso canal do Youtube.

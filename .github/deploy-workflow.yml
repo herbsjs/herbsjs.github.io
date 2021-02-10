@@ -1,0 +1,21 @@
+name: deploy-workflow
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependences
+        run : npm run install --only=prod
+
+      - name: Build  
+        run : npm ci && npm run build
+
+      - name: Deploying
+        if: github.ref == 'refs/heads/master'
+        run: echo TODO...
+
