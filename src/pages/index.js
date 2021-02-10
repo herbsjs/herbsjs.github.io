@@ -2,9 +2,14 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
+import {
+  LiveProvider,
+  LiveEditor
+} from 'react-live'
+import theme from 'prism-react-renderer/themes/nightOwlLight';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const features = [
   {
@@ -43,6 +48,64 @@ const features = [
   },
 ];
 
+const examples = [ 
+  {
+    description: `Gotu Kola helps define your business entities (*)
+    (*) Entities: they are the first natural place we should aim to place business logic in domain-driven applications.`,
+    code: `const { entity, field } = require('gotu')
+    const Plan = 
+        entity('Plan', {
+            name: field(String),
+            monthlyCost: field(Number)
+        })
+    
+    const User = 
+        entity('User', {
+            name: field(String),
+            accessCount: field(Number),
+            plan: field(Plan),
+        })
+    
+    const user = new User()
+    user.name = "Beth"
+    user.plan.monthlyCost = 10
+
+    user.validate()`,
+    libImgUrl: '../static/img/logo-gotu.png'
+  },
+  {
+    description: `Suma helps with single value validations.
+    Extensible, test covered and errors code only!
+    Suma does not validate schema or objects, just single values. For schema validation take a look at herbjs/gotu.`,
+    code: `const { validate } = require('suma')
+
+    const value = null
+    const validations = { presence: true }
+    const result = validate(value, validations) 
+    /* {
+        value: null,
+        errors: [{ cantBeEmpty: true }]
+    } */`,
+    libImgUrl: '../static/img/logo-suma.png'
+  },
+  {
+    description: `Suma helps with single value validations.
+    Extensible, test covered and errors code only!
+    Suma does not validate schema or objects, just single values. For schema validation take a look at herbjs/gotu.`,
+    code: `const { validate } = require('suma')
+
+    const value = null
+    const validations = { presence: true }
+    const result = validate(value, validations) 
+    /* {
+        value: null,
+        errors: [{ cantBeEmpty: true }]
+    } */`,
+    libImgUrl: '../static/img/logo-suma.png'
+  }
+]
+
+
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
@@ -54,6 +117,29 @@ function Feature({imageUrl, title, description}) {
       )}
       <h3>{title}</h3>
       <p>{description}</p>
+    </div>
+  );
+}
+
+function Example({title, description, code, libImgUrl}) {
+  return (
+    <div className="row">
+      <div className={clsx('col col--4', styles.feature)}>
+        {libImgUrl && (
+          <div className="text--center">
+            <img className={styles.featureImage} src={libImgUrl} alt={title} />
+          </div>
+        )}
+      </div>
+      
+      <div className={clsx('col col--4', styles.feature)}>
+        <p>{description}</p>
+      </div>
+      <div className={clsx('col col--4')}>
+        <LiveProvider  theme={theme} code={code}>
+          <LiveEditor />
+        </LiveProvider>
+      </div>
     </div>
   );
 }
@@ -92,8 +178,17 @@ function Home() {
                 ))}
               </div>
             </div>
-          </section>
-        )}
+          </section>)}
+
+
+        {examples && examples.length > 0 && (
+          <section className={styles.features}>
+            <div className="container">
+              {examples.map((props, idx) => (
+                <Example key={idx} {...props} />
+              ))}
+            </div>
+          </section>)}
       </main>
     </Layout>
   );
