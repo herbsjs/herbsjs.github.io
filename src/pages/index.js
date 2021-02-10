@@ -50,30 +50,6 @@ const features = [
 
 const examples = [ 
   {
-    description: `Gotu Kola helps define your business entities (*)
-    (*) Entities: they are the first natural place we should aim to place business logic in domain-driven applications.`,
-    code: `const { entity, field } = require('gotu')
-    const Plan = 
-        entity('Plan', {
-            name: field(String),
-            monthlyCost: field(Number)
-        })
-    
-    const User = 
-        entity('User', {
-            name: field(String),
-            accessCount: field(Number),
-            plan: field(Plan),
-        })
-    
-    const user = new User()
-    user.name = "Beth"
-    user.plan.monthlyCost = 10
-
-    user.validate()`,
-    libImgUrl: 'img/logo-gotu.png'
-  },
-  {
     description: `Suma helps with single value validations.
     Extensible, test covered and errors code only!
     Suma does not validate schema or objects, just single values. For schema validation take a look at herbjs/gotu.`,
@@ -89,24 +65,33 @@ const examples = [
     libImgUrl: 'img/logo-suma.png'
   },
   {
-    description: `Uniform, auditable and secure use case javascript library. Influenced by Clean Architecture and Trailblazer`,
-    code: `const { entity, field } = require('gotu')
-    const Item = entity('Item', {
-      id: field(Number),
-      description: field(String),
-      isDone: field(Boolean),
-      position: field(Number)
-    })
+    description: `Gotu Kola helps define your business entities (*)
+    (*) Entities: they are the first natural place we should aim to place business logic in domain-driven applications.`,
+    code: `const { entity, field } = require('gotu')    
+    const item = 
+        entity('Item', {
+            id: field(Number),
+            description: field(String)
+       })
     
-    const {
+    const item = new Item()
+    item.id = 123
+    item.description = "example"
+
+    user.validate() // gotu use suma inside here
+    // TODO, show the result`,
+    libImgUrl: 'img/logo-gotu.png'
+  },
+  {
+    description: `Uniform, auditable and secure use case javascript library. Influenced by Clean Architecture and Trailblazer`,
+    code: `const {
       Ok,
       Err,
       usecase,
       step,
       ifElse } = require('buchu')
     const dependency = {
-        ItemRepository: require('../repositories/ItemRepository').ItemRepository,
-        ...
+        ItemRepository: require('../itemRepository'),
     }
     
     const addOrUpdateItem = (injection) =>
@@ -124,12 +109,12 @@ const examples = [
           
             // Step audit and description
             'Check if the Item is valid': step((ctx) => {
-                ...
+                //...
                 return item.validate() // Ok or Error
             }),
     
             'Check if the List exists': step(async (ctx) => {
-                ...
+                //...
                 return Ok()
             }),
     
@@ -137,17 +122,17 @@ const examples = [
             'Add or Update the Item': ifElse({
     
                 'If the Item exists': step(async (ctx) => {
-                    ...
+                    //...
                     return Ok(newItem)
                 }),
     
                 'Then: Add a new Item to the List': step(async (ctx) => {
-                    ...
+                    //...
                     return ctx.ret = await itemRepo.save(item) // Ok or Error
                 }),
     
                 'Else: Update Item on the List': step(async (ctx) => {
-                    ...
+                    //...
                     return ctx.ret = await itemRepo.save(item) // Ok or Error
                 })
             })
