@@ -1,13 +1,13 @@
 module.exports = {
   title: 'HerbsJS',
   tagline: 'Domain first - The core that matters',
-  url: 'https://herbjs.com',
+  url: 'https://herbsjs.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-herbsjs.png',
-  organizationName: 'HerbJs',
-  projectName: 'website', // Usually your repo name.
+  organizationName: ' herbsjs',
+  projectName: 'website',
   themeConfig: {
     navbar: {
       title: 'HerbsJs',
