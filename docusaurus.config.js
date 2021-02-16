@@ -6,7 +6,7 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-herbsjs.png',
-  organizationName: ' herbsjs',
+  organizationName: 'herbsjs',
   projectName: 'website',
   themeConfig: {
     navbar: {
