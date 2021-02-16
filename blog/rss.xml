@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>HerbsJS Blog</title>
+        <link>https://herbsjs.github.io/blog</link>
+        <description>HerbsJS Blog</description>
+        <lastBuildDate>Tue, 16 Feb 2021 18:03:56 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[My first app with HerbjsJS]]></title>
+            <link>https://herbsjs.github.io/blog/Hello World</link>
+            <guid>Hello World</guid>
+            <pubDate>Tue, 16 Feb 2021 18:03:56 GMT</pubDate>
+            <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></description>
+        </item>
+    </channel>
+</rss>
