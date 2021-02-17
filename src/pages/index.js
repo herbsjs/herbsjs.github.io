@@ -53,90 +53,91 @@ const examples = [
     description: `Suma helps with single value validations.
     Extensible, test covered and errors code only!
     Suma does not validate schema or objects, just single values. For schema validation take a look at herbjs/gotu.`,
-    code: `const { validate } = require('suma')
+    code: `
 
-    const value = null
-    const validations = { presence: true }
-    const result = validate(value, validations) 
-    /* {
-        value: null,
-        errors: [{ cantBeEmpty: true }]
-    } */`,
+const { validate } = require('suma')
+const value = null
+const validations = { presence: true }
+const result = validate(value, validations) 
+/* {
+    value: null,
+    errors: [{ cantBeEmpty: true }]
+} */`,
     libImgUrl: 'img/logo-suma.png'
   },
   {
     description: `Gotu Kola helps define your business entities (*)
     (*) Entities: they are the first natural place we should aim to place business logic in domain-driven applications.`,
-    code: `const { entity, field } = require('gotu')    
-    const item = 
-        entity('Item', {
-            id: field(Number),
-            description: field(String)
-       })
-    
-    const item = new Item()
-    item.id = 123
-    item.description = "example"
+    code: `
 
-    user.validate() // gotu use suma inside here
-    // TODO, show the result`,
+const { entity, field } = require('gotu')    
+const item = 
+    entity('Item', {
+        id: field(Number),
+        description: field(String)
+    })
+
+const item = new Item()
+item.id = 123
+item.description = "example"
+
+// gotu use suma inside validate() 
+user.validate() 
+// TODO, show the result`,
     libImgUrl: 'img/logo-gotu.png'
   },
   {
     description: `Uniform, auditable and secure use case javascript library. Influenced by Clean Architecture and Trailblazer`,
-    code: `const {
-      Ok,
-      Err,
-      usecase,
-      step,
-      ifElse } = require('buchu')
-    const dependency = {
-        ItemRepository: require('../itemRepository'),
-    }
-    
-    const addOrUpdateItem = (injection) =>
-    
-        usecase('Add or Update an Item on a to-do List', {
-    
-            // Input/Request type validation 
-            request: { listId: Number, item: Item },
-    
-            // Authorization Audit  
-            authorize: (user) => user.isAdmin ? Ok() : Err(),
-    
-            // Dependency Injection control
-            setup: (ctx) => ctx.di = Object.assign({}, dependency, injection),
-          
-            // Step audit and description
-            'Check if the Item is valid': step((ctx) => {
-                //...
-                return item.validate() // Ok or Error
-            }),
-    
-            'Check if the List exists': step(async (ctx) => {
-                //...
-                return Ok()
-            }),
-    
-            // Conditional step
-            'Add or Update the Item': ifElse({
-    
-                'If the Item exists': step(async (ctx) => {
-                    //...
-                    return Ok(newItem)
-                }),
-    
-                'Then: Add a new Item to the List': step(async (ctx) => {
-                    //...
-                    return ctx.ret = await itemRepo.save(item) // Ok or Error
-                }),
-    
-                'Else: Update Item on the List': step(async (ctx) => {
-                    //...
-                    return ctx.ret = await itemRepo.save(item) // Ok or Error
-                })
-            })
-        })`,
+    code: `
+
+const {
+  Ok,
+  Err,
+  usecase,
+  step,
+  ifElse } = require('buchu')
+const dependency = {
+    ItemRepository: require('../itemRepository'),
+}
+
+const addOrUpdateItem = (injection) =>
+  usecase('Add or Update an Item on a to-do List', {
+    // Input/Request type validation 
+    request: { listId: Number, item: Item },
+    // Authorization Audit  
+    authorize: (user) => user.isAdmin ? Ok() : Err(),
+    // Dependency Injection control
+    setup: (ctx) => {
+      ctx.di = Object.assign({}, dependency, injection)
+    },
+    // Step audit and description
+    'Check if the Item is valid': step((ctx) => {
+        //...
+        return item.validate() // Ok or Error
+    }),
+    'Check if the List exists': step(async (ctx) => {
+        //...
+        return Ok()
+    }),
+
+    // Conditional step
+    'Add or Update the Item': ifElse({
+      'If the Item exists': step(async (ctx) => {
+          //...
+          return Ok(newItem)
+      }),
+      'Then: Add a new Item to the List': step(async (ctx) => {
+          //...
+          // Ok or Error
+          return ctx.ret = await itemRepo.save(item)
+      }),
+      'Else: Update Item on the List': step(async (ctx) => {
+          //...
+          // Ok or Error
+          return ctx.ret = await itemRepo.save(item)
+      })
+    })
+  })`,
     libImgUrl: 'img/logo-buchu.png'
   }
 ]
@@ -160,7 +161,7 @@ function Feature({imageUrl, title, description}) {
 function Example({title, description, code, libImgUrl}) {
   return (
     <div className="row">
-      <div className={clsx('col col--4', styles.feature)}>
+      <div className={clsx('col col--2', styles.feature)}>
         {libImgUrl && (
           <div className="text--center">
             <img className={styles.featureImage} src={libImgUrl} alt={title} />
@@ -171,7 +172,7 @@ function Example({title, description, code, libImgUrl}) {
       <div className={clsx('col col--4', styles.centerDescription)}>
         <p>{description}</p>
       </div>
-      <div className={clsx('col col--4')}>
+      <div className={clsx('col col--6')}>
         <LiveProvider  theme={theme} code={code}>
           <LiveEditor />
         </LiveProvider>
