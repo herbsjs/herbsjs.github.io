@@ -13,7 +13,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const features = [
   {
-    title: 'Code what matters',
+    title: 'Domain that matters',
     imageUrl: '',
     description: (
       <>
