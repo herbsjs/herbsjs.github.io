@@ -71,19 +71,20 @@ const result = validate(value, validations)
     code: `
 
 const { entity, field } = require('gotu')    
-const item = 
+const itemBuilder = 
     entity('Item', {
         id: field(Number),
         description: field(String)
     })
 
-const item = new Item()
+const item = new itemBuilder()
 item.id = 123
 item.description = "example"
 
 // gotu use suma inside validate() 
-user.validate() 
-// TODO, show the result`,
+item.validate()
+item.errors // example: { id: [ wrongType: 'Number' ], description: { monthlyCost: [ wrongType: 'String' ] } }
+item.isValid() // false`,
     libImgUrl: 'img/logo-gotu.png'
   },
   {

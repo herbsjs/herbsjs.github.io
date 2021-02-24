@@ -10,8 +10,6 @@ slug: /
 
 HerbsJS is a powerful framework focused in Domain layers, we provide all resources necessary to you write your core project so we can generate all the infrastructure about your domain. 
 
-// TODO: Herbjs archtecture diagram
-
 ## Clean Architecture
 
 Clean Architecture was created by Robert C. Martin and promoted in his book Clean Architecture: A Craftsman’s Guide to Software Structure. Like other software design philosophies, Clean Architecture tries to provide a methodology to be used in coding, in order to facilitate code development, allow for better maintenance, updating and less dependencies.
