@@ -1,10 +1,8 @@
 ---
-id: introDoc4
-title: Libs
-slug: /introduction/libs
+id: ecosystem
+title: Ecosystem
+slug: /introduction/ecosystem
 ---
-
-## Libs
 
 Today we have 3 primary libraries and some glues which you can learn more about in our official github repository [herbjs in the github](https://github.com/herbsjs)
 
@@ -17,6 +15,7 @@ Entities: they are the first natural place where we should aim to put business l
 
 - **Buchu** - JavaScript library of uniform, auditable and secure use cases. Influenced by Clean Architecture and Trailblazer
 
+// TODO: add all libs here
 
 ![Libs herbsJS](/img/herbsjs_libs.png)
 
