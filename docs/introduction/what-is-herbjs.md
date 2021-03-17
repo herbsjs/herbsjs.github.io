@@ -5,7 +5,6 @@ sidebar_label: What's HerbsJs
 slug: /
 ---
 
-
 HerbsJS is a powerful framework focused in Domain layers, we provide all resources necessary to you write your core project so we can generate all the infrastructure about your domain. 
 
 ## Clean Architecture
