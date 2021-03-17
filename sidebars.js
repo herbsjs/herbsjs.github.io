@@ -1,6 +1,13 @@
-module.exports = {
-  someSidebar: {
-    Introduction: ['introDoc1', 'introDoc2', 'introDoc3', 'introDoc4'],
-    Suma: ['sumaDoc1', 'sumaDoc2', 'sumaDoc3']
-  },
-};
+const sidebar = {
+  Introduction: ['herbsjs', 'architecture', 'ecosystem'],
+  UseCase: ['whatis', 'gettingStarted', 'features'],
+  Entity: ['whatis', 'gettingStarted', 'features'],
+  Glues: ['whatis', 'herbs2gql', 'herbs2rpl', 'herbsshelf'],
+  Libs: ['suma'],
+}
+
+Object.keys(sidebar).map(property =>
+  sidebar[property] = sidebar[property].map(item => `${property.toLowerCase()}/${item}`)
+)
+
+module.exports = { sidebar };

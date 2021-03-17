@@ -1,12 +1,9 @@
 ---
-id: introDoc1
+id: herbsjs
 title: What's HerbsJs
 sidebar_label: What's HerbsJs
 slug: /
 ---
-
-
-## HerbsJS
 
 HerbsJS is a powerful framework focused in Domain layers, we provide all resources necessary to you write your core project so we can generate all the infrastructure about your domain. 
 
