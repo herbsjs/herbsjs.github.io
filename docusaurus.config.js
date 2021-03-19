@@ -10,19 +10,22 @@ module.exports = {
   projectName: 'website',
   themeConfig: {
     navbar: {
-      title: 'HerbsJs',
       logo: {
         alt: 'HerbsJs\'s logo',
-        src: 'img/logo-herbsjs.png',
+        src: 'img/herbsjs.svg',
       },
       items: [
         {
           to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
-          position: 'left',
+          position: 'right',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
+        {
+          to: 'blog',
+          label: 'Blog',
+          position: 'right'
+        },
         {
           href: 'https://github.com/herbsjs',
           label: 'GitHub',
@@ -31,7 +34,10 @@ module.exports = {
       ],
     },
     footer: {
-      style: 'dark',
+      logo: {
+        alt: 'HerbsJS Logo',
+        src: 'img/logo-herbsjs-branco.png',
+      },
       links: [
         {
           title: 'Docs',

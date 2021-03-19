@@ -4,17 +4,22 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+ 
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #C99846;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
   --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-light: rgba(147, 113, 71, 0.6);
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
+  --ifm-heading-color: #937147;
+  --ifm-footer-background-color: #C99846;
+  --ifm-footer-color: #FFFFFF;
+  --ifm-footer-link-color: #FFFFFF;
 }
 
 .docusaurus-highlight-code-line {
@@ -23,3 +28,23 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+#badges {
+  text-align: center;
+}
+.badge--primary{
+  background-color: rgba(147, 113, 71, 0.6);
+  font-size: 32px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+  border: 2px dashed #937147;
+  box-sizing: border-box;
+  border-radius: 100px;
+  margin: 10px;
+  padding: 15px 30px;
+}
+
+#howItWorks-badges {
+  display: inline-grid
+}
+

@@ -5,11 +5,41 @@
  * and scoped locally.
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap');
+
+ h1, h2, h3 {
+   font-family: 'Barlow Semi Condensed', sans-serif;
+ }
+
+ h1 {
+   font-size: 48px;
+   font-weight: 300;
+   text-align: center;
+ }
+
+ h2 {
+   font-size: 32px;
+   font-weight: 600;
+ }
+ h3 {
+   font-size: 30px;
+   font-weight: 600;
+   text-transform: uppercase;
+ }
+
+#badges {
+  text-align: center;
+}
+
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+.getStarted {
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 966px) {
