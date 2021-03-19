@@ -10,6 +10,7 @@ import {
 import theme from 'prism-react-renderer/themes/nightOwlLight';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+// import Example from './examples'
 
 const features = [
   {
@@ -193,16 +194,23 @@ function Home() {
       <header className={clsx('hero', styles.heroBanner)}>
         <div className="container">
           <img src="img/logo-herbsjs.png"></img>
-          {/* <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p> */}
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                'button button--outline button--secondary button--lg',
+                'button button--outline button--primary button--lg',
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/')}>
-              Get Started
+              Get started
+            </Link> 
+            {' '}
+            <Link
+              className={clsx(
+                'button button--primary button--md',
+                styles.getStarted,
+              )}
+              to={useBaseUrl('docs/')}>
+              Start
             </Link>
           </div>
         </div>
@@ -219,8 +227,9 @@ function Home() {
             </div>
           </section>)}
 
-
-        {examples && examples.length > 0 && (
+        {/* <Example /> */}
+        <h1>Add major features, with minimal code.</h1>
+         {examples && examples.length > 0 && (
           <section className={styles.features}>
             <div className="container">
               {examples.map((props, idx) => (
@@ -228,6 +237,23 @@ function Home() {
               ))}
             </div>
           </section>)}
+
+        <h1>Dynamically generate.</h1>
+        <div id="badges">
+          <span className="badge badge--primary">Repository</span>
+          <span className="badge badge--primary">GraphQL-layer</span>
+          <span className="badge badge--primary">REST-layer</span>
+          <span className="badge badge--primary">Shelf-project</span>
+        </div>
+
+        <h1>How it works?</h1>
+        <div id="howItWorks-badges">
+          <span className="badge badge--primary">Repository</span>
+          <span className="badge badge--primary">GraphQL-layer</span>
+          <span className="badge badge--primary">REST-layer</span>
+          <span className="badge badge--primary">Shelf-project</span>
+        </div>
+       
       </main>
     </Layout>
   );
