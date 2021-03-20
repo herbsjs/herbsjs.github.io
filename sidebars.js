@@ -1,9 +1,10 @@
 const sidebar = {
-  Introduction: ['herbsjs', 'architecture', 'ecosystem'],
+  Introduction: ['herbsjs', 'motivators',  'architecture', 'ecosystem','getting-started'],
   UseCase: ['whatis', 'gettingStarted', 'features'],
   Entity: ['whatis', 'gettingStarted', 'features'],
-  Glues: ['whatis', 'herbs2gql', 'herbs2rpl', 'herbsshelf'],
-  Libs: ['suma'],
+  Validation: ['suma'],
+  Glues: ['whatis', 'herbs2gql', 'herbs2knex', 'herbsshelf', 'herbs2rpl'],
+
 }
 
 Object.keys(sidebar).map(property =>
