@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{91:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"My first app with HerbjsJS","permalink":"/website/blog/Hello World"}]}')}}]);

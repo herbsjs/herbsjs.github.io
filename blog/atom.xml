@@ -2,16 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://herbsjs.github.io/blog</id>
     <title>HerbsJS Blog</title>
-    <updated>2021-02-16T18:03:56.328Z</updated>
+    <updated>2015-10-25T23:29:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://herbsjs.github.io/blog"/>
     <subtitle>HerbsJS Blog</subtitle>
     <icon>https://herbsjs.github.io/img/logo-herbsjs.png</icon>
-    <entry>
-        <title type="html"><![CDATA[My first app with HerbjsJS]]></title>
-        <id>Hello World</id>
-        <link href="https://herbsjs.github.io/website/blog/Hello World"/>
-        <updated>2021-02-16T18:03:56.328Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
-    </entry>
 </feed>
