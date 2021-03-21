@@ -22,11 +22,6 @@ module.exports = {
           position: 'right',
         },
         {
-          to: 'blog',
-          label: 'Blog',
-          position: 'right'
-        },
-        {
           href: 'https://github.com/herbsjs',
           label: 'GitHub',
           position: 'right',
