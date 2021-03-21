@@ -1,0 +1,14 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 80%;
+  margin: auto;
+}
+.features h3, .features p {
+  text-align: center;
+}
+.featureImage {
+  height: 40px;
+  width: 40px;
+}
