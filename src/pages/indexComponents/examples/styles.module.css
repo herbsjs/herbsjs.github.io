@@ -1,0 +1,31 @@
+.examples {
+  background-color: rgba(201, 152, 70, 0.3);
+  border: 3px dashed #C99846;
+  box-sizing: border-box;
+  border-radius: 10px;
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.examplesTitle {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5em;
+}
+.exampleContent {
+  width:48%;
+  background-color: #FFFFFF;
+  margin: 1%;
+  padding: 20px 0 0 20px;
+}
+.exampleCode {
+  max-height: 630px;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .exampleContent {
+    width: 100%;
+  }
+}
