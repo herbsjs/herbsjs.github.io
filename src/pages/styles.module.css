@@ -7,47 +7,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap');
 
-/* html {
-  font-size: 16px;
-}
-@media screen and (min-width: 320px) {
-  html {
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-  }
-}
-@media screen and (min-width: 1000px) {
-  html {
-    font-size: 32px;
-  }
-} */
-
-
-
  h1, h2, h3 {
    font-family: 'Barlow Semi Condensed', sans-serif;
  }
 
  h1 {
-   font-size: 1.5em;
+   font-size: 48px;
    line-height: 2em;
    font-weight: 300;
  }
 
  h2 {
-   font-size: 1.5em;
+   font-size: 32px;
    font-weight: 600;
  }
  h3 {
-   font-size: 1.3em;
+   font-size: 30px;
    font-weight: 600;
    text-transform: uppercase;
  }
 
-#badges {
+.badges, .logos {
   text-align: center;
 }
-
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;

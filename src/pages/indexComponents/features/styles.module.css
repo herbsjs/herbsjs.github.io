@@ -5,7 +5,10 @@
   width: 80%;
   margin: auto;
 }
+.features h3, .features p {
+  text-align: center;
+}
 .featureImage {
-  height: 200px;
-  width: 200px;
+  height: 40px;
+  width: 40px;
 }
