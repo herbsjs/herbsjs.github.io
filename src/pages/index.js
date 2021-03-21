@@ -10,11 +10,14 @@ import {
 import theme from 'prism-react-renderer/themes/nightOwlLight';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-// import Example from './examples'
+import { GitHub, Language} from '@material-ui/icons';
+import Examples from './indexComponents/examples/examples'
+import Features from './indexComponents/features/features'
+import HowItWorks from './indexComponents/howItWorks/howItWorks'
 
 const features = [
   {
-    title: 'Domain that matters',
+    title: `Domain that matters`,
     imageUrl: '',
     description: (
       <>
@@ -49,102 +52,6 @@ const features = [
   },
 ];
 
-const examples = [ 
-  {
-    description: `Suma helps with single value validations.
-    Extensible, test covered and errors code only!
-    Suma does not validate schema or objects, just single values. For schema validation take a look at herbjs/gotu.`,
-    code: `
-
-const { validate } = require('suma')
-const value = null
-const validations = { presence: true }
-const result = validate(value, validations) 
-/* {
-    value: null,
-    errors: [{ cantBeEmpty: true }]
-} */`,
-    libImgUrl: 'img/logo-suma.png'
-  },
-  {
-    description: `Gotu Kola helps define your business entities (*)
-    (*) Entities: they are the first natural place we should aim to place business logic in domain-driven applications.`,
-    code: `
-
-const { entity, field } = require('gotu')    
-const itemBuilder = 
-    entity('Item', {
-        id: field(Number),
-        description: field(String)
-    })
-
-const item = new itemBuilder()
-item.id = 123
-item.description = "example"
-
-// gotu use suma inside validate() 
-item.validate()
-item.errors // example: { id: [ wrongType: 'Number' ], description: { monthlyCost: [ wrongType: 'String' ] } }
-item.isValid() // false`,
-    libImgUrl: 'img/logo-gotu.png'
-  },
-  {
-    description: `Uniform, auditable and secure use case javascript library. Influenced by Clean Architecture and Trailblazer`,
-    code: `
-
-const {
-  Ok,
-  Err,
-  usecase,
-  step,
-  ifElse } = require('buchu')
-const dependency = {
-    ItemRepository: require('../itemRepository'),
-}
-
-const addOrUpdateItem = (injection) =>
-  usecase('Add or Update an Item on a to-do List', {
-    // Input/Request type validation 
-    request: { listId: Number, item: Item },
-    // Authorization Audit  
-    authorize: (user) => user.isAdmin ? Ok() : Err(),
-    // Dependency Injection control
-    setup: (ctx) => {
-      ctx.di = Object.assign({}, dependency, injection)
-    },
-    // Step audit and description
-    'Check if the Item is valid': step((ctx) => {
-        //...
-        return item.validate() // Ok or Error
-    }),
-    'Check if the List exists': step(async (ctx) => {
-        //...
-        return Ok()
-    }),
-
-    // Conditional step
-    'Add or Update the Item': ifElse({
-      'If the Item exists': step(async (ctx) => {
-          //...
-          return Ok(newItem)
-      }),
-      'Then: Add a new Item to the List': step(async (ctx) => {
-          //...
-          // Ok or Error
-          return ctx.ret = await itemRepo.save(item)
-      }),
-      'Else: Update Item on the List': step(async (ctx) => {
-          //...
-          // Ok or Error
-          return ctx.ret = await itemRepo.save(item)
-      })
-    })
-  })`,
-    libImgUrl: 'img/logo-buchu.png'
-  }
-]
-
-
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
@@ -160,36 +67,12 @@ function Feature({imageUrl, title, description}) {
   );
 }
 
-function Example({title, description, code, libImgUrl}) {
-  return (
-    <div className="row">
-      <div className={clsx('col col--2', styles.feature)}>
-        {libImgUrl && (
-          <div className="text--center">
-            <img className={styles.featureImage} src={libImgUrl} alt={title} />
-          </div>
-        )}
-      </div>
-      
-      <div className={clsx('col col--4', styles.centerDescription)}>
-        <p>{description}</p>
-      </div>
-      <div className={clsx('col col--6')}>
-        <LiveProvider  theme={theme} code={code}>
-          <LiveEditor />
-        </LiveProvider>
-      </div>
-      <spam></spam>
-    </div>
-  );
-}
-
 function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero', styles.heroBanner)}>
         <div className="container">
@@ -210,50 +93,37 @@ function Home() {
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/')}>
-              Start
+              <GitHub fontSize="small"/> Start
             </Link>
           </div>
         </div>
       </header>
       <main>
-        {features && features.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>)}
 
-        {/* <Example /> */}
-        <h1>Add major features, with minimal code.</h1>
-         {examples && examples.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              {examples.map((props, idx) => (
-                <Example key={idx} {...props} />
-              ))}
-            </div>
-          </section>)}
-
-        <h1>Dynamically generate.</h1>
-        <div id="badges">
-          <span className="badge badge--primary">Repository</span>
-          <span className="badge badge--primary">GraphQL-layer</span>
-          <span className="badge badge--primary">REST-layer</span>
-          <span className="badge badge--primary">Shelf-project</span>
+        <Features />
+        
+        <div className={styles.section} style={{backgroundColor: '#FBFBFB'}}>
+          <h1>Add major features, with minimal code.</h1>
+          <Examples />
+          <h1>Dynamically generate.</h1>
+          <div id="badges">
+            <span className="badge badge--primary">Repository</span>
+            <span className="badge badge--primary">GraphQL-layer</span>
+            <span className="badge badge--primary">REST-layer</span>
+            <span className="badge badge--primary">Shelf-project</span>
+          </div>
+        </div>
+        
+        <div className={styles.section}>
+          <h1>How it works?</h1>
+          <HowItWorks/>
         </div>
 
-        <h1>How it works?</h1>
-        <div id="howItWorks-badges">
-          <span className="badge badge--primary">Repository</span>
-          <span className="badge badge--primary">GraphQL-layer</span>
-          <span className="badge badge--primary">REST-layer</span>
-          <span className="badge badge--primary">Shelf-project</span>
+        <div className={styles.section} style={{backgroundColor: '#FBFBFB'}}>
+          <h1>Who is using HerbsJS?</h1>
+          <img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage}/>
+          <img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage}/>
         </div>
-       
       </main>
     </Layout>
   );
