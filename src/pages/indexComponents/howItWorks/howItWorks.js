@@ -22,26 +22,36 @@ import { TrendingFlat, Remove } from '@material-ui/icons';
           <h3>Use Cases</h3>
         </div>
       </div>
-     {/* LINE */}
-      <div className={styles.gridLineA}><Remove fontSize="large"/></div>
-      <div className={styles.gridLineB}><Remove fontSize="large"/></div>
-      <div className={styles.gridLineC}><Remove fontSize="large"/></div>
-      <div className={styles.gridLineD}><Remove fontSize="large"/></div>
       {/* GLUES */}
-      <div className={styles.gridMiddleA}><span className={styles.badgeMiddle}>Herbs Shelf </span></div>
-      <div className={styles.gridMiddleB}><span className={styles.badgeMiddle}>Herbs 2 GraphQL </span></div>
-      <div className={styles.gridMiddleC}><span className={styles.badgeMiddle}>Herbs 2 REST </span></div>
-      <div className={styles.gridMiddleD}><span className={styles.badgeMiddle}>Herbs 2 REPL </span></div>
-     {/* ARROWS */}
-      <div className={styles.gridArrowA}><TrendingFlat fontSize="large"/></div>
-      <div className={styles.gridArrowB}><TrendingFlat fontSize="large"/></div>
-      <div className={styles.gridArrowC}><TrendingFlat fontSize="large"/></div>
-      <div className={styles.gridArrowD}><TrendingFlat fontSize="large"/></div>
+      <div className={styles.gridMiddleA}>
+        <hr className={styles.line}/>
+        <div className={styles.badgeMiddle}>Herbs Shelf </div>
+        <hr className={styles.line}/>
+        <div className={styles.arrowRight}/>
+      </div>
+      <div className={styles.gridMiddleB}>
+        <hr className={styles.line}/>
+        <div className={styles.badgeMiddle}>Herbs 2 GraphQL </div>
+        <hr className={styles.line}/>
+        <div className={styles.arrowRight}/>
+      </div>
+      <div className={styles.gridMiddleC}>
+        <hr className={styles.line}/>
+        <div className={styles.badgeMiddle}>Herbs 2 REST </div>
+        <hr className={styles.line}/>
+        <div className={styles.arrowRight}/>
+      </div>
+      <div className={styles.gridMiddleD}>
+        <hr className={styles.line}/>
+        <div className={styles.badgeMiddle}>Herbs 2 REPL </div>
+        <hr className={styles.line}/>
+        <div className={styles.arrowRight}/>
+        </div>
       {/* GENERATED CODE */}
-      <span className={styles.gridBadgeA}>Repository</span>
-      <span className={styles.gridBadgeB}>GraphQL-layer</span>
-      <span className={styles.gridBadgeC}>REST-layer</span>
-      <span className={styles.gridBadgeD}>Shelf-project</span>
+      <div className={styles.gridBadgeA}>Repository</div>
+      <div className={styles.gridBadgeB}>GraphQL-layer</div>
+      <div className={styles.gridBadgeC}>REST-layer</div>
+      <div className={styles.gridBadgeD}>Shelf-project</div>
     </div>
     <div className={styles.legends}> 
       <div><span className={styles.legendA}/>Your code</div>

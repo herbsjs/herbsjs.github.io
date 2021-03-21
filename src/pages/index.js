@@ -3,69 +3,13 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import {
-  LiveProvider,
-  LiveEditor
-} from 'react-live'
 import theme from 'prism-react-renderer/themes/nightOwlLight';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { GitHub, Language} from '@material-ui/icons';
-import Examples from './indexComponents/examples/examples'
+import { GitHub } from '@material-ui/icons';
 import Features from './indexComponents/features/features'
+import Examples from './indexComponents/examples/examples'
 import HowItWorks from './indexComponents/howItWorks/howItWorks'
-
-const features = [
-  {
-    title: `Domain that matters`,
-    imageUrl: '',
-    description: (
-      <>
-        Code your domain first using Herbs and the infrastructure will follow so. 
-        stop to spend time with redundant code. 
-        At same time we are flexible, for advanced scenarios you can provide your 
-        own code and change the behaviour. 
-      </>
-    ),
-  },
-  {
-    title: 'Keep it clean',
-    imageUrl: '',
-    description: (
-      <>
-        Our main concern is maintainability. Create and evolve your code knowing your
-        project will not become a big ball of mud even on a multi year project. Concepts
-        like Clean Architecture and Clean Code are at its core. 
-      </>
-    ),
-  },
-  {
-    title: 'Auditable and Secure',
-    imageUrl: '',
-    description: (
-      <>
-        Enterprise grade features are standard on Herbs even for simple applications.
-        Authorization and auditing are be available out of the box.
-        You can still opt-out if needed. 
-      </>
-    ),
-  },
-];
-
-function Feature({imageUrl, title, description}) {
-  const imgUrl = useBaseUrl(imageUrl);
-  return (
-    <div className={clsx('col col--4', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
-        </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
-  );
-}
 
 function Home() {
   const context = useDocusaurusContext();
@@ -79,20 +23,14 @@ function Home() {
           <img src="img/logo-herbsjs.png"></img>
           <div className={styles.buttons}>
             <Link
-              className={clsx(
-                'button button--outline button--primary button--lg',
-                styles.getStarted,
-              )}
+              className={clsx('button button--outline button--primary button--lg',styles.getStarted)}
               to={useBaseUrl('docs/')}>
               Get started
             </Link> 
             {' '}
             <Link
-              className={clsx(
-                'button button--primary button--md',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/')}>
+              className={clsx('button button--primary button--md', styles.getStarted)}
+              to='https://github.com/herbsjs'>
               <GitHub fontSize="small"/> Start
             </Link>
           </div>
@@ -102,11 +40,11 @@ function Home() {
 
         <Features />
         
-        <div className={styles.section} style={{backgroundColor: '#FBFBFB'}}>
+        <div className={styles.section}>
           <h1>Add major features, with minimal code.</h1>
           <Examples />
           <h1>Dynamically generate.</h1>
-          <div id="badges">
+          <div className={styles.badges}>
             <span className="badge badge--primary">Repository</span>
             <span className="badge badge--primary">GraphQL-layer</span>
             <span className="badge badge--primary">REST-layer</span>
@@ -119,10 +57,12 @@ function Home() {
           <HowItWorks/>
         </div>
 
-        <div className={styles.section} style={{backgroundColor: '#FBFBFB'}}>
+        <div className={styles.section}>
           <h1>Who is using HerbsJS?</h1>
-          <img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage}/>
-          <img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage}/>
+          <div className={styles.logos}>
+            <img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage}/>
+            <img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage}/>
+          </div>
         </div>
       </main>
     </Layout>

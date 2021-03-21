@@ -1,151 +1,17 @@
- .howItWorks {
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
- .container {
+.container {
   display: grid;
-  grid-template-columns: 36% 7% 20% 7% 30%;
+  grid-template-columns: 32% 30% 20%;
   grid-template-rows: 25% 25% 25% 25%;
   grid-template-areas: 
-    "circle lineA middleA arrowA badgeA"
-    "circle lineB middleB arrowB badgeB"
-    "circle lineC middleC arrowC badgeC"
-    "circle lineD middleD arrowD badgeD";
+    "circle middleA badgeA"
+    "circle middleB badgeB"
+    "circle middleC badgeC"
+    "circle middleD badgeD";
   max-width: 98%;
   margin: auto;
-}
-
- .howItWorksMiddle {
-  display: block;
- }
- .badge {
-  background-color: rgba(147, 113, 71, 0.6);
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 600;
-  border: 2px dashed #937147;
-  box-sizing: border-box;
-  border-radius: 100px;
-  padding: 15px;
-  color: #FFFFFF;
-  margin-bottom: 1em;
-}
- 
- .gridMiddleA {
-    grid-area: middleA;
-    align-self: center;
- }
- .gridMiddleB {
-    grid-area: middleB;
-    align-self: center;
- }
- .gridMiddleC {
-    grid-area: middleC;
-    align-self: center;
- }
- .gridMiddleD {
-    grid-area: middleD;
-    align-self: center;
-  }
-  .gridLineA {
-    grid-area: lineA;
-    align-self: center;
- }
- .gridLineB {
-    grid-area: lineB;
-    align-self: center;
- }
- .gridLineC {
-    grid-area: lineC;
-    align-self: center;
- }
- .gridLineD {
-    grid-area: lineD;
-    align-self: center;
- }
- .gridArrowA {
-    grid-area: arrowA;
-    align-self: center;
- }
- .gridArrowB {
-    grid-area: arrowB;
-    align-self: center;
- }
- .gridArrowC {
-    grid-area: arrowC;
-    align-self: center;
- }
- .gridArrowD {
-    grid-area: arrowD;
-    align-self: center;
- }
- .gridBadgeA {
-    composes: badge;
-    grid-area: badgeA;
-    align-self: center;
-}
-.gridBadgeB {
-    composes: badge;
-    grid-area: badgeB;
-    align-self: center;
-  }
-  .gridBadgeC {
-    composes: badge;
-    grid-area: badgeC;
-    align-self: center;
-  }
-  .gridBadgeD {
-    composes: badge;
-    grid-area: badgeD;
-    align-self: center;
- }
-.badgeMiddle{
-  background: #C7C7C7;
-  border: 2px dashed #505050;
-  box-sizing: border-box;
-  border-radius: 6px;
-  color: #505050;
-  text-align: center;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 600;
-  padding: .2em .6em;
-}
-
-.legends {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
-  justify-content: space-around;
-  margin-top: 2em;
-}
-.legendCircle {
-  box-sizing: border-box;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  margin-left: -25px;
-}
-.legendA {
-  composes: legendCircle;
-  border: 1px dashed #C99846;
-  background: rgba(201, 152, 70, 0.3);
-}
-.legendB {
-  composes: legendCircle;
-  border: 1px solid #78744D;
-  background: rgba(120, 116, 77, 0.3);
-}
-.legendC {
-  composes: legendCircle;
-  border: 1px dashed #505050;
-  background: #C7C7C7;
-}
-.legendD {
-  composes: legendCircle;
-  border: 1px dashed #937147;
-  background: rgba(147, 113, 71, 0.6);
+  column-gap: 5px;
+  row-gap: 5px;
+  justify-content: center;
 }
 .circlesContent {
   position:relative;
@@ -153,8 +19,8 @@
   max-width:560px;
   max-height: 560px;
   grid-area: circle;
+  align-self: center;
 }
-
 .circles {
   position: absolute;
   border-radius: 50%;
@@ -199,7 +65,6 @@
   position: absolute;
   text-align: center;
 }
-
 .innerInnerCircle {
   width: 33%;
   height: auto;
@@ -207,21 +72,18 @@
   max-height: 150px;
   background-color: #C99846;
 }
-
 .innerInnerCircleA {
   composes: circles;
   composes: innerInnerCircle;
   top: 45%;
   left: 0%;
 }
-
 .innerInnerCircleB {
   composes: circles;
   composes: innerInnerCircle;
   top: 55%;
   left: 65%;
 }
-
 .innerInnerCircleA h3, .innerInnerCircleB h3  {
   color: #FFFFFF;
   position: absolute;
@@ -238,6 +100,125 @@
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
+}
+
+.badgeMiddle{
+  background: #C7C7C7;
+  border: 2px dashed #505050;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #505050;
+  text-align: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+  padding: .2em .6em;
+  width: 155px;
+  align-self: center;
+}
+.gridMiddle {
+  align-self: center;
+  display: flex;
+}
+.gridMiddleA {
+  composes: gridMiddle;
+  grid-area: middleA;
+}
+.gridMiddleB {
+  composes: gridMiddle;
+  grid-area: middleB;
+}
+.gridMiddleC {
+  composes: gridMiddle;
+  grid-area: middleC;
+}
+.gridMiddleD {
+  composes: gridMiddle;
+  grid-area: middleD;
+}
+.line {
+  width: 25%;
+  background-color: #505050;
+  border-color: #505050;
+  height: 2px;
+}
+.arrowRight {
+  width: 0; 
+  height: 0; 
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #505050;
+  display:inline-block;
+  transform:  rotate(-90deg) translate(-20px, -6px);
+}
+
+.badge {
+  background-color: rgba(147, 113, 71, 0.6);
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+  border: 2px dashed #937147;
+  box-sizing: border-box;
+  border-radius: 100px;
+  padding: 15px;
+  color: #FFFFFF;
+  margin-bottom: 1em;
+  max-width: 240px;
+  text-align: center;
+  align-self: center;
+}
+
+.gridBadgeA {
+  composes: badge;
+  grid-area: badgeA;
+}
+.gridBadgeB {
+  composes: badge;
+  grid-area: badgeB;
+}
+.gridBadgeC {
+  composes: badge;
+  grid-area: badgeC;
+}
+.gridBadgeD {
+  composes: badge;
+  grid-area: badgeD;
+}
+
+
+.legends {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  justify-content: space-around;
+  margin-top: 2em;
+}
+.legendCircle {
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  margin-left: -25px;
+}
+.legendA {
+  composes: legendCircle;
+  border: 1px dashed #C99846;
+  background: rgba(201, 152, 70, 0.3);
+}
+.legendB {
+  composes: legendCircle;
+  border: 1px solid #78744D;
+  background: rgba(120, 116, 77, 0.3);
+}
+.legendC {
+  composes: legendCircle;
+  border: 1px dashed #505050;
+  background: #C7C7C7;
+}
+.legendD {
+  composes: legendCircle;
+  border: 1px dashed #937147;
+  background: rgba(147, 113, 71, 0.6);
 }
 
 /* mobile */
@@ -261,7 +242,7 @@
   }
   .container {
     display: grid;
-    grid-template-columns: 36% 2% 30% 2% 30%;
+    grid-template-columns: 35% 35% 30%;
   }
   .innerCircle img{
     width: 50px;
