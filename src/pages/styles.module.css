@@ -5,24 +5,40 @@
  * and scoped locally.
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap');
+
+/* html {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 32px;
+  }
+} */
+
+
 
  h1, h2, h3 {
    font-family: 'Barlow Semi Condensed', sans-serif;
  }
 
  h1 {
-   font-size: 48px;
+   font-size: 1.5em;
+   line-height: 2em;
    font-weight: 300;
-   text-align: center;
  }
 
  h2 {
-   font-size: 32px;
+   font-size: 1.5em;
    font-weight: 600;
  }
  h3 {
-   font-size: 30px;
+   font-size: 1.3em;
    font-weight: 600;
    text-transform: uppercase;
  }
@@ -54,18 +70,19 @@
   justify-content: center;
 }
 
-.features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
 .centerDescription {
   margin-top: 50px;
 }
 
-.featureImage {
-  height: 200px;
-  width: 200px;
+.section {
+  margin: auto;
+  width: 100%;
+  padding: 3%;
+}
+.section h1 {
+  text-align: center;
+}
+
+.logosImage {
+  max-width: 400px;
 }
