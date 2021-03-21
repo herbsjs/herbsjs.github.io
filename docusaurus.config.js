@@ -2,7 +2,7 @@ module.exports = {
   title: 'HerbsJS',
   tagline: 'Domain first - The core that matters',
   url: 'https://herbsjs.github.io',
-  baseUrl: '/',
+  baseUrl: '/website/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-herbsjs.png',
@@ -67,11 +67,7 @@ module.exports = {
         },
         {
           title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
+          items: [           
             {
               label: 'GitHub',
               href: 'https://github.com/herbsjs',
@@ -91,12 +87,6 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/herbsjs/website/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/herbsjs/website/edit/master/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
