@@ -5,6 +5,7 @@ import {
   LiveProvider,
   LiveEditor
 } from 'react-live'
+import { ForwardRounded } from '@material-ui/icons';
 
 const exampleEntity =  `const { validate } = require('suma')
   const value = null
@@ -76,6 +77,10 @@ const addOrUpdateItem = (injection) =>
           <LiveEditor />
         </LiveProvider>    
       </div>
+    </div>
+    <div className={styles.exampleArrow}>
+      <ForwardRounded />
+
     </div>
     </div>
   );

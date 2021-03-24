@@ -28,7 +28,6 @@
   padding: 0 var(--ifm-pre-padding);
 }
 .toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle-{
-
   display: none;
 }
 
@@ -44,3 +43,16 @@
   padding: 15px 30px;
 }
 
+.footer .container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.footer__links {
+  text-align: right;
+}
+
+.footer__logo {
+  max-width: 20rem;
+}
