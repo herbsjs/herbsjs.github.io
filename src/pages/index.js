@@ -17,7 +17,7 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="HerbsJS is an evolutionary and open source library, focused in Domain layers">
       <header className={clsx('hero', styles.heroBanner)}>
         <div className="container">
           <img src="img/logo-herbsjs.png"></img>

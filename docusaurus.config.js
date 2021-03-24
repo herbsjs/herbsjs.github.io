@@ -12,7 +12,7 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'HerbsJs\'s logo',
-        src: 'img/herbsjs.svg',
+        src: 'img/logo-herbsjs.png',
       },
       items: [
         {
