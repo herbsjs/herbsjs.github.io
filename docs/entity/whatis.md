@@ -1,6 +1,6 @@
 ---
 id: whatis
-title:  ⠀⠀⠀
+title: What's Gotu  ⠀⠀⠀
 sidebar_label: What's Gotu
 slug: /entity
 ---
