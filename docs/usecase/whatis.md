@@ -1,6 +1,6 @@
 ---
 id: whatis
-title: ⠀⠀⠀
+title: What's buchu
 sidebar_label: What's buchu
 slug: /usecase
 ---
