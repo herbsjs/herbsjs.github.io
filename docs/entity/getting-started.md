@@ -2,7 +2,7 @@
 id: gettingStarted
 title: Getting started
 sidebar_label: Getting started
-slug: /gotu/getting-started
+slug: /entity/getting-started
 ---
 
 ### Installing

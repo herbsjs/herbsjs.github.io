@@ -4,7 +4,7 @@
   box-sizing: border-box;
   border-radius: 10px;
   max-width: 80%;
-  margin: auto;
+  margin: 3em auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -22,6 +22,18 @@
 .exampleCode {
   max-height: 630px;
   overflow-y: auto;
+}
+
+.exampleArrow {
+  text-align: center;
+  width: 100%;
+  transform: rotate(90deg);
+}
+.exampleArrow svg {
+  position: absolute;
+  font-size: 150px;
+  margin: -75px;
+  color: #505050;
 }
 
 @media only screen and (max-width: 768px) {

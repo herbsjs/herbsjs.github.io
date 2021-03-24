@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './styles.module.css';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import theme from 'prism-react-renderer/themes/nightOwlLight';
 import clsx from 'clsx';
 
 export default function Features() {
@@ -31,6 +29,7 @@ export default function Features() {
               <p>{feature.description}</p>
             </div>)
           )}
+          
         </div>
     </section>
   );

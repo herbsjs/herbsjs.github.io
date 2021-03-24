@@ -2,7 +2,7 @@
 id: features
 title: Features
 sidebar_label: Features
-slug: /gotu/features
+slug: /entity/features
 ---
 
 ## Validation
