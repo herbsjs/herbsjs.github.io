@@ -1,7 +1,7 @@
 ---
 id: herbs2knex
 title: Herbs2knex
-sidebar_label: herbs2knex
+sidebar_label: Herbs2knex
 slug: /glues/Herbs2knex
 ---
 
