@@ -115,6 +115,15 @@
   width: 155px;
   align-self: center;
 }
+.circleLink{
+  color:#FFFFFF;
+}
+.circleLink:hover{
+  color:#505050;
+}
+.badgeLink{
+  color:#505050;
+}
 .gridMiddle {
   align-self: center;
   display: flex;
