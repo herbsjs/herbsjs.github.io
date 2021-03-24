@@ -2,7 +2,7 @@
 id: whatis
 title:  ⠀⠀⠀
 sidebar_label: What's Gotu
-slug: /gotu
+slug: /entity
 ---
 
  <p align="center"><img src="https://raw.githubusercontent.com/herbsjs/gotu/master/docs/logo.png" height="220"></img></p>  

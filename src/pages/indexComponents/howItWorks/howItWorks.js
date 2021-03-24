@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles.module.css';
-import { TrendingFlat, Remove } from '@material-ui/icons';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
-  export default function HowItWorks() {
+export default function HowItWorks() {
   return (
     <>
     <div className={styles.container}>
@@ -16,34 +16,58 @@ import { TrendingFlat, Remove } from '@material-ui/icons';
           <h2>Domain</h2>
         </div>
         <div className={styles.innerInnerCircleA}>
-          <h3>Entities</h3>
+          <h3>
+          <Link to={useBaseUrl('docs/entity')} className={styles.circleLink}>
+            Entities
+          </Link> 
+          </h3>
         </div>
         <div className={styles.innerInnerCircleB}>
-          <h3>Use Cases</h3>
+          <h3>
+            <Link to={useBaseUrl('docs/usecase')} className={styles.circleLink}>
+            Use Cases
+            </Link> 
+          </h3>
         </div>
       </div>
       {/* GLUES */}
       <div className={styles.gridMiddleA}>
         <hr className={styles.line}/>
-        <div className={styles.badgeMiddle}>Herbs Shelf </div>
+        <div className={styles.badgeMiddle}>
+          <Link to={useBaseUrl('docs/glues/herbsshelf')} className={styles.badgeLink}>
+            Herbs Shelf
+          </Link>  
+        </div>
         <hr className={styles.line}/>
         <div className={styles.arrowRight}/>
       </div>
       <div className={styles.gridMiddleB}>
         <hr className={styles.line}/>
-        <div className={styles.badgeMiddle}>Herbs 2 GraphQL </div>
+        <div className={styles.badgeMiddle}>
+          <Link to={useBaseUrl('docs/glues/herbs2gql')} className={styles.badgeLink}>
+          Herbs 2 GraphQL
+          </Link>  
+          </div>
         <hr className={styles.line}/>
         <div className={styles.arrowRight}/>
       </div>
       <div className={styles.gridMiddleC}>
         <hr className={styles.line}/>
-        <div className={styles.badgeMiddle}>Herbs 2 REST </div>
+        <div className={styles.badgeMiddle}> 
+          <Link to={useBaseUrl('docs/glues/Herbs2knex')} className={styles.badgeLink}>
+          Herbs 2 Knex 
+          </Link>  
+        </div>
         <hr className={styles.line}/>
         <div className={styles.arrowRight}/>
       </div>
       <div className={styles.gridMiddleD}>
         <hr className={styles.line}/>
-        <div className={styles.badgeMiddle}>Herbs 2 REPL </div>
+        <div className={styles.badgeMiddle}>
+          <Link to={useBaseUrl('docs/glues/herbs2rpl')} className={styles.badgeLink}>
+            Herbs 2 REPL
+          </Link>
+        </div>
         <hr className={styles.line}/>
         <div className={styles.arrowRight}/>
         </div>
