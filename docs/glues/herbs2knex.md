@@ -142,7 +142,7 @@ class YourRepository extends Repository {
 
 ## Retrieving and Persisting Data
 
-### `findByID`
+### findByID
 Find entities by IDs
 
 Format: `.findByID(id)` where `id` is a value or an array.
@@ -154,7 +154,7 @@ const repo = new ItemRepository(injection)
 const ret = await repo.findByID(10)
 ```
 
-### `findBy`
+### findBy
 
 Find entities by any Entity field.
 
@@ -167,7 +167,7 @@ const repo = new ItemRepository(injection)
 const ret = await repo.findBy({ name: ["Anne"] })
 ```
 
-### `insert`
+### insert
 
 Insert an Entity into a table.
 
@@ -180,7 +180,7 @@ const repo = new ItemRepository(injection)
 const ret = await repo.insert(aNewEntity)
 ```
 
-### `update`
+### update
 
 Update an Entity.
 
@@ -193,7 +193,7 @@ const repo = new ItemRepository(injection)
 const ret = await repo.update(aModifiedEntity)
 ```
 
-### `delete`
+### delete
 
 Delete an Entity.
 
