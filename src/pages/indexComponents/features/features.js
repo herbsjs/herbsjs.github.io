@@ -6,17 +6,17 @@ export default function Features() {
   const features = [
     {
       title: `Domain that matters`,
-      imageUrl: '/website/img/web.png',
+      imageUrl: '/img/web.png',
       description: "Code your domain first using Herbs and the infrastructure will follow so stop to spend time with redundant code. At same time we are flexible, for advanced scenarios you can provide your own code and change the behaviour."
     },
     {
       title: 'Keep it clean',
-      imageUrl: '/website/img/stars.png',
+      imageUrl: '/img/stars.png',
       description: "Our main concern is maintainability. Create and evolve your code knowing your project will not become a big ball of mud even on a multi year project. Concepts like Clean Architecture and Clean Code are at its core."
     },
     {
       title: 'Auditable and Secure',
-      imageUrl: '/website/img/secure-shield.png',
+      imageUrl: '/img/secure-shield.png',
       description: "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are be available out of the box. You can still opt-out if needed."
     },
   ];

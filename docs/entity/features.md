@@ -60,7 +60,7 @@ user.isValid // false
 
 ## Serialization
 
-### `fromJSON(value)`
+### fromJSON(value)
 
 Returns a new instance of a entity
 
@@ -78,7 +78,7 @@ const user = User.fromJSON(`{ "name": "Beth"}`)
 
 By default `fromJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
 
-### `JSON.stringify(entity)`
+### JSON.stringify(entity)
 
 To serialize an entity to JSON string use `JSON.stringify` or `entity.toJSON` function.
 
@@ -219,7 +219,7 @@ const user = new User()
 const access = user.hasAccess()
 ```
 
-## Instance Type Check - `Entity.isParentOf`
+## Instance Type Check - Entity.isParentOf
 
 Check if a instance is the same type from its parent entity class (similar to `instanceOf`)
 
@@ -234,7 +234,7 @@ Check if a instance is the same type from its parent entity class (similar to `i
         AnEntity.isParentOf(instance2) // false
 ```
 
-## Entity Type Check - `entity.isEntity`
+## Entity Type Check - entity.isEntity
 
 Check if an object is a Gotu Entity class
 
