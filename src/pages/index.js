@@ -7,6 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useThemeContext from '@theme/hooks/useThemeContext';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { GitHub } from '@material-ui/icons';
+import Banner from './indexComponents/banner/banner'
 import Features from './indexComponents/features/features'
 import Examples from './indexComponents/examples/examples'
 import HowItWorks from './indexComponents/howItWorks/howItWorks'
@@ -19,29 +20,9 @@ function Home() {
     <Layout
       title={`${siteConfig.title}`}
       description="HerbsJS is an evolutionary and open source library, focused in Domain layers">
-      <header className={clsx('hero', styles.heroBanner)}>
-        <div className="container">
-          {/* <img src={isDarkTheme ? "img/logo-herbsjs-douradoebranco.png" : "img/logo-herbsjs.png"}  alt="logo-HerbsJS"/> */}
-          <img src={"img/logo-herbsjs.png"}  alt="logo-HerbsJS"/>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx('button button--outline button--primary button--lg',styles.getStarted)}
-              to={useBaseUrl('docs/')}>
-              Get started
-            </Link> 
-            {' '}
-            <Link
-              className={clsx('button button--primary button--md', styles.getStarted)}
-              to='https://github.com/herbsjs'>
-              <GitHub fontSize="small"/> Start
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Banner />
       <main>
-
         <Features />
-        
         <div className={styles.section}>
           <h1>Add major features, with minimal code.</h1>
           <Examples />
@@ -53,12 +34,10 @@ function Home() {
             <span className="badge badge--primary">Shelf-project</span>
           </div>
         </div>
-        
         <div className={styles.section}>
           <h1>How it works?</h1>
           <HowItWorks/>
         </div>
-
         <div className={styles.section}>
           <h1>Who is using HerbsJS?</h1>
           <div className={styles.logos}>
