@@ -61,7 +61,7 @@ export default function HowItWorks() {
         <hr className={styles.line}/>
         <div className={styles.arrowRight}/>
       </div>
-      <div className={styles.gridMiddleD}>
+      {/* <div className={styles.gridMiddleD}>
         <hr className={styles.line}/>
         <div className={styles.badgeMiddle}>
           <Link to={useBaseUrl('docs/glues/herbs2rpl')} className={styles.badgeLink}>
@@ -70,12 +70,12 @@ export default function HowItWorks() {
         </div>
         <hr className={styles.line}/>
         <div className={styles.arrowRight}/>
-        </div>
+      </div> */}
       {/* GENERATED CODE */}
-      <div className={styles.gridBadgeA}>Repository</div>
+      <div className={styles.gridBadgeA}>Shelf-project</div>
       <div className={styles.gridBadgeB}>GraphQL-layer</div>
-      <div className={styles.gridBadgeC}>REST-layer</div>
-      <div className={styles.gridBadgeD}>Shelf-project</div>
+      <div className={styles.gridBadgeC}>Repository</div>
+      {/* <div className={styles.gridBadgeD}>REST-layer</div> */}
     </div>
     <div className={styles.legends}> 
       <div><span className={styles.legendA}/>Your code</div>

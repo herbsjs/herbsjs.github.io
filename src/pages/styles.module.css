@@ -38,6 +38,11 @@
 }
 .getStarted {
   margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.getStarted svg{
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 966px) {
@@ -66,5 +71,5 @@
 }
 
 .logosImage {
-  max-width: 400px;
+  max-width: 300px;
 }

@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import theme from 'prism-react-renderer/themes/nightOwlLight';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useThemeContext from '@theme/hooks/useThemeContext';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { GitHub } from '@material-ui/icons';
 import Features from './indexComponents/features/features'
@@ -13,6 +13,7 @@ import HowItWorks from './indexComponents/howItWorks/howItWorks'
 
 function Home() {
   const context = useDocusaurusContext();
+
   const {siteConfig = {}} = context;
   return (
     <Layout
@@ -20,7 +21,8 @@ function Home() {
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero', styles.heroBanner)}>
         <div className="container">
-          <img src="img/logo-herbsjs.png"></img>
+          {/* <img src={isDarkTheme ? "img/logo-herbsjs-douradoebranco.png" : "img/logo-herbsjs.png"}  alt="logo-HerbsJS"/> */}
+          <img src={"img/logo-herbsjs.png"}  alt="logo-HerbsJS"/>
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--outline button--primary button--lg',styles.getStarted)}
@@ -60,8 +62,8 @@ function Home() {
         <div className={styles.section}>
           <h1>Who is using HerbsJS?</h1>
           <div className={styles.logos}>
-            <img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage}/>
-            <img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage}/>
+            <a href='https://vortx.com.br/'><img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage}/></a>
+            <a href='https://vizir.com.br/'><img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage}/></a>
           </div>
         </div>
       </main>

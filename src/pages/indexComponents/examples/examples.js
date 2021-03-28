@@ -5,16 +5,39 @@ import {
   LiveProvider,
   LiveEditor
 } from 'react-live'
-import { ForwardRounded } from '@material-ui/icons';
 
-const exampleEntity =  `const { validate } = require('suma')
-  const value = null
-  const validations = { presence: true }
-  const result = validate(value, validations) 
-  /* {
-      value: null,
-      errors: [{ cantBeEmpty: true }]
-  } */ `
+const exampleEntity =  `const { entity, field } = require('gotu')
+
+const Feature = 
+        entity('Feature', {
+            name: field(String),
+            hasAccess: field(Boolean)
+        })
+
+const Plan = 
+    entity('Plan', {
+        name: field(String),
+        monthlyCost: field(Number)
+    })
+
+const User = 
+    entity('User', {
+        name: field(String),
+        lastAccess: field(Date),
+        accessCount: field(Number),
+        features: field([Feature]),
+        plan: field(Plan),
+    })
+
+const user = new User()
+user.name = "Beth"
+user.plan.monthlyCost = 10
+user.features = [ 
+    new Feature(),
+    new Feature(),
+    new Feature()
+]
+user.validate() `
 
 const exampleUseCase = `const { Ok, Err, usecase, step, ifElse } = require('buchu')
 const dependency = { ItemRepository: require('../itemRepository') }
@@ -79,8 +102,7 @@ const addOrUpdateItem = (injection) =>
       </div>
     </div>
     <div className={styles.exampleArrow}>
-      <ForwardRounded />
-
+      <img src="img/arrow.png" alt="down-arrow"/>
     </div>
     </div>
   );
