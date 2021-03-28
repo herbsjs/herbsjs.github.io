@@ -9,11 +9,11 @@ Today herbs has 3 primary libraries and some glues, which you can learn more abo
 
 However, I find it worthwhile to highlight the 3 main libraries of herbsJS here: **suma**, **gotu** and **buchu**.
 
-**Suma** - Suma helps with single value validations. Extensible and error code only! In short, it does not validate schemes or objects, only unique values.
+**[Suma](/docs/libs/suma)** - Suma helps with single value validations. Extensible and error code only! In short, it does not validate schemes or objects, only unique values.
 
-**Gotu** - Gotu helps to define your business entities. Entities: they are the first natural place where we should aim to put the business logic in domain-oriented applications.
+**[Gotu](/docs/entity)** - Gotu helps to define your business entities. Entities: they are the first natural place where we should aim to put the business logic in domain-oriented applications.
 
-**Buchu** - Uniform, auditable and secure javascript library of use cases. Influenced by Clean Architecture and Trailblazer
+**[Buchu](/docs/usecase)** - Uniform, auditable and secure javascript library of use cases. Influenced by Clean Architecture and Trailblazer
 
 ## Keep it simple
 

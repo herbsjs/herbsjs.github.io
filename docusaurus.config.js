@@ -2,7 +2,7 @@ module.exports = {
   title: 'HerbsJS',
   tagline: 'Domain first - The core that matters',
   url: 'https://herbsjs.github.io',
-  baseUrl: '/website/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-herbsjs.png',
@@ -21,11 +21,6 @@ module.exports = {
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'right',
-        },
-        {
-          to: 'blog',
-          label: 'Blog',
-          position: 'right'
         },
         {
           href: 'https://github.com/herbsjs',
@@ -92,7 +87,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/herbsjs/website/edit/master/website/',
+            'https://github.com/herbsjs/herbsjs.github.io',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

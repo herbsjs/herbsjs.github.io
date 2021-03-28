@@ -17,8 +17,30 @@ herbs2gql creates GraphQL types based on herbs entities ([gotu](https://github.c
 
 All methods returns a string in GraphQL format representing the type based ([gql](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#gql)) and a [resolver](https://www.apollographql.com/docs/apollo-server/data/resolvers/) (when expected).
 
-// Add a complete and simple example here
+``` js
+const { entity, field } = require('gotu')
+const { entity2type } = require('herbs2gql')
 
+const user = entity('User', {
+    id: field(String),
+    name: field(String),
+    document: field(String),
+    age: field(Number),
+    active: field(Boolean),
+})
+
+const gql = entity2type(user)
+console.log(gql)
+/* Result
+type User {
+    id: String
+    name: String
+    document: String
+    age: Float
+    active: Boolean
+}
+*/
+```
 ## Features
 
 ### GraphQL Type
