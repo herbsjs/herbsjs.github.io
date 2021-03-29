@@ -1,12 +1,7 @@
 import React from 'react';
-import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import useThemeContext from '@theme/hooks/useThemeContext';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { GitHub } from '@material-ui/icons';
 import Banner from './indexComponents/banner/banner'
 import Features from './indexComponents/features/features'
 import Examples from './indexComponents/examples/examples'
