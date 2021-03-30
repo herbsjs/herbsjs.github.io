@@ -1,13 +1,13 @@
 .container {
   display: grid;
-  grid-template-columns: 32% 30% 20%;
+  grid-template-columns: 50% 30% 20%;
   grid-template-rows: 25% 25% 25% 25%;
   grid-template-areas: 
     "circle middleA badgeA"
     "circle middleB badgeB"
     "circle middleC badgeC"
     "circle middleD badgeD";
-  max-width: 98%;
+  max-width: 100%;
   margin: auto;
   column-gap: 5px;
   row-gap: 5px;
@@ -36,11 +36,14 @@
 }
 .outerCircle {
   composes: circles;
+  background-color: #78744d4d;
   width: 100%;
+  height: auto;
   padding-bottom: 100%;
   max-height: 560px;
-  height: auto;
-  background-color: #78744d4d;
+}
+.outerCircle h2 {
+  margin-top: 10px;
 }
 .innerCircle {
   composes: circles;
@@ -131,6 +134,7 @@
 .gridMiddleA {
   composes: gridMiddle;
   grid-area: middleA;
+
 }
 .gridMiddleB {
   composes: gridMiddle;
@@ -200,6 +204,10 @@
   margin: auto;
   justify-content: space-around;
   margin-top: 2em;
+}
+.legends div {
+  display: flex;
+  align-items: center;
 }
 .legendCircle {
   box-sizing: border-box;

@@ -12,7 +12,8 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'HerbsJs\'s logo',
-        src: 'img/logo-herbsjs.png',
+        src: 'img/herbsjs.svg',
+        srcDark: 'img/herbsjs-white.png',
       },
       items: [
         {
@@ -71,6 +72,12 @@ module.exports = {
         },
       ],
     },
+    colorMode: {
+      switchConfig: {
+        darkIcon: " ",
+        lightIcon: " ",
+      }
+    }
   },
   presets: [
     [
