@@ -3,20 +3,14 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import useThemeContext from "@theme/hooks/useThemeContext";
 import { GitHub } from "@material-ui/icons";
 
 const Banner = () => {
-  const { isDarkTheme } = useThemeContext();
   return (
     <header className={clsx("hero", styles.heroBanner)}>
       <div className="container">
         <img
-          src={
-            isDarkTheme
-              ? "img/logo-herbsjs-douradoebranco.png"
-              : "img/logo-herbsjs.png"
-          }
+          src="img/logo-herbsjs.png"
           alt="logo-HerbsJS"
         />
         <div className={styles.buttons}>
