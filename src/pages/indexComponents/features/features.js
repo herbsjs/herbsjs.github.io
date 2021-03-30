@@ -25,7 +25,7 @@ export default function Features() {
         <div className="row">
           {features.map(feature => (
             <div className={clsx('col col--4', styles.feature)}>
-              <h3><img className={styles.featureImage} src={feature.imageUrl} alt={feature.title} />{feature.title}</h3>
+              <h3 className={styles.featureTitle}><img className={styles.featureImage} src={feature.imageUrl} alt={feature.title} />{feature.title}</h3>
               <p>{feature.description}</p>
             </div>)
           )}

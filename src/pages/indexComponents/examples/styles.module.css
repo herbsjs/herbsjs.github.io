@@ -20,20 +20,15 @@
   padding: 20px 0 0 20px;
 }
 .exampleCode {
-  max-height: 630px;
+  max-height: 420px;
   overflow-y: auto;
 }
 
 .exampleArrow {
   text-align: center;
+  margin: -50px 0;
   width: 100%;
-  transform: rotate(90deg);
-}
-.exampleArrow svg {
-  position: absolute;
-  font-size: 150px;
-  margin: -75px;
-  color: #505050;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 768px) {
