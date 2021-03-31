@@ -1,23 +1,13 @@
 ---
 id: whatis
-title: What's Gotu
-sidebar_label: What's Gotu
+title: What's a entity?
+sidebar_label: What's a entity?
 slug: /entity
 ---
 
- <p align="center"><img src="https://raw.githubusercontent.com/herbsjs/gotu/master/docs/logo.png" height="220"></img></p>  
+#### What is it?
 
-![Node.js CI](https://github.com/herbsjs/gotu/workflows/Node.js%20CI/badge.svg?branch=master)[![codecov](https://codecov.io/gh/herbsjs/gotu/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/gotu)
-
-# Gotu Kola
-
-Gotu Kola helps define your business entities (*)
-
-(*) Entities: they are the first natural place we should aim to place business logic in domain-driven applications.
-
-### Installing
-
-$ npm install gotu
+Entities: they are the first natural place we should aim to place business logic in domain-driven applications.
 
 ### Using
 
