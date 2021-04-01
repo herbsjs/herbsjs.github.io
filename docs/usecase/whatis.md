@@ -1,17 +1,9 @@
 ---
 id: whatis
-title: What's buchu
-sidebar_label: What's buchu
+title: What's a use case?
+sidebar_label: What's a use case?
 slug: /usecase
 ---
-
- <p align="center"><img src="https://raw.githubusercontent.com/herbsjs/buchu/master/docs/logo.png" height="220"></img></p>  
-
-![CI build](https://github.com/herbsjs/buchu/workflows/Node.js%20CI/badge.svg) [![codecov](https://codecov.io/gh/herbsjs/buchu/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/buchu)
-
-Uniform, auditable and secure use case javascript library. Influenced by Clean Architecture and Trailblazer
-
-## What's a use case?
 
 #### What is it?
 
@@ -29,9 +21,9 @@ It should:
 
 "Use cases orchestrate the flow of data to and from the entities, and direct those entities to use their Critical Business Rules to achieve the goals of the use case." - Clean Architecture book
 
-We’ve already talked about the complexity of business rules and how we try to solve this with herbsJS, but if you look closely you can see that at the center of the clean architecture concept, you’ll notice that * use cases * are at the center of everything, that's where the business rule is, along with the entities that guide and model the behavior of that system. HerbsJS was born from there, to try to describe complex business rules in an easy way for humans and machines to read.
+We’ve already talked about the complexity of business rules and how we try to solve this with Herbs, but if you look closely you can see that at the center of the clean architecture concept, you’ll notice that * use cases * are at the center of everything, that's where the business rule is, along with the entities that guide and model the behavior of that system. Herbs was born from there, to try to describe complex business rules in an easy way for humans and machines to read.
 
-Here we can see an example of a use case implemented with ** buchu **, one of the herbsJS libs:
+Here we can see an example of a use case implemented with ** buchu **, one of the Herbs libs:
 
 ``` js
 usecase("Add or Update an Item on a to-do List", {

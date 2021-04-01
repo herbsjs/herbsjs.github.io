@@ -4,11 +4,6 @@ title: Suma
 slug: /libs/suma
 ---
 
- <p align="center"><img src="https://raw.githubusercontent.com/herbsjs/suma/master/docs/logo.png" height="220"></img></p>  
-
-![CI Build](https://github.com/herbsjs/suma/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma)
-
-
 Suma helps with single value validations.
 
 Extensible, test covered and errors code only!
@@ -16,7 +11,8 @@ Extensible, test covered and errors code only!
 Suma does not validate schema or objects, just single values. For schema validation take a look at [`herbjs/gotu`](https://github.com/herbsjs/gotu).
 
 ### Installing
-    $ npm install suma
+
+```$ npm install suma```
 
 ### Using
 
