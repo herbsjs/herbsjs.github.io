@@ -7,7 +7,7 @@ slug: /entity/getting-started
 
 ### Installing
 
-$ npm install gotu
+```$ npm install gotu```
 
 ### Using
 

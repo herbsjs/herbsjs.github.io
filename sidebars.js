@@ -1,5 +1,5 @@
 const sidebar = {
-  Introduction: ['herbsjs', 'motivation',  'architecture', 'ecosystem','getting-started'],
+  Introduction: ['getting-started','herbsjs', 'motivation',  'architecture', 'ecosystem'],
   UseCase: ['whatis', 'gettingStarted', 'features'],
   Entity: ['whatis', 'gettingStarted', 'features'],
   Validation: ['suma'],

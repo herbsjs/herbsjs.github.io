@@ -7,10 +7,10 @@ slug: /usecase/getting-started
 
 ### Installing
 
-$ npm install buchu
+```$ npm install buchu```
 ### Using
 
-Check the complete examples [here](https://github.com/herbsjs/buchu/tree/master/examples) or for a complete solution using herbsJS [here](https://github.com/herbsjs/todolist-on-herbs).
+Check the complete examples [here](https://github.com/herbsjs/buchu/tree/master/examples) or for a complete solution using Herbs [here](https://github.com/herbsjs/todolist-on-herbs).
 
 usecases/addOrUpdateItem.js:
 
