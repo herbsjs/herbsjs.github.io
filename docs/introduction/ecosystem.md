@@ -16,7 +16,7 @@ There are three primitive herbs libraries that are at Herbs' core, helping model
 
 ## Glues
 
-Glues are libraries that consume your domain's metadata and dynamically generate for you a significant part of the infrastructure code, such as REST controllers, resolvers and types for GraphQL, specialized repositories, as well as documentation and other features that we haven't even imagined yet.
+Glues are libraries that consume your domain's metadata and dynamically generate for you a significant part of the infrastructure API on the fly (no code generation), such as REST endpoints and controllers, resolvers and types for GraphQL, specialized repositories, as well as documentation and other features that we haven't even imagined yet.
 
 There are some Glues maintained directly by the Herbs core developers, but we believe that the ecosystem is still in its infancy, so we encourage the creation of other Glues and thus help more developers to unlock their domains.
 

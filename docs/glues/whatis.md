@@ -19,7 +19,7 @@ Glues are an important part of the Herbs architecture as they will solve the fun
 
 ## What is a Glue?
 
-A Glue is a library that consume metadata from your entities and use cases and dynamically generate features, code or documentations based on this metadata.
+A Glue is a library that consumes metadata from your entities and use cases and dynamically generates features and APIs on the fly (no code generation) and documentations based on this metadata.
 
 In practical terms, a glue can dynamically generate endpoints from a REST application based on entities and use cases, for example. Or, based on an entity, generate a specialized repository to read and write to a relational database. That is, a glue can do anything using the domain's metadata. That is, there is a lot that a Glue can do using basically the metadata of the domain of an application.
 
