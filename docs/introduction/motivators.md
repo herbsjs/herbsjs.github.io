@@ -52,3 +52,11 @@ Similar to Clean Architecture, the concept of Domain-driven design (DDD) was ini
 Even though it is not necessary to read these books to use Herbs, reading and understanding the concepts presented there will help you to understand the principles used here and, in addition, they are highly recommended for the development of a software developer.
 
 Of course, libraries from different ecosystems have been a great source of inspiration. Successes and mistakes of these efforts were taken into account: [Rails](https://rubyonrails.org/), [Django](https://www.djangoproject.com), [Trailblazer](https://trailblazer.to/), [Hanami](https://hanamirb.org/) and many others. 
+
+## History
+
+Herbs was created in 2019 at [Vórtx](https://vortx.com.br/), a fintech with exponential growth, a small team and a huge list of demands.
+
+Their architecture is based on microservices and required the creation of several services in a short period of time. As a financial institution, it was necessary for these services to be delivered with a high level of quality, observability and maintainability. It was in this scenario that Herbs was born.
+
+Since then, Herbs has been used in production in more than 10 microservices there, became a open source project and is maintained by several people outside and inside Vórtx.
