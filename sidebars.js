@@ -3,7 +3,7 @@ const sidebar = {
   UseCase: ['whatis', 'gettingStarted', 'features'],
   Entity: ['whatis', 'gettingStarted', 'features'],
   Validation: ['suma'],
-  Glues: ['whatis', 'herbs2gql', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets'],
+  Glues: ['whatisglue', 'herbs2gql', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets'],
 
 }
 
