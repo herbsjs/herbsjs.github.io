@@ -1,5 +1,6 @@
 const sidebar = {
   Introduction: ['getting-started','herbsjs', 'motivation',  'architecture', 'ecosystem'],
+  Tutorial: ['new-project', 'create-entity', 'repository', 'create-usecase', 'graphql', 'herbsshelf', 'refactoring', 'security'],
   UseCase: ['whatis', 'gettingStarted', 'features'],
   Entity: ['whatis', 'gettingStarted', 'features'],
   Validation: ['suma'],
