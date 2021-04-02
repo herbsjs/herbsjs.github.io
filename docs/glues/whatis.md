@@ -23,4 +23,4 @@ A Glue is a library that consume metadata from your entities and use cases and d
 
 In practical terms, a glue can dynamically generate endpoints from a REST application based on entities and use cases, for example. Or, based on an entity, generate a specialized repository to read and write to a relational database. That is, a glue can do anything using the domain's metadata. That is, there is a lot that a Glue can do using basically the metadata of the domain of an application.
 
-Here you can find some Glue created the Herbs core developers that are read to used and tested in production environments.
+Here you can find some Glues created by the Herbs core developers that have been tested in production environments and are ready to be used. 
