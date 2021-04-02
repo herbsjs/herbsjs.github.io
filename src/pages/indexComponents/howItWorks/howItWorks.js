@@ -81,7 +81,7 @@ export default function HowItWorks() {
       <div><span className={styles.legendA}/>Your code</div>
       <div><span className={styles.legendB}/>Metadata</div>
       <div><span className={styles.legendC}/>Glues/Plugins</div>
-      <div><span className={styles.legendD}/>Generated code</div>
+      <div><span className={styles.legendD}/>Generated On The Fly</div>
     </div>
     </>
   );

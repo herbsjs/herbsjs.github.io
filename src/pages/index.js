@@ -21,7 +21,7 @@ function Home() {
         <div className={styles.section}>
           <h1>Add major features with minimal code</h1>
           <Examples />
-          <h1>Dynamically Generate</h1>
+          <h1>Generated On The Fly</h1>
           <div className={styles.badges}>
             <span className="badge badge--primary">Repository</span>
             <span className="badge badge--primary">GraphQL</span>
