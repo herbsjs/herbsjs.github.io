@@ -5,6 +5,8 @@ sidebar_label: What's a entity?
 slug: /entity
 ---
 
+// TODO
+
 #### What is it?
 
 Entities: they are the first natural place we should aim to place business logic in domain-driven applications.
