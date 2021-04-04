@@ -1,36 +1,74 @@
 ---
-id: suma
-title: Suma
-slug: /libs/suma
+id: validation
+title: Field Validations
+sidebar_label: Field Validations
+slug: /entity/validation
 ---
 
-Suma helps with single value validations.
+// TODO - Change suma to gotu entity examples
 
-Extensible, test covered and errors code only!
+## Type
 
-Suma does not validate schema or objects, just single values. For schema validation take a look at [`herbjs/gotu`](https://github.com/herbsjs/gotu).
+Type validator ensures a value is of the correct JavaScript type or a custom type.
 
-### Installing
+`type` - A valid native JavaScript type, a custom type or a array with type
 
-```$ npm install suma```
+Native JavaScript types:
 
-### Using
+`Number` - double-precision 64-bit binary format IEEE 754 value
+
+`String` - a UTF‐16 character sequence
+
+`Boolean` - true or false
+
+`Date` - represents a single moment in time in a platform-independent format. 
+
+`Object` - the Object class represents one of JavaScript's data types.
+
+`Array` - the Array class is a object that is used in the construction of arrays. 
 
 ```javascript
-const { validate } = require('suma')
-
-const value = null
-const validations = { presence: true }
-const result = validate(value, validations) 
+const value = '2001'
+const validations = { type: Date }
+const result = validate(value, validations)
 /* {
-    value: null,
-    errors: [{ cantBeEmpty: true }]
+    value: '2001',
+    errors:[{ wrongType: 'Date' }]
+} */
+
+```
+
+Custom types:
+
+```javascript
+
+class User { ... }
+
+const value = 'Admin'
+const validations = { type: User }
+const result = validate(value, validations)
+/* {
+    value: 'Admin',
+    errors:[{ wrongType: 'User' }]
+} */
+
+```
+
+Lists - Array with types:
+
+It is possible to validate the type of elements of an array. Just use `[type]`.
+
+```javascript
+const value = ['2']
+const validations = { type: [Number] }
+const result = validate(value, validations)
+/* {
+    value: ['2'],
+    errors:[{ wrongType: ['Number'] }]
 } */
 ```
 
-## Validators
-
-### Presence
+## Presence
 
 `presence` (boolean) - Validates that the specified value is not empty.
 
@@ -44,7 +82,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Allow Null
+## Allow Null
 
 `allowNull` (boolean) - Validates that the specified value is not `null` or `undefined`.
 
@@ -58,7 +96,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Presence vs allowNull
+## Presence vs allowNull
 
 |               | presence: true    | allowNull: false  | 
 | ------------- | ------------------| ----------------  |
@@ -74,7 +112,7 @@ const result = validate(value, validations)
 
 
 
-### Contains
+## Contains
 
 `contains` -  The contains validator is useful for validating allowance or restriction in certain values.
 It checks that the given value exists in the target given by the **allowed** or  **notAllowed** option.
@@ -170,7 +208,7 @@ const result = validate(value, validations)
 
 ```
 
-### Length
+## Length
 
 Validates the length of the value. 
 
@@ -196,7 +234,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Numericality
+## Numericality
 
 Validates constraints to acceptable numeric values.
 
@@ -239,7 +277,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Datetime
+## Datetime
 
 Validates constraints to acceptable date and time values.
 
@@ -271,7 +309,7 @@ const result = validate(value, validations)
 } */
 ```
 
-#### E-mail
+## E-mail
 
 The email validator attempts to make sure the input is a valid email.
 Validating emails is tricky business due to the complex rules of email address formatting.
@@ -288,7 +326,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Format
+## Format
 
 `format` (regex) -The format validator will validate a value against a regular expression of your chosing.
 
@@ -306,71 +344,7 @@ const result = validate(value, validations)
 
 ```
 
-
-
-### Type
-
-Type validator ensures a value is of the correct JavaScript type or a custom type.
-
-`type` - A valid native JavaScript type, a custom type or a array with type
-
-Native JavaScript types:
-
-`Number` - double-precision 64-bit binary format IEEE 754 value
-
-`String` - a UTF‐16 character sequence
-
-`Boolean` - true or false
-
-`Date` - represents a single moment in time in a platform-independent format. 
-
-`Object` - the Object class represents one of JavaScript's data types.
-
-`Array` - the Array class is a object that is used in the construction of arrays. 
-
-```javascript
-const value = '2001'
-const validations = { type: Date }
-const result = validate(value, validations)
-/* {
-    value: '2001',
-    errors:[{ wrongType: 'Date' }]
-} */
-
-```
-
-Custom types:
-
-```javascript
-
-class User { ... }
-
-const value = 'Admin'
-const validations = { type: User }
-const result = validate(value, validations)
-/* {
-    value: 'Admin',
-    errors:[{ wrongType: 'User' }]
-} */
-
-```
-
-Lists - Array with types:
-
-It is possible to validate the type of elements of an array. Just use `[type]`.
-
-```javascript
-const value = ['2']
-const validations = { type: [Number] }
-const result = validate(value, validations)
-/* {
-    value: ['2'],
-    errors:[{ wrongType: ['Number'] }]
-} */
-```
-
-
-### URL
+## URL
 
  The URL validator ensures that the input is a valid URL. Validating URLs are pretty tricky but this validator is inspired on a gist that can be found [`here`](https://gist.github.com/dperini/729294). 
 
@@ -409,44 +383,8 @@ const result = validate(value, validations)
 } */
 ```
 
-### Null Values
+## Null Values
 
 The `type`, `length`, `numericality`, `format` and `datetime` validators won't validate a value if it's `null` or `undefined`.
 
 To ensure your your value is not null, use `allowNull: false` or `presence: true`.
-
-## TODO
-
-Validators:
-- [X] presence / null
-- [X] length 
-- [X] type 
-- [X] numericality (greater than, equal to, is integer, etc)
-- [X] format - regex
-- [X] date - earliest, latest
-- [X] url
-- [X] email
-- [X] enums/lists - validate if value exists in the given list
-- [X] reject list - validate if value does not exists in the given list 
-
-Features:
-- [X] Error message only
-- [X] No dependency 
-- [X] Doc every validators property
-- [ ] Allow a custom functions for validaton
-- [ ] Allow a conditional `if` functions for validaton
-- [ ] Be able to inject a diferent `checker`
-- [ ] Better checks on validator's `params`
-
-
-### Contribute
-Come with us to make an awesome *Suma*.
-
-Now, if you do not have technical knowledge and also have intend to help us, do not feel shy, [click here](https://github.com/herbsjs/suma/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/suma/blob/master/.github/CONTRIBUTING.md)
-
-### License
-
-**Suma** is released under the
-[MIT license](https://github.com/herbsjs/suma/blob/master/LICENSE.md).

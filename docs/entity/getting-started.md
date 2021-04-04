@@ -5,6 +5,8 @@ sidebar_label: Getting started
 slug: /entity/getting-started
 ---
 
+// TODO
+
 ### Installing
 
 ```$ npm install gotu```
