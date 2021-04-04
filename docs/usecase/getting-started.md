@@ -5,104 +5,103 @@ sidebar_label: Getting started
 slug: /usecase/getting-started
 ---
 
-### Installing
+## Installing
 
 ```$ npm install buchu```
-### Using
 
-Check the complete examples [here](https://github.com/herbsjs/buchu/tree/master/examples) or for a complete solution using Herbs [here](https://github.com/herbsjs/todolist-on-herbs).
+## Using
 
-usecases/addOrUpdateItem.js:
+This is an example of how to set up a use case for creating a list (entity):
+
+`usecases/list/createList.js`:
 
 ```javascript
-const { entity, field } = require('gotu')
-const Item = entity('Item', {
-  id: field(Number),
-  description: field(String),
-  isDone: field(Boolean),
-  position: field(Number)
-})
+const { usecase, step, Ok, Err } = require('buchu')
 
-const { Ok, Err, usecase, step, ifElse } = require('../../../src/buchu')
-const dependency = {
-    ItemRepository: require('../repositories/ItemRepository').ItemRepository,
-    ...
+module.exports.createList = injection =>
+  usecase('Create List', {
+    // Input/Request metadata and validation 
+    request: { name: String },
+
+    // Output/Response metadata
+    response: TodoList,
+
+    // Pre-run setup
+    setup: ctx => (ctx.di = Object.assign({}, dependency, injection)),
+
+    // Authorization with Audit
+    authorize: user => (user.canCreateList ? Ok() : Err()),
+
+    // Step description and function
+    'Check if the List is valid': step(ctx => {
+      const list = ctx.list = new TodoList()
+      list.id = Math.floor(Math.random() * 100000)
+      list.name = ctx.req.name
+
+      if (!list.isValid()) return Err(list.errors)
+      return Ok() // returning Ok continues to the next step. Err stops the use case execution.
+    }),
+
+    'Save the List': step(async ctx => {
+      const repo = new ctx.di.ListRepository(injection)
+      return (ctx.ret = await repo.insert(ctx.list)) // ctx.ret is the Use Case return
+    }),
+  })
+```
+
+## Running
+
+Use cases are likely to be called and audited indirectly by a [Glue](/docs/glues). But for didactic purposes or advanced scenarios, this is how to run and audit a use case:
+
+1. Check if the user has authorization to run this use case
+
+```javascript
+/* Authorization */
+const hasAccess = usecase.authorize(user)
+if (hasAccess === false) {
+    console.info(usecase.auditTrail)
+    throw new ForbiddenError() // Or any other behavior for a unauthorized user
 }
-
-const addOrUpdateItem = (injection) =>
-
-    usecase('Add or Update an Item on a to-do List', {
-
-        // Input/Request type validation 
-        request: { listId: Number, item: Item },
-
-        // Authorization Audit  
-        authorize: (user) => user.isAdmin ? Ok() : Err(),
-
-        // Dependency Injection control
-        setup: (ctx) => ctx.di = Object.assign({}, dependency, injection),
-      
-        // Step audit and description
-        'Check if the Item is valid': step((ctx) => {
-            ...
-            return item.validate() // Ok or Error
-        }),
-
-        'Check if the List exists': step(async (ctx) => {
-            ...
-            return Ok()
-        }),
-
-        // Conditional step
-        'Add or Update the Item': ifElse({
-
-            'If the Item exists': step(async (ctx) => {
-                ...
-                return Ok(newItem)
-            }),
-
-            'Then: Add a new Item to the List': step(async (ctx) => {
-                ...
-                return ctx.ret = await itemRepo.save(item) // Ok or Error
-            }),
-
-            'Else: Update Item on the List': step(async (ctx) => {
-                ...
-                return ctx.ret = await itemRepo.save(item) // Ok or Error
-            })
-        })
-    })
 ```
-controler/addOrUpdateItem.js:
+
+2. Prepare your request object and call the `.run()` function.
 
 ```javascript
-app.put('/items/:item', function (req, res) {
-    const request = req.params
-    const user = { name: 'John', id: '923b8b9a', isAdmin: true } // from session
 
-    const uc = addOrUpdateItem()
-    uc.authorize(user)
-    const ret = await uc.run(request)
-    res.send(ret)
-})
+/* Execution */
+const request = { name: 'The best list' }
+const response = await usecase.run(request)
+
 ```
-`uc.doc()`:
+
+3. Audit the execution 
 
 ```javascript
+
+/* Audit */
+console.info(usecase.auditTrail)
+/*
 {
-  type: 'use case',
-  description: 'Add or Update an Item on a to-do List',
-  request: { listId: Number, item: Item },
-  response: String,
-  steps: [
-    { type: 'step', description: 'Check if the Item is valid', steps: null },
-    { type: 'step', description: 'Check if the List exists', steps: null },
-    { 
-        type: 'if else',
-        if: { type: 'step', description: 'If the Item exists', steps: null },
-        then: { type: 'step', description: 'Then: Add a new Item to the List', steps: null },
-        else: { type: 'step', description: 'Else: Update Item on the List', steps: null }
-    }
-  ]
+    type: 'use case',
+    description: 'Create List',
+    authorized: true,
+    steps: (2) [{…}, {…}],
+    transactionId: '2bbc60d6-7843-4667-8732-341c22bae42e',
+    elapsedTime: 172811500n,
+    return: {Ok: {…}},
+    user: { canCreateList: true }
 }
+*/
+
+```
+
+4. Check if the use case execution returned an error or success
+
+```javascript
+
+/* Response */
+if (response.isErr)
+    throw new ResponseError(null, { invalidArgs: response.err }) 
+    // Or any other behavior for error response
+return response.ok // response.ok has the returned value
 ```
