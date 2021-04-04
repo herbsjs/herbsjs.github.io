@@ -1,9 +1,8 @@
 const sidebar = {
   Introduction: ['getting-started','herbsjs', 'motivation',  'architecture', 'ecosystem'],
   Tutorial: ['new-project', 'create-entity', 'repository', 'create-usecase', 'graphql', 'herbsshelf', 'refactoring', 'security'],
-  UseCase: ['whatis', 'gettingStarted', 'features'],
-  Entity: ['whatis', 'gettingStarted', 'features'],
-  Validation: ['suma'],
+  UseCase: ['gettingStarted', 'features', 'steps', 'result', 'whatis'],
+  Entity: ['gettingStarted', 'features', 'validation', 'whatis'],
   Glues: ['whatisglue', 'herbs2gql', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets'],
 }
 
