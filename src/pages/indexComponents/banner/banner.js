@@ -9,7 +9,7 @@ import useThemeContext from '@theme/hooks/useThemeContext';
 
 const ImageSwitcher = () => {
   return (
-    <BrowserOnly fallback={<img src="img/logo-herbsjs-douradoebranco.png"/>}>
+    <BrowserOnly fallback={<img src="img/logo-herbsjs.png"/>}>
       {() => {
         const { isDarkTheme } = useThemeContext();
         const imgSrc = isDarkTheme ? "img/logo-herbsjs-douradoebranco.png" : "img/logo-herbsjs.png";
@@ -27,6 +27,7 @@ const Banner = () => {
     <header className={clsx("hero", styles.heroBanner)}>
       <div className="container">
 				<ImageSwitcher/>
+        <h4>UNLOCK YOUR DOMAIN</h4>
         <div className={styles.buttons}>
           <Link
             className={clsx(
