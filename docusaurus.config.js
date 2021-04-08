@@ -31,7 +31,7 @@ module.exports = {
     },
     footer: {
       logo: {
-        alt: 'HerbsJS Logo',
+        alt: 'Herbs Logo',
         src: 'img/logo-herbsjs-branco.png',
       },
       links: [

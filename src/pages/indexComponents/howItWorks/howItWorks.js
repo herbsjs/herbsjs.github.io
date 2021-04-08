@@ -72,8 +72,8 @@ export default function HowItWorks() {
         <div className={styles.arrowRight}/>
       </div> */}
       {/* GENERATED CODE */}
-      <div className={styles.gridBadgeA}>Shelf-project</div>
-      <div className={styles.gridBadgeB}>GraphQL-layer</div>
+      <div className={styles.gridBadgeA}>Herbs Shelf</div>
+      <div className={styles.gridBadgeB}>GraphQL</div>
       <div className={styles.gridBadgeC}>Repository</div>
       {/* <div className={styles.gridBadgeD}>REST-layer</div> */}
     </div>
@@ -81,7 +81,7 @@ export default function HowItWorks() {
       <div><span className={styles.legendA}/>Your code</div>
       <div><span className={styles.legendB}/>Metadata</div>
       <div><span className={styles.legendC}/>Glues/Plugins</div>
-      <div><span className={styles.legendD}/>Generated code</div>
+      <div><span className={styles.legendD}/>Generated On The Fly</div>
     </div>
     </>
   );
