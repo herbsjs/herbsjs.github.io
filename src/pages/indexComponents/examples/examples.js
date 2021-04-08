@@ -8,20 +8,29 @@ import {
 
 const exampleEntity = `const Item = entity('Item', {
   id: field(Number),
-  description: field(String, {
-    validation: { presence: true, length: { minimum: 3 } }
-  }),
+  
   isDone: field(Boolean, {
     default: false
   }),
-  position: field(Number, { presence: true })
+  
+  position: field(Number, { 
+    validation: { presence: true } 
+  }),
+
+  description: field(String, { 
+    default: "", 
+    validation: { presence: true, length: { minimum: 3 } }
+  })
+
 })
 
 const TodoList = entity('To Do List', {
   id: field(Number),
+
   name: field(String, {
       validation: { presence: true, length: { minimum: 3 } }
   }),
+
   items: field([Item])
 })
 `
