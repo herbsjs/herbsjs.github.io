@@ -88,8 +88,8 @@ const addOrUpdateItem = (injection) =>
      <div className={styles.exampleContent}>
       <h3>ENTITIES</h3>
       <div className={styles.exampleCode}>
-        <LiveProvider theme={theme} code={exampleEntity}>
-          <LiveEditor />
+        <LiveProvider theme={theme} code={exampleEntity} >
+          <LiveEditor className={styles.examplesEditor} />
         </LiveProvider>    
       </div>
     </div>
@@ -97,7 +97,7 @@ const addOrUpdateItem = (injection) =>
       <h3>USE CASES</h3>
       <div className={styles.exampleCode}>
         <LiveProvider  theme={theme} code={exampleUseCase}>
-          <LiveEditor />
+          <LiveEditor className={styles.examplesEditor}/>
         </LiveProvider>    
       </div>
     </div>
