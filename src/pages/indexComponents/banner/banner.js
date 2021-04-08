@@ -4,29 +4,29 @@ import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { GitHub } from "@material-ui/icons";
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import useThemeContext from '@theme/hooks/useThemeContext';
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import useThemeContext from "@theme/hooks/useThemeContext";
 
 const ImageSwitcher = () => {
   return (
-    <BrowserOnly fallback={<img src="img/logo-herbsjs.png"/>}>
+    <BrowserOnly fallback={<img src="img/logo-herbsjs.png" />}>
       {() => {
         const { isDarkTheme } = useThemeContext();
-        const imgSrc = isDarkTheme ? "img/logo-herbsjs-douradoebranco.png" : "img/logo-herbsjs.png";
+        const imgSrc = isDarkTheme
+          ? "img/logo-herbsjs-douradoebranco.png"
+          : "img/logo-herbsjs.png";
         const fullImgSrc = useBaseUrl(imgSrc);
-        return (
-          <img src={fullImgSrc} />
-        )
+        return <img src={fullImgSrc} />;
       }}
     </BrowserOnly>
-  )
-}
+  );
+};
 
 const Banner = () => {
   return (
     <header className={clsx("hero", styles.heroBanner)}>
       <div className="container">
-				<ImageSwitcher/>
+        <ImageSwitcher />
         <h4>UNLOCK YOUR DOMAIN</h4>
         <div className={styles.buttons}>
           <Link
