@@ -52,6 +52,10 @@
   margin-right: 10px;
 }
 
+.exampleCode_src-pages-indexComponents-examples->div {
+  font-family: "Consolas" !important ;
+}
+
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
