@@ -31,6 +31,10 @@
   z-index: 1;
 }
 
+.examplesEditor {
+  font-family: 'Consolas', 'Courier New', monospace !important;
+}
+
 @media only screen and (max-width: 768px) {
   .exampleContent {
     width: 100%;
