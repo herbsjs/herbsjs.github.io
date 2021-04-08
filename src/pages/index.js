@@ -10,7 +10,7 @@ import HowItWorks from './indexComponents/howItWorks/howItWorks'
 function Home() {
   const context = useDocusaurusContext();
 
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
       title={`${siteConfig.title}`}
@@ -19,25 +19,25 @@ function Home() {
       <main>
         <Features />
         <div className={styles.section}>
-          <h1>Add major features, with minimal code.</h1>
+          <h1>Add major features with minimal code</h1>
           <Examples />
-          <h1>Dynamically generate.</h1>
+          <h1>Generated On The Fly</h1>
           <div className={styles.badges}>
             <span className="badge badge--primary">Repository</span>
-            <span className="badge badge--primary">GraphQL-layer</span>
-            <span className="badge badge--primary">REST-layer</span>
-            <span className="badge badge--primary">Shelf-project</span>
+            <span className="badge badge--primary">GraphQL</span>
+            <span className="badge badge--primary">REST</span>
+            <span className="badge badge--primary">Herbs Shelf</span>
           </div>
         </div>
         <div className={styles.section}>
           <h1>How it works?</h1>
-          <HowItWorks/>
+          <HowItWorks />
         </div>
         <div className={styles.section}>
           <h1>Who is using HerbsJS?</h1>
           <div className={styles.logos}>
-            <a href='https://vortx.com.br/'><img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage}/></a>
-            <a href='https://vizir.com.br/'><img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage}/></a>
+            <a href='https://vortx.com.br/'><img src='img/logo-vortx.png' alt='logo-Vórtx' className={styles.logosImage} /></a>
+            <a href='https://vizir.com.br/'><img src='img/logo-vizir.png' alt='logo-Vizir' className={styles.logosImage} /></a>
           </div>
         </div>
       </main>

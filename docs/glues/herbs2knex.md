@@ -57,7 +57,7 @@ A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design
 
 ### Herbs2knex Repository
 
-In order to boost productivity Herbs2knex provides way to dynamically generate a repository class based on your Entities and other metadata. 
+In order to boost productivity Herbs2knex provides way to dynamically generate, on the fly (no code generation), a repository class based on your Entities and other metadata. 
 
 These metadata are necessary to close the gap between OOP concepts and paradigms and those of relational databases. For example, it is necessary to specify primary keys and foreign keys as these information do not exist in the description of your domain.
 

@@ -6,83 +6,60 @@ import {
   LiveEditor
 } from 'react-live'
 
-const exampleEntity =  `const { entity, field } = require('gotu')
+const exampleEntity = `const Item = entity('Item', {
+  id: field(Number),
+  description: field(String, {
+    validation: { presence: true, length: { minimum: 3 } }
+  }),
+  isDone: field(Boolean, {
+    default: false
+  }),
+  position: field(Number, { presence: true })
+})
 
-const Feature = 
-        entity('Feature', {
-            name: field(String),
-            hasAccess: field(Boolean)
-        })
+const TodoList = entity('To Do List', {
+  id: field(Number),
+  name: field(String, {
+      validation: { presence: true, length: { minimum: 3 } }
+  }),
+  items: field([Item])
+})
+`
 
-const Plan = 
-    entity('Plan', {
-        name: field(String),
-        monthlyCost: field(Number)
-    })
+const exampleUseCase = `const createList = usecase('Create List', {
+    // Input/Request fields and types
+    request: { name: String },
 
-const User = 
-    entity('User', {
-        name: field(String),
-        lastAccess: field(Date),
-        accessCount: field(Number),
-        features: field([Feature]),
-        plan: field(Plan),
-    })
+    // Output/Response type 
+    response: TodoList,
 
-const user = new User()
-user.name = "Beth"
-user.plan.monthlyCost = 10
-user.features = [ 
-    new Feature(),
-    new Feature(),
-    new Feature()
-]
-user.validate() `
-
-const exampleUseCase = `const { Ok, Err, usecase, step, ifElse } = require('buchu')
-const dependency = { ItemRepository: require('../itemRepository') }
-
-const addOrUpdateItem = (injection) =>
-  usecase('Add or Update an Item on a to-do List', {
-    // Input/Request type validation 
-    request: { listId: Number, item: Item },
-    // Authorization Audit  
-    authorize: (user) => user.isAdmin ? Ok() : Err(),
     // Dependency Injection control
-    setup: (ctx) => {
-      ctx.di = Object.assign({}, dependency, injection)
-    },
+    setup: ctx => (ctx.di = Object.assign({}, dependency, injection)),
+
+    // Authorization Audit
+    authorize: user => (user.canCreateList ? Ok() : Err()),
+
     // Step audit and description
-    'Check if the Item is valid': step((ctx) => {
-        //...
-        return item.validate() // Ok or Error
-    }),
-    'Check if the List exists': step(async (ctx) => {
-        //...
-        return Ok()
+    'Check if the List is valid': step(ctx => {
+      const list = ctx.list = new TodoList()
+      list.id = Math.floor(Math.random() * 100000)
+      list.name = ctx.req.name
+
+      if (!list.isValid()) return Err(list.errors)
+      return Ok()
     }),
 
-    // Conditional step
-    'Add or Update the Item': ifElse({
-      'If the Item exists': step(async (ctx) => {
-          //...
-          return Ok(newItem)
-      }),
-      'Then: Add a new Item to the List': step(async (ctx) => {
-          //...
-          // Ok or Error
-          return ctx.ret = await itemRepo.save(item)
-      }),
-      'Else: Update Item on the List': step(async (ctx) => {
-          //...
-          // Ok or Error
-          return ctx.ret = await itemRepo.save(item)
-      })
-    })
-  })`
+    'Save the List': step(async ctx => {
+      const listRepo = new ctx.di.ListRepository(injection)
+      return (ctx.ret = await listRepo.insert(ctx.list))
+    }),
+  })
 
-  export default function Examples() {
-    return (
+const ret = await createList.run({name: 'Special To Do'})
+`
+
+export default function Examples() {
+  return (
     <div className={styles.examples}>
      <h2 className={styles.examplesTitle}>Domain</h2>
      <div className={styles.exampleContent}>
@@ -98,12 +75,12 @@ const addOrUpdateItem = (injection) =>
       <div className={styles.exampleCode}>
         <LiveProvider  theme={theme} code={exampleUseCase}>
           <LiveEditor className={styles.examplesEditor}/>
-        </LiveProvider>    
+        </LiveProvider>
+        </div>
       </div>
-    </div>
-    <div className={styles.exampleArrow}>
-      <img src="img/arrow.png" alt="down-arrow"/>
-    </div>
+      <div className={styles.exampleArrow}>
+        <img src="img/arrow.png" alt="down-arrow" />
+      </div>
     </div>
   );
 }
