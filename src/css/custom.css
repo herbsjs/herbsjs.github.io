@@ -6,53 +6,63 @@
  */
 
 /* You can override the default Infima variables here. */
+
 :root {
-  --ifm-color-primary: #C99846;
-  --ifm-color-primary-dark: #937147;
-  --ifm-color-primary-darker: #937147;
-  --ifm-color-primary-darkest: rgba(147, 113, 71, 0.6);
-  --ifm-color-primary-light: rgba(147, 113, 71, 0.6);
-  --ifm-color-primary-lighter: rgba(147, 113, 71, 0.6);
-  --ifm-color-primary-lightest: rgba(147, 113, 71, 0.6);
-  --ifm-code-font-size: 95%;
-  --ifm-heading-color: #937147;
-  --ifm-footer-background-color: #C99846;
-  --ifm-footer-color: #FFFFFF;
-  --ifm-footer-link-color: #FFFFFF;
+	--ifm-color-primary: #c99846;
+	--ifm-color-primary-dark: #937147;
+	--ifm-color-primary-darker: #937147;
+	--ifm-color-primary-darkest: rgba(147, 113, 71, 0.6);
+	--ifm-color-primary-light: rgba(147, 113, 71, 0.6);
+	--ifm-color-primary-lighter: rgba(147, 113, 71, 0.6);
+	--ifm-color-primary-lightest: rgba(147, 113, 71, 0.6);
+	--ifm-code-font-size: 95%;
+	--ifm-heading-color: #937147;
+	--ifm-footer-background-color: #c99846;
+	--ifm-footer-color: #ffffff;
+	--ifm-footer-link-color: #ffffff;
+	--ifm-footer-link-hover-color: #90642d;
 }
 
 .docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+	background-color: rgb(72, 77, 91);
+	display: block;
+	margin: 0 calc(-1 * var(--ifm-pre-padding));
+	padding: 0 var(--ifm-pre-padding);
 }
-.toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle-{
-  display: none;
+.toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle- {
+	display: none;
 }
 
-.badge--primary{
-  background-color: rgba(147, 113, 71, 0.6);
-  font-size: 1.3em;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 600;
-  border: 2px dashed #937147;
-  box-sizing: border-box;
-  border-radius: 100px;
-  margin: 10px;
-  padding: 15px 30px;
+.badge--primary {
+	background-color: rgba(147, 113, 71, 0.6);
+	font-size: 1.3em;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-weight: 600;
+	border: 2px dashed #937147;
+	box-sizing: border-box;
+	border-radius: 100px;
+	margin: 10px;
+	padding: 15px 30px;
 }
 
 .footer .container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
 }
 
 .footer__links {
-  text-align: right;
+	text-align: right;
+	width: 35%;
+}
+.footer__title {
+	text-transform: capitalize;
+	font-family: 'Open Sans';
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 0;
 }
 
 .footer__logo {
-  max-width: 20rem;
+	max-width: 20rem;
 }
