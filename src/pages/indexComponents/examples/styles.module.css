@@ -32,7 +32,8 @@
 }
 
 .examplesEditor {
-	font-family: 'Consolas', 'Courier New', monospace !important;
+  font-family: 'Consolas', 'Courier New', monospace !important;
+  font-size: 14px;
 }
 
 @media only screen and (max-width: 768px) {
