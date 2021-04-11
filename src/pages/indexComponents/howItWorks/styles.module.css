@@ -1,5 +1,6 @@
 .container {
 	display: grid;
+	display: -moz-grid;
 	grid-template-columns: 26% 10% 20% 20%;
 	grid-template-rows: 33% 33% 33%;
 	grid-template-areas:
@@ -10,7 +11,9 @@
 	max-width: 100%;
 	margin: auto;
 	column-gap: 5px;
+	-moz-column-gap: 5px;
 	row-gap: 5px;
+	-moz-row-gap: 5px;
 	justify-content: center;
 }
 .circlesContent {
@@ -118,6 +121,8 @@
 	padding: 0.2em 0.6em;
 	width: 155px;
 	align-self: center;
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
 }
 .circleLink {
 	color: #ffffff;
@@ -129,7 +134,10 @@
 	color: #505050;
 }
 .gridMiddle {
-	align-self: center;
+	-ms-flex-item-align: center;
+	    align-self: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 .gridMiddleA {
