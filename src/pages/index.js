@@ -10,10 +10,9 @@ import HowItWorks from './indexComponents/howItWorks/howItWorks'
 function Home() {
 	const context = useDocusaurusContext()
 
-	let userZoom =
-		window.devicePixelRatio > 1
-			? `${100 / (window.devicePixelRatio * 0.9)}%`
-			: `normal`
+	const userZoom = (typeof window !== "undefined" && window.devicePixelRatio > 1)
+		? `${100 / (window.devicePixelRatio * 0.9)}%`
+		: `normal`
 
 	const { siteConfig = {} } = context
 	return (
