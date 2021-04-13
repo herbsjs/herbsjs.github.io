@@ -1,10 +1,7 @@
-import React from 'react';
-import styles from './styles.module.css';
-import theme from 'prism-react-renderer/themes/nightOwlLight';
-import {
-  LiveProvider,
-  LiveEditor
-} from 'react-live'
+import React from 'react'
+import styles from './styles.module.css'
+import theme from 'prism-react-renderer/themes/nightOwlLight'
+import { LiveProvider, LiveEditor } from 'react-live'
 
 const exampleEntity = `entity('Item', {
   id: field(Number),
@@ -71,28 +68,28 @@ const exampleUseCase = `usecase('Create List', {
 `
 
 export default function Examples() {
-  return (
-    <div className={styles.examples}>
-     <h2 className={styles.examplesTitle}>Domain</h2>
-     <div className={styles.exampleContent}>
-      <h3>ENTITIES</h3>
-      <div className={styles.exampleCode}>
-        <LiveProvider theme={theme} code={exampleEntity} >
-          <LiveEditor className={styles.examplesEditor} />
-        </LiveProvider>    
-      </div>
-    </div>
-    <div className={styles.exampleContent}>
-      <h3>USE CASES</h3>
-      <div className={styles.exampleCode}>
-        <LiveProvider  theme={theme} code={exampleUseCase}>
-          <LiveEditor className={styles.examplesEditor}/>
-        </LiveProvider>
-        </div>
-      </div>
-      <div className={styles.exampleArrow}>
-        <img src="img/arrow.png" alt="down-arrow" />
-      </div>
-    </div>
-  );
+	return (
+		<div className={styles.examples}>
+			<h2 className={styles.examplesTitle}>Domain</h2>
+			<div className={styles.exampleContent}>
+				<h3>ENTITIES</h3>
+				<div className={styles.exampleCode}>
+					<LiveProvider theme={theme} code={exampleEntity}>
+						<LiveEditor className={styles.examplesEditor} />
+					</LiveProvider>
+				</div>
+			</div>
+			<div className={styles.exampleContent}>
+				<h3>USE CASES</h3>
+				<div className={styles.exampleCode}>
+					<LiveProvider theme={theme} code={exampleUseCase}>
+						<LiveEditor className={styles.examplesEditor} />
+					</LiveProvider>
+				</div>
+			</div>
+			<div className={styles.exampleArrow}>
+				<img src='img/arrow.png' alt='down-arrow' />
+			</div>
+		</div>
+	)
 }
