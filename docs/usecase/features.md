@@ -111,7 +111,7 @@ For array of a certain type use: `[type]`. Ex: `id: [Number]` or `items: [Item]`
 
 The validation will not validatate for presence, so `null` and `undefined` are accepted as valid values.
 
-## Setup / DI
+## Setup
 
 Like a constructor, it is the first function to be executed before `authorize` and steps. Can be used to setup the dependency injection, for instance. 
 
@@ -153,9 +153,15 @@ const addOrUpdateItem = (injection) =>
     ...
 ```
 
+## Context (ctx)
+
+// TODO
+
 ## Use Case Return (ctx.ret)
 
 // TODO
+
+
 
 ## Audit
 

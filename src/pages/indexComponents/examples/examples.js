@@ -32,6 +32,11 @@ entity('To Do List', {
   }),
 
   items: field([Item])
+
+  isDone() {
+    return this.items.length === this.items.filter(i => i.isDone).length
+  }
+  
 })
 `
 

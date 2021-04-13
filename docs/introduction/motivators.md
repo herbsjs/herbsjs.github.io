@@ -51,7 +51,7 @@ Similar to Clean Architecture, the concept of Domain-driven design (DDD) was ini
 
 Even though it is not necessary to read these books to use Herbs, reading and understanding the concepts presented there will help you to understand the principles used here and, in addition, they are highly recommended for the development of a software developer.
 
-Of course, libraries from different ecosystems have been a great source of inspiration. Successes and mistakes of these efforts were taken into account: [Rails](https://rubyonrails.org/), [Django](https://www.djangoproject.com), [Trailblazer](https://trailblazer.to/), [Hanami](https://hanamirb.org/) and many others. 
+Of course, libraries from different ecosystems have been a great source of inspiration. Successes and mistakes of these efforts were taken into account: [Rails](https://rubyonrails.org/), [Django](https://www.djangoproject.com), [Trailblazer](https://trailblazer.to/), [Hanami](https://hanamirb.org/), [Cucumber](https://cucumber.io/) and many others. 
 
 ## History
 
