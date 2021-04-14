@@ -11,6 +11,11 @@ Within this repository, you will find a front-end application, made in react con
 
 So, you can start with HerbJS, taking a look at the [sample repository](https://github.com/herbsjs/todolist-on-herbs), or follow this documentation to get more knowledge of how to use herbsJS
 
+## Forum & Discussions
+
+We have a forum, where we have discussions, questions and doubts about the world around herbsJS. Any question, you can communicate with the community through this link: [Herbs Forum](https://github.com/herbsjs/forum)
+
+
 ## TO DO list on Herbs
 
 This is a example on how to build a application using [Herbs](https://github.com/herbsjs).
