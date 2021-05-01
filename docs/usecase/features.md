@@ -70,7 +70,7 @@ const updateItem = (injection) =>
         }),
 ```
 
-As a validation example, when executed with an id that is a string the above use case returns is:
+As a validation example, when executed with an `id` that is a string the above use case returns is:
 
 ```js
 const request = { id: '1' }
@@ -104,7 +104,7 @@ const createProduct = injection =>
 
         'Check if the Product is valid': step(ctx => {
             ...
-            if (!product.isValid()) return Err(product.errors) // it stops the execution here and return a Err
+            if (!isValid) return Err(errors) // it stops the execution here and return a Err
             return Ok() // go to the next step
         }),
 
