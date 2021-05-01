@@ -59,4 +59,4 @@ Herbs was created in 2019 at [Vórtx](https://vortx.com.br/), a fintech with exp
 
 Their architecture is based on microservices and required the creation of several services in a short period of time. As a financial institution, it was necessary for these services to be delivered with a high level of quality, observability and maintainability. It was in this scenario that Herbs was born.
 
-Since then, Herbs has been used in production in more than 10 microservices there, became a open source project and is maintained by several people outside and inside Vórtx.
+Since then, Herbs has been used in production in more than 10 microservices there, became a open source project and is maintained by several people inside and outside Vórtx.

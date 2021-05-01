@@ -35,61 +35,87 @@ const createItem = usecase('Create Item', {
 Example:
 
 ```javascript
-const request = { name: 'The best list' }
-const response = await createItem.run(request)
+const request = { name: 'The best product' }
+const response = await createProduct.run(request)
 ```
 
 ## Request
 
-Defines the request fields and its types. This information is used as metadata for Glues. It is also used to validate request payload before running the use case.
+First, a use case must define the request fields and its types. This information is used as metadata for Glues. It is also used to validate request payload before running the use case.
 
 `{ request: fields }`, where:
 
 - `fields`: object containing field names and types.
 
+During the use case execution it is possible to read the request value using `ctx.req`.
+
 For example:
 
 ```javascript
-const addOrUpdateItem = (injection) =>
+const updateItem = (injection) =>
 
-    usecase('Add or Update an Item on a to-do List', {
-
+    usecase('Update Item', {
         // Input/Request type validation 
-        request: { listId: Number, item: Object },
-
-    ...
+        request: {
+            id: Number,
+            description: String,
+            isDone: Boolean,
+            position: Number
+        }
+        
+        'Retrieve the previous Item from the repository': step(async (ctx) => {
+            const req = ctx.req // request values
+            const ret = await repo.findByID(req.id)
+            ...
+        }),
 ```
 
-For intance, when executed with an id that is a string the above use case returns is:
+As a validation example, when executed with an id that is a string the above use case returns is:
 
 ```js
-const response = await usecase.run({ listId: '1' })
+const request = { id: '1' }
+const ret = await usecase.run(request)
 
-// response.err
-// { request: [{ listId :[{ wrongType: "Number" }] }] }
+// ret.err
+// { request: [{ id :[{ wrongType: "Number" }] }] }
 ```
 
 ## Response
 
-Defines the response type. This information is used as metadata for Glues. It is not validated when running the use case.
+It is possible to define the response type as well. This information is used as metadata for Glues but it is not validated when running the use case.
 
 `{ response: type }`, where:
 
 - `type`: response type.
 
-For example:
+
+A use case will run all the steps sequencially or until one of the steps return a `Err`. The [result](/docs/usecase/result) of a use case is set by the result of the last step executed.
+
+The result value of a use case is set by `ctx.ret`. It is possible to set this variable any time at any step.
 
 ```javascript
-const addOrUpdateItem = (injection) =>
+const createProduct = injection =>
+    usecase('Create Product', {
 
-    usecase('Add or Update an Item on a to-do List', {
+        request: {
+            name: String,
+            ...
+        }
 
-        // Output/Response metadata
-        response: [Items],
-    ...
+        'Check if the Product is valid': step(ctx => {
+            ...
+            if (!product.isValid()) return Err(product.errors) // it stops the execution here and return a Err
+            return Ok() // go to the next step
+        }),
+
+        'Save the Product on the repository': step(async ctx => {
+            ...
+            ctx.ret = await repo.insert(product) // set the return value
+            return Ok() // last step and return Ok
+        }),
 ```
 
-## Request and Response types
+## Request and Response Types
 
 A field in a request or the response can be basic types from Javascript or entities:
 
@@ -155,17 +181,20 @@ const addOrUpdateItem = (injection) =>
 
 ## Context (ctx)
 
-// TODO
+The `ctx` variable is used to access (read and write) the state of the use case and its steps during its execution.
 
-## Use Case Return (ctx.ret)
-
-// TODO
-
+For more details about context, check step context.
 
 
 ## Audit
 
-`uc.auditTrail`: Retrieve the audit trail of a use case after its execution.
+`usecase.auditTrail`: Retrieve the audit trail of a use case after its execution.
+
+```javascript
+const request = { name: 'The best product' }
+const response = await createProduct.run(request)
+console.log(createProduct.auditTrail)
+```
 
 `process.env.HERBS_EXCEPTION = "audit"`: Recommended for **production environments** - Swallow and audit exceptions thrown during the use case execution. This will swallow the exceptions and return a Err on the step. If `process.env.HERBS_EXCEPTION` is not equal `audit` any exceptions thrown during a use case execution will be thrown.
 
