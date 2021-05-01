@@ -148,6 +148,13 @@ const updateList = injection =>
     })
 ```
 
+There are a few reserved variables inside `ctx`:
+
+`ctx.req` - Contains the use case request payload. Declared when running a use case.
+
+`ctx.ret` - Defines the use case result value.
+
+
 ## Step Result
 
 The result (`Ok` or `Err`) of a step is defined by the function returns. 
@@ -176,4 +183,4 @@ The use case will stop its execution if the result of a step is `Err`.
 
 If defined, like the example above, the value of the result will be audited.
 
-If no explicit result is returned `Ok` the default result.
+The default result is `Ok` if no explicit result is returned.
