@@ -5,11 +5,17 @@ sidebar_label: Field Validations
 slug: /entity/validation
 ---
 
+// WIP
+
 ## Validation
 
 The values of an entity fields can be validated against the fields types or its custom validations.
 
-`.validate()`: process the validation and load `.errors`
+`.validate()`: process the validation and load `.errors`.
+
+`.errors`: list of errors.
+
+`.isValid()`: return true if all the validations passed.
 
 ### Type Validation
 
