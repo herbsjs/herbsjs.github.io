@@ -5,6 +5,8 @@ sidebar_label: Features
 slug: /entity/features
 ---
 
+// WIP
+
 ## Creating an Entity
 
 `entity(name, body)`, where:
