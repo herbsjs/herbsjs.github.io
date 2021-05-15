@@ -5,7 +5,67 @@ sidebar_label: Field Validations
 slug: /entity/validation
 ---
 
-// TODO - Change suma to gotu entity examples
+// WIP
+
+## Validation
+
+The values of an entity fields can be validated against the fields types or its custom validations.
+
+`.validate()`: process the validation and load `.errors`.
+
+`.errors`: list of errors.
+
+`.isValid()`: return true if all the validations passed.
+
+### Type Validation
+
+```javascript
+
+const Plan = 
+    entity('Plan', {
+        ...
+        monthlyCost: field(Number),
+    })
+
+const User = 
+    entity('User', {
+        name: field(String),
+        plan: field(Plan)
+    })
+
+const user = new User()
+user.name = 42
+user.plan.monthlyCost = true
+user.validate() 
+user.errors // { name: [ wrongType: 'String' ], plan: { monthlyCost: [ wrongType: 'Number' ] } }
+user.isValid() // false
+```
+
+You can also simplify you validation method using `isValid()` method that execute validate for you entity and return true/false in a single execution.
+
+### Custom Validation
+
+For custom validation Gotu uses Herbs JS [Suma](https://github.com/herbsjs/suma) library under the hood. It has no message defined, only error codes.
+
+Use `{ validation: ... }` to specify a valid Suma validation (sorry) on the field definition.
+
+```javascript
+const User = 
+    entity('User', {
+        ...
+        password: field(String, validation: { 
+            presence: true, 
+            length: { minimum: 6 }
+        })
+    })
+
+const user = new User()
+user.password = '1234'
+user.validate() 
+user.errors // { password: [ { isTooShort: 6 } ] }
+user.isValid // false
+```
+
 
 ## Type
 
