@@ -37,9 +37,9 @@ const controllerList = [
 ]
 ```
 
-The name field is the name of the route.
+The `name` field is the name of the route (Ex. *https://example.com/lists*)
 
-The idParameter field is the param of the route (GetById, Put and Delete).
+The `idParameter` field is the param's custom name of the route (GetById, Put and Delete), if the field does not exist, the parameter name will be "*id*".
 
 The other fields refer to http methods using usecases (GetAll, GetById, Post, Put and Delete).
 
@@ -61,7 +61,7 @@ app.use(routes)
 
 #### Authorization
 
-All usecases must implement the authorize method and receive a user to authenticate.
+All usecases need to implement the authorization method and receive a user for authentication.
 
 Example:
 
