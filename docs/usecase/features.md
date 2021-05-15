@@ -5,7 +5,7 @@ sidebar_label: Features
 slug: /usecase/features
 ---
 
-## Create a Use Case
+## Creating a Use Case
 
 `usecase(description, body)`, where:
 
@@ -23,6 +23,20 @@ const createItem = usecase('Create Item', {
     ... 
 })
 ```
+
+**Good descriptions:**
+
+✅ Update User
+
+✅ Reopen Ticket
+
+✅ Request Report Generation
+
+**Bad descriptions:**
+
+❌ updateUsers
+
+❌ Report Gen
 
 ## Running a Use Case
 
