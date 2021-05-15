@@ -61,7 +61,7 @@ app.use(routes)
 
 #### Authorization
 
-All usecases need to implement the authorization method and receive a user for authentication.
+All usecases need to implement the `authorize` method and receive a user for authentication..
 
 Example:
 
