@@ -8,9 +8,9 @@ There are three primitive herbs libraries that are at Herbs' core, helping model
 
 ## Herbs Core
 
-[**Gotu**](https://github.com/herbsjs/gotu): Model your business [entities](/docs/entity) with validation and business rules.
+[**Gotu**](https://github.com/herbsjs/gotu): Model your business [entities](/docs/entity/getting-started) with validation and business rules.
 
-[**Buchu**](https://github.com/herbsjs/buchu): Model your [use cases](/docs/usecase) to be readable, auditable and secure.
+[**Buchu**](https://github.com/herbsjs/buchu): Model your [use cases](/docs/usecase/getting-started) to be readable, auditable and secure.
 
 [**Suma**](https://github.com/herbsjs/suma): It is the base library for value validation used internally by Gotu and Buchu.
 
