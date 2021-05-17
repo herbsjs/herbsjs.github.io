@@ -8,7 +8,7 @@ import Examples from './indexComponents/examples/examples'
 import HowItWorks from './indexComponents/howItWorks/howItWorks'
 
 function Home() {
-	const context = useDocusaurusContext()
+	const context = useDocusaurusContext() 
 
 	const userZoom = (typeof window !== "undefined" && window.devicePixelRatio > 1)
 		? `${100 / (window.devicePixelRatio * 0.9)}%`
