@@ -5,8 +5,6 @@ sidebar_label: Features
 slug: /entity/features
 ---
 
-// WIP
-
 ## Creating an Entity
 
 `entity(name, body)`, where:
@@ -78,7 +76,9 @@ A field in an entity can be of basic types, the same as those used by JavaScript
 
 `Boolean`: true or false
 
-`Date`: represents a single moment in time in a platform-independent format.
+`Date`: represents a single moment in time in a platform-independent format
+
+`Object`: the Object class represents a generic reference value type
 
 ```javascript
 const User = 
@@ -98,10 +98,10 @@ For complex types, with deep relationship between entities, a field can be of en
 const Plan = 
     entity('Plan', {
         ...
-        monthlyCost: field(Number),
     })
 
-const User = entity('User', {
+const User = 
+    entity('User', {
         ...
         plan: field(Plan)
     })
@@ -115,7 +115,7 @@ In order to define a field that holds an array instead of a single value use `fi
 const Post =
     entity('Post', {
         ...
-        tags: field(String)
+        tags: field([String])
     })
 ```
 
@@ -125,7 +125,6 @@ For complex types, with deep relationship between entities, a field can contain 
 const Plan = 
     entity('Plan', {
         ...
-        monthlyCost: field(Number),
     })
 
 const User = 
@@ -194,12 +193,34 @@ const canAccess = aUser.hasAccess()
 
 ## Validation
 
-The values of an entity fields can be validated against the fields types or its custom validations.
+The values of an entity fields can be validated against the fields types or values validations.
+
+### Check Validation
+
+`instance.isValid()`: returns `true` if all the validations passed. It call `.validate()` internally.
+
+`instance.validate()`: process the validation and load all errors into `.errors`.
+
+`instance.errors`: list of errors.
+
+```javascript
+const User = 
+    entity('User', {
+        name: field(String),
+    })
+
+const user = new User()
+user.name = "Joe"
+user.validate() 
+user.errors // {}
+user.isValid() // true
+```
 
 ### Type Validation
 
-```javascript
+It is possible to validate the type of a value .
 
+```javascript
 const Plan = 
     entity('Plan', {
         ...
@@ -222,19 +243,21 @@ user.isValid() // false
 
 You can also simplify you validation method using `isValid()` method that execute validate for you entity and return true/false in a single execution.
 
-### Custom Validation
+### Value Validation
 
-For custom validation Gotu uses Herbs JS [Suma](https://github.com/herbsjs/suma) library under the hood. It has no message defined, only error codes.
+It is possible to validate values through pre-existing validators or custom validators.
 
-Use `{ validation: ... }` to specify a valid Suma validation (sorry) on the field definition.
+Use `{ validation: ... }` to specify the [validators](/docs/entity/validation).
 
 ```javascript
 const User = 
     entity('User', {
         ...
-        password: field(String, validation: { 
-            presence: true, 
-            length: { minimum: 6 }
+        password: field(String, {
+            validation: {
+                presence: true,
+                length: { minimum: 6 }
+            }
         })
     })
 
@@ -242,15 +265,14 @@ const user = new User()
 user.password = '1234'
 user.validate() 
 user.errors // { password: [ { isTooShort: 6 } ] }
-user.isValid // false
+user.isValid() // false
 ```
-
 
 ## Serialization
 
 ### fromJSON(value)
 
-Returns a new instance of a entity
+Returns a new instance of a entity based on a object or a string.
 
 ```javascript
 const User = 
@@ -264,7 +286,7 @@ const user = User.fromJSON({ name: 'Beth'})
 const user = User.fromJSON(`{ "name": "Beth"}`)
 ```
 
-By default `fromJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
+By default `fromJSON` serializes only keys that have been defined in the entity as fields. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
 
 ### JSON.stringify(entity)
 
@@ -277,30 +299,32 @@ const json = JSON.stringify(user) // { "name": "Beth" }
 By default `toJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `entity.toJSON({ allowExtraKeys: true })`.
 
 
-## Instance Type Check - Entity.parentOf
+## Instance Type Check - `Entity.parentOf`
 
-Check if a instance is the same type from its parent entity class (similar to `instanceOf`)
+Check if a instance is the same type from its parent entity class (similar to `instanceOf`).
 
 ```javascript
-        const AnEntity = entity('A entity', {})
-        const AnSecondEntity = entity('A second entity', {})
+        const User = entity('User', {...})
+        const Customer = entity('Customer', {...})
 
-        const instance1 = new AnEntity()
-        const instance2 = new AnSecondEntity()
+        const aUser = new User()
+        const aCustomer = new Customer()
         
-        AnEntity.parentOf(instance1) // true
-        AnEntity.parentOf(instance2) // false
+        User.parentOf(aUser) // true
+        User.parentOf(aCustomer) // false
 ```
 
-## Entity Type Check - entity.isEntity
+## Entity Type Check - `entity.isEntity`
 
-Check if an object is a Gotu Entity class
+Check if an object is a Gotu Entity class.
 
 ```javascript
-        const AnEntity = entity('A entity', {})
+    const { entity } = require('gotu')
 
-        const instance1 = new AnEntity()
-        
-        entity.isEntity(AnEntity) // true
-        entity.isEntity(Object) // false
+    const AnEntity = entity('A entity', {})
+
+    const instance1 = new AnEntity()
+    
+    entity.isEntity(AnEntity) // true
+    entity.isEntity(Object) // false
 ```
