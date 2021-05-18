@@ -18,7 +18,7 @@ export default function HowItWorks() {
 					<div className={styles.innerInnerCircleA}>
 						<h3>
 							<Link
-								to={useBaseUrl('docs/entity')}
+								to={useBaseUrl('docs/entity/getting-started')}
 								className={styles.circleLink}
 							>
 								Entities
@@ -28,7 +28,7 @@ export default function HowItWorks() {
 					<div className={styles.innerInnerCircleB}>
 						<h3>
 							<Link
-								to={useBaseUrl('docs/usecase')}
+								to={useBaseUrl('docs/usecase/getting-started')}
 								className={styles.circleLink}
 							>
 								Use Cases
