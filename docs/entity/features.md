@@ -243,6 +243,21 @@ user.isValid() // false
 
 You can also simplify you validation method using `isValid()` method that execute validate for you entity and return true/false in a single execution.
 
+```javascript
+
+const Plan =
+    entity('Plan', {
+        ...
+        monthlyCost: field(Number),
+    })
+
+const plan = new Plan()
+plan.plan.monthlyCost = true
+plan.isValid() // false
+plan.errors // { monthlyCost: [ wrongType: 'Number' ] }
+
+```
+
 ### Value Validation
 
 It is possible to validate values through pre-existing validators or custom validators.
@@ -287,6 +302,9 @@ const user = User.fromJSON(`{ "name": "Beth"}`)
 ```
 
 By default `fromJSON` serializes only keys that have been defined in the entity as fields. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
+
+By default, `fromJSON` **default field** values will be applied for keys not present in `value`.
+
 
 ### JSON.stringify(entity)
 
