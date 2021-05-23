@@ -18,13 +18,13 @@ function Home() {
 	return (
 		<Layout
 			title={`${siteConfig.title}`}
-			description='HerbsJS is an evolutionary and open source library, focused in Domain layers'
+			description='Herbs - Build your microservices in Node.js with Clean Achitecture and Domain Driven Design.'
 		>
 			<Banner />
 			<main style={{ zoom: userZoom }}>
 				<Features />
 				<div className={styles.section}>
-					<h1>Add major features with minimal code</h1>
+					<h1>Build your microservices in Node.js faster and future proof</h1>
 					<Examples />
 					<h1>Generated On The Fly</h1>
 					<div className={styles.badges}>

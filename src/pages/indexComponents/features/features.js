@@ -8,19 +8,19 @@ export default function Features() {
       title: `Domain that matters`,
       imageUrl: "/img/web.png",
       description:
-        "Stop spending time with redundant and low impact code. Code your domain first using Herbs and the necessary infrastructure will be generated automatically.",
+        "Stop spending time with redundant and low impact code. Code your domain first using Herbs and the necessary infrastructure will be generated on the fly.",
     },
     {
       title: "Keep it clean",
       imageUrl: "/img/stars.png",
       description:
-        "Our main concern is maintainability. Evolve your code knowing your project will not become a big ball of mud. Clean Architecture and DDD are at Herbs' core.",
+        "No more sloppy, hard to change code. Create maintainable software using Clean Architecture and Domain Driven Design with Herbs.",
     },
     {
       title: "Auditable and Secure",
       imageUrl: "/img/secure-shield.png",
       description:
-        "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are be available out of the box.",
+        "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are available out of the box.",
     },
   ];
   return (
