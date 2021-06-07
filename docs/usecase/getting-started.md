@@ -43,7 +43,7 @@ module.exports.createList = injection =>
     setup: ctx => (ctx.di = Object.assign({}, dependency, injection)),
 
     // Authorization with Audit
-    authorize: user => (user.canCreateList ? Ok() : Err()),
+    authorize: async (user) => (user.canCreateList ? Ok() : Err()),
 
     // Step description and function
     'Check if the List is valid': step(ctx => {
@@ -90,7 +90,7 @@ Use cases are likely to be called and audited indirectly by a [Glue](/docs/glues
 
 ```javascript
 /* Authorization */
-const hasAccess = usecase.authorize(user)
+const hasAccess = await usecase.authorize(user)
 if (hasAccess === false) {
     console.info(usecase.auditTrail)
     throw new ForbiddenError() // Or any other behavior for a unauthorized user

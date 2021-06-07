@@ -48,7 +48,7 @@ const exampleUseCase = `usecase('Create List', {
     setup: ctx => (ctx.di = Object.assign({}, dependency, injection)),
 
     // Authorization check and audit
-    authorize: user => (user.canCreateList ? Ok() : Err()),
+    authorize: async (user) => (user.canCreateList ? Ok() : Err()),
 
     // Steps description and audit
     'Check if the List is valid': step(ctx => {
