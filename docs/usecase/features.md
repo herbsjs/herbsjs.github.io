@@ -175,7 +175,7 @@ const addOrUpdateItem = (injection) =>
 
 A function executed before any steps to make sure the user is authorized to run the use case.
 
-`{ authorize: user => {} }`, where:
+`{ authorize: async (user) => {} }`, where:
 
 - `user`: an object containing the user's information - this information will be audited.
 
@@ -189,7 +189,7 @@ const addOrUpdateItem = (injection) =>
     usecase('Add or Update an Item on a to-do List', {
 
         // Authorization with Audit
-        authorize: user => (user.canAddOrUpdateList ? Ok() : Err()),
+        authorize: async (user) => (user.canAddOrUpdateList ? Ok() : Err()),
     ...
 ```
 
