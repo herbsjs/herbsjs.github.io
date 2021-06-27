@@ -154,6 +154,8 @@ There are a few reserved variables inside `ctx`:
 
 `ctx.ret` - Defines the use case result value.
 
+`ctx.stop()` - Method used to stop a use case next steps execution.
+
 
 ## Step Result
 
