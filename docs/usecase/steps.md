@@ -133,17 +133,21 @@ The `ctx` variable is used to access (read and write) the state of the use case 
 For instance, to read and write a variable across multiple steps:
 
 ```javascript
-const updateList = injection =>
+const updateUser = injection =>
     usecase('Update User', {
 
         'Retrieve User from repository': step(async ctx => {
             ...
+            const id = ctx.req.id // read id from request
             ctx.user = await repo.findByID(...) // create `user` variable
         }),
 
         'Update User on repository': step(ctx => {
             const user = ctx.user // read `user` variable
             ...
+            ctx.ret = user // set the use case return
+
+            return Ok(user)  // set the step return (for audit only)
         }),
     })
 ```
@@ -156,6 +160,19 @@ There are a few reserved variables inside `ctx`:
 
 `ctx.stop()` -  Informs that the current step will be the last to be executed in the use case context, regardless the step result (Ok or Err).
 
+
+```javascript
+const moveList = injection =>
+    usecase('Move List', {
+
+        'Move List position': step(async ctx => {
+            ...
+            if (last) ctx.stop() // use case execution will stop at this step.
+            return Ok() 
+        }),
+        ...
+    })
+```
 
 ## Step Result
 
