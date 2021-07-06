@@ -8,7 +8,6 @@ module.exports = {
   favicon: 'img/logo-herbsjs.png',
   organizationName: 'herbsjs',
   projectName: 'website',
-  plugins: ['@docusaurus/plugin-google-gtag'],
   themeConfig: {
     gtag: {
       trackingID: 'G-LMCPKQXZHH'
@@ -100,7 +99,7 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      },
+      },      
     ],
   ],
 };
