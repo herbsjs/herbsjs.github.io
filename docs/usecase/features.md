@@ -200,6 +200,26 @@ The `ctx` variable is used to access (read and write) the state of the use case 
 For more details about context, check step context.
 
 
+## Errors
+
+As you noted into examples above you can return an Err object, this class can be a generic Err as can be a structured Err too
+
+``` js 
+const options = { message: 'message', payload: { entity: 'user' }, cause: Err("my message") || new Error() }
+Err.notFound(options),
+Err.alreadyExists(options),
+Err.invalidEntity(options),
+Err.invalidArguments({ ...options, args: { name: 'cant be empty' }}),
+Err.permissionDenied(options),
+Err.unknown(options),
+Err.buildCustomErr(options),
+```
+or you can create your own structured Err
+
+``` js
+Err._buildCustomErr('ERROR_CODE', message, payload, cause)
+```
+
 ## Audit
 
 `usecase.auditTrail`: Retrieve the audit trail of a use case after its execution.
