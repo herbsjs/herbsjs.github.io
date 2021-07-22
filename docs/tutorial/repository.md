@@ -7,9 +7,14 @@ slug: /tutotial/repository
 
 ## Database Config Files
 
-Before we start using the database, is required to setup the configurations. For that, the files are in `src/config/`.
+Before we start using the database, is required to set up the configurations. We can choose between `mongo` and `postgres` database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've choosed:
 
-There is a file called `mongo.js` or `postgres.js`, depending on which one you've choosed. And it should look like this:
+- [Mongo]
+- [PostgreSQL]
+
+### Set up with Mongo
+
+The configuration file is `src/config/mongo.js`. It looks like this:
 
 ```js
 // src/config/mongo.js
@@ -24,13 +29,35 @@ module.exports = {
 
 So you can provide a custom name and connection URL for the database using the environment variables or use the default ones.
 
+### Set up with PostgreSQL
+
+The configuration file is `src/config/postgres.js`. It looks like this:
+
+```js
+// src/config/postgres.js
+const env = require('sugar-env')
+require('dotenv').config()
+
+module.exports = {
+  client: 'pg',
+  connection: {
+    host: '127.0.0.1',
+    user: 'postgres',
+    password: 'postgres',
+    database: 'todolist_on_herbs_db'
+  }
+}
+```
+
+Here you can change their values to match with your credentials, database name, host, etc.
+
 ## Creating Database and Migration
 
 After creating the database with the name explained above, you can found the files to setup the database in `src/infra/data/`.
 
 There we have two folders:
 
-### `databse/`
+### `database/`
 
 To set up the database connection.
 
@@ -67,6 +94,20 @@ With the [automatic project creation](/docs/tutotial/new-project), there are two
 
 - `index.js` - Requiring all the necessary repositories and providing the database connection to them.
 - `baseRepository.js` - To be used as a boilerplate and make easy to create repositories.
+
+If you want to create your own, or did not use `herbs-cli`, the `index.js` should be like this:
+
+```js
+// Receive the database connection
+async function factory(conn) {
+    return {
+        // Return each repository, providing the connection to them
+        userRepository: await new (require('./userRepository.js'))(conn)
+    }
+}
+
+module.exports = factory
+```
 
 ## Repository Setup
 
