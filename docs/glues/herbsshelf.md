@@ -12,7 +12,7 @@ Herbs Shelf is a self-generated documentation based on your use cases and entiti
 
 ### Installing
 
-    $ npm install herbsshelf
+    $ npm install @herbsjs/herbsshelf
 
 ### Using 
 
@@ -35,7 +35,7 @@ In your app or server file, import the shelf dependecy and the list of usecases
 
 ```javascript
 const usecases = require('../../domain/usecases/_uclist')
-const renderShelfHTML = require('herbsshelf')
+const renderShelfHTML = require('@herbsjs/herbsshelf')
 ```
 
 And call the shelf into you prefered rest route
