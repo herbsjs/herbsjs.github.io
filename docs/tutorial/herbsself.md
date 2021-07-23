@@ -5,6 +5,8 @@ sidebar_label: 6. Generating Herbs Shelf
 slug: /tutotial/herbsshelf
 ---
 
+## Introduction to Herbs Shelf
+
 > Herbs Shelf is a self-generated documentation based on your use cases and entities from your domain.
 >
 > — [Herbs Shelf | HerbsJS](/docs/glues/herbsshelf)
@@ -45,7 +47,7 @@ module.exports = (injection) => {
 
 Once you have this file, you can use it with `@herbsjs/herbsshelf` to get the HTML content and do what you want with.
 
-In this case, we are going to set a route called `/docs` in the server to provide this:
+In this case, we are going to set a route called `/herbsshelf` in the server to provide this:
 
 ```js
 // src/infra/api/server.js
@@ -56,7 +58,7 @@ const renderShelfHTML = require('@herbsjs/herbsshelf')
 const usecases = require('../../domain/usecases/_uclist')
 
 // Set up the route to serve the rendered HTML
-app.get('/docs', (req, res) => {
+app.get('/herbsshelf', (req, res) => {
     res.setHeader('Content-Type', 'text/html')
 
     const content = renderShelfHTML(usecases())
@@ -64,5 +66,7 @@ app.get('/docs', (req, res) => {
     res.end()
 })
 ```
+
+You must set this endpoint up in `src/infra/api/server.js` to make it run with the other app components.
 
 > Know more about [Herbs Shelf](/docs/glues/herbsshelf).
