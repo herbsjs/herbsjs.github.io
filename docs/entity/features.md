@@ -18,7 +18,7 @@ slug: /entity/features
 Example:
 
 ```javascript
-const { entity, field } = require('gotu')
+const { entity, field } = require('@herbsjs/herbs')
 
 const Customer = 
     entity('Customer', {
@@ -337,7 +337,7 @@ Check if a instance is the same type from its parent entity class (similar to `i
 Check if an object is a Gotu Entity class.
 
 ```javascript
-    const { entity } = require('gotu')
+    const { entity } = require('@herbsjs/herbs')
 
     const AnEntity = entity('A entity', {})
 

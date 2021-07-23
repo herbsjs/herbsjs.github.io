@@ -18,7 +18,7 @@ From Clean Architecture book: "Use cases orchestrate the flow of data to and fro
 
 ## Installing
 
-```$ npm install buchu```
+```$ npm install @herbsjs/herbs```
 
 ## Using
 
@@ -27,7 +27,7 @@ This is an example of how to set up a use case for creating a list (entity):
 `usecases/list/createList.js`:
 
 ```javascript
-const { usecase, step, Ok, Err } = require('buchu')
+const { usecase, step, Ok, Err } = require('@herbsjs/herbs')
 const { TodoList } = require('../entities/todoList')
 const dependency = {}
 

@@ -18,7 +18,7 @@ slug: /usecase/features
 Example:
 
 ```javascript
-const { Ok, Err, usecase, step, ifElse } = require('buchu')
+const { Ok, Err, usecase, step, ifElse } = require('@herbsjs/herbs')
 const createItem = usecase('Create Item', {
     ... 
 })
