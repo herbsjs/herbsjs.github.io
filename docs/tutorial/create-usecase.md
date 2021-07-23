@@ -5,13 +5,30 @@ sidebar_label: 4. Creating Use Cases
 slug: /tutotial/create-usecase
 ---
 
-With the entities set properly, we can start to use them. For this, we have to set the usecases for the app.
+A use case reflects a single action exposed by the Domain to the end user.
 
-> Lear more: [What's a Use Case?](/docs/usecase/getting-started#whats-a-use-case)
+For exemple: Reopen Ticket, Reply Message, Add User
+
+Internally a use case is responsible to control the interaction between entities, repositories and other domain components.
+
+With the entities set properly, we can start to use them. For this, we have to set the use cases for the app.
+
+We are going to set use cases for create a new list.
+
+> Learn more: [What's a Use Case?](/docs/usecase/getting-started#whats-a-use-case)
 
 ## Create List Use Case
 
-Let's develop a usecase to create a list.
+Let's develop a use case to create a list. And so on, we are going to walk throught the following topics:
+
+- Use Case Name
+- Request 
+- Response
+- Setup / DI
+- Authorize
+- Steps - Basic
+- Step return (Ok, Err)
+- Use Case return (ctx.ret)
 
 > Know more about [create usecases](/docs/usecase/features#creating-a-use-case).
 
@@ -28,8 +45,11 @@ const createList = injection => usecase('Create List', {})
 
 ### Request
 
-Now, we have to specify what is the data we want from the user in the request.
-In this case, we need the name of the list, which is a `String`.
+Now, we have to specify what are the parameters accepted from the user on request.
+
+In this case, we need the name of the list, which is a `String` because we want a text from the user.
+
+Here we can use any other `Object` type, like: `Boolean`, `Number`, etc. To set up an array, we have to add brackets around the type, like: `[String]`.
 
 ```js
 // usecases/list/createList.js
@@ -41,12 +61,28 @@ const createList = injection => usecase('Create List', {
 })
 ```
 
-Here we can use the same validation contraints from the entity setup.
+Here we can use the same validation contraints from the Entity setup, or even request an Entity like:
+
+```js
+// usecases/list/createList.js
+const { usecase } = require('@herbsjs/herbs')
+const Item = require('../entities/Item')
+
+const createList = injection => usecase('Create List', {
+    // Input/Request metadata and validation 
+    request: { name: String, initialItem: Item },
+})
+```
+
+The validations set in the Entity will also be checked there.
 
 ### Response
 
 Once we have the request object specified, we must specify the response model.
-In this case, we will return a List.
+
+If your use case does not need to return a response and just perform operations, you can ommit this field.
+
+In this case, it will return the List Entity.
 
 ```js
 // usecases/list/createList.js
@@ -64,11 +100,13 @@ const createList = injection => usecase('Create List', {
 
 ### Setup / DI
 
+The use case is divided by steps, they run one-by-one and can share a context object. You are free to use this object setting useful values between the steps. Besides that, you can also have an initial object setup, where you can set initially required values for steps, like repositories (what makes possible the interaction with the database).
+
 In each step of the usecase (which we are going to set soon), a context object is provided to handle the "data sharing" between different steps. And other useful data, such as repositories, the request values, etc.
 
-On the `setup` function, we can manually add values to this context so we can use them later in the steps.
+On the `setup` function, we can manually add values to this context, so we can use them later in the steps.
 
-Here, we are going to insert a `dependency` object in the context, with the `ListRepository`:
+Here, we are going to insert a `dependency` object in the context, with the `ListRepository` so we can use it in each usecase and interact with database:
 
 ```js
 // usecases/list/createList.js
@@ -76,7 +114,7 @@ const { usecase } = require('@herbsjs/herbs')
 const { List } = require('../entities/list')
 
 const dependency = {
-    ListRepository: require('../../infra/repositories/.../listRepository'),
+    ListRepository: require('../../infra/data/repositories/listRepository'),
 }
 
 const createList = injection => usecase('Create List', {
@@ -93,9 +131,11 @@ const createList = injection => usecase('Create List', {
 
 ### Authorize
 
-Use cases may also have a `authorize` function, which can be implemented with any logic and must return `Ok()` if user is authorized to perform that operation and `Err()` otherwise.
+Use cases may also have an `authorize` function, which can be implemented with any logic and must return `Ok()` if user is authorized to perform that operation and `Err()` otherwise.
 
-In this case we gonna suppose that the `user` object has a property called `canCreateList`.
+The `authorize` function is runned before any use case, the use cases will only run if the user is authorized.
+
+In this case we are going to suppose that the `user` object has a property called `canCreateList`.
 
 ```js
 // usecases/list/createList.js
@@ -124,6 +164,10 @@ const createList = injection => usecase('Create List', {
 ### Steps
 
 Since we have the request, response, setup and authorization set, we can finally start writing the actual logic in the steps.
+
+Steps are the building blocks of a use case. Its main goal is to generate metadata before and during the execution of a use case like the code intention, audit trail, etc. The first thing to note is that we encourage the description of the steps with the business intent (never the technical intent).
+
+> Learn more about [usecase steps](/docs/usecase/steps).
 
 ```js
 // usecases/list/createList.js
@@ -179,5 +223,3 @@ const createList = injection => usecase('Create List', {
     }),
 })
 ```
-
-> Learn more about [usecase steps](/docs/usecase/steps).
