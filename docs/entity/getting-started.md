@@ -15,7 +15,7 @@ Some entities in your domain need to be retrieved and persisted from a repositor
 
 ## Installing
 
-```$ npm install gotu```
+```$ npm install @herbsjs/herbs```
 
 ## Using
 
@@ -24,7 +24,7 @@ This is an example of how to define an entity:
 `entities/user.js`:
 
 ```javascript
-const { entity, field } = require('gotu')
+const { entity, field } = require('@herbsjs/herbs')
 
 const User = 
     entity('User', {
