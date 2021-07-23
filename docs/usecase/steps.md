@@ -18,7 +18,7 @@ To create a step inside a use case is simple:
 3. Don't forget to return the [result](/docs/usecase/result).
 
 ```javascript
-const { Ok, Err, usecase, step } = require('buchu')
+const { Ok, Err, usecase, step } = require('@herbsjs/herbs')
 
 const createProduct = injection =>
     usecase('Create Product', {
@@ -99,7 +99,7 @@ For example:
 
 
 ```javascript
-const { Ok, Err, usecase, step, ifElse } = require('buchu')
+const { Ok, Err, usecase, step, ifElse } = require('@herbsjs/herbs')
 
 const updateItem = (injection) =>
   usecase('Update Task', {
