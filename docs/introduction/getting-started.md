@@ -3,6 +3,7 @@ id: getting-started
 title: Getting Started with Herbs
 sidebar_label: Getting Started
 slug: /introduction/getting-started
+custom_edit_url: null
 ---
 
 We created an example repository, completely full stack so you can see the applicability of Herbs in a project closer to the real world.
@@ -30,10 +31,6 @@ This application consists in two parts:
 In those links you will find how to use Herbs and build awesome API's and how to consume inside front-end applications
 
 We also provide a [template](https://github.com/herbsjs/todolist-on-herbs/generate) to use with this repository
-
-## How to contribute
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/todolist-on-herbs/blob/master/.github/CONTRIBUTING.md)
 
 ## Next steps
 

@@ -1,0 +1,36 @@
+---
+id: logos
+title: Logos
+sidebar_label: Logo assets
+description: Guidelines for how to use the Backstage logos and icons
+slug: /institutional/logos
+custom_edit_url: null
+---
+
+## Herbs logo
+
+<a href="../../assets/herbs_logo.svg">
+  <img src="../../assets/herbs_logo.svg" width="600" />
+</a>
+
+<a href="../../assets/herbs_logo_slogan.svg">
+  <img src="../../assets/herbs_logo_slogan.svg" width="600" />
+</a>
+
+<a href="../../assets/logo_black.svg">
+  <img src="../../assets/logo_black.svg" width="600" />
+</a>
+
+<a href="../../assets/logo_black.svg">
+  <img src="../../assets/logo_black.svg" width="600" />
+</a>
+
+<a href="../../assets/logo_slogan_white.svg">
+  <img src="../../assets/logo_slogan_white.svg" width="600"  style={{background : 'black'}} />
+</a>
+
+
+###  Other formats
+
+The assets below are all in `.svg` format. Other formats are available in the
+[repository](https://github.com/herbsjs/herbsjs.github.io/tree/master/static/assets).
