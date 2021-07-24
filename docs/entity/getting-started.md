@@ -15,7 +15,9 @@ Some entities in your domain need to be retrieved and persisted from a repositor
 
 ## Installing
 
-```$ npm install @herbsjs/herbs```
+```
+ npm install @herbsjs/herbs
+```
 
 ## Using
 

@@ -10,8 +10,10 @@ slug: /glues/herbs2rpl
 
 ## Getting started
 ### Installing
-    $ npm install herbs2repl
-
+ ```
+  npm install herbs2repl
+ ```
+ 
 ### Using
 
 `srs/domain/usecases/_uclist.js`:

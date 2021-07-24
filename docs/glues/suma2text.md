@@ -12,8 +12,9 @@ suma2text it's a tool to parse error codes to string, you can use in all your so
 Suma and suma2text native, you can translate all suma error codes, one by one or all entity error array.
 
 ### Installing
-
-    $ npm install @herbsjs/suma2text
+```
+  npm install @herbsjs/suma2text
+```
 
 ### Using
 
