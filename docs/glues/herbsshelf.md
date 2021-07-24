@@ -11,8 +11,9 @@ Herbs Shelf is a self-generated documentation based on your use cases and entiti
 ![Glues](/img/herbsshelf_screenshot.png)
 
 ### Installing
-
-    $ npm install @herbsjs/herbsshelf
+```
+  npm install @herbsjs/herbsshelf
+```
 
 ### Using 
 
