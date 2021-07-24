@@ -75,6 +75,10 @@ module.exports = {
               label: 'GitHub',
               href: 'https://github.com/herbsjs',
             },
+            {
+              label: 'Acknowledgements',
+              href: 'docs/institutional/acknowledgements',
+            },
           ],
         },
       ],

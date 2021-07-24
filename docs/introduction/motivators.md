@@ -3,6 +3,7 @@ id: motivation
 title: Motivation
 sidebar_label: Motivation
 slug: /introduction/motivation
+custom_edit_url: null
 ---
 
 The goal of software development has always been to have happy customers through amazing features, working accurately and delivered as quickly as possible. We know that impose clear challenges for developers. 
