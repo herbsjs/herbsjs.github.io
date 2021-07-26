@@ -20,7 +20,7 @@ The most important entity is the User, so we are going to create it.
 First, let's set the name for the entity:
 
 ```js
-// src/domain/entities/list.js
+// src/domain/entities/user.js
 const { entity, field } = require('@herbsjs/herbs')
 
 const User = entity('User', {})
@@ -31,7 +31,7 @@ const User = entity('User', {})
 Now, we're going to set the fields for the List entity:
 
 ```js
-// src/domain/entities/list.js
+// src/domain/entities/user.js
 const { entity, field } = require('@herbsjs/herbs')
 
 const User = entity('User', {
