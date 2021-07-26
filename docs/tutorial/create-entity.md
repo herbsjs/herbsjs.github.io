@@ -11,7 +11,7 @@ Entities have properties (fields), actions (methods) and often is uniquely ident
 
 > Refer to [Getting Started - What's and Entity](/docs/entity/getting-started#whats-an-entity) to know more.
 
-Since we are developing a TODO list, we have to create two entities: List and Item.
+The most important entity is the User, so we are going to create it.
 
 ## List Entity
 
@@ -23,7 +23,7 @@ First, let's set the name for the entity:
 // src/domain/entities/list.js
 const { entity, field } = require('@herbsjs/herbs')
 
-const List = entity('List', {})
+const User = entity('User', {})
 ```
 
 ### Entity fields
@@ -33,12 +33,11 @@ Now, we're going to set the fields for the List entity:
 ```js
 // src/domain/entities/list.js
 const { entity, field } = require('@herbsjs/herbs')
-const { Item } = require('./item')
 
-const List = entity('List', {
+const User = entity('User', {
     id: field(Number),
-    name: field(String),
-    items: field([Item]),
+    nickname: field(String),
+    password: field(String),
 })
 ```
 
