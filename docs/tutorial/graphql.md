@@ -2,7 +2,7 @@
 id: graphql
 title: 5. Generating GraphQL Endpoint
 sidebar_label: 5. Generating GraphQL Endpoint
-slug: /tutotial/graphql
+slug: /tutorial/graphql
 ---
 
 > GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data.
@@ -17,31 +17,29 @@ Let's walk through the required setup to use that GraphQL layer of herbs. The Gr
 - **Queries**: to define the usecases which fetch data.
 - **Mutation**: to define the usecases which create or update data.
 
-Using [`herbs2gql`](/docs/glues/herbs2gql) it is really simple to set them all based on concepts we've seen before (eg. [entity](/docs/entity/getting-started) and [usecase](/docs/usecase/getting-started)).
+Using [`herbs2gql`](/docs/glues/herbs2gql) it is really simple to set them all based on concepts we've seen before (eg. [entity](/docs/entity/getting-started) and [use case](/docs/usecase/getting-started)).
 
 ## Types
 
-In this case, we are going to set the type for List and Item entities.
+In this case, is set the type for User entity.
 
-For an entity like Item:
+For an entity like User:
 
 ```js
-entity('Item', {
+entity('User', {
     id: field(Number),
-    description: field(String),
-    isDone: field(Boolean),
-    position: field(Number)
+    nickname: field(String),
+    password: field(String),
 })
 ```
 
 the type definition in the GraphQL syntax would be something like this:
 
 ```graphql
-type Item {
+type User {
     id: Float!
-    description: String!
-    isDone: Boolean
-    position: Float!
+    nickname: String!
+    password: String!
 }
 ```
 
@@ -49,59 +47,46 @@ But hopefully, we don't have to convert each entity by hand, we can use the func
 
 ```js
 // src/infra/api/graphql/types.js
-const { entity2type } = require('@herbsjs/herbs2gql')
-
-// Require all the entities and put them
-// in a list.
-const entities = [
-    require('../../../domain/entities/item').Item,
-    require('../../../domain/entities/list').List
-]
+const { entity2type } = require('@herbs/herbs2gql')
+const entities = require('../../../domain/entities')
 
 // Set the default schema for the types.
 const defaultSchema = [`
-    type Query {
-        _: Boolean
-    }
-    type Mutation {
-        _: Boolean
-    }`]
+  type Query {
+    _: Boolean
+  }
 
-// Set the list of types, initally with
-// just the default one.
-let types = [defaultSchema]
+  type Mutation {
+    _: Boolean
+  }`]
 
-// For each entity in the list `entities`
-// convert it to a type and put it in the
-// list of `types`.
-types = types.concat(entities.map(entity => [entity2type(entity)]))
+// For each entity in the list `entities` convert it to a type and put it in the list of `types`.
+const types = [defaultSchema].concat(Object
+  .keys(entities)
+  .map(entity => [entity2type(entities[entity])]))
 
 module.exports = types
 ```
 
 ## Queries
 
-The process to set up GraphQL is pretty similar to the previous one.
+The process to set up GraphQL is pretty similar to the previous one. The main difference is that in the CLI we use a factory function which receive the usecase list.
 
 We are going to use the `usecase2query` util and the `defaultResolver`, both from `@herbsjs/herbs2gql`:
 
 ```js
 // src/infra/api/graphql/queries.js
-const { usecase2query, defaultResolver } = require('@herbsjs/herbs2gql')
+const { usecase2query } = require('@herbs/herbs2gql')
+const defaultResolver = require('./defaultResolver')
 
-// Require all the usecases and put them
-// in a list.
-const usecases = [
-    require('../../../domain/usecases/list/getList.js').getList,
-    /* More usecases here... */
-]
+// Function require all the usecases in a list.
+function factory (usecases) {
+    // For each usecase in the list `usecases` convert it to a query and put it in the list of `queries`.
+    const queries = usecases.map(usecase => usecase2query(usecase(), defaultResolver(usecase)))
+    return queries  
+}
 
-// For each usecase in the list `usecases`
-// convert it to a query and put it in the
-// list of `queries`.
-const queries = usecases.map(usecase => usecase2query(usecase(), defaultResolver(usecase)))
-
-module.exports = queries
+module.exports = { factory }
 ```
 
 ## Mutations
@@ -110,19 +95,15 @@ The same thing for mutations, but now we are using the `usecase2mutation` util:
 
 ```js
 // src/infra/api/graphql/mutations.js
-const { usecase2mutation, defaultResolver } = require('@herbsjs/herbs2gql')
+const { usecase2query } = require('@herbs/herbs2gql')
+const defaultResolver = require('./defaultResolver')
 
-// Require all the usecases and put them
-// in a list.
-const usecases = [
-    require('../../../domain/usecases/list/createList.js').createList,
-    /* More usecases here... */
-]
+// Require all the usecases in a list.
+function factory (usecases) {
+    // For each usecase in the list `usecases` convert it to a mutation and put it in the list of `mutations`.
+    const mutations = usecases.map(usecase => usecase2mutation(usecase(), defaultResolver(usecase)))
+    return mutations
+}
 
-// For each usecase in the list `usecases`
-// convert it to a mutation and put it in the
-// list of `mutations`.
-const mutations = usecases.map(usecase => usecase2mutation(usecase(), defaultResolver(usecase)))
-
-module.exports = mutations
+module.exports = { factory }
 ```
