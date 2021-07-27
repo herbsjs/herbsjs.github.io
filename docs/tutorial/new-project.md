@@ -2,14 +2,14 @@
 id: new-project
 title: 1. Creating a New Herbs Project
 sidebar_label: 1. New Project
-slug: /tutotial/new-project
+slug: /tutorial/new-project
 ---
 
 ## Introduction to Herbs
 
 Herbs helps you to build backend applications faster and given more value for your domain and business logic. You can found more about in [What's Herbs?](/docs).
 
-To help in the setup process, Herbs has the `herbs-cli` which start up a new project scaffolding.
+To help in the setup process, Herbs has the [`herbs-cli`](https://github.com/herbsjs/herbs-cli) which start up a new project scaffolding.
 
 In this tutorial we are going to walk through all the features from Herbs, building an User application.
 
@@ -28,7 +28,7 @@ In this tutorial we are going to walk through all the features from Herbs, build
 
 ## Project Setup
 
-### With `herbs-cli`
+### With [`herbs-cli`](https://github.com/herbsjs/herbs-cli)
 
 1. Install [`herbs-cli`](https://github.com/herbsjs/herbs-cli) globally:
 
