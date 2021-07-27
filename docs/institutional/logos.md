@@ -9,24 +9,24 @@ custom_edit_url: null
 
 ## Herbs logo
 
-<a href="../../assets/herbs_logo.svg">
-  <img src="../../assets/herbs_logo.svg" width="600" />
+<a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo.svg">
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo.svg" width="600" />
 </a>
 
-<a href="../../assets/herbs_logo_slogan.svg">
-  <img src="../../assets/herbs_logo_slogan.svg" width="600" />
+<a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo_slogan.svg">
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo_slogan.svg" width="600" />
 </a>
 
-<a href="../../assets/logo_black.svg">
-  <img src="../../assets/logo_black.svg" width="600" />
+<a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg">
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg" width="600" />
 </a>
 
-<a href="../../assets/logo_black.svg">
-  <img src="../../assets/logo_black.svg" width="600" />
+<a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg">
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg" width="600" />
 </a>
 
-<a href="../../assets/logo_slogan_white.svg">
-  <img src="../../assets/logo_slogan_white.svg" width="600"  style={{background : 'black'}} />
+<a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_slogan_white.svg">
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_slogan_white.svg" width="600"  style={{background : 'black'}} />
 </a>
 
 
