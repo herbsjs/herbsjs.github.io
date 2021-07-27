@@ -11,9 +11,9 @@ slug: /glues/Herbs2knex
 herbs2knex creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Knex](http://knexjs.org).
 
 ### Installing
-
-    $ npm install @herbsjs/herbs2knex
-
+```
+   npm install @herbsjs/herbs2knex
+```
 ### Using
 
 `connection.js` - Knex initialization:

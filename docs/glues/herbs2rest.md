@@ -10,9 +10,9 @@ Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/got
 
 ## Getting started
 ### Installing
-
-    $ npm install @herbsjs/herbs2rest
-
+```
+  npm install @herbsjs/herbs2rest
+```
 ### Using
 
 Use the method generateRoutes to generate api rest routes based on usecases.

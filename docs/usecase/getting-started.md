@@ -18,7 +18,9 @@ From Clean Architecture book: "Use cases orchestrate the flow of data to and fro
 
 ## Installing
 
-```$ npm install @herbsjs/herbs```
+```
+npm install @herbsjs/herbs
+```
 
 ## Using
 
