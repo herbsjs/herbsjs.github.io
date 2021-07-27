@@ -2,15 +2,15 @@
 id: repository
 title: 3. Generating Repositories
 sidebar_label: 3. Generating Repositories
-slug: /tutotial/repository
+slug: /tutorial/repository
 ---
 
 ## Database Config Files
 
-Before we start using the database, is required to set up the configurations. We can choose between `mongo` and `postgres` database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've choosed:
+Before we start using the database, is required to set up the configurations. We can choose between `mongo` and `postgres` database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
 
-- [Mongo]
-- [PostgreSQL]
+- [Mongo](https://mongodb.com)
+- [PostgreSQL](https://www.postgresql.org)
 
 ### Set up with Mongo
 
@@ -44,7 +44,7 @@ module.exports = {
     host: '127.0.0.1',
     user: 'postgres',
     password: 'postgres',
-    database: 'todolist_on_herbs_db'
+    database: 'herbs-project'
   }
 }
 ```
@@ -61,7 +61,7 @@ There we have two folders:
 
 To set up the database connection.
 
-With the [automatic project creation](/docs/tutotial/new-project), there is an `index.js` file making the connection with the database.
+With the [automatic project creation](/docs/tutorial/new-project), there is an `index.js` file making the connection with the database.
 
 This file is dependent of which database you choose, in the case of `mongo` it should be like this:
 
@@ -90,7 +90,7 @@ module.exports = {
 
 To develop the repositories for each entity.
 
-With the [automatic project creation](/docs/tutotial/new-project), there are two important files:
+With the [automatic project creation](/docs/tutorial/new-project), there are two important files:
 
 - `index.js` - Requiring all the necessary repositories and providing the database connection to them.
 - `baseRepository.js` - To be used as a boilerplate and make easy to create repositories.
