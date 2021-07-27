@@ -2,7 +2,7 @@
 id: herbsshelf
 title: 6. Generating Herbs Shelf
 sidebar_label: 6. Generating Herbs Shelf
-slug: /tutotial/herbsshelf
+slug: /tutorial/herbsshelf
 ---
 
 ## Introduction to Herbs Shelf
@@ -15,58 +15,38 @@ slug: /tutotial/herbsshelf
 
 ## Herbs Shelf Setup
 
-To setup the automatic documentation, you need a function which get an `injection` object and returns a list of usecases to be included in the documentation.
-
-The convention is to implement this function with a file called `_uclist.js` in the usecases directory (`/src/domain/usecases`), as following:
+To setup the automatic documentation, we need a list with all usecases to be included in the documentation. With CLI, it is in `src/domain/usecases/index.js`:
 
 ```js
-// src/domain/usecases/_uclist.js
-module.exports = (injection) => {
-    return [
-        {
-            // the usecase with the injection
-            usecase: require('./createItem').createItem(injection),
-            // the tags to store metadata, such as the group
-            tags: { group: 'Items' }
-        },
-        {
-            usecase: require('./getItem').getLists(injection),
-            tags: { group: 'Item' }
-        },
-        {
-            usecase: require('./createList').createList(injection),
-            tags: { group: 'List' }
-        },
-        {
-            usecase: require('./getList').getLists(injection),
-            tags: { group: 'List' }
-        },
-    ]
-}
+// src/domain/usecases/index.js
+module.exports = [
+    // the tags are to store metadata, such as the group and type of the use case
+    { usecase: require('./user/createUser'), tags: { group: 'Users', type: 'mutation'} },
+    { usecase: require('./user/updateUser'), tags: { group: 'Users', type: 'mutation'} },
+    { usecase: require('./user/deleteUser'), tags: { group: 'Users', type: 'mutation'} },
+    { usecase: require('./user/findOneUser'), tags: { group: 'Users', type: 'query'} }
+]
 ```
 
 Once you have this file, you can use it with `@herbsjs/herbsshelf` to get the HTML content and do what you want with.
 
-In this case, we are going to set a route called `/herbsshelf` in the server to provide this:
+In this case, is set a route called `/herbsshelf` in the server to provide this:
 
 ```js
-// src/infra/api/server.js
+// src/infra/api/rest/index.js
 const renderShelfHTML = require('@herbsjs/herbsshelf')
 
-// Get that function to return the
-// usecases list.
-const usecases = require('../../domain/usecases/_uclist')
+// Get that usecases list.
+const usecases = require('../../../domain/usecases')
 
 // Set up the route to serve the rendered HTML
 app.get('/herbsshelf', (req, res) => {
     res.setHeader('Content-Type', 'text/html')
 
-    const content = renderShelfHTML(usecases())
+    const content = renderShelfHTML(usecases)
     res.write(content)
     res.end()
 })
 ```
-
-You must set this endpoint up in `src/infra/api/server.js` to make it run with the other app components.
 
 > Know more about [Herbs Shelf](/docs/glues/herbsshelf).
