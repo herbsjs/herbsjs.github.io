@@ -5,7 +5,7 @@ sidebar_label: 1. New Project
 slug: /tutotial/new-project
 ---
 
-## Introduction to the Herbs
+## Introduction to Herbs
 
 Herbs helps you to build backend applications faster and given more value for your domain and business logic. You can found more about in [What's Herbs?](/docs).
 
