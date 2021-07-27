@@ -2,7 +2,7 @@
 id: security
 title: 8. Security and Auditing
 sidebar_label: 8. Security and Auditing
-slug: /tutotial/security
+slug: /tutorial/security
 ---
 
 ## Authorizing
@@ -12,12 +12,18 @@ In every usecase, you can set up the `authorize` which get an `user` object and 
 Is simple like that, you can implement any logic and if `Ok` were returned the usecase keep running, but if `Err` were returned, the usecase is interrupted.
 
 ```js
-const addOrUpdateItem = (injection) =>
+const createUser = () => usecase('Create User', {
+    // Input/Request metadata and validation 
+    request: {
+        nickname: String,
+        password: String
+    },
 
-    usecase('Add or Update an Item on a to-do List', {
+    // Output/Response metadata
+    response: User,
 
-        // Authorization with Audit
-        authorize: async (user) => (user.canAddOrUpdateList ? Ok() : Err()),
+    // Authorization with Audit
+    authorize: async (user) => (user.canCreateUser ? Ok() : Err()),
     ...
 ```
 
@@ -43,7 +49,7 @@ console.log(createProduct.auditTrail)
     type: 'use case',
     
     // use ase description
-    description: 'Add or Update an Item on a to-do List',
+    description: 'Create User',
     
     // unique Id for each use case execution
     transactionId: '9985fb70-f56d-466a-b466-e200d1d4848c', 
@@ -59,7 +65,7 @@ console.log(createProduct.auditTrail)
 
     // use case result
     return: {
-        Ok: { item: { id: 100, name: 'Do not forget this', position: 9 } }
+        Ok: { id: 1, nickname: 'created_user', password: 's3cr37' }
     },
 
     // steps
@@ -69,7 +75,7 @@ console.log(createProduct.auditTrail)
             type: 'step', 
             
             // use ase description
-            description: 'Check if the Item is valid', 
+            description: 'Check if the User is valid', 
             
             // total step execution time in nanosecods
             elapsedTime: 208201n , 
@@ -83,3 +89,19 @@ console.log(createProduct.auditTrail)
 ```
 
 > Refer to [Audit with HerbsJS](../usecase/features#audit) to know more.
+
+## Docs Object
+
+You can also use `uc.doc()` to get an Object like this:
+
+```json
+{
+  type: 'use case',
+  description: 'Create User',
+  request: { nickname: String, password: String },
+  response: User,
+  steps: [
+    { type: 'step', description: 'Check if the User is valid', steps: null },
+  ]
+}
+```
