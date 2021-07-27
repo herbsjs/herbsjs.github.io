@@ -2,7 +2,7 @@
 id: refactoring
 title: 7. Refactoring
 sidebar_label: 7. Refactoring
-slug: /tutotial/refactoring
+slug: /tutorial/refactoring
 ---
 
 ## Adding a Field
