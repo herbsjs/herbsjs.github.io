@@ -3,6 +3,7 @@ id: herbsjs
 title: What's Herbs?
 sidebar_label: What's Herbs?
 slug: /
+custom_edit_url: null
 ---
 
  <p align="center"><img src="../img/logo-herbsjs.png" height="220"></img></p>  

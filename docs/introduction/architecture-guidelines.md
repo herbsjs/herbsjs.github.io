@@ -3,7 +3,7 @@ id: architecture
 title: Architecture guides
 sidebar_label: Architecture guidelines
 slug: /introduction/architecture-guidelines
-
+custom_edit_url: null
 ---
 
 Herbs is an evolutionary and open source library, so we would love to see you contribute to it, making the library our best working tool. So we created some architectural guides that define Herbs to help you when it comes to consuming and contributing to the project:

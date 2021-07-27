@@ -2,6 +2,7 @@
 id: ecosystem
 title: Ecosystem
 slug: /introduction/ecosystem
+custom_edit_url: null
 ---
 
 There are three primitive herbs libraries that are at Herbs' core, helping modeling your domain and preparing it to expose metadata. To consume these metadata and bring value to your domain there are [glue](docs/glues) libraries. They create bridges between Herbs core and other libraries already consolidated in the node.js community.
@@ -13,6 +14,14 @@ There are three primitive herbs libraries that are at Herbs' core, helping model
 [**Buchu**](https://github.com/herbsjs/buchu): Model your [use cases](/docs/usecase/getting-started) to be readable, auditable and secure.
 
 [**Suma**](https://github.com/herbsjs/suma): It is the base library for value validation used internally by Gotu and Buchu.
+
+## Herbs Core distribuition
+
+[**Herbs**](https://github.com/herbsjs/herbs): We put the core libraries into a single distribution by reference, as we believe that all the main features can be made available through a simple command: 
+
+```
+ npm install @herbsjs/herbs 
+```
 
 ## Glues
 

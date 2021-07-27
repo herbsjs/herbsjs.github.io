@@ -54,7 +54,8 @@
 
 .footer__links {
 	text-align: right;
-	width: 35%;
+	max-width: 55%;
+	min-width: 45%;
 }
 .footer__title {
 	text-transform: capitalize;
