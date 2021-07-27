@@ -2,7 +2,7 @@
 id: create-entity
 title: 2. Creating Entities
 sidebar_label: 2. Creating Entities
-slug: /tutotial/create-entity
+slug: /tutorial/create-entity
 ---
 
 ## Introduction to the Entity concept
