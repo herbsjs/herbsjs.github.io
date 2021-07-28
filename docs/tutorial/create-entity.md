@@ -17,7 +17,7 @@ For this project the most basic entity is the User. The CLI generates it out-of-
 
 ## User Entity
 
-### Entity name
+#### Entity name
 
 First, let's understand how is set the name for the entity:
 
@@ -29,13 +29,13 @@ const { entity, field } = require('@herbsjs/herbs')
 const User = entity('User', {})
 ```
 
-### Entity fields
+#### Entity fields
 
 Now, we're going to see the fields for the User entity:
 
-- id: The unique identifier for the user.
-- nickname: The nickname for the user like "user123".
-- password: The user's access password.
+- **id**: The unique identifier for the user.
+- **nickname**: The nickname for the user like "user123".
+- **password**: The user's access password.
 
 Within the entity fields properties, we have:
 
@@ -56,9 +56,7 @@ const User = entity('User', {
 
     id: field(Number),
 
-    // Both the fields "nickname" and
-    // "password" are texts, therefore
-    // we are using `String`.
+    // Both the fields "nickname" and "password" are texts, therefore we are using `String`.
     nickname: field(String),
     password: field(String),
 })
@@ -71,7 +69,7 @@ The types of fields are Scalar types, there are some of them:
 - `Boolean`: true or false
 - `Date`: represents a single moment in time in a platform-independent format.
 
-### Entity fields default value
+#### Entity fields default value
 
 The CLI gives you the base, but you can go further.
 
@@ -88,8 +86,7 @@ const User = entity('User', {
     nickname: field(String),
     password: field(String),
 
-    // Here we set the field. After the type we also pass
-    // an optional object with the key default as 0.
+    // Here we set the field. After the type we also pass an optional object with the key default as 0.
     score: field(Number, {
         default: 0
     }),
@@ -98,7 +95,7 @@ const User = entity('User', {
 
 > Learn more about [default values](/docs/entity/features#default-value).
 
-### Entity fields validation
+#### Entity fields validation
 
 Once we have the fields set, we may want to implement validation to them
 
