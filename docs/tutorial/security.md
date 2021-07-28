@@ -90,7 +90,7 @@ console.log(createProduct.auditTrail)
 
 > Refer to [Audit with HerbsJS](../usecase/features#audit) to know more.
 
-## Docs Object
+## Generate a usecase self documentation
 
 You can also use `uc.doc()` to get an Object like this:
 
