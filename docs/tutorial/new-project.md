@@ -7,7 +7,9 @@ slug: /tutorial/new-project
 
 ## Introduction to Herbs
 
-Herbs helps you to build backend applications faster and given more value for your domain and business logic. You can found more about in [What's Herbs?](/docs).
+Herbs helps you to build backend applications faster and given more value for your domain and business logic. You can found more about in [What's Herbs?](/docs)
+
+If you don't want to see a step-by-step tutorial but an application running with herbs, you can visit our [Getting Started](/docs/introduction/getting-started) section.
 
 To help in the setup process, Herbs has the [`herbs-cli`](https://github.com/herbsjs/herbs-cli) which start up a new project scaffolding.
 
@@ -24,11 +26,13 @@ In this tutorial we are going to walk through all the features from Herbs, build
 
 ## Requirements
 
-- Node, etc
+- You need to have [Node.js](https://nodejs.org/en/) installed into your machine with LTS version
 
 ## Project Setup
 
-### With [`herbs-cli`](https://github.com/herbsjs/herbs-cli)
+You will see how to use this tutorial with hebs-cli or manually. But we strongly recommend to use our [`herbs-cli`](https://github.com/herbsjs/herbs-cli)
+
+### With herbs-cli
 
 1. Install [`herbs-cli`](https://github.com/herbsjs/herbs-cli) globally:
 
