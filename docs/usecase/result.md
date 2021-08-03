@@ -5,8 +5,6 @@ sidebar_label: Result
 slug: /usecase/result
 ---
 
-## Result
-
 The result instances indicate whether the execution of a function was successful or not. `Ok(value)` representing success and containing a `value`, and `Err(error)`, representing error and containing an `error` value.
 
 For exemple:
