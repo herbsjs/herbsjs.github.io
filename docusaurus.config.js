@@ -77,7 +77,7 @@ module.exports = {
             },
             {
               label: 'Acknowledgements',
-              href: 'docs/institutional/acknowledgements',
+              to: 'docs/institutional/acknowledgements',
             },
           ],
         },
