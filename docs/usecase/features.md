@@ -38,7 +38,17 @@ const createItem = usecase('Create Item', {
 
 ❌ Report Gen
 
-## Running a Use Case
+## Authorizing and Running
+
+**Authorizing**
+
+`.authorize(user)`, where:
+
+- `user`: string or object containing a user payload.
+
+- return: `true` for authorized or `false` for unauthorized.
+
+**Running**
 
 `.run(request)`, where:
 
@@ -49,8 +59,16 @@ const createItem = usecase('Create Item', {
 Example:
 
 ```javascript
+const usecase = createProduct()
+
+const hasAccess = await usecase.authorize(req.user)
+if (!hasAccess) {
+    ...
+    throw new ForbiddenError()
+}
+
 const request = { name: 'The best product' }
-const response = await createProduct.run(request)
+const response = await usecase.run(request)
 ```
 
 ## Request
