@@ -7,7 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap');
 
- h1, h2, h3 {
+ h1, h2, h3, h4 {
    font-family: 'Barlow Semi Condensed', sans-serif;
  }
 
@@ -26,6 +26,13 @@
    font-weight: 600;
    text-transform: uppercase;
  }
+ h4 {
+   font-size: 32px;
+   font-weight: 300;
+   text-transform: uppercase;
+   color: #505050;
+   margin-bottom: 40px;
+ }
 
 .badges, .logos {
   text-align: center;
@@ -37,6 +44,11 @@
   overflow: hidden;
 }
 .getStarted {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.getStarted svg{
   margin-right: 10px;
 }
 
@@ -66,5 +78,6 @@
 }
 
 .logosImage {
-  max-width: 400px;
+  max-width: 300px;
 }
+
