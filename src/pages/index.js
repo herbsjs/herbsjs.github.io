@@ -24,7 +24,7 @@ function Home() {
 			<main style={{ zoom: userZoom }}>
 				<Features />
 				<div className={styles.section}>
-					<h1>Build your microservices in Node.js faster and future proof</h1>
+					<h1>Build your Microservices in Node.js Faster and Future Proof</h1>
 					<Examples />
 					<h1>Generated On The Fly</h1>
 					<div className={styles.badges}>
@@ -37,25 +37,6 @@ function Home() {
 				<div className={styles.section}>
 					<h1>How it works?</h1>
 					<HowItWorks />
-				</div>
-				<div className={styles.section}>
-					<h1>Who is using HerbsJS?</h1>
-					<div className={styles.logos}>
-						<a href='https://vortx.com.br/'>
-							<img
-								src='img/logo-vortx.png'
-								alt='logo-Vórtx'
-								className={styles.logosImage}
-							/>
-						</a>
-						<a href='https://vizir.com.br/'>
-							<img
-								src='img/logo-vizir.png'
-								alt='logo-Vizir'
-								className={styles.logosImage}
-							/>
-						</a>
-					</div>
 				</div>
 			</main>
 		</Layout>
