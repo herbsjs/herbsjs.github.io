@@ -86,6 +86,19 @@ export default function HowItWorks() {
 					<hr className={styles.line}/>
 					<div className={styles.arrowRight}/>
 				</div>
+				<div className={styles.gridMiddleE}>
+					<hr className={styles.line} />
+					<div className={styles.badgeMiddle}>
+						{/* <Link
+							to={useBaseUrl('docs/glues/Herbs2mongo')}
+							className={styles.badgeLink}
+						> */}
+							Herbs 2 Mongo
+						{/* </Link> */}
+					</div>
+					<hr className={styles.line} />
+					<div className={styles.arrowRight} />
+				</div>
 				{/* GENERATED CODE */}
 				<div className={styles.gridBadgeA}>Herbs Shelf</div>
 				<div className={styles.gridBadgeB}>GraphQL</div>
