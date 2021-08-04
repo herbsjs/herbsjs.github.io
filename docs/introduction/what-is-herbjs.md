@@ -1,18 +1,15 @@
 ---
 id: herbsjs
-title: What's HerbsJs
-sidebar_label: What's HerbsJs
+title: What's Herbs?
+sidebar_label: What's Herbs?
 slug: /
+custom_edit_url: null
 ---
 
-HerbsJS is a powerful framework focused in Domain layers, we provide all resources necessary to you write your core project so we can generate all the infrastructure about your domain. 
+ <p align="center"><img src="../img/logo-herbsjs.png" height="220"></img></p>  
 
-## Clean Architecture
+Herbs is an open source library for backend applications. It is focused on achieving faster deliveries and with happier developers, without neglecting the long-term need to constantly evolve your application as requirements change.
 
-Clean Architecture was created by Robert C. Martin and promoted in his book Clean Architecture: A Craftsman’s Guide to Software Structure. Like other software design philosophies, Clean Architecture tries to provide a methodology to be used in coding, in order to facilitate code development, allow for better maintenance, updating and less dependencies.
+Herbs uses a "**Domain-First**" approach in order to achieve this: You and your team focus on your business domain and let Herbs handles the infrastructure code. Herbs will extract metadata from your domain and dynamically generate, on the fly (no code generation), your transport and repositories layers using the best existing libraries in the ecosystem. 
 
-An important goal of Clean Architecture is to provide developers with a way to organize code in a way that encapsulates business logic, but keeps it separate from the delivery mechanism.
-
-Clean Architecture was not the first software design concept that appeared, over time software architectures have been created with the same objective of solving a design principle known as SoC (separation of concerns).
-
-You will hear a lot about Clean Architecture here, so I recommend reading the book and / or that you seek to delve into this subject: [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+The world is complex, so being humble is part of Herbs' tenets. While we believe Herbs will help you in most cases, we are aware that there will be advanced scenarios that the defaults won't be enough for your application to make a difference. This means having flexible conventions, an extensible library and not replacing or hiding any abstraction important to your application. 

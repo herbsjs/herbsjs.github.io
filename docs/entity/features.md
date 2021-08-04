@@ -2,95 +2,69 @@
 id: features
 title: Features
 sidebar_label: Features
-slug: /gotu/features
+slug: /entity/features
 ---
 
-## Validation
+## Creating an Entity
 
-A value of an field can be validated against the field type or its custom validation.
+`entity(name, body)`, where:
 
-### Type Validation
+- `name`: name of the entity.
+
+- `body`: object containing the entity structure: fields and methods.
+
+- return: a Herbs entity class.
+
+Example:
 
 ```javascript
+const { entity, field } = require('@herbsjs/herbs')
 
-const Plan = 
-    entity('Plan', {
-        ...
-        monthlyCost: field(Number),
-    })
-
-const User = 
-    entity('User', {
+const Customer = 
+    entity('Customer', {
+        id: field(Number),
         name: field(String),
-        plan: field(Plan)
+        isVIP() {
+            ...
+        }
     })
 
-const user = new User()
-user.name = 42
-user.plan.monthlyCost = true
-user.validate() 
-user.errors // { name: [ wrongType: 'String' ], plan: { monthlyCost: [ wrongType: 'Number' ] } }
-user.isValid() // false
+const aCustomer = new Customer()
 ```
 
-You can also simplify you validation method using `isValid()` method that execute validate for you entity and return true/false in a single execution.
+## Fields
 
-### Custom Validation
+Defines the fields (properties) of an entity.
 
-For custom validation Gotu uses Herbs JS [Suma](https://github.com/herbsjs/suma) library under the hood. It has no message defined, only error codes.
+`field(type, options)`, where:
 
-Use `{ validation: ... }` to specify a valid Suma validation (sorry) on the field definition.
+- `type`: a scalar (JavaScript) type or a custom type.
+
+    Ex: `field(String)`. 
+
+    In order to define a field that holds an array instead of a single value use `[type]`. 
+    
+    Ex: `field([String])`.
+
+- `options`: defines the field options (ex: validations, default value, etc). 
+
+    Ex: `field(Number, { validation: { presence: true } })`
+
+- return: a entity field definition instance.
+
+Example:
 
 ```javascript
-const User = 
-    entity('User', {
-        ...
-        password: field(String, validation: { 
-            presence: true, 
-            length: { minimum: 6 }
-        })
-    })
-
-const user = new User()
-user.password = '1234'
-user.validate() 
-user.errors // { password: [ { isTooShort: 6 } ] }
-user.isValid // false
+const Order = 
+    entity('Order', {
+    id: field(Number, {
+        validation: { presence: true, length: { minimum: 3 } }
+    }),
+    date: field(Date),
+    items: field([OrderItems]),
+    ...
+})
 ```
-
-## Serialization
-
-### `fromJSON(value)`
-
-Returns a new instance of a entity
-
-```javascript
-const User = 
-    entity('User', {
-        name: field(String)
-    })
-
-// from object
-const user = User.fromJSON({ name: 'Beth'})
-// or string
-const user = User.fromJSON(`{ "name": "Beth"}`)
-```
-
-By default `fromJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
-
-### `JSON.stringify(entity)`
-
-To serialize an entity to JSON string use `JSON.stringify` or `entity.toJSON` function.
-
-```javascript
-const json = JSON.stringify(user) // { "name": "Beth" }
-```
-
-By default `toJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `entity.toJSON({ allowExtraKeys: true })`.
-
-## Field definition
-
-A entity field type has a name, type, default value, validation and more.
 
 ### Scalar types
 
@@ -102,7 +76,9 @@ A field in an entity can be of basic types, the same as those used by JavaScript
 
 `Boolean`: true or false
 
-`Date`: represents a single moment in time in a platform-independent format.
+`Date`: represents a single moment in time in a platform-independent format
+
+`Object`: the Object class represents a generic reference value type
 
 ```javascript
 const User = 
@@ -122,7 +98,6 @@ For complex types, with deep relationship between entities, a field can be of en
 const Plan = 
     entity('Plan', {
         ...
-        monthlyCost: field(Number),
     })
 
 const User = 
@@ -132,7 +107,17 @@ const User =
     })
 ```
 
-### List of Entity type
+### Array field type
+
+In order to define a field that holds an array instead of a single value use `field([String])`. 
+    
+```javascript
+const Post =
+    entity('Post', {
+        ...
+        tags: field([String])
+    })
+```
 
 For complex types, with deep relationship between entities, a field can contain a list of entity type:
 
@@ -140,13 +125,12 @@ For complex types, with deep relationship between entities, a field can contain 
 const Plan = 
     entity('Plan', {
         ...
-        monthlyCost: field(Number),
     })
 
 const User = 
     entity('User', {
         ...
-        plan: field([Plan])
+        plans: field([Plan])
     })
 ```
 
@@ -180,69 +164,185 @@ const user = new User()
 user.hasAccess // false
 ```
 
-For scalar types a default value is assumed if a default value is not given:
+When not specified, the default value (for scalar and entity types) is `undefined`.
 
+For reference types (like arrays) you **must** use functions in order to create a new object for every instance.
 
-| Type | Default Value |
-| - | - |
-| `Number` | 0 |
-| `String` | "" |
-| `Boolean` | false |
-| `Date` | null |
+❌ Wrong: `items: field([Item], { default: [] })`
 
-For entity types the default value is a new instance of that type. It is possible to use `null` as default:
+✅ Right:  `items: field([Item], { default: () => [] })`
 
-```javascript
-const User = 
-    entity('User', {
-        ...
-        plan: field(Plan, { default: null })
-    })
+## Methods
 
-const user = new User()
-user.plan // null
-```
+Defines the methods (actions) of an entity.
 
-## Method definition
-
-A method can be defined to create custom behaviour in an entity:
+Example:
 
 ```javascript
-const User = 
+const User =
     entity('User', {
         ...
         role: field(String),
         hasAccess() { return this.role === "admin" },
     })
 
-const user = new User()
-const access = user.hasAccess()
+const aUser = new User()
+aUser.role = "admin"
+const canAccess = aUser.hasAccess()
 ```
 
-## Instance Type Check - `Entity.isParentOf`
+## Validation
 
-Check if a instance is the same type from its parent entity class (similar to `instanceOf`)
+The values of an entity fields can be validated against the fields types or values validations.
+
+### Check Validation
+
+`instance.isValid()`: returns `true` if all the validations passed. It call `.validate()` internally.
+
+`instance.validate()`: process the validation and load all errors into `.errors`.
+
+`instance.errors`: list of errors.
 
 ```javascript
-        const AnEntity = entity('A entity', {})
-        const AnSecondEntity = entity('A second entity', {})
+const User = 
+    entity('User', {
+        name: field(String),
+    })
 
-        const instance1 = new AnEntity()
-        const instance2 = new AnSecondEntity()
+const user = new User()
+user.name = "Joe"
+user.validate() 
+user.errors // {}
+user.isValid() // true
+```
+
+### Type Validation
+
+It is possible to validate the type of a value .
+
+```javascript
+const Plan = 
+    entity('Plan', {
+        ...
+        monthlyCost: field(Number),
+    })
+
+const User = 
+    entity('User', {
+        name: field(String),
+        plan: field(Plan)
+    })
+
+const user = new User()
+user.name = 42
+user.plan.monthlyCost = true
+user.validate() 
+user.errors // { name: [ wrongType: 'String' ], plan: { monthlyCost: [ wrongType: 'Number' ] } }
+user.isValid() // false
+```
+
+You can also simplify you validation method using `isValid()` method that execute validate for you entity and return true/false in a single execution.
+
+```javascript
+
+const Plan =
+    entity('Plan', {
+        ...
+        monthlyCost: field(Number),
+    })
+
+const plan = new Plan()
+plan.plan.monthlyCost = true
+plan.isValid() // false
+plan.errors // { monthlyCost: [ wrongType: 'Number' ] }
+
+```
+
+### Value Validation
+
+It is possible to validate values through pre-existing validators or custom validators.
+
+Use `{ validation: ... }` to specify the [validators](/docs/entity/validation).
+
+```javascript
+const User = 
+    entity('User', {
+        ...
+        password: field(String, {
+            validation: {
+                presence: true,
+                length: { minimum: 6 }
+            }
+        })
+    })
+
+const user = new User()
+user.password = '1234'
+user.validate() 
+user.errors // { password: [ { isTooShort: 6 } ] }
+user.isValid() // false
+```
+
+## Serialization
+
+### fromJSON(value)
+
+Returns a new instance of a entity based on a object or a string.
+
+```javascript
+const User = 
+    entity('User', {
+        name: field(String)
+    })
+
+// from object
+const user = User.fromJSON({ name: 'Beth'})
+// or string
+const user = User.fromJSON(`{ "name": "Beth"}`)
+```
+
+By default `fromJSON` serializes only keys that have been defined in the entity as fields. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
+
+By default, `fromJSON` **default field** values will be applied for keys not present in `value`.
+
+
+### JSON.stringify(entity)
+
+To serialize an entity to JSON string use `JSON.stringify` or `entity.toJSON` function.
+
+```javascript
+const json = JSON.stringify(user) // { "name": "Beth" }
+```
+
+By default `toJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `entity.toJSON({ allowExtraKeys: true })`.
+
+
+## Instance Type Check - `Entity.parentOf`
+
+Check if a instance is the same type from its parent entity class (similar to `instanceOf`).
+
+```javascript
+        const User = entity('User', {...})
+        const Customer = entity('Customer', {...})
+
+        const aUser = new User()
+        const aCustomer = new Customer()
         
-        AnEntity.isParentOf(instance1) // true
-        AnEntity.isParentOf(instance2) // false
+        User.parentOf(aUser) // true
+        User.parentOf(aCustomer) // false
 ```
 
 ## Entity Type Check - `entity.isEntity`
 
-Check if an object is a Gotu Entity class
+Check if an object is a Gotu Entity class.
 
 ```javascript
-        const AnEntity = entity('A entity', {})
+    const { entity } = require('@herbsjs/herbs')
 
-        const instance1 = new AnEntity()
-        
-        entity.isEntity(AnEntity) // true
-        entity.isEntity(Object) // false
+    const AnEntity = entity('A entity', {})
+
+    const instance1 = new AnEntity()
+    
+    entity.isEntity(AnEntity) // true
+    entity.isEntity(Object) // false
 ```

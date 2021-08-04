@@ -1,263 +1,289 @@
 .container {
-  display: grid;
-  grid-template-columns: 32% 30% 20%;
-  grid-template-rows: 25% 25% 25% 25%;
-  grid-template-areas: 
-    "circle middleA badgeA"
-    "circle middleB badgeB"
-    "circle middleC badgeC"
-    "circle middleD badgeD";
-  max-width: 98%;
-  margin: auto;
-  column-gap: 5px;
-  row-gap: 5px;
-  justify-content: center;
+	display: grid;
+	display: -moz-grid;
+	grid-template-columns: 26% 10% 20% 20%;
+	grid-template-rows: 25% 25% 25% 25%;
+	grid-template-areas:
+		'circle circle middleA badgeA'
+		'circle circle middleB badgeB'
+		'circle circle middleC badgeC'
+		'circle circle middleD badgeD';
+	max-width: 100%;
+	margin: auto;
+	column-gap: 5px;
+	-moz-column-gap: 5px;
+	row-gap: 5px;
+	-moz-row-gap: 5px;
+	justify-content: center;
 }
 .circlesContent {
-  position:relative;
-  height: 560px;
-  max-width:560px;
-  max-height: 560px;
-  grid-area: circle;
-  align-self: center;
+	position: relative;
+	height: 560px;
+	max-width: 560px;
+	max-height: 560px;
+	grid-area: circle;
+	align-self: center;
 }
 .circles {
-  position: absolute;
-  border-radius: 50%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  top: 50%;
-  left: 50%;
-  right: 0;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+	position: absolute;
+	border-radius: 50%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	top: 50%;
+	left: 50%;
+	right: 0;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 .outerCircle {
-  composes: circles;
-  width: 100%;
-  padding-bottom: 100%;
-  max-height: 560px;
-  height: auto;
-  background-color: #78744d4d;
+	composes: circles;
+	background-color: #d6d5c9;
+	width: 100%;
+	height: auto;
+	padding-bottom: 100%;
+	max-height: 560px;
+}
+.outerCircle h2 {
+	margin-top: 10px;
 }
 .innerCircle {
-  composes: circles;
-  background-color: rgba(201, 152, 70, 0.3);
-  border: 2px dashed #C99846;
-  width:  80%;
-  height: auto;
-  padding-bottom: 80%;
-  max-height: 450px;
+	composes: circles;
+	background-color: rgba(201, 152, 70, 0.3);
+	border: 2px dashed #c99846;
+	width: 80%;
+	height: auto;
+	padding-bottom: 80%;
+	max-height: 450px;
 }
 .innerCircle img {
-  max-width: 150px;
-  position: absolute;
-  top: 15%;
-  left: 45%;
-  -webkit-transform: translate(-30%,-50%);
-      -ms-transform: translate(-30%,-50%);
-          transform: translate(-30%,-50%);
+	max-width: 150px;
+	position: absolute;
+	top: 15%;
+	left: 45%;
+	-webkit-transform: translate(-30%, -50%);
+	-ms-transform: translate(-30%, -50%);
+	transform: translate(-30%, -50%);
 }
 .innerCircle h2 {
-  left: 40%;
-  position: absolute;
-  text-align: center;
+	left: 40%;
+	position: absolute;
+	text-align: center;
 }
 .innerInnerCircle {
-  width: 33%;
-  height: auto;
-  padding-bottom: 33%;
-  max-height: 150px;
-  background-color: #C99846;
+	width: 33%;
+	height: auto;
+	padding-bottom: 33%;
+	max-height: 150px;
+	background-color: #c99846;
 }
 .innerInnerCircleA {
-  composes: circles;
-  composes: innerInnerCircle;
-  top: 45%;
-  left: 0%;
+	composes: circles;
+	composes: innerInnerCircle;
+	top: 45%;
+	left: 0%;
 }
 .innerInnerCircleB {
-  composes: circles;
-  composes: innerInnerCircle;
-  top: 55%;
-  left: 65%;
+	composes: circles;
+	composes: innerInnerCircle;
+	top: 55%;
+	left: 65%;
 }
-.innerInnerCircleA h3, .innerInnerCircleB h3  {
-  color: #FFFFFF;
-  position: absolute;
-  text-align: center;
-  text-transform: unset;
-  margin-left: auto;
-  margin-right: auto;
-  font-Size: 1.5em;
-  hyphens: auto;
-  left: 0;
-  right: 0;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+.innerInnerCircleA h3,
+.innerInnerCircleB h3 {
+	color: #ffffff;
+	position: absolute;
+	text-align: center;
+	text-transform: unset;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 1.5em;
+	hyphens: auto;
+	left: 0;
+	right: 0;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
-.badgeMiddle{
-  background: #C7C7C7;
-  border: 2px dashed #505050;
-  box-sizing: border-box;
-  border-radius: 6px;
-  color: #505050;
-  text-align: center;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 600;
-  padding: .2em .6em;
-  width: 155px;
-  align-self: center;
+.badgeMiddle {
+	background: #c7c7c7;
+	border: 2px dashed #505050;
+	box-sizing: border-box;
+	border-radius: 6px;
+	color: #505050;
+	text-align: center;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-weight: 600;
+	padding: 0.2em 0.6em;
+	width: 155px;
+	align-self: center;
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
+}
+.circleLink {
+	color: #ffffff;
+}
+.circleLink:hover {
+	color: #505050;
+}
+.badgeLink {
+	color: #505050;
 }
 .gridMiddle {
-  align-self: center;
-  display: flex;
+	-ms-flex-item-align: center;
+	    align-self: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
 }
 .gridMiddleA {
-  composes: gridMiddle;
-  grid-area: middleA;
+	composes: gridMiddle;
+	grid-area: middleA;
+	grid-column-start: 2;
 }
 .gridMiddleB {
-  composes: gridMiddle;
-  grid-area: middleB;
+	composes: gridMiddle;
+	grid-area: middleB;
+	grid-column-start: 2;
 }
 .gridMiddleC {
-  composes: gridMiddle;
-  grid-area: middleC;
+	composes: gridMiddle;
+	grid-area: middleC;
+	grid-column-start: 2;
 }
 .gridMiddleD {
-  composes: gridMiddle;
-  grid-area: middleD;
+	composes: gridMiddle;
+	grid-area: middleD;
+	grid-column-start: 2;
 }
 .line {
-  width: 25%;
-  background-color: #505050;
-  border-color: #505050;
-  height: 2px;
+	width: 30%;
+	background-color: #505050;
+	border-color: #505050;
+	height: 2px;
 }
 .arrowRight {
-  width: 0; 
-  height: 0; 
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-top: 12px solid #505050;
-  display:inline-block;
-  transform:  rotate(-90deg) translate(-20px, -6px);
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 12px solid #505050;
+	display: inline-block;
+	transform: rotate(-90deg) translate(-20px, -6px);
 }
 
 .badge {
-  background-color: rgba(147, 113, 71, 0.6);
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 600;
-  border: 2px dashed #937147;
-  box-sizing: border-box;
-  border-radius: 100px;
-  padding: 15px;
-  color: #FFFFFF;
-  margin-bottom: 1em;
-  max-width: 240px;
-  text-align: center;
-  align-self: center;
+	background-color: rgba(147, 113, 71, 0.6);
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-weight: 600;
+	border: 2px dashed #937147;
+	box-sizing: border-box;
+	border-radius: 100px;
+	padding: 15px;
+	color: #ffffff;
+	max-width: 240px;
+	text-align: center;
+	align-self: center;
 }
 
 .gridBadgeA {
-  composes: badge;
-  grid-area: badgeA;
+	composes: badge;
+	grid-area: badgeA;
 }
 .gridBadgeB {
-  composes: badge;
-  grid-area: badgeB;
+	composes: badge;
+	grid-area: badgeB;
 }
 .gridBadgeC {
-  composes: badge;
-  grid-area: badgeC;
+	composes: badge;
+	grid-area: badgeC;
 }
 .gridBadgeD {
-  composes: badge;
-  grid-area: badgeD;
+	composes: badge;
+	grid-area: badgeD;
 }
-
 
 .legends {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
-  justify-content: space-around;
-  margin-top: 2em;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: auto;
+	justify-content: space-around;
+	margin-top: 2em;
+}
+.legends div {
+	display: flex;
+	align-items: center;
 }
 .legendCircle {
-  box-sizing: border-box;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  margin-left: -25px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
 }
 .legendA {
-  composes: legendCircle;
-  border: 1px dashed #C99846;
-  background: rgba(201, 152, 70, 0.3);
+	composes: legendCircle;
+	border: 1px dashed #c99846;
+	background: rgba(201, 152, 70, 0.3);
 }
 .legendB {
-  composes: legendCircle;
-  border: 1px solid #78744D;
-  background: rgba(120, 116, 77, 0.3);
+	composes: legendCircle;
+	border: 1px solid #78744d;
+	background: rgba(120, 116, 77, 0.3);
 }
 .legendC {
-  composes: legendCircle;
-  border: 1px dashed #505050;
-  background: #C7C7C7;
+	composes: legendCircle;
+	border: 1px dashed #505050;
+	background: #c7c7c7;
 }
 .legendD {
-  composes: legendCircle;
-  border: 1px dashed #937147;
-  background: rgba(147, 113, 71, 0.6);
-}
-
-/* mobile */
-@media only screen and (min-width: 768px) { 
-  /* .circlesContent {
-    height: 360px;
-  } */
-  .innerCircle img{
-    width: 90px;
-  }
-  .innerCircle h2{
-    bottom: 1%;
-    left: 35%;
-  }
+	composes: legendCircle;
+	border: 1px dashed #937147;
+	background: rgba(147, 113, 71, 0.6);
 }
 
 /* tablet */
+@media only screen and (min-width: 768px) {
+	.innerCircle img {
+		width: 90px;
+	}
+	.innerCircle h2 {
+		bottom: 1%;
+		left: 35%;
+	}
+}
+
+/* mobile */
 @media screen and (max-width: 768px) {
-  .circlesContent {
-    height: 160px;
-  }
-  .container {
-    display: grid;
-    grid-template-columns: 35% 35% 30%;
-  }
-  .innerCircle img{
-    width: 50px;
-  }
-  .outerCircle h2, .innerCircle h2{
-    font-Size: 1em;
-  }
-  .innerCircle h2{
-    bottom: 1%;
-    left: 25%;
-  }
-  .innerInnerCircleA h3, .innerInnerCircleB h3  {
-    font-Size: .7em;
-  }
-  .badge {
-    padding: .2rem;
-  }
+	.circlesContent {
+		height: 160px;
+	}
+	.container {
+		display: grid;
+		grid-template-columns: 30% 6% 38% 20%;
+		row-gap: 10px;
+	}
+	.innerCircle img {
+		width: 50px;
+	}
+	.outerCircle h2,
+	.innerCircle h2 {
+		font-size: 1em;
+	}
+	.innerCircle h2 {
+		bottom: 1%;
+		left: 25%;
+	}
+	.innerInnerCircleA h3,
+	.innerInnerCircleB h3 {
+		font-size: 0.7em;
+	}
+	.badge {
+		padding: 0.2rem;
+	}
 }

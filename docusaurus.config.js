@@ -9,10 +9,14 @@ module.exports = {
   organizationName: 'herbsjs',
   projectName: 'website',
   themeConfig: {
+    gtag: {
+      trackingID: 'G-LMCPKQXZHH'
+    },
     navbar: {
       logo: {
         alt: 'HerbsJs\'s logo',
         src: 'img/herbsjs.svg',
+        srcDark: 'img/herbsjs-white.png',
       },
       items: [
         {
@@ -20,11 +24,6 @@ module.exports = {
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'right',
-        },
-        {
-          to: 'blog',
-          label: 'Blog',
-          position: 'right'
         },
         {
           href: 'https://github.com/herbsjs',
@@ -35,7 +34,7 @@ module.exports = {
     },
     footer: {
       logo: {
-        alt: 'HerbsJS Logo',
+        alt: 'Herbs Logo',
         src: 'img/logo-herbsjs-branco.png',
       },
       links: [
@@ -43,8 +42,12 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Documentation Guide',
               to: 'docs/',
+            },
+            {
+              label: 'Forum',
+              to: 'https://github.com/herbsjs/forum',
             }
           ],
         },
@@ -67,20 +70,25 @@ module.exports = {
         },
         {
           title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
+          items: [           
             {
               label: 'GitHub',
               href: 'https://github.com/herbsjs',
             },
+            {
+              label: 'Acknowledgements',
+              to: 'docs/institutional/acknowledgements',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} HerbsJS`,
     },
+    colorMode: {
+      switchConfig: {
+        darkIcon: " ",
+        lightIcon: " ",
+      }
+    }
   },
   presets: [
     [
@@ -90,18 +98,12 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/herbsjs/website/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/herbsjs/website/edit/master/website/blog/',
+            'https://github.com/herbsjs/herbsjs.github.io',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      },
+      },      
     ],
   ],
 };
