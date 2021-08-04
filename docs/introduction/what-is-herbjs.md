@@ -1,13 +1,15 @@
 ---
 id: herbsjs
-title: What's HerbsJs
-sidebar_label: What's HerbsJs
+title: What's Herbs?
+sidebar_label: What's Herbs?
 slug: /
+custom_edit_url: null
 ---
 
  <p align="center"><img src="../img/logo-herbsjs.png" height="220"></img></p>  
 
+Herbs is an open source library for backend applications. It is focused on achieving faster deliveries and with happier developers, without neglecting the long-term need to constantly evolve your application as requirements change.
 
-HerbsJS is an evolutionary and open source library, focused in Domain layers, we provide all resources necessary to you write your core project so we can generate all the infrastructure about your domain. 
+Herbs uses a "**Domain-First**" approach in order to achieve this: You and your team focus on your business domain and let Herbs handles the infrastructure code. Herbs will extract metadata from your domain and dynamically generate, on the fly (no code generation), your transport and repositories layers using the best existing libraries in the ecosystem. 
 
-So, we can summarize herbsJS as a support library for creating business-level applications, where you focus on writing code around your domain and so herbsJS will generate the code for your infrastructure
+The world is complex, so being humble is part of Herbs' tenets. While we believe Herbs will help you in most cases, we are aware that there will be advanced scenarios that the defaults won't be enough for your application to make a difference. This means having flexible conventions, an extensible library and not replacing or hiding any abstraction important to your application. 

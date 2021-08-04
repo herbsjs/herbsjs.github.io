@@ -9,10 +9,14 @@ module.exports = {
   organizationName: 'herbsjs',
   projectName: 'website',
   themeConfig: {
+    gtag: {
+      trackingID: 'G-LMCPKQXZHH'
+    },
     navbar: {
       logo: {
         alt: 'HerbsJs\'s logo',
-        src: 'img/logo-herbsjs.png',
+        src: 'img/herbsjs.svg',
+        srcDark: 'img/herbsjs-white.png',
       },
       items: [
         {
@@ -30,7 +34,7 @@ module.exports = {
     },
     footer: {
       logo: {
-        alt: 'HerbsJS Logo',
+        alt: 'Herbs Logo',
         src: 'img/logo-herbsjs-branco.png',
       },
       links: [
@@ -38,8 +42,12 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Documentation Guide',
               to: 'docs/',
+            },
+            {
+              label: 'Forum',
+              to: 'https://github.com/herbsjs/forum',
             }
           ],
         },
@@ -67,10 +75,20 @@ module.exports = {
               label: 'GitHub',
               href: 'https://github.com/herbsjs',
             },
+            {
+              label: 'Acknowledgements',
+              to: 'docs/institutional/acknowledgements',
+            },
           ],
         },
       ],
     },
+    colorMode: {
+      switchConfig: {
+        darkIcon: " ",
+        lightIcon: " ",
+      }
+    }
   },
   presets: [
     [
@@ -85,7 +103,7 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      },
+      },      
     ],
   ],
 };

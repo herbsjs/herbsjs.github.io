@@ -11,9 +11,9 @@ slug: /glues/Herbs2knex
 herbs2knex creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Knex](http://knexjs.org).
 
 ### Installing
-
-    $ npm install herbs2knex
-
+```
+   npm install @herbsjs/herbs2knex
+```
 ### Using
 
 `connection.js` - Knex initialization:
@@ -25,7 +25,7 @@ module.exports = knex(config)
 
 `itemRepository.js`:
 ```javascript
-const { Repository } = require('herbs2knex')
+const { Repository } = require('@herbsjs/herbs2knex')
 const connection = require('connection')
 const { Item } = require('../domain/entities/item')
 
@@ -57,7 +57,7 @@ A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design
 
 ### Herbs2knex Repository
 
-In order to boost productivity Herbs2knex provides way to dynamically generate a repository class based on your Entities and other metadata. 
+In order to boost productivity Herbs2knex provides way to dynamically generate, on the fly (no code generation), a repository class based on your Entities and other metadata. 
 
 These metadata are necessary to close the gap between OOP concepts and paradigms and those of relational databases. For example, it is necessary to specify primary keys and foreign keys as these information do not exist in the description of your domain.
 
@@ -72,7 +72,7 @@ The advantage of using Knex is that is a simple and flexible SQL query builder. 
 ### Repository setup
 
 ```javascript
-const { Repository } = require('herbs2knex')
+const { Repository } = require('@herbsjs/herbs2knex')
 const connection = require('connection')  // Knex initialize instance
 const { ProductItem } = require('../domain/entities/productItem')
 

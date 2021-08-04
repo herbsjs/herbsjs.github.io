@@ -1,36 +1,45 @@
-import React from 'react';
-import styles from './styles.module.css';
-import clsx from 'clsx';
+import React from "react";
+import styles from "./styles.module.css";
+import clsx from "clsx";
 
 export default function Features() {
   const features = [
     {
       title: `Domain that matters`,
-      imageUrl: '/img/web.png',
-      description: "Code your domain first using Herbs and the infrastructure will follow so stop to spend time with redundant code. At same time we are flexible, for advanced scenarios you can provide your own code and change the behaviour."
+      imageUrl: "/img/web.png",
+      description:
+        "Stop spending time with redundant and low impact code. Code your domain first using Herbs and the necessary infrastructure will be generated on the fly.",
     },
     {
-      title: 'Keep it clean',
-      imageUrl: '/img/stars.png',
-      description: "Our main concern is maintainability. Create and evolve your code knowing your project will not become a big ball of mud even on a multi year project. Concepts like Clean Architecture and Clean Code are at its core."
+      title: "Keep it clean",
+      imageUrl: "/img/stars.png",
+      description:
+        "No more sloppy, hard to change code. Create maintainable software using Clean Architecture and Domain Driven Design with Herbs.",
     },
     {
-      title: 'Auditable and Secure',
-      imageUrl: '/img/secure-shield.png',
-      description: "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are be available out of the box. You can still opt-out if needed."
+      title: "Auditable and Secure",
+      imageUrl: "/img/secure-shield.png",
+      description:
+        "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are available out of the box.",
     },
   ];
   return (
     <section className={styles.features}>
-        <div className="row">
-          {features.map(feature => (
-            <div className={clsx('col col--4', styles.feature)}>
-              <h3><img className={styles.featureImage} src={feature.imageUrl} alt={feature.title} />{feature.title}</h3>
-              <p>{feature.description}</p>
-            </div>)
-          )}
-          
-        </div>
+      <div className="row">
+        {features.map((feature) => (
+          <div className={clsx("col col--4", styles.feature)}>
+            <h3 className={styles.featureTitle}>
+              <img
+                className={styles.featureImage}
+                src={feature.imageUrl}
+                alt={feature.title}
+              />
+              {feature.title}
+            </h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

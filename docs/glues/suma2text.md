@@ -12,15 +12,16 @@ suma2text it's a tool to parse error codes to string, you can use in all your so
 Suma and suma2text native, you can translate all suma error codes, one by one or all entity error array.
 
 ### Installing
-
-    $ npm install suma2text
+```
+  npm install @herbsjs/suma2text
+```
 
 ### Using
 
 If your use is simple, you can just require suma2text, and execute this configure function, by default the language will be English from the united states (ISO CODE en-US).
 
 ```javascript
-const suma2text = require('suma2text')()
+const suma2text = require('@herbsjs/suma2text')()
 
 const suma2text.toText({ notDefined: true })
 /*
@@ -31,7 +32,7 @@ const suma2text.toText({ notDefined: true })
 You also can add a different language or customize the existing, just pass the following parameters on require function.
 
 ```javascript
-const suma2text = require('suma2text')({
+const suma2text = require('@herbsjs/suma2text')({
     useDefault: 'ts-ME',
     languages: [{
             name: 'ts-ME',
@@ -97,7 +98,7 @@ user.plan.monthlyCost = true
 user.validate()
 user.errors // { name: [ {wrongType: 'String'} ], plan: { monthlyCost: [ {wrongType: 'Number'}  } }
 
-const suma2text = require('suma2text')()
+const suma2text = require('@herbsjs/suma2text')()
 
 const englishUserErrors = suma2text.errorsToText(user.errors)
 /*

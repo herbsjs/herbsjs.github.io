@@ -1,26 +1,32 @@
 ---
 id: ecosystem
-title: The HerbsJS Ecosystem
+title: Ecosystem
 slug: /introduction/ecosystem
+custom_edit_url: null
 ---
 
+There are three primitive herbs libraries that are at Herbs' core, helping modeling your domain and preparing it to expose metadata. To consume these metadata and bring value to your domain there are [glue](docs/glues) libraries. They create bridges between Herbs core and other libraries already consolidated in the node.js community.
 
-Today herbs has 3 primary libraries and some glues, which you can learn more about in our official github repository on [herbjs github](https://github.com/herbsjs)
+## Herbs Core
 
-However, I find it worthwhile to highlight the 3 main libraries of herbsJS here: **suma**, **gotu** and **buchu**.
+[**Gotu**](https://github.com/herbsjs/gotu): Model your business [entities](/docs/entity/getting-started) with validation and business rules.
 
-**[Suma](/docs/libs/suma)** - Suma helps with single value validations. Extensible and error code only! In short, it does not validate schemes or objects, only unique values.
+[**Buchu**](https://github.com/herbsjs/buchu): Model your [use cases](/docs/usecase/getting-started) to be readable, auditable and secure.
 
-**[Gotu](/docs/entity)** - Gotu helps to define your business entities. Entities: they are the first natural place where we should aim to put the business logic in domain-oriented applications.
+[**Suma**](https://github.com/herbsjs/suma): It is the base library for value validation used internally by Gotu and Buchu.
 
-**[Buchu](/docs/usecase)** - Uniform, auditable and secure javascript library of use cases. Influenced by Clean Architecture and Trailblazer
+## Herbs Core distribuition
 
-## Keep it simple
+[**Herbs**](https://github.com/herbsjs/herbs): We put the core libraries into a single distribution by reference, as we believe that all the main features can be made available through a simple command: 
 
-If you're just going to consume the library, the idea is not to complicate it.
+```
+ npm install @herbsjs/herbs 
+```
 
-We have already talked here about the complexity of business rules and how we try to solve this with herbsJS, but if you look closely, you can see that at the center of the concept of clean architecture, you will notice that use cases are the center of everything, it is there that the business rule remains, together with the entities that guide and model the behavior of that system. HerbsJS was born from there, to try to describe complex business rules in an easy way for humans and machines to read.
+## Glues
 
-You don't need to decorate or know in depth what each primary library does, but each one takes care of a part of the core of your code.
+Glues are libraries that consume your domain's metadata and dynamically generate for you a significant part of the infrastructure API on the fly (no code generation), such as REST endpoints and controllers, resolvers and types for GraphQL, specialized repositories, as well as documentation and other features that we haven't even imagined yet.
 
-In the next sections of our documentation you will learn a little more about them and how to get the best out of HerbsJS for your application.
+There are some Glues maintained directly by the Herbs core developers, but we believe that the ecosystem is still in its infancy, so we encourage the creation of other Glues and thus help more developers to unlock their domains.
+
+To better understand what a Glue is and which ones are ready to use, visit the [Glues](/docs/glues) page.
