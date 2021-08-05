@@ -2,35 +2,103 @@
 id: getting-started
 title: Getting Started with Herbs
 sidebar_label: Getting Started
-slug: /introduction/getting-started
+slug: /
 custom_edit_url: null
 ---
 
-We created an example repository, completely full stack so you can see the applicability of Herbs in a project closer to the real world.
+## Installation
 
-Within this repository, you will find a front-end application, made in react consuming a back-end application, using herbsJS, the API is made in graphQL
+Herbs is available as an [npm package](https://www.npmjs.com/package/@herbsjs/herbs).
+
+To install and save in your package.json dependencies, run:
+
+```
+// with npm
+npm install npm i @herbsjs/herbs
+
+// with yarn
+yarn add npm i @herbsjs/herbs
+```
+
+## Using
+
+Here's a quick example to get you started, it's literally all you need:
+
+```
+import { entity, field, Ok, Err, usecase, step, ifElse  } from '@herbsjs/herbs'
+
+const Item = entity('Item', {
+  id: field(Number),
+  description: field(String),
+  isDone: field(Boolean),
+  position: field(Number)
+})
+
+const dependency = {
+    ItemRepository: require('../repositories/ItemRepository').ItemRepository,
+    ...
+}
+
+const addOrUpdateItem = (injection) =>
+
+usecase('Add or Update an Item on a to-do List', {
+
+    // Input/Request type validation
+    request: { listId: Number, item: Item },
+
+    // Output/Response type
+    response: { item: Item },
+
+    // Authorization Audit
+    authorize: async (user) => user.isAdmin ? Ok() : Err(),
+
+    // Dependency Injection control
+    setup: (ctx) => ctx.di = Object.assign({}, dependency, injection),
+
+    // Step audit and description
+    'Check if the Item is valid': step((ctx) => {
+        ...
+        return item.validate() // Ok or Error
+    }),
+
+    'Check if the List exists': step(async (ctx) => {
+        ...
+        return Ok()
+    }),
+
+    // Conditional step
+    'Add or Update the Item': ifElse({
+
+        'If the Item exists': step(async (ctx) => {
+            ...
+            return Ok(newItem)
+        }),
+
+        'Then: Add a new Item to the List': step(async (ctx) => {
+            ...
+            return ctx.ret = await itemRepo.save(item) // Ok or Error
+        }),
+
+        'Else: Update Item on the List': step(async (ctx) => {
+            ...
+            return ctx.ret = await itemRepo.save(item) // Ok or Error
+        })
+    })
+})
+
+
+
+```
+
+## Take a tour of our sample application
+
+We created an example repository, that you can see the applicability of Herbs in a project closer to the real world. This application consists in a GraphQL API usings Herbs and a [template](https://github.com/herbsjs/todolist-on-herbs/generate) to use with this repository
 
 So, you can start with HerbJS, taking a look at the [sample repository](https://github.com/herbsjs/todolist-on-herbs), or follow this documentation to get more knowledge of how to use herbsJS
 
 ## Forum & Discussions
 
 We have a forum, where we have discussions, questions and doubts about the world around herbsJS. Any question, you can communicate with the community through this link: [Herbs Forum](https://github.com/herbsjs/forum)
-
-
-## TO DO list on Herbs
-
-This is a example on how to build a application using [Herbs](https://github.com/herbsjs).
-
-### Using
-
-This application consists in two parts:
-
-- Backend: Is a GraphQL API usings Herbs [repository link](https://github.com/herbsjs/todolist-on-herbs/tree/master/backend)
-- Frontend: Is a web application using react with hooks [repository link](https://github.com/herbsjs/todolist-on-herbs/tree/master/frontend)
-
-In those links you will find how to use Herbs and build awesome API's and how to consume inside front-end applications
-
-We also provide a [template](https://github.com/herbsjs/todolist-on-herbs/generate) to use with this repository
 
 ## Next steps
 
