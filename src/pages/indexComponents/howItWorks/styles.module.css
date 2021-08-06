@@ -2,13 +2,13 @@
 	display: grid;
 	display: -moz-grid;
 	grid-template-columns: 26% 10% 20% 20%;
-	grid-template-rows: 20% 20% 20% 20% 20%;
+	grid-template-rows: 15% 15% 15% 15% 15%;
 	grid-template-areas:
 		'circle circle middleA badgeA'
 		'circle circle middleB badgeB'
 		'circle circle middleC badgeC'
-		'circle circle middleE badgeC'
-		'circle circle middleD badgeD';
+		'circle circle middleD badgeD'
+		'circle circle middleE badgeE';
 	max-width: 100%;
 	margin: auto;
 	column-gap: 5px;
@@ -207,12 +207,14 @@
 .gridBadgeC {
 	composes: badge;
 	grid-area: badgeC;
-	padding: 40px;
-	border-radius: 40px;
 }
 .gridBadgeD {
 	composes: badge;
 	grid-area: badgeD;
+}
+.gridBadgeE {
+	composes: badge;
+	grid-area: badgeE;
 }
 .legends {
 	display: flex;
