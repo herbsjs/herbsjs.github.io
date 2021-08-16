@@ -1,6 +1,6 @@
 ---
 id: features
-title: Features
+title: Usecase Features
 sidebar_label: Features
 slug: /usecase/features
 ---
