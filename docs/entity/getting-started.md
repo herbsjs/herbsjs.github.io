@@ -1,6 +1,6 @@
 ---
 id: gettingStarted
-title: Getting Started
+title: Getting Started with Entities
 sidebar_label: Getting Started
 slug: /entity/getting-started
 ---

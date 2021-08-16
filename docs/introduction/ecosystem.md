@@ -5,7 +5,7 @@ slug: /introduction/ecosystem
 custom_edit_url: null
 ---
 
-There are three primitive herbs libraries that are at Herbs' core, helping modeling your domain and preparing it to expose metadata. To consume these metadata and bring value to your domain there are [glue](docs/glues) libraries. They create bridges between Herbs core and other libraries already consolidated in the node.js community.
+There are three primitive herbs libraries that are at Herbs' core, helping modeling your domain and preparing it to expose metadata. To consume these metadata and bring value to your domain there are [glue](/docs/glues) libraries. They create bridges between Herbs core and other libraries already consolidated in the node.js community.
 
 ## Herbs Core
 
