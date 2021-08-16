@@ -1,7 +1,7 @@
 module.exports = {
   title: 'HerbsJS',
   tagline: 'Domain first - The core that matters',
-  url: 'https://herbsjs.github.io',
+  url: 'https://herbsjs.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
