@@ -10,7 +10,7 @@ import packageVersion from '../services/package-version'
 
 function Home() {
 	const context = useDocusaurusContext()
-	const [version, setVersion] = useState('')
+	const [version, setVersion] = useState(null)
 
 	const userZoom = (typeof window !== "undefined" && window.devicePixelRatio > 1)
 		? `${100 / (window.devicePixelRatio * 0.9)}%`
@@ -18,7 +18,7 @@ function Home() {
 
 	useEffect(async () => {
 		const npmMeta = await packageVersion('@herbsjs/herbs')
-		setVersion(npmMeta.package.version)
+		if(npmMeta.package) setVersion(npmMeta.package.version)
 	}, [])
 
 	const { siteConfig = {} } = context
