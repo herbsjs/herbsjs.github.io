@@ -49,7 +49,7 @@ const Banner = ({ version }) => {
 					</Link>
 				</div>
 				<div className={styles.versionInfo}>
-					<p>Last stable version {version}</p>
+					{version && <p>Last stable version {version}</p>}
 				</div>
 			</div>
 		</header>

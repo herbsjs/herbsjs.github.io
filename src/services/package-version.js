@@ -4,7 +4,7 @@ const packageVersion = async (name) => {
         const { objects } = await request.json()
         return objects.find(pkg => pkg.package.name === name)
     } catch (error) {
-        return { package: { version: '0.0.0' } }
+        return { package: null }
     }
 }
 
