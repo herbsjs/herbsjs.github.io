@@ -24,3 +24,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.versionInfo {
+  font-size: 0.7em;
+  font-style: italic;
+  padding: 20px;
+}

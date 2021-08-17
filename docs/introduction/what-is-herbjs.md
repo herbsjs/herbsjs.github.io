@@ -2,11 +2,11 @@
 id: herbsjs
 title: What's Herbs?
 sidebar_label: What's Herbs?
-slug: /
+slug: /introduction/whats-herbs
 custom_edit_url: null
 ---
 
- <p align="center"><img src="../img/logo-herbsjs.png" height="220"></img></p>  
+ <p align="center"><img src="../../img/logo-herbsjs.png" height="220"></img></p>  
 
 Herbs is an open source library for backend applications. It is focused on achieving faster deliveries and with happier developers, without neglecting the long-term need to constantly evolve your application as requirements change.
 
