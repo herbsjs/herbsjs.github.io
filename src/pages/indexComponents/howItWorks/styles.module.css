@@ -2,12 +2,13 @@
 	display: grid;
 	display: -moz-grid;
 	grid-template-columns: 26% 10% 20% 20%;
-	grid-template-rows: 25% 25% 25% 25%;
+	grid-template-rows: 15% 15% 15% 15% 15%;
 	grid-template-areas:
 		'circle circle middleA badgeA'
 		'circle circle middleB badgeB'
 		'circle circle middleC badgeC'
-		'circle circle middleD badgeD';
+		'circle circle middleD badgeD'
+		'circle circle middleE badgeE';
 	max-width: 100%;
 	margin: auto;
 	column-gap: 5px;
@@ -160,6 +161,11 @@
 	grid-area: middleD;
 	grid-column-start: 2;
 }
+.gridMiddleE {
+	composes: gridMiddle;
+	grid-area: middleE;
+	grid-column-start: 2;
+}
 .line {
 	width: 30%;
 	background-color: #505050;
@@ -206,7 +212,10 @@
 	composes: badge;
 	grid-area: badgeD;
 }
-
+.gridBadgeE {
+	composes: badge;
+	grid-area: badgeE;
+}
 .legends {
 	display: flex;
 	flex-wrap: wrap;

@@ -1,6 +1,6 @@
 ---
 id: gettingStarted
-title: Getting Started
+title: Getting Started with Usecases
 sidebar_label: Getting Started
 slug: /usecase/getting-started
 ---

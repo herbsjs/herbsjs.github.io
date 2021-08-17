@@ -1,6 +1,6 @@
 ---
 id: features
-title: Features
+title: Entity Features
 sidebar_label: Features
 slug: /entity/features
 ---
