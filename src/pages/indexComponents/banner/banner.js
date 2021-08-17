@@ -35,7 +35,7 @@ const Banner = ({ version }) => {
 							styles.getStarted
 						)}
 						to={useBaseUrl('docs/')}
-					>]
+					>
 						Get started
 					</Link>{' '}
 					<Link
