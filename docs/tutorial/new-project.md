@@ -7,9 +7,9 @@ slug: /tutorial/new-project
 
 ## Introduction to Herbs
 
-Herbs helps you to build backend applications faster and given more value for your domain and business logic. You can found more about in [What's Herbs?](/docs)
+Herbs helps you to build backend applications faster and given more value for your domain and business logic. You can found more about in [What's Herbs?](/docs/introduction/whats-herbs)
 
-If you don't want to see a step-by-step tutorial but an application running with herbs, you can visit our [Getting Started](/docs/introduction/getting-started) section.
+If you don't want to see a step-by-step tutorial but an application running with herbs, you can visit our [Getting Started](/docs) section.
 
 To help in the setup process, Herbs has the [`herbs-cli`](https://github.com/herbsjs/herbs-cli) which start up a new project scaffolding.
 

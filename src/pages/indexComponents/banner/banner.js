@@ -22,7 +22,7 @@ const ImageSwitcher = () => {
 	)
 }
 
-const Banner = () => {
+const Banner = ({ version }) => {
 	return (
 		<header className={clsx('hero', styles.heroBanner)}>
 			<div className='container'>
@@ -40,13 +40,16 @@ const Banner = () => {
 					</Link>{' '}
 					<Link
 						className={clsx(
-							'button button--primary button--md',
+							'button button--primary button--lg',
 							styles.getStarted
 						)}
 						to='https://github.com/herbsjs'
 					>
 						<GitHub fontSize='small' /> Start
 					</Link>
+				</div>
+				<div className={styles.versionInfo}>
+					{version && <p>Last stable version {version}</p>}
 				</div>
 			</div>
 		</header>
