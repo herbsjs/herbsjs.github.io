@@ -12,11 +12,11 @@ Herbs is available as an [npm package](https://www.npmjs.com/package/@herbsjs/he
 
 To install and save in your package.json dependencies, run:
 
-```
-// with npm
+```bash
+# with npm
 npm install npm i @herbsjs/herbs
 
-// with yarn
+# with yarn
 yarn add npm i @herbsjs/herbs
 ```
 
@@ -24,7 +24,7 @@ yarn add npm i @herbsjs/herbs
 
 Here's a quick example to get you started, it's literally all you need:
 
-```
+```js
 import { entity, field, Ok, Err, usecase, step, ifElse  } from '@herbsjs/herbs'
 
 const Item = entity('Item', {
