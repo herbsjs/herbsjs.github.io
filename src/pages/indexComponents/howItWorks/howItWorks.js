@@ -64,6 +64,16 @@ export default function HowItWorks() {
 					<div className={styles.arrowRight} />
 				</div>
 				<div className={styles.gridMiddleC}>
+					<hr className={styles.line}/>
+					<div className={styles.badgeMiddle}>
+						<Link to={useBaseUrl('docs/glues/herbs2rest')} className={styles.badgeLink}>
+							Herbs 2 Rest
+						</Link>
+					</div>
+					<hr className={styles.line}/>
+					<div className={styles.arrowRight}/>
+				</div>
+				<div className={styles.gridMiddleD}>
 					<hr className={styles.line} />
 					<div className={styles.badgeMiddle}>
 						<Link
@@ -76,21 +86,26 @@ export default function HowItWorks() {
 					<hr className={styles.line} />
 					<div className={styles.arrowRight} />
 				</div>
-				<div className={styles.gridMiddleD}>
-					<hr className={styles.line}/>
+				<div className={styles.gridMiddleE}>
+					<hr className={styles.line} />
 					<div className={styles.badgeMiddle}>
-						<Link to={useBaseUrl('docs/glues/herbs2rest')} className={styles.badgeLink}>
-							Herbs 2 Rest
-						</Link>
+						{/* <Link
+							to={useBaseUrl('docs/glues/Herbs2mongo')}
+							className={styles.badgeLink}
+						> */}
+							Herbs 2 Mongo
+						{/* </Link> */}
 					</div>
-					<hr className={styles.line}/>
-					<div className={styles.arrowRight}/>
+					<hr className={styles.line} />
+					<div className={styles.arrowRight} />
 				</div>
 				{/* GENERATED CODE */}
 				<div className={styles.gridBadgeA}>Herbs Shelf</div>
 				<div className={styles.gridBadgeB}>GraphQL</div>
-				<div className={styles.gridBadgeC}>Repository</div>
-				<div className={styles.gridBadgeD}>REST</div>
+				<div className={styles.gridBadgeC}>REST</div>
+				<div className={styles.gridBadgeD}>Repository</div>
+				<div className={styles.gridBadgeE}>Repository</div>
+
 			</div>
 			<div className={styles.legends}>
 				<div>
