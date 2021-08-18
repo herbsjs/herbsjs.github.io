@@ -70,7 +70,7 @@ module.exports = {
         },
         {
           title: 'More',
-          items: [           
+          items: [
             {
               label: 'GitHub',
               href: 'https://github.com/herbsjs',
@@ -103,7 +103,14 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      },      
+      },
     ],
   ],
+  plugins: [
+    [
+      "docusaurus2-dotenv", {
+        systemvars: true,
+      },
+    ],
+  ]
 };
