@@ -6,7 +6,9 @@ slug: /glues/herbsshelf
 ---
 
 
-Herbs Shelf is a self-generated documentation based on your use cases and entities from your domain.
+Herbs Shelf is a self-generated documentation based on [use cases](/docs/usecase/getting-started) and [entities](/docs/entity/getting-started) from your domain.
+
+It is a great way to communicate and collaborate between domain experts and developers. 
 
 ![Glues](/img/herbsshelf_screenshot.png)
 
@@ -51,27 +53,6 @@ And call the shelf into you prefered rest route
 
 ```
 
-You can see the full functionality into the [TODO-LIST ON HERBS repository](https://github.com/herbsjs/todolist-on-herbs)
+### Example 
 
-
-## TODO
-
-- [X] Self-documentation
-- [ ] Add templates and injection of css file
-- [ ] Entities of gotu support
-- [ ] Playground functionality
-- [ ] GraphQL documentation sample
-
-
-## Contribute
-Come with us to make an awesome *herbsshelf*.
-
-Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/herbsshelf/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbsshelf/blob/main/.github/CONTRIBUTING.md)
-
-## License
-
-**herbsshelf** is released under the
-[MIT license](https://github.com/herbsjs/herbsshelf/blob/main/LICENSE.md)
-
+You can see Herbs Shelf in action in the [To Do List On Herbs](https://github.com/herbsjs/todolist-on-herbs) project.
