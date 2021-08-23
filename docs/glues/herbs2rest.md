@@ -38,11 +38,17 @@ const controllerList = [
 
 The `name` field is the name of the route (Ex. *https://example.com/lists*)
 
-The `id` field is the param's custom name of the route (GetById, Put and Delete), if the field does not exist, the parameter name will be "*id*".
+| field | controller |
+|---|---|
+|`getAll`| `GET /{name}/`|
+|`getById`| `GET /{name}/{id}`|
+|`post`| `POST /{name}/`|
+|`put`| `PUT /{name}/{id}`|
+|`delete`| `DELETE /{name}/{id}`|
 
-The controller field is to replace the default controller.
+The `id` field is a string representing the id field in the use case request and can be used for `GetById`, `Put` and `Delete`. The default value is "*id*".
 
-The other fields refer to http methods using usecases (GetAll, GetById, Post, Put and Delete).
+The `controller` field a function that replaces the default controller.
 
 #### Custom Controller
 
