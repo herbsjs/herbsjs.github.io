@@ -20,7 +20,7 @@ jobs:
       - name: Test Build
         run: |
           npm ci
-          npm i --only-prod
+          npm i --only-prod --no-optional
           npm run build
   gh-release:
     if: github.event_name == 'push'
@@ -52,5 +52,5 @@ jobs:
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
           npm ci
-          npm i
+          npm i --only-prod --no-optional
           npx docusaurus deploy
