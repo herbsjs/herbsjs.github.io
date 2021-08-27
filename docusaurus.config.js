@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'HerbsJS',
+  title: 'HerbsJS - Build your microservices in Node.js with DDD and Clean Achitecture',
   tagline: 'Domain first - The core that matters',
   url: 'https://herbsjs.org',
   baseUrl: '/',
@@ -8,6 +8,9 @@ module.exports = {
   favicon: 'img/logo-herbsjs.png',
   organizationName: 'herbsjs',
   projectName: 'website',
+  customFields: {
+    description: 'Herbs - Build your microservices in Node.js with Clean Achitecture and Domain Driven Design.',
+  },
   themeConfig: {
     gtag: {
       trackingID: 'G-LMCPKQXZHH'
