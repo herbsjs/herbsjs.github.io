@@ -49,7 +49,7 @@ const Banner = ({ version }) => {
 					</Link>
 				</div>
 				<div className={styles.versionInfo}>
-					{version && <p>Last stable version {version}</p>}
+					{version && <p>Last stable version <a href={`https://github.com/herbsjs/herbs/releases/tag/v${version}`} rel="noopener noreferrer" target="_blank"> {version} </a></p>}
 				</div>
 			</div>
 		</header>

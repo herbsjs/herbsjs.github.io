@@ -24,8 +24,8 @@ function Home() {
 	const { siteConfig = {} } = context
 	return (
 		<Layout
-			title={`${siteConfig.title}`}
-			description='Herbs - Build your microservices in Node.js with Clean Achitecture and Domain Driven Design.'
+			
+			description={`${siteConfig.customFields.description}`}
 		>
 			<Banner version={version} />
 			<main style={{ zoom: userZoom }}>
