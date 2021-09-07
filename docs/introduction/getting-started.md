@@ -14,10 +14,10 @@ To install and save in your package.json dependencies, run:
 
 ```bash
 # with npm
-npm install npm i @herbsjs/herbs
+npm install @herbsjs/herbs
 
 # with yarn
-yarn add npm i @herbsjs/herbs
+yarn add @herbsjs/herbs
 ```
 
 ## Using
