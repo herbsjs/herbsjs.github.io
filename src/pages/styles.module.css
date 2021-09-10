@@ -34,9 +34,10 @@
    margin-bottom: 40px;
  }
  
- .h2-big {
+ .h2big {
   font-size: 48px;
   line-height: 2em;
+  text-align: center;
   font-weight: 300;
 }
 
@@ -79,13 +80,10 @@
   width: 100%;
   padding: 3%;
 }
-.section h1, .h2-big {
+.section h1 {
   text-align: center;
 }
 
-.text-align-center {
-  text-align: center;
-}
 
 .logosImage {
   max-width: 300px;
