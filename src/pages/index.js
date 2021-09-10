@@ -33,7 +33,7 @@ function Home() {
 				<div className={styles.section}>
 					<h1>Build your Microservices in Node.js Faster and Future Proof</h1>
 					<Examples />
-					<h1>Generated On The Fly</h1>
+					<h2 className='h2-big text-align-center h2-big_src-pages-styles-module'>Generated On The Fly</h2>
 					<div className={styles.badges}>
 						<span className='badge badge--primary'>Repository</span>
 						<span className='badge badge--primary'>GraphQL</span>
@@ -42,7 +42,7 @@ function Home() {
 					</div>
 				</div>
 				<div className={styles.section}>
-					<h1>How it works?</h1>
+					<h2 className='h2-big text-align-center h2-big_src-pages-styles-module'>How it works?</h2>
 					<HowItWorks />
 				</div>
 			</main>

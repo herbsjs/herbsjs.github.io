@@ -9,7 +9,7 @@ import useThemeContext from '@theme/hooks/useThemeContext'
 
 const ImageSwitcher = () => {
 	return (
-		<BrowserOnly fallback={<img src='img/logo-herbsjs.png' />}>
+		<BrowserOnly fallback={<img alt="herbsjs logo" src='img/logo-herbsjs.png' />}>
 			{() => {
 				const { isDarkTheme } = useThemeContext()
 				const imgSrc = isDarkTheme
