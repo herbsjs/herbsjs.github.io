@@ -50,7 +50,7 @@ Clean Architecture was created by Robert C. Martin and promoted in his book [Cle
 
 Similar to Clean Architecture, the concept of Domain-driven design (DDD) was initially introduced and made popular by programmer Eric Evans in his 2004 book, [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://books.google.com/books?id=hHBf4YxMnWMC&redir_esc=y), domain-driven design is the expansion upon and application of the domain concept, as it applies to the development of software. It aims to ease the creation of complex applications by connecting the related pieces of the software into an ever-evolving model. 
 
-Even though it is not necessary to read these books to use Herbs, reading and understanding the concepts presented there will help you to understand the principles used here and, in addition, they are highly recommended for the development of a software developer.
+Even though it is not necessary to read these books to use Herbs, reading and understanding the concepts presented there will help you to understand the principles used here and know better, in addition, they are highly recommended for the development of a software developer. 
 
 Of course, libraries from different ecosystems have been a great source of inspiration. Successes and mistakes of these efforts were taken into account: [Rails](https://rubyonrails.org/), [Django](https://www.djangoproject.com), [Trailblazer](https://trailblazer.to/), [Hanami](https://hanamirb.org/), [Cucumber](https://cucumber.io/) and many others. 
 

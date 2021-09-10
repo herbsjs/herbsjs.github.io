@@ -6,9 +6,9 @@ slug: /introduction/whats-herbs
 custom_edit_url: null
 ---
 
- <p align="center"><img src="../../img/logo-herbsjs.png" height="220"></img></p>  
+ <p align="center"><img src="../../img/logo-herbsjs.png" height="220" alt="herbsjs logo"></img></p>  
 
-Herbs is an open source library for backend applications. It is focused on achieving faster deliveries and with happier developers, without neglecting the long-term need to constantly evolve your application as requirements change.
+Herbs is an open source library for backend applications. It is focused on achieving faster deliveries and with happier developers, without neglecting the long-term need to constantly evolve your application as requirements change. Herbs allow you to build your microservices in node.js faster and future proof.
 
 Herbs uses a "**Domain-First**" approach in order to achieve this: You and your team focus on your business domain and let Herbs handles the infrastructure code. Herbs will extract metadata from your domain and dynamically generate, on the fly (no code generation), your transport and repositories layers using the best existing libraries in the ecosystem. 
 
