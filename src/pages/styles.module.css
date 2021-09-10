@@ -33,6 +33,12 @@
    color: #505050;
    margin-bottom: 40px;
  }
+ 
+ .h2-big {
+  font-size: 48px;
+  line-height: 2em;
+  font-weight: 300;
+}
 
 .badges, .logos {
   text-align: center;
@@ -73,7 +79,11 @@
   width: 100%;
   padding: 3%;
 }
-.section h1 {
+.section h1, .h2-big {
+  text-align: center;
+}
+
+.text-align-center {
   text-align: center;
 }
 
