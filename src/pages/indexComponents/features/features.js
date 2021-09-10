@@ -14,7 +14,7 @@ export default function Features() {
       title: "Keep it clean",
       imageUrl: "/img/stars.png",
       description:
-        "No more sloppy, hard to change code. Create maintainable software using Clean Architecture and Domain Driven Design with Herbs.",
+        "No more sloppy, hard to change code. Create maintainable software, build your microservices in Node.js with Domain Driven Design and Clean Achitecture",
     },
     {
       title: "Auditable and Secure",

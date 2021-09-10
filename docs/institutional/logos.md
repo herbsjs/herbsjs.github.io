@@ -10,23 +10,23 @@ custom_edit_url: null
 ## Herbs logo
 
 <a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo.svg">
-  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo.svg" width="600" />
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo.svg" width="600" alt="herbsjs logo"/>
 </a>
 
 <a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo_slogan.svg">
-  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo_slogan.svg" width="600" />
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/herbs_logo_slogan.svg" width="600" alt="herbsjs logo"/>
 </a>
 
 <a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg">
-  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg" width="600" />
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg" width="600" alt="herbsjs logo"/>
 </a>
 
 <a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg">
-  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg" width="600" />
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_black.svg" width="600" alt="herbsjs logo"/>
 </a>
 
 <a href="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_slogan_white.svg">
-  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_slogan_white.svg" width="600"  style={{background : 'black'}} />
+  <img src="https://raw.githubusercontent.com/herbsjs/herbsjs.github.io/master/static/assets/logo_slogan_white.svg" width="600"  style={{background : 'black'}} alt="herbsjs logo"/>
 </a>
 
 
