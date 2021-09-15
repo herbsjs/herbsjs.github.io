@@ -63,7 +63,7 @@ module.exports = {
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/herbsjs',
+              href: 'https://discord.gg/e3cQ66KDv5',
             },
             {
               label: 'Twitter',
