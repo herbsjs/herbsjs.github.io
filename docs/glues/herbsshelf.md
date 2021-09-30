@@ -10,7 +10,7 @@ Herbs Shelf is a self-generated documentation based on [use cases](/docs/usecase
 
 It is a great way to communicate and collaborate between domain experts and developers. 
 
-![Glues](/img/herbsshelf_screenshot.png)
+![Glues](/img/herbsshelf_screenshot.gif)
 
 ### Installing
 ```
