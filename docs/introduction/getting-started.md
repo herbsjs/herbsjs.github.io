@@ -96,9 +96,9 @@ We created an example repository, that you can see the applicability of Herbs in
 
 So, you can start with HerbJS, taking a look at the [sample repository](https://github.com/herbsjs/todolist-on-herbs), or follow this documentation to get more knowledge of how to use herbsJS
 
-## Forum & Discussions
+## Issues & Discussions
 
-We have a forum with our discussions and questions about the world around Herbs. Any question, you can communicate with the community through this link: [Herbs Forum](https://github.com/herbsjs/forum)
+We have a discord with our discussions and questions about the world around Herbs. Any question, you can communicate with the community through this link: [Herbs Discord](https://discord.gg/e3cQ66KDv5)
 
 ## Next steps
 
