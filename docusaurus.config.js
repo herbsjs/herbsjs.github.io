@@ -47,10 +47,6 @@ module.exports = {
             {
               label: 'Documentation Guide',
               to: 'docs/',
-            },
-            {
-              label: 'Forum',
-              to: 'https://github.com/herbsjs/forum',
             }
           ],
         },
