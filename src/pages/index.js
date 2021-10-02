@@ -8,6 +8,7 @@ import Examples from './indexComponents/examples/examples'
 import HowItWorks from './indexComponents/howItWorks/howItWorks'
 import packageVersion from '../services/package-version'
 import useAutoUserZoom from '../hooks/useAutoUserZoom'
+import HerbsShelf from './indexComponents/herbsShelf/herbsShelf'
 
 function Home() {
 	const context = useDocusaurusContext()
@@ -38,10 +39,14 @@ function Home() {
 						<span className='badge badge--primary'>REST</span>
 						<span className='badge badge--primary'>Herbs Shelf</span>
 					</div>
-				</div>
+				</div>				
 				<div className={styles.section}>
 					<h2 className={styles.h2big}>How it works?</h2>
 					<HowItWorks />
+				</div>
+				<div className={styles.section}>
+					<h2 className={styles.h2big}>Generate documentation based on your domain</h2>
+					<HerbsShelf />
 				</div>
 			</main>
 		</Layout>
