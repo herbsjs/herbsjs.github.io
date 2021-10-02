@@ -1,0 +1,43 @@
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 3em auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.container .animation {
+  flex: 1;
+  padding: 50px;
+  background-color: #f1f1f1;
+}
+
+.container .animation img {
+  max-width: 800px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: auto;
+  display: block;
+  width: 100%;
+}
+
+.container .details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+/* tablet */
+@media screen and (max-width: 950px) {
+  .container {
+    flex-direction: column;
+    margin: 2em auto;
+  }
+
+  .container .animation {
+    background-color: #fff;
+  }
+}
