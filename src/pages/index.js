@@ -7,14 +7,12 @@ import Features from './indexComponents/features/features'
 import Examples from './indexComponents/examples/examples'
 import HowItWorks from './indexComponents/howItWorks/howItWorks'
 import packageVersion from '../services/package-version'
+import useAutoUserZoom from '../hooks/useAutoUserZoom'
 
 function Home() {
 	const context = useDocusaurusContext()
 	const [version, setVersion] = useState(null)
-
-	const userZoom = (typeof window !== "undefined" && window.devicePixelRatio > 1)
-		? `${100 / (window.devicePixelRatio * 0.9)}%`
-		: `normal`
+	const userZoom = useAutoUserZoom(window)
 
 	useEffect(async () => {
 		const npmMeta = await packageVersion('@herbsjs/herbs')
@@ -27,7 +25,7 @@ function Home() {
 			
 			description={`${siteConfig.customFields.description}`}
 		>
-			<Banner version={version} />
+			<Banner version={version} />			
 			<main style={{ zoom: userZoom }}>
 				<Features />
 				<div className={styles.section}>
