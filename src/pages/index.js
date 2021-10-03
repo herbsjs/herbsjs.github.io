@@ -9,6 +9,7 @@ import HowItWorks from './indexComponents/howItWorks/howItWorks'
 import packageVersion from '../services/package-version'
 import useAutoUserZoom from '../hooks/useAutoUserZoom'
 import HerbsShelf from './indexComponents/herbsShelf/herbsShelf'
+import HerbsCli from './indexComponents/herbsCli/herbsCli'
 
 function Home() {
 	const context = useDocusaurusContext()
@@ -47,6 +48,10 @@ function Home() {
 				<div className={styles.section}>
 					<h2 className={styles.h2big}>Generate documentation based on your domain</h2>
 					<HerbsShelf />
+				</div>
+				<div className={styles.section}>
+					<h2 className={styles.h2big}>Use herbs cli to speed up your development</h2>
+					<HerbsCli />
 				</div>
 			</main>
 		</Layout>
