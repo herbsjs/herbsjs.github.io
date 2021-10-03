@@ -8,7 +8,9 @@ export default function HerbsShelf() {
         <>
             <div className={styles.container}>
                 <section className={styles.animation}>
-                    <img  src={useBaseUrl('/img/herbsshelf_screenshot.gif')} />
+                    <Link to={useBaseUrl('docs/glues/herbsshelf')} >
+                        <img src={useBaseUrl('/img/herbsshelf_screenshot.gif')} />
+                    </Link>
                 </section>
                 <section className={styles.details}>
                     <h3>Self-generated documentation</h3>
