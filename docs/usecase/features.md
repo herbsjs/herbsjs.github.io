@@ -278,4 +278,55 @@ Result sample:
 
 ## Documentation
 
-// TODO
+`usecase.doc()`: Retrieve the documentation of a use case.
+
+```javascript
+const usecase = createProduct()
+console.log(usecase.doc())
+```
+
+With the doc, we can use the metadata to compose many other structures, like a live documentation or use to identify the usecase in an extensive list etc...
+
+Currently we count with these fields on the documentation:
+- `request` : request of the use case
+- `response` : response of the use case
+- `type` : type of structure
+- `identifier` : identifier of the use case.
+- `description` : description of the use case.
+- `authorizeRequest` : example of data required to run the authorization.
+- `steps` : list of steps that contains the business logic.
+
+Result sample:
+
+```javascript
+{
+    // expected request
+    request: {
+        product: Product
+    },
+
+    // expected response
+    response: { 
+        product: Product
+    },
+
+    // type of structure
+    type: "use case",
+
+    // indentifier
+    identifier: "createProduct",
+
+    // description
+    description: "Create Product",
+
+    // authorize request
+    authorizeRequest: { user: String },
+
+    // steps of usecase
+    steps: [
+        { type: "step", description: "Validate viability of the product", steps: null },
+        ...
+    ]
+}
+```
+
