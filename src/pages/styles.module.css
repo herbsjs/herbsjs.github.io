@@ -13,8 +13,9 @@
 
  h1 {
    font-size: 48px;
-   line-height: 2em;
+   line-height: 1.3em;
    font-weight: 300;
+   margin: 1em auto;
  }
 
  h2 {
@@ -36,9 +37,10 @@
  
  .h2big {
   font-size: 48px;
-  line-height: 2em;
+  line-height: 1.3em;
   text-align: center;
   font-weight: 300;
+  margin: 1em auto;
 }
 
 .badges, .logos {
