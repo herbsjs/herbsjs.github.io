@@ -11,7 +11,7 @@ slug: /tutorial/herbsshelf
 >
 > — [Herbs Shelf | HerbsJS](/docs/glues/herbsshelf)
 
-![](../../static/img/herbsshelf_screenshot.png)
+![](../../static/img/herbsshelf_screenshot.gif)
 
 ## Herbs Shelf Setup
 
