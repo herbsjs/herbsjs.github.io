@@ -61,6 +61,14 @@
   margin-right: 10px;
 }
 
+.textLeft {
+  text-align: left;
+}
+
+.textRight {
+  text-align: right;
+}
+
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;

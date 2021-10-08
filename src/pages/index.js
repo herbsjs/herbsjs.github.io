@@ -9,6 +9,7 @@ import HowItWorks from './indexComponents/howItWorks/howItWorks'
 import packageVersion from '../services/package-version'
 import HerbsShelf from './indexComponents/herbsShelf/herbsShelf'
 import HerbsCli from './indexComponents/herbsCli/herbsCli'
+import clsx from 'clsx'
 
 function Home () {
   const context = useDocusaurusContext()
@@ -46,13 +47,13 @@ function Home () {
           <HowItWorks />
         </div>
         <div className={styles.section}>
-          <h2 className={styles.h2big}>
+          <h2 className={clsx([styles.h2big, styles.textLeft])}>
             Generate documentation based on your domain
           </h2>
           <HerbsShelf />
         </div>
         <div className={styles.section}>
-          <h2 className={styles.h2big}>
+          <h2 className={clsx([styles.h2big, styles.textRight])}>
             Use Herbs CLI to speed up your development
           </h2>
           <HerbsCli />
