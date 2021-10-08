@@ -62,11 +62,11 @@
 }
 
 .textLeft {
-  text-align: left;
+  text-align: left !important;
 }
 
 .textRight {
-  text-align: right;
+  text-align: right !important;
 }
 
 @media screen and (max-width: 966px) {
