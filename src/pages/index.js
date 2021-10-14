@@ -10,7 +10,7 @@ import packageVersion from '../services/package-version'
 import HerbsShelf from './indexComponents/herbsShelf/herbsShelf'
 import HerbsCli from './indexComponents/herbsCli/herbsCli'
 import clsx from 'clsx'
-import LogRocket from 'logrocket';
+import LogRocket from 'logrocket'
 import environment from '../config/environment'
 
 function Home () {
@@ -28,8 +28,8 @@ function Home () {
   }, [])
 
   const { siteConfig = {} } = context
-  LogRocket.init(environment.logRocketKey);
-  
+  LogRocket.init(environment.logRocketKey)
+
   return (
     <Layout description={`${siteConfig.customFields.description}`}>
       <Banner version={version} />
