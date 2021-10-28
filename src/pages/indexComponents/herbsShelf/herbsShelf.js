@@ -14,7 +14,7 @@ export default function HerbsShelf() {
                 </section>
                 <section className={styles.details}>
                     <h3>Self-generated documentation</h3>
-                    <p>Herbs Shelf is a self-generated documentation based on use cases and entities from your domain.
+                    <p><Link to={useBaseUrl('docs/glues/herbsshelf')} >Herbs Shelf</Link> is a self-generated documentation based on use cases and entities from your domain.
                         It is a great way to communicate and collaborate between domain experts and developers.</p>
                 </section>
             </div>
