@@ -10,7 +10,7 @@ export default function HerbsCli() {
                 <section className={styles.details}>
                     <h3>Command Line Interface</h3>
                     <p>
-                        The Herbs CLI makes it easy to create and manage your herbs project directly from the terminal.
+                        The <Link to={useBaseUrl('docs/tutorial/new-project#with-herbs-cli')} > Herbs CLI </Link> makes it easy to create and manage your herbs project directly from the terminal.
                         CLI is essential to improve development time and is designed to get you working quickly with herbs, with an emphasis on your domain.
                     </p>
                 </section>
