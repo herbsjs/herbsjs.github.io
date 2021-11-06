@@ -6,11 +6,6 @@ slug: /project/license
 custom_edit_url: null
 ---
 
-### Why did we open source Herbs?
-We hope to see Herbs become the good code standard everywhere. When we saw how much Herbs improved developer experience and productivity internally, we wanted to share those gains. After all, if Herbs can create order in an engineering environment as open and diverse as ours, then we're pretty sure it can create order (and boost productivity) anywhere. To learn more, read our [motivators](/docs/introduction/motivation)
-
-
-### How is Herbs licensed?
 Herbs was released as open source software by Vórtx and is licensed under *MIT License* since 2019
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
