@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://herbsjs.org/blog</id>
+    <title>HerbsJS - Build microservices with DDD and Clean Achitecture Blog</title>
+    <updated>2015-10-25T23:29:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://herbsjs.org/blog"/>
+    <subtitle>HerbsJS - Build microservices with DDD and Clean Achitecture Blog</subtitle>
+    <icon>https://herbsjs.org/img/logo-herbsjs.png</icon>
+</feed>
