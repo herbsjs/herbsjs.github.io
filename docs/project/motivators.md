@@ -2,7 +2,7 @@
 id: motivation
 title: Motivation
 sidebar_label: Motivation
-slug: /introduction/motivation
+slug: /project/motivation
 custom_edit_url: null
 ---
 

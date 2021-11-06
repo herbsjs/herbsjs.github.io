@@ -2,7 +2,7 @@
 id: acknowledgements
 title: Acknowledgements
 sidebar_label: Acknowledgements
-slug: /institutional/acknowledgements
+slug: /project/acknowledgements
 custom_edit_url: null
 ---
 

@@ -2,7 +2,7 @@
 id: license
 title: How is Herbs licensed?
 sidebar_label: License
-slug: /institutional/license
+slug: /project/license
 custom_edit_url: null
 ---
 

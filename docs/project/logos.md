@@ -3,7 +3,7 @@ id: logos
 title: Logos
 sidebar_label: Logo assets
 description: Guidelines for how to use the Backstage logos and icons
-slug: /institutional/logos
+slug: /project/logos
 custom_edit_url: null
 ---
 
