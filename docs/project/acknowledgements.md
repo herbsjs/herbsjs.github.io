@@ -33,4 +33,4 @@ And none of this would be possible without the help of this great professionals.
 
 ## How to contribute
 
-If you would like to help contribute to this repository, please see [CONTRIBUTING](/docs/introduction/contributing)
+If you would like to help contribute to this repository, please see [CONTRIBUTING](/docs/project/contributing)
