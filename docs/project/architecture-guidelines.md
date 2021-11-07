@@ -2,7 +2,7 @@
 id: architecture
 title: Architecture guides
 sidebar_label: Architecture guidelines
-slug: /introduction/architecture-guidelines
+slug: /project/architecture-guidelines
 custom_edit_url: null
 ---
 

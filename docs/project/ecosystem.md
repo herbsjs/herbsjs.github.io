@@ -1,7 +1,7 @@
 ---
 id: ecosystem
 title: Ecosystem
-slug: /introduction/ecosystem
+slug: /project/ecosystem
 custom_edit_url: null
 ---
 

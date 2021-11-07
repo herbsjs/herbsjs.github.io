@@ -29,7 +29,7 @@ const createProduct = injection =>
         ...
 ```
 
-We think a code must define its [intention](/docs/introduction/motivation#code-intention) to make it easier to read as well as changing it.
+We think a code must define its [intention](/docs/project/motivation#code-intention) to make it easier to read as well as changing it.
 
 So, the first thing to note is that we encourage the description of the steps with the business intent (never the technical intent).
 
