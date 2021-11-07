@@ -1,7 +1,7 @@
 ---
 id: contributing
 title: How to contribute
-slug: /introduction/contributing
+slug: /project/contributing
 custom_edit_url: null
 ---
 
