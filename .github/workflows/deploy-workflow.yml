@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+      - name: Run npm install
+        run: npm install
       - name: Test Update the list of contributors 
         run: npm run get-contributors
       - name: Test Build
@@ -32,6 +34,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+      - name: Run npm install
+        run: npm install
       - name: Update the list of contributors
         run: npm run get-contributors
       - name: Add key to allow access to repository
