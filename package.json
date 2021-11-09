@@ -30,6 +30,7 @@
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.1.1",
     "docusaurus2-dotenv": "^1.4.0",
+    "dotenv": "^10.0.0",
     "logrocket": "^2.1.1",
     "node-fetch": "^3.0.0",
     "react": "^17.0.2",
