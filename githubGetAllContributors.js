@@ -1,0 +1,70 @@
+require('dotenv/config');
+
+const fs = require('fs')
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
+async function getUrl(url) {
+    var params = {
+        method: 'GET'
+    }
+    const request = await fetch(`${process.env.GITHUB_API_URL}/${url}`, params);
+    return request.json();
+}
+
+async function getAllRepositories(orgName) {
+    const allProjects = await getUrl(`orgs/${orgName}/repos`);
+    return allProjects;
+}
+
+async function getAllRepositoryContributors(repositoryFullName) {
+    const allContributors = await getUrl(`repos/${repositoryFullName}/contributors`);
+    return allContributors;
+}
+
+function mapAllContributors(contributors) {
+    return contributors.map(({
+        login,
+        html_url,
+        avatar_url
+    }) => {
+        return {
+            login,
+            html_url,
+            avatar_url
+        }
+    })
+}
+
+async function getAllRepositoriesContributors(repositories) {
+    let contributors = []
+
+    await Promise.all(repositories.map(async (repository) => {
+        const contributorsByProject = await getAllRepositoryContributors(repository);
+        contributors.push(...mapAllContributors(contributorsByProject))
+    }))
+
+    return contributors
+}
+
+
+function filterUniqueContributors(contributors) {
+    return contributors.filter((v, i, a) => a.findIndex(t => (t.login === v.login)) === i);
+}
+
+function orderContributors(contributors) {
+    return contributors.sort((a, b) => a.login.localeCompare(b.login))
+}
+
+
+const GetAllContributors = async () => {
+    const repositories = await getAllRepositories('herbsjs')
+    const repositoriesFullName = repositories.map(project => project.full_name)
+    const allRepositoriesContributors = await getAllRepositoriesContributors(repositoriesFullName)
+    return filterUniqueContributors(orderContributors(allRepositoriesContributors));
+}
+
+try {
+    GetAllContributors().then(contributors => fs.writeFileSync('./static/contributors.json', JSON.stringify(contributors)))
+} catch (err) {
+    console.error(err)
+}
