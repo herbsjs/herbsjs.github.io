@@ -1,5 +1,3 @@
-require('dotenv/config');
-
 const fs = require('fs')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
@@ -7,7 +5,7 @@ async function getUrl(url) {
     var params = {
         method: 'GET'
     }
-    const request = await fetch(`${process.env.GITHUB_API_URL}/${url}`, params);
+    const request = await fetch(`https://api.github.com/${url}`, params);
     return request.json();
 }
 
