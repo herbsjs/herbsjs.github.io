@@ -44,21 +44,38 @@ async function getAllRepositoriesContributors(repositories) {
     return contributors
 }
 
-
 function filterUniqueContributors(contributors) {
     return contributors.filter((v, i, a) => a.findIndex(t => (t.login === v.login)) === i);
+}
+
+function filterLoginBlackList(contributors) {
+    const blacklist = [
+        'dependabot[bot]',
+        'mellogabvortx',
+        'pafonso-magit',
+        'semantic-release-bot',
+        'juliadibo',
+        'BrsPontes-Vortx',
+        'anahelenamagit',
+        'gmo-vortx',
+        'jhomarolo-vortx',
+        'm7vicente-vortx',
+        'maikvortx',
+        'eduardo-vortx'
+    ]
+    
+    return contributors.filter(contributor => !blacklist.includes(contributor.login))
 }
 
 function orderContributors(contributors) {
     return contributors.sort((a, b) => a.login.localeCompare(b.login))
 }
 
-
 const GetAllContributors = async () => {
     const repositories = await getAllRepositories('herbsjs')
     const repositoriesFullName = repositories.map(project => project.full_name)
     const allRepositoriesContributors = await getAllRepositoriesContributors(repositoriesFullName)
-    return filterUniqueContributors(orderContributors(allRepositoriesContributors));
+    return filterLoginBlackList(filterUniqueContributors(orderContributors(allRepositoriesContributors)));
 }
 
 try {
