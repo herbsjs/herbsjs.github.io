@@ -50,6 +50,7 @@ function filterUniqueContributors(contributors) {
 
 function filterLoginBlackList(contributors) {
     const blacklist = [
+        'alavortx',
         'dependabot[bot]',
         'mellogabvortx',
         'pafonso-magit',
