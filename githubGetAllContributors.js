@@ -62,7 +62,11 @@ function filterLoginBlackList(contributors) {
         'jhomarolo-vortx',
         'm7vicente-vortx',
         'maikvortx',
-        'eduardo-vortx'
+        'eduardo-vortx',
+        'vma-vortx',
+        'dlojudice-vortx',
+        'cpp-vortx',
+        'isabelaalonsovortx'
     ]
     
     return contributors.filter(contributor => !blacklist.includes(contributor.login))
