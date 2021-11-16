@@ -56,7 +56,7 @@ Then run on your terminal:
 ## Contribute
 Come with us to make an awesome *herbs2repl*.
 
-Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/herbs2repl/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
+Now, if you do not have the technical knowledge but intend to help us, do not feel shy, [click here](https://github.com/herbsjs/herbs2repl/issues) to open an issue and collaborate with ideas. This contribution could be a criticism or a compliment (why not?)
 
 If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2repl/blob/main/.github/CONTRIBUTING.md)
 

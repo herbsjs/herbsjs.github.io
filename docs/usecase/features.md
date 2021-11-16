@@ -9,7 +9,7 @@ slug: /usecase/features
 
 `usecase(description, body)`, where:
 
-- `description`: description of the use case, capturing the use case intent.
+- `description`: use case description, capturing the use case intent.
 
 - `body`: object containing the use case structure: request, response, setup, authorize and steps.
 
@@ -102,7 +102,7 @@ const updateItem = (injection) =>
         }),
 ```
 
-As a validation example, when executed with an `id` that is a string the above use case returns is:
+As a validation example, when it's executed with an `id`, that is a string, the above use case return is:
 
 ```js
 const request = { id: '1' }
@@ -236,7 +236,7 @@ Result sample:
     // object type
     type: 'use case',
     
-    // use ase description
+    // use case description
     description: 'Add or Update an Item on a to-do List',
     
     // unique Id for each use case execution

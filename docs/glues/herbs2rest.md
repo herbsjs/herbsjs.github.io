@@ -5,7 +5,7 @@ sidebar_label: Herbs2Rest
 slug: /glues/herbs2rest
 ---
 
-Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/gotu)) and usecases ([buchu](https://github.com/herbsjs/buchu)).
+Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/gotu)) and use cases ([buchu](https://github.com/herbsjs/buchu)).
 
 
 ## Getting started

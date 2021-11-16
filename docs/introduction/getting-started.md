@@ -94,11 +94,11 @@ usecase('Add or Update an Item on a to-do List', {
 
 We created an example repository, that you can see the applicability of Herbs in a project closer to the real world. This application consists in a GraphQL API using Herbs and a [template](https://github.com/herbsjs/todolist-on-herbs/generate) to use with this repository
 
-So, you can start with HerbJS, taking a look at the [sample repository](https://github.com/herbsjs/todolist-on-herbs), or follow this documentation to get more knowledge of how to use herbsJS
+So, you can get started with HerbsJS by taking a look at the [sample repository](https://github.com/herbsjs/todolist-on-herbs), or follow this documentation to get more knowledge of how to use herbsJS
 
 ## Issues & Discussions
 
-We have a discord with our discussions and questions about the world around Herbs. Any question, you can communicate with the community through this link: [Herbs Discord](https://discord.gg/e3cQ66KDv5)
+We have a Discord server with our discussions and questions about the world around Herbs. If you have any questions, you can communicate with the community through this link: [Herbs Discord](https://discord.gg/e3cQ66KDv5)
 
 ## Next steps
 

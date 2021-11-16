@@ -12,7 +12,7 @@ These are the major pain points in software development that Herbs tries to help
 
 ## Domain-first
 
-A great motivation for Herbs came to realize the huge amount of software that we write around the domain core of an application to make it work properly. It is commonplace to see layers of an application that basically share the same properties and knowledge of the core like entities, fields types, etc but changes to your domain do not reflect the rest of your code.
+A great motivation for Herbs came to realize the huge amount of software that we write around the domain core of an application to make it work properly. It is commonplace to see layers of an application that basically share the same properties and knowledge of the core like entities, fields types, etc. but changes to your domain do not reflect the rest of your code.
 
 A very simple and direct manifestation of this is when it is necessary to add a new field to an entity on your domain. That means also changing the entity repository, the GraphQL type or a REST endpoint, changing the documentation, etc. This is because current libraries are not prepared to create a [single source of truth](https://en.wikipedia.org/wiki/Single_source_of_truth#SOLID_&_Source_Code) for their domain.
 
@@ -30,7 +30,7 @@ As your business rules become more complex, the task of reading and understandin
 
 So, if you are building a project that is a team effort and should be up and running in the long run, being able to keep your code understandable to the next developer is essential.
 
-With Herbs we try to bring those initial intentions closer to the code. Thus, the next developer who reading the code will have a much better experience when changing and evolving your application.
+With Herbs we try to bring those initial intentions closer to the code. Thus, the next developer who is reading the code will have a much better experience when changing and evolving your application.
 
 ## "Enterprise Features" Out Of The Box
 
@@ -44,7 +44,7 @@ Herbs brings these features out of the box because we simply believe they should
 
 ![herbsJS](/img/herbsjs_clean_architecture.png)
 
-Well design libraries borrow from the past. Herbs uses the understanding gained by major thinkers in software engineering in order to innovate.
+Well design libraries borrowed from the past. Herbs uses the understanding gained by major thinkers in software engineering in order to innovate.
 
 Clean Architecture was created by Robert C. Martin and promoted in his book [Clean Architecture: A Craftsman’s Guide to Software Structure](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). Like other software design philosophies, Clean Architecture tries to provide a methodology to be used in coding, in order to facilitate code development, allow for better maintenance, updating and less dependencies. An important goal of Clean Architecture is to provide developers with a way to organize code in a way that encapsulates business logic, but keeps it separate from the delivery mechanism.
 

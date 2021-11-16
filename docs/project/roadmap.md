@@ -10,7 +10,7 @@ custom_edit_url: null
 
 In the Herbs community we are always trying to rethink how to improve the current way of developing software. Not only improving the developer experience (which is a very important part for us), but also the other people involved in the process, such as business stakeholders, product managers and QAs, that is, everyone involved in the definition, implementation, validation and use of a system, creating an amazing domain-centric experience. 
 
-Even though Herbs has already developed good conceptual pillars, primitives (entities, usecases, etc) and glues, and being a library used in dozens of microservices, we believe that our journey in transforming how we make software is just beginning.
+Even though Herbs has already developed good conceptual pillars, primitives (entities, use cases, etc.) and glues, and being a library used in dozens of microservices, we believe that our journey in transforming how we make software is just beginning.
 
 ## Short term
 
@@ -48,7 +48,7 @@ Enjoy!
 
 - **Context inside uc.authorize()** - [issue](https://github.com/herbsjs/buchu/issues/44)
 
-    *Why?* Sometimes it will be necessary to access repositories on uc.authorize(). This is a hard issue to solve since it can easily  bring some breaking changes.
+    *Why?* Sometimes it will be necessary to access repositories on uc.authorize(). This is a hard issue to solve since it can easily bring some breaking changes.
 
 ## Bigger Goals
 
@@ -64,14 +64,14 @@ Creating a project from scratch is always a pleasure but as the project grows th
 
 For that we need to look into how CLI and glues can improve this constant changing experience, whether in the context of a sprint or in the development cycle within the developer's terminal trying to model the domain.
 
-For example, the CLI needs not only to create an initial code but to understand that domains evolve (use cases, entities, etc.) and that the infrastructure needs to evolve together, such as migrations, repositories, etc.
+For example, the CLI not only needs to create an initial code but to understand that domains evolve (use cases, entities, etc.) and that the infrastructure needs to evolve together, such as migrations, repositories, etc.
 
 **Capturing Intentions - Scenarios And Tests**
 
 As a project premise and vision, automated testing is an inseparable part of Herbs. However, we understand that we have not yet explored the full potential of this tool.
 
-For example, when we look at the tests that currently exercise use cases, we see business scenarios that should be exposed and validated by other stakeholders (product managers, business analysts, QA, etc), just as it is possible to do today with the use cases and their steps.
+For example, when we look at the tests that currently exercise use cases, we see business scenarios that should be exposed and validated by other stakeholders (product managers, business analysts, QA, etc.), just as it is possible to do today with the use cases and their steps.
 
 **A Bigger Garden - Growing The Ecosystem**
 
-Today's primitives, metadata, and glues have the potential to create an even larger ecosystem of libraries and solutions that use Herbs. We need to create a strong, welcoming and enabling community so that this ecosystem can flourish.
+Today's primitives, metadata and glues have the potential to create an even larger ecosystem of libraries and solutions that use Herbs. We need to create a strong, welcoming and enabling community so that this ecosystem can flourish.
