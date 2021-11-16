@@ -146,7 +146,7 @@ const gql = entity2input(givenAnInput, options)
 const gql = entity2type(givenAnEntity, options)
 
 //for mutation, query or subscription example using mutation
-const [gql, resolver] = usecase2mutation(givenAnUseCase, resolverFunc, options)
+const [gql, resolver] = usecase2mutation(givenAUseCase, resolverFunc, options)
 ```
 
 #### Conventions
@@ -161,7 +161,7 @@ const gql = entity2input(givenAnInput, options)
 const gql = entity2type(givenAnEntity, options)
 
 //for mutation, query or subscription example using mutation
-const [gql, resolver] = usecase2mutation(givenAnUseCase, resolverFunc, options)
+const [gql, resolver] = usecase2mutation(givenAUseCase, resolverFunc, options)
 ```
 
 #### Example
