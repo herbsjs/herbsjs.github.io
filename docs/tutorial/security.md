@@ -7,9 +7,9 @@ slug: /tutorial/security
 
 ## Authorizing
 
-In every usecase, you can set up the `authorize` which get an `user` object and must return `Ok` for authorized and `Err` for unauthorized.
+In every use case, you can set up the `authorize` which gets a `user` object and must return `Ok` for authorized and `Err` for unauthorized.
 
-Is simple like that, you can implement any logic and if `Ok` were returned the usecase keep running, but if `Err` were returned, the usecase is interrupted.
+It is simple like that, you can implement any logic and if `Ok` were returned the use case keep running, but if `Err` were returned, the use case is interrupted.
 
 ```js
 const createUser = () => usecase('Create User', {
@@ -31,12 +31,12 @@ const createUser = () => usecase('Create User', {
 
 ## Auditing
 
-You can retrieve useful information about an usecase execution with `usecase.auditTrail`.
+You can retrieve useful information about a use case execution with `usecase.auditTrail`.
 
 ```js
 const request = { name: 'The best product' }
 
-// Run the usecase
+// Run the use case
 const response = await createProduct.run(request)
 
 // Log their information
@@ -90,7 +90,7 @@ console.log(createProduct.auditTrail)
 
 > Refer to [Audit with HerbsJS](../usecase/features#audit) to know more.
 
-## Generate a usecase self documentation
+## Generate a use case self documentation
 
 You can also use `uc.doc()` to get an Object like this:
 

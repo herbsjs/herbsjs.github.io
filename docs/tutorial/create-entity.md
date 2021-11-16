@@ -7,13 +7,13 @@ slug: /tutorial/create-entity
 
 ## Introduction to the Entity concept
 
-Entities are the natural place for abstractions from your domain. Usually big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc are entities.
+Entities are the natural place for abstractions from your domain. Usually, big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc. are entities.
 
 Entities have properties (fields), actions (methods) and often is uniquely identified by an ID.
 
 > Refer to [Getting Started - What's and Entity](/docs/entity/getting-started#whats-an-entity) to know more.
 
-For this project the most basic entity is the User. The CLI generates it out-of-the-box, so let's understand how it works:
+For this project, the most basic entity is the User. The CLI generates it out-of-the-box, so let's understand how it works:
 
 ## User Entity
 

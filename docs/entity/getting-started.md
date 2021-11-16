@@ -7,7 +7,7 @@ slug: /entity/getting-started
 
 ## What's an Entity?
 
-Entities are the natural place for abstractions from your domain. Usually big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc are entities. 
+Entities are the natural place for abstractions from your domain. Usually big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc. are entities. 
 
 Entities have properties (fields), actions (methods) and often is uniquely identified by an ID.
 

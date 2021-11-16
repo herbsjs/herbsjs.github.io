@@ -53,21 +53,21 @@ const ret = await repo.findByID(1)
 
 ### What is a Repository?
 
-A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks), is part of the layer to retrieve and store entities abstracting the underlying implementation. By using repositories, details of these implementation such as relational database, document-oriented databases, etc, should not leak to the domain code. In other words, no raw SQL queries on your use case or entity files.
+A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks), is part of the layer to retrieve and store entities abstracting the underlying implementation. By using repositories, details of these implementation such as relational database, document-oriented databases, etc., should not leak to the domain code. In other words, no raw SQL queries on your use case or entity files.
 
 ### Herbs2knex Repository
 
-In order to boost productivity Herbs2knex provides way to dynamically generate, on the fly (no code generation), a repository class based on your Entities and other metadata. 
+In order to boost productivity, Herbs2knex provides ways to dynamically generate, on the fly (no code generation), a repository class based on your Entities and other metadata. 
 
 These metadata are necessary to close the gap between OOP concepts and paradigms and those of relational databases. For example, it is necessary to specify primary keys and foreign keys as these information do not exist in the description of your domain.
 
-Following Herbs architecture principals it is not the intention of this lib to create yet another ORM or query builder but to create a bridge between your domain and an existing one (Knex).
+Following Herbs architecture principals, it is not the intention of this lib to create yet another ORM or query builder but to create a bridge between your domain and an existing one (Knex).
 
 ### Why Knex?
 
 Herbs2knex is just one of many bridges possible between Herbs and other packages.
 
-The advantage of using Knex is that is a simple and flexible SQL query builder. It also supports Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift. So you can build your system using these databases out of the box.
+The advantage of using Knex is that is a simple and flexible SQL query builder. It also supports Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle and Amazon Redshift. Therefore, you can build your system using these databases out of the box.
 
 ### Repository setup
 
@@ -126,7 +126,7 @@ class YourRepository extends Repository {
 
 - `foreignKeys` (optional) - Foreign keys for the database table
 
-    Usually there is no corresponding fields declared in the entity for foreign keys. That is the reason it is necessary to inform the name and the type of the fields.
+    Usually, there is no corresponding fields declared in the entity for foreign keys. That is the reason it is necessary to inform the name and the type of the fields.
 
     Format: `[{ fieldName: Type }, { fieldName: Type }, ...]`
 
@@ -184,7 +184,7 @@ const ret = await repo.insert(aNewEntity)
 
 Update an Entity.
 
-Format: `.update(entity)` where `entity` is a Entity instance with values to be persisted.
+Format: `.update(entity)` where `entity` is an Entity instance with values to be persisted.
 
 Return: The updated entity with the values from database.
 
@@ -197,7 +197,7 @@ const ret = await repo.update(aModifiedEntity)
 
 Delete an Entity.
 
-Format: `.delete(entity)` where `entity` is a Entity instance to be deleted.
+Format: `.delete(entity)` where `entity` is an Entity instance to be deleted.
 
 Return: `true` for success or `false` for error
 

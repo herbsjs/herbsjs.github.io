@@ -15,7 +15,7 @@ slug: /tutorial/herbsshelf
 
 ## Herbs Shelf Setup
 
-To setup the automatic documentation, we need a list with all usecases to be included in the documentation. With CLI, it is in `src/domain/usecases/index.js`:
+To setup the automatic documentation, we need a list with all use cases to be included in the documentation. With CLI, it is in `src/domain/usecases/index.js`:
 
 ```js
 // src/domain/usecases/index.js
@@ -28,15 +28,15 @@ module.exports = [
 ]
 ```
 
-Once you have this file, you can use it with `@herbsjs/herbsshelf` to get the HTML content and do what you want with.
+Once you have this file, you can use it with `@herbsjs/herbsshelf` to get the HTML content and do what you want with it.
 
-In this case, is set a route called `/herbsshelf` in the server to provide this:
+In this case, a route called `/herbsshelf` is set in the server to provide this:
 
 ```js
 // src/infra/api/rest/index.js
 const renderShelfHTML = require('@herbsjs/herbsshelf')
 
-// Get that usecases list.
+// Get that use cases list.
 const usecases = require('../../../domain/usecases')
 
 // Set up the route to serve the rendered HTML
@@ -49,4 +49,4 @@ app.get('/herbsshelf', (req, res) => {
 })
 ```
 
-> Know more about [Herbs Shelf](/docs/glues/herbsshelf).
+> Learn more about [Herbs Shelf](/docs/glues/herbsshelf).
