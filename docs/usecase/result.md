@@ -33,7 +33,7 @@ if (response.isErr)
 return response.ok // response.ok has the returned value
 ```
 
-Results are a important run-time metadata to inform glues about the execution of a use case.
+Results are an important run-time metadata to inform glues about the execution of a use case.
 
 **Common Result Methods**
 

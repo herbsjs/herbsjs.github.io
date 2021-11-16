@@ -5,7 +5,7 @@ sidebar_label: Steps
 slug: /usecase/steps
 ---
 
-Steps are the building blocks of a use case. Its main goal is to generate metadata before and during the execution of a use case like the code intention, audit trail, etc.
+Steps are the building blocks of a use case. Their main goal is to generate metadata before and during the execution of a use case like the code intention, audit trail, etc.
 
 ## The Basics
 

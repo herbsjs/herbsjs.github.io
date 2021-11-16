@@ -23,10 +23,10 @@ Alternatively, one can also just press Ctrl+Space (Windows, Linux) or Cmd+Space 
 
 | Trigger  | Content |
 | -------: | ------- |
-| `uc→`   | Generate **Buchu** entire UseCase `...  usecase("My use case definition", { ...`	|
-| `step→`   | Create a **Buchu** step `"Description of step": step( (ctx) => { return Ok() } )` |
-| `ifstep→`   | Create a **Buchu** conditional Step  `"Description of conditional rule": ifElse( {` |
-| `usec→`   | Generate instantiation of **Buchu** Usecase with all available functions |
+| `uc→`   | Generates **Buchu** entire use case `...  usecase("My use case definition", { ...`	|
+| `step→`   | Creates a **Buchu** step `"Description of step": step( (ctx) => { return Ok() } )` |
+| `ifstep→`   | Creates a **Buchu** conditional Step  `"Description of conditional rule": ifElse( {` |
+| `usec→`   | Generates instantiation of **Buchu** use case with all available functions |
 
 
 
@@ -34,10 +34,10 @@ Alternatively, one can also just press Ctrl+Space (Windows, Linux) or Cmd+Space 
 
 | Trigger  | Content |
 | -------: | ------- |
-| `ent→`   | Generate entire **Gotu** entity `entity('user', { prop: field(type) } )`|
-| `fie→`   | Create a **Gotu** entity field `name: field(type)` |
-| `fiev→`   | Create a **Gotu** entity field with **Suma** validation params  `name: field(type, { validation: { presence: true } } } )` |
-| `fjs→`   | Generate instantiation **Gotu** Entity `Entity.fromJSON(params)` |
+| `ent→`   | Generates entire **Gotu** entity `entity('user', { prop: field(type) } )`|
+| `fie→`   | Creates a **Gotu** entity field `name: field(type)` |
+| `fiev→`   | Creates a **Gotu** entity field with **Suma** validation params  `name: field(type, { validation: { presence: true } } } )` |
+| `fjs→`   | Generates instantiation **Gotu** Entity `Entity.fromJSON(params)` |
 
 ----------
 

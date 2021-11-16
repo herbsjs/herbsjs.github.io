@@ -249,7 +249,7 @@ customer.errors // {"email":[{"invalidEmail":true}]}
 
 ## Format
 
-`format` (regex) - The format validator will validate a value against a regular expression of your chosing.
+`format` (regex) - The format validator will validate a value against a regular expression of your choosing.
 
 ```javascript
 const Customer =
@@ -301,4 +301,4 @@ customer.errors  // {"website":[{"invalidURL":true}],"ftp":[{"invalidURL":true}]
 
 The `type`, `length`, `numericality`, `format` and `datetime` validators won't validate a value if it's `null` or `undefined`.
 
-To ensure your your value is not null, use `allowNull: false` or `presence: true`.
+To ensure that your value is not null, use `allowNull: false` or `presence: true`.

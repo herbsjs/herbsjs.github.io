@@ -1,6 +1,6 @@
 ---
 id: gettingStarted
-title: Getting Started with Usecases
+title: Getting Started with Use Cases
 sidebar_label: Getting Started
 slug: /usecase/getting-started
 ---
@@ -11,7 +11,7 @@ Conceptually, a use case reflects a single action exposed by the Domain to the e
 
 For exemple: _Reopen Ticket_, _Reply Message_, _Add User_
 
-Internally a use case is responsible to control the interaction between entities, repositories and other domain components.
+Internally, a use case is responsible for controlling the interaction between entities, repositories and other domain components.
 
 From Clean Architecture book: "Use cases orchestrate the flow of data to and from the entities, and direct those entities to use their Critical Business Rules to achieve the goals of the use case." 
 

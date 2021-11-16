@@ -68,15 +68,15 @@ const ret = await repo.findByID('60edc25fc39277307ca9a7ff')
 
 ### What is a Repository?
 
-A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks), is part of the layer to retrieve and store entities abstracting the underlying implementation. By using repositories, details of these implementation such as relational database, document-oriented databases, etc, should not leak to the domain code. In other words, no raw SQL queries on your use case or entity files.
+A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks), is part of the layer to retrieve and store entities abstracting the underlying implementation. By using repositories, details of these implementation such as relational database, document-oriented databases, etc., should not leak to the domain code. In other words, no raw SQL queries on your use case or entity files.
 
 ### Herbs2mongo Repository
 
-In order to boost productivity herbs2Mongo provides way to dynamically generate a repository class based on your Entities and other metadata.
+In order to boost productivity, herbs2Mongo provides way to dynamically generate a repository class based on your Entities and other metadata.
 
 These metadata are necessary to close the gap between OOP concepts and paradigms and those of relational databases. For example, it is necessary to specify primary keys and foreign keys as these information do not exist in the description of your domain.
 
-Following Herbs architecture principals it is not the intention of this lib to create yet another ODM or query builder but to create a bridge between your domain and an existing one (from Mongo).
+Following Herbs architecture principals, it is not the intention of this lib to create yet another ODM or query builder but to create a bridge between your domain and an existing one (from Mongo).
 
 ### Why Mongo oficial Driver?
 
@@ -150,7 +150,7 @@ class YourRepository extends Repository {
 ### find
 Find entities
 
-Format: `.find(options)` where `id` is a optional object containing `{ limit, skip, orderBy, filter }`.
+Format: `.find(options)` where `id` is an optional object containing `{ limit, skip, orderBy, filter }`.
 
 Return: Entity array
 
@@ -168,7 +168,7 @@ const repo = new ItemRepository(injection)
 const ret = await repo.find({ limit: 10 })
 ```
 
-- `skip` Adds an skip clause to the query..
+- `skip` Adds a skip clause to the query..
 
 ```javascript
 const repo = new ItemRepository(injection)
@@ -194,7 +194,7 @@ const ret = await repo.find({ filter: { stringTest: ["aString"] } })
 ### findByID
 Find entities by IDs
 
-Format: `.findByID(id)` where `id` is a ObjectId string, this will be changed to _id automaticaly.
+Format: `.findByID(id)` where `id` is an ObjectId string, this will be changed to _id automaticaly.
 
 Return: Entity array
 
@@ -206,7 +206,7 @@ const ret = await repo.findByID('60edc25fc39277307ca9a7ff')
 ### insert
 Insert an Entity into a table.
 
-Format: `.insert(entity)` where `entity` is a Entity instance with values to be persisted..
+Format: `.insert(entity)` where `entity` is an Entity instance with values to be persisted..
 
 Return: The inserted entity with the values from database.
 
@@ -218,7 +218,7 @@ const ret = await repo.insert(aNewEntity)
 ### insertMany
 Insert an array of Entities into a table.
 
-Format: `.insertMany([entity])` where `[entity]`is a array of Entities instances with values to be persisted.
+Format: `.insertMany([entity])` where `[entity]`is an array of Entities instances with values to be persisted.
 
 Return: The inserted entity with the values from database.
 
@@ -236,7 +236,7 @@ const ret = await repo.insertMany(aNewArrayofEntities)
 ### update
 Update an Entity.
 
-Format: `.update(entity)` where `entity` is a Entity instance with values to be persisted.
+Format: `.update(entity)` where `entity` is an Entity instance with values to be persisted.
 
 Return: The updated entity with the values from database.
 
@@ -262,7 +262,7 @@ await itemRepo.updateMany({ filter: filterDefinition, update: updateDefinition})
 ### deleteByID
 Delete an Entity..
 
-Format: `.deleteByID(id)` where `id` is a ObjectId string, this will be changed to _id automaticaly..
+Format: `.deleteByID(id)` where `id` is an ObjectId string, this will be changed to _id automaticaly..
 
 Return: true for success or false for error.
 
