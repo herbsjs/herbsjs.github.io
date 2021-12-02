@@ -75,6 +75,10 @@ const createProduct = injection =>
 
 With `ifElse` step it is possible create a conditional flow for a use case. 
 
+💡 **Should I use `ifElse` step or a simple `if` statement on my code?**
+
+Use `ifElse` when there is a fork in the business rule flow, thus capturing and documenting these rules. For other cases, use the `if` statement
+
 ```javascript
 '[conditional flow description]': ifElse({
 
