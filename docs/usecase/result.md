@@ -124,7 +124,7 @@ This is the list with all **known errors** and the expected behavior for the con
 Result | Check | HTTP / REST | GraphQL (Apollo) | gRPC  |
 -------|-------------|-------------|------------------|--------
 Ok() | ret.isOk | 200 - Ok | | OK
-Err.invalidArgument(options, args) | ret.isInvalidArgumentsError | 400 - Bad Request | BAD_USER_INPUT | INVALID_ARGUMENT
+Err.invalidArguments(options, args) | ret.isInvalidArgumentsError | 400 - Bad Request | BAD_USER_INPUT | INVALID_ARGUMENT
 Err.permissionDenied(options) | ret.isPermissionDeniedError | 403 - Forbidden |  FORBIDDEN | PERMISSION_DENIED
 Err.notFound(options) | ret.isNotFoundError | 404 - Not Found | (BAD_USER_INPUT) | NOT_FOUND
 Err.alreadyExists(options) | ret.isAlreadyExistsError | 409 - Conflict | (BAD_USER_INPUT) | ALREADY_EXISTS
