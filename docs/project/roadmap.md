@@ -42,10 +42,6 @@ Enjoy!
 
     *Why?* Shelf is a big part of DX. 
 
-- **GQL and REST: Handle Known Errors** - [issue](https://github.com/herbsjs/herbs2gql/issues/27) / [issue](https://github.com/herbsjs/herbs2rest/issues/17)
-
-    *Why?* We created Known Errors but they are not being used where they delivery most value: the GraphQL and REST glues.
-
 - **Context inside uc.authorize()** - [issue](https://github.com/herbsjs/buchu/issues/44)
 
     *Why?* Sometimes it will be necessary to access repositories on uc.authorize(). This is a hard issue to solve since it can easily bring some breaking changes.

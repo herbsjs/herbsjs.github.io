@@ -84,6 +84,10 @@ generateRoutes(controllerList, routes, true)  // true = console info endpoints
 app.use(routes)
 ```
 
+#### HTTP Status Code and Err
+
+Herbs2rest translates Herbs [Known Errors​](/docs/usecase/result#known-errors) to HTTP status code as described in the documentation.
+
 #### Authorization
 
 All use cases must implement the `authorize` method and receive a user for authentication if using the default controller.
