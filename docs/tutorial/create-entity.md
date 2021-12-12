@@ -46,7 +46,7 @@ Within the entity fields properties, we have:
 
 ```js
 // src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 // The second argument is an object with the fields.
 const User = entity('User', {
@@ -54,7 +54,7 @@ const User = entity('User', {
     // The value is the object type of
     // the field using the `field()`.
 
-    id: field(Number),
+    id: id(Number),
 
     // Both the fields "nickname" and "password" are texts, therefore we are using `String`.
     nickname: field(String),
@@ -79,10 +79,10 @@ Just for exemple, imagine that we have a field `score` to store some kind of poi
 
 ```js
 // src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const User = entity('User', {
-    id: field(Number),
+    id: id(Number),
     nickname: field(String),
     password: field(String),
 
@@ -103,10 +103,10 @@ The validation is passed as an `Object` and it can have different kinds of param
 
 ```js
 // src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const User = entity('User', {
-    id: field(Number, {
+    id: id(Number, {
         validation: {
             // The field MUST be present
             presence: true,

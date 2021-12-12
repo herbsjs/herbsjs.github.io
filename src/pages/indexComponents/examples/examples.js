@@ -5,7 +5,7 @@ import { LiveProvider, LiveEditor } from 'react-live'
 
 const exampleEntity = `const Item = 
   entity('Item', {
-    id: field(Number),
+    id: id(Number),
     isDone: field(Boolean, {
       default: false
     }),
@@ -16,7 +16,7 @@ const exampleEntity = `const Item =
 
 const TodoList = 
   entity('To Do List', {
-    id: field(Number),
+    id: id(Number),
     name: field(String),
     items: field([Item])
     isDone() {

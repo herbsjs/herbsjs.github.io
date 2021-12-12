@@ -25,10 +25,10 @@ yarn add @herbsjs/herbs
 Here's a quick example to get you started, it's literally all you need:
 
 ```js
-import { entity, field, Ok, Err, usecase, step, ifElse  } from '@herbsjs/herbs'
+import { entity, field, id, Ok, Err, usecase, step, ifElse  } from '@herbsjs/herbs'
 
 const Item = entity('Item', {
-  id: field(Number),
+  id: id(Number),
   description: field(String),
   isDone: field(Boolean),
   position: field(Number)
@@ -41,53 +41,50 @@ const dependency = {
 
 const addOrUpdateItem = (injection) =>
 
-usecase('Add or Update an Item on a to-do List', {
+    usecase('Add or Update an Item on a to-do List', {
 
-    // Input/Request type validation
-    request: { listId: Number, item: Item },
+        // Input/Request type validation
+        request: { listId: Number, item: Item },
 
-    // Output/Response type
-    response: { item: Item },
+        // Output/Response type
+        response: { item: Item },
 
-    // Authorization Audit
-    authorize: async (user) => user.isAdmin ? Ok() : Err(),
+        // Authorization Audit
+        authorize: async (user) => user.isAdmin ? Ok() : Err(),
 
-    // Dependency Injection control
-    setup: (ctx) => ctx.di = Object.assign({}, dependency, injection),
+        // Dependency Injection control
+        setup: (ctx) => ctx.di = Object.assign({}, dependency, injection),
 
-    // Step audit and description
-    'Check if the Item is valid': step((ctx) => {
-        ...
-        return item.validate() // Ok or Error
-    }),
-
-    'Check if the List exists': step(async (ctx) => {
-        ...
-        return Ok()
-    }),
-
-    // Conditional step
-    'Add or Update the Item': ifElse({
-
-        'If the Item exists': step(async (ctx) => {
+        // Step audit and description
+        'Check if the Item is valid': step((ctx) => {
             ...
-            return Ok(newItem)
+            return item.validate() // Ok or Error
         }),
 
-        'Then: Add a new Item to the List': step(async (ctx) => {
+        'Check if the List exists': step(async (ctx) => {
             ...
-            return ctx.ret = await itemRepo.save(item) // Ok or Error
+            return Ok()
         }),
 
-        'Else: Update Item on the List': step(async (ctx) => {
-            ...
-            return ctx.ret = await itemRepo.save(item) // Ok or Error
+        // Conditional step
+        'Add or Update the Item': ifElse({
+
+            'If the Item exists': step(async (ctx) => {
+                ...
+                return Ok(newItem)
+            }),
+
+            'Then: Add a new Item to the List': step(async (ctx) => {
+                ...
+                return ctx.ret = await itemRepo.save(item) // Ok or Error
+            }),
+
+            'Else: Update Item on the List': step(async (ctx) => {
+                ...
+                return ctx.ret = await itemRepo.save(item) // Ok or Error
+            })
         })
     })
-})
-
-
-
 ```
 
 ## Take a tour of our sample application
