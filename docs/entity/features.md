@@ -18,11 +18,11 @@ slug: /entity/features
 Example:
 
 ```javascript
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const Customer = 
     entity('Customer', {
-        id: field(Number),
+        id: id(Number),
         name: field(String),
         isVIP() {
             ...
@@ -57,7 +57,7 @@ Example:
 ```javascript
 const Order = 
     entity('Order', {
-    id: field(Number, {
+    id: id(Number, {
         validation: { presence: true, length: { minimum: 3 } }
     }),
     date: field(Date),
@@ -67,9 +67,7 @@ const Order =
 ```
 ### ID Fields
 
-It is possible to declare a field as an ID. This metadata will be used by glues to enrich the infrastructure interfaces (Database, REST, GraphQL, etc).
-
-We can do it in two ways:
+Defines a fields as ID of an entity.
 
 ```javascript
 // The explicit way
@@ -87,14 +85,12 @@ const User =
     })
 ```
 
-You can check if a field isId accessing the options of the field, like this:
+It is allowed to have one or many ID fields on a entity. 
+
+To access the metadata:
 
 ```javascript
-
-const user = new User()
-
-//should be equals ```true```
-user.__proto__.meta.schema.id.options.isId
+instance.prototype.meta.schema.id.options.isId
 ```
 
 ### Scalar types
@@ -246,6 +242,10 @@ user.validate()
 user.errors // {}
 user.isValid() // true
 ```
+
+**Except IDs**
+
+It is possible to ignore [ID field](#id-fields) validation using `.isValid({ exceptIDs: true })`. It can be useful for creation use cases when the entity IDs star as `null` or `undefined` and will be generated later from the database.
 
 ### Type Validation
 

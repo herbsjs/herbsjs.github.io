@@ -304,11 +304,11 @@ The `type`, `length`, `numericality`, `format` and `datetime` validators won't v
 To ensure that your value is not null, use `allowNull: false` or `presence: true`.
 
 
-### Custom Validation
+## Custom Validation
 
-For custom validation Gotu uses [Suma](https://github.com/herbsjs/suma) library under the hood. It has no message defined, only error codes.
+For custom validation use `{ custom: { validationName: function(value), ... } }` on the field definition.
 
-Use `{ validation: ... }` to specify a valid Suma validation (sorry) on the field definition.
+The validation function receives the original `value` and must return `true` for valid or `false` for invalid value.
 
 ```javascript
 const User =
@@ -327,27 +327,6 @@ const user = new User()
 user.password = '1234'
 user.cardNumber = '1234456'
 user.validate()
-user.errors // [{ password: [ { isTooShort: 6 } ] , { "invalidCardNumber": true }]
+user.errors // [{ password: [ { isTooShort: 6 } ] , { invalidCardNumber: true }]
 user.isValid // false
-```
-
-You can ignore id field validation using `isValid({exceptIDs: true})`. Example: Imagine that your id should not be null, but sometimes, in an insertion case, the ID only exists after an insertion in the database, so you can validate the hole entity, except the id field.
-
-```javascript
-
-const Plan =
-    entity('Plan', {
-        ...
-        myId: id(Number),
-        monthlyCost: field(Number),
-    })
-
-const plan = new Plan()
-plan.plan.myId = '123'
-plan.plan.monthlyCost = 500
-plan.isValid({exceptIDs: true}) // true
-
-plan.isValid() // false
-plan.errors // { myId: [ wrongType: 'Number' ] }
-
 ```

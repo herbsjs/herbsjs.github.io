@@ -27,7 +27,7 @@ For an entity like User:
 
 ```js
 entity('User', {
-    id: field(Number),
+    id: id(Number),
     nickname: field(String),
     password: field(String),
 })

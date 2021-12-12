@@ -228,19 +228,19 @@ An entity can define a reference for others entities but will not (and should no
 
 ```javascript
 const Product = entity('Product', {
-    id: field(Number),
+    id: id(Number),
     name: field(String),
     ...
 })
 
 const OrderItem = entity('Order Items', {
-    id: field(Number),
+    id: id(Number),
     product: field(Product),    // optional
     ...
 })
 
 const Order = entity('Order', {
-    id: field(Number),
+    id: id(Number),
     item: field([OrderItem]),     // optional
     ...
 })
