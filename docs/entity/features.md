@@ -65,6 +65,37 @@ const Order =
     ...
 })
 ```
+### ID Fields
+
+It is possible to declare a field as an ID. This metadata will be used by glues to enrich the infrastructure interfaces (Database, REST, GraphQL, etc).
+
+We can do it in two ways:
+
+```javascript
+// The explicit way
+const User =
+    entity('User', {
+        id: field(Number, { isId: true }),
+        ...
+    })
+
+// The short way
+const User =
+    entity('User', {
+        id: id(Number),
+        ...
+    })
+```
+
+You can check if a field isId accessing the options of the field, like this:
+
+```javascript
+
+const user = new User()
+
+//should be equals ```true```
+user.__proto__.meta.schema.id.options.isId
+```
 
 ### Scalar types
 

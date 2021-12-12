@@ -26,11 +26,11 @@ This is an example of how to define an entity:
 `entities/user.js`:
 
 ```javascript
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const User = 
     entity('User', {
-        id: field(Number),
+        id: id(Number),
         name: field(String),
         lastAccess: field(Date),
         features: field([Feature]),
