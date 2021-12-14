@@ -90,15 +90,42 @@ git add .
 git add usecase.js
 ```
 
-3. 
+3. Now is the time for us to write a summary of what we've worked on. We will use the command below to initiate the commit message.
+
+```sh
+git cz
+```
+Example of other commands that can be used.
+
+`npm run commit` or `npx cz` instead `git commit`
+
+We will follow the pattern that would inform the type, scope and a short message of what we did in the developed code.
+
+4. And to finish we will send all commits to our Github with the command below.
+
+```sh
+git push
+```
 
 ## Pull Request
 
+And the most awaited moment has arrived, the time to make our first pull request.
 
-- `git cz` or `npm run commit` or `npx cz` instead `git commit` 
-- `git push`
-- Push to your fork and submit a pull request
-- Pat yourself on the back and wait for your pull request to be reviewed and merged.
+We will access our repository on Github. Not the buchu from the Herbs organization, but the one we downloaded using git clone, which is in our repository list.
+
+1. After accessing our repository, we will go to the **Pull Requests** tab
+
+2. We will click on the **New pull request** button.
+
+3. At this moment the **Buchu** repository and the **master** branch are being displayed, and on the right side will be **our repository and our branch** that has the new changes.
+
+4. Below will be displayed all the modified files, being all right we will click on the **create pull request** button
+
+5. At that moment a form will be displayed in which you must fill in the information regarding your **PR**. And fill in a **title** if it is blank.
+
+6. Finally, we will confirm the creation of the PR by clicking on the **create pull request** button
+
+At that moment your PR will be created and it will go through the checks in the workflow, everything being ok, wait for your PR to be reviewed and merged.
 
 ## No-code Contributions
 Contributions to Herbs are not limited to GitHub. You can help others by sharing your experience using Herbs, whether that is through blog posts, presenting talks at conferences, or simply sharing your thoughts on Twitter and tagging @herbsjs. We also have a server in [Discord](https://discord.com/invite/e3cQ66KDv5) to focus our doubts and chat!
