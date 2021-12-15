@@ -56,6 +56,8 @@ Now we need to download it to your development environment so you can code.
 
 3. Some download forms like .zip will be displayed, but in our case we will use HTTPS.
 
+![](../../static/img/example_code_download.png)
+
 4. Copy the HTTPS being displayed and open a terminal of your choice.
 
 5. With the terminal open, access a folder where you want to save the project using the command below and replace "Your Folder" with the desired folder.
@@ -93,11 +95,8 @@ git add usecase.js
 3. Now is the time for us to write a summary of what we've worked on. We will use the command below to initiate the commit message.
 
 ```sh
-git cz
+npm run commit
 ```
-Example of other commands that can be used.
-
-`npm run commit` or `npx cz` instead `git commit`
 
 We will follow the pattern that would inform the type, scope and a short message of what we did in the developed code.
 
