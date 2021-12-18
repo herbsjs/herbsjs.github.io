@@ -34,10 +34,6 @@ Enjoy!
 
     *Why?* Currently it's hard to find a object like use cases and entities in a project. 
 
-- **ID Field** - [issue](https://github.com/herbsjs/gotu/issues/46)
-
-    *Why?* Improve DX and metadata for glues like Knex, Shelf and others.
-
 - **Shelf - Bugs** - [issue](https://github.com/herbsjs/herbsshelf/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
     *Why?* Shelf is a big part of DX. 
