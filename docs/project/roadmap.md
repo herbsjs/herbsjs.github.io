@@ -20,7 +20,7 @@ Some already have implementations or proof-of-concepts in progress, some don't h
 
 Enjoy!
 
-*(Last update Nov/21)*
+*(Last update Dez/21)*
 
 - **CLI - Issues and Bugs** - [issue](https://github.com/herbsjs/herbs-cli/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
