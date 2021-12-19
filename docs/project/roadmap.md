@@ -30,9 +30,13 @@ Enjoy!
 
     *Why?* Improve DX, specially for CLI, so devs don't have to change UC request when a entity changes. 
 
-- **Object Discovery** - [issue](https://github.com/herbsjs/herbs/issues/11)
+- **Herbarium - Object Discovery** - [issue](https://github.com/herbsjs/herbs/issues/11), [issue](https://github.com/herbsjs/herbs-cli/issues/85), [issue](https://github.com/herbsjs/herbs2gql/issues/38), [issue](https://github.com/herbsjs/herbs2rest/issues/22)
 
     *Why?* Currently it's hard to find a object like use cases and entities in a project. 
+
+- **ID Field** - [issue](https://github.com/herbsjs/gotu/issues/46), [issue](https://github.com/herbsjs/herbs-cli/issues/82), [issue](https://github.com/herbsjs/herbs2rest/issues/21), [issue](https://github.com/herbsjs/herbs2knex/issues/35)
+
+    *Why?* Improve DX and metadata for glues like Knex, Shelf and others.
 
 - **Shelf - Bugs** - [issue](https://github.com/herbsjs/herbsshelf/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
