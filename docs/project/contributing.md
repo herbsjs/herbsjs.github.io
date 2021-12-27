@@ -28,6 +28,24 @@ Tools such as [commitizen](https://github.com/commitizen/cz-cli) or [commitlint]
 ## Issues
 First step to be done is access the project you want to contribute to and take a look at the issue tab, maybe there is already an issue open you want to work on, or you can even open one to be discussed.
 
+**Labels** are automatically defined when the issue/PR is opened and are updated if needed by core members.
+
+Both **issues** and **PR** have labels to identify them, in order to identify the type, criticality and whether it is already under development. Below are some examples:
+
+`documentation` -> Improvements or additions to documentation.
+
+`enhancement` -> New feature or request.
+
+`ready-to-work` -> Item is ready to work on it.
+
+`wip` -> Working In Progress.
+
+`bug` -> Something isn't working.
+
+To know other tags and their reasons, access the link below:
+
+[Herbs Labels](https://github.com/herbsjs/herbs/labels)
+
 We will use the [buchu](https://github.com/herbsjs/buchu) project as an example.
 
 1. Go to the Herbs home page on Github and access the buchu project.
@@ -36,8 +54,16 @@ https://github.com/herbsjs
 ```
 2. Click on the Issues tab
 
-Just choose which question you want to act on and comment that you will act so other members are aware and your effort is not wasted.
+Just choose which issue you want to act on and comment that you will act so other members are aware and your effort is not wasted.
 You will have access to all open issues and also those that have already been closed.
+
+Below we have some links to make your search easier if you want to know all the open PRs without anyone acting or want to give tips or even help someone in an issue that is under development.
+
+[Open issues ready to work and without an owner yet](https://github.com/search?o=desc&q=org%3Aherbsjs+label%3Aready-to-work+-label%3Awip+state%3Aopen&s=created&type=Issues)
+
+[Open issues with work in progress](https://github.com/search?q=org%3Aherbsjs+-label%3Aready-to-work+label%3Awip+state%3Aopen&type=Issues)
+
+[Open issued with help wanted or extra attention needed](https://github.com/search?o=desc&q=org%3Aherbsjs+label%3A%22help+wanted%22+state%3Aopen&s=created&type=Issues)
 
 ## Fork
 After we know which issue we are going to attack, we now need to fork the repository.
