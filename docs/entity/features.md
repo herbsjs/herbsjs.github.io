@@ -90,7 +90,12 @@ It is allowed to have one or many ID fields on a entity.
 To access the metadata:
 
 ```javascript
-instance.prototype.meta.schema.id.options.isId
+
+const user = new User()
+
+//should be equals ```true```
+user.__proto__.meta.schema.id.options.isId
+
 ```
 
 ### Scalar types
