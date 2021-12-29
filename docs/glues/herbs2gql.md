@@ -177,7 +177,7 @@ Come with us to make an awesome *herbs2gql*.
 
 Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/herbs2gql/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
 
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2gql/blob/main/.github/CONTRIBUTING.md)
+If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2gql/blob/master/.github/CONTRIBUTING.md)
 
 ## License
 
