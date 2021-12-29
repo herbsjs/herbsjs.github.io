@@ -89,12 +89,12 @@ export default function HowItWorks() {
 				<div className={styles.gridMiddleE}>
 					<hr className={styles.line} />
 					<div className={styles.badgeMiddle}>
-						{/* <Link
+						<Link
 							to={useBaseUrl('docs/glues/Herbs2mongo')}
 							className={styles.badgeLink}
-						> */}
+						>
 							Herbs 2 Mongo
-						{/* </Link> */}
+						</Link>
 					</div>
 					<hr className={styles.line} />
 					<div className={styles.arrowRight} />
