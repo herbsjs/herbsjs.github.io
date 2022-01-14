@@ -11,7 +11,7 @@ Entities are the natural place for abstractions from your domain. Usually big th
 
 Entities have properties (fields), actions (methods) and often is uniquely identified by an ID.
 
-Some entities in your domain need to be retrieved and persisted from a repository (ex: database). For that you can use a glue like [herbs2knex](/docs/glues/Herbs2knex).
+Some entities in your domain need to be retrieved and persisted from a repository (ex: database). For that you can use a glue like [herbs2knex](/docs/glues/Herbs2knex) or [herbs2mongo](/docs/glues/Herbs2mongo).
 
 ## Installing
 
