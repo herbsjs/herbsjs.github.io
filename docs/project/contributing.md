@@ -25,6 +25,9 @@ Tools such as [commitizen](https://github.com/commitizen/cz-cli) or [commitlint]
 - [NodeJS](https://nodejs.org/en/download/package-manager/)
 - [Git](https://github.com/git-guides/install-git)
 
+## Contributing flow
+<img src="\img\cheatsheet.jpg" width="350"/> 
+
 ## Issues
 First step to be done is access the project you want to contribute to and take a look at the issue tab, maybe there is already an issue open you want to work on, or you can even open one to be discussed.
 
