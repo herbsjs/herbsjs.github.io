@@ -5,7 +5,8 @@ const sidebar = {
     'motivation', 'architecture', 'ecosystem', 'roadmap', 'contributing', 'acknowledgements', 'logos', 'CoC', 'license'],
   UseCase: ['gettingStarted', 'features', 'steps', 'result'],
   Entity: ['gettingStarted', 'features', 'validation'],
-  Glues: ['whatisglue', 'herbs2gql', 'herbs2rest', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets', 'herbs2mongo'],
+  Validation: ['what-suma', 'validations', 'checkers'],
+  Glues: ['whatisglue', 'herbs2gql', 'herbs2rest', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets', 'herbs2mongo']
 
 }
 
