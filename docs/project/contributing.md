@@ -25,8 +25,9 @@ Tools such as [commitizen](https://github.com/commitizen/cz-cli) or [commitlint]
 - [NodeJS](https://nodejs.org/en/download/package-manager/)
 - [Git](https://github.com/git-guides/install-git)
 
-## Contributing flow
-<img src="\img\cheatsheet.jpg" max-width="350"/> 
+## Contributing flow 
+![](../../static/img/cheatsheet.JPG)
+
 Optional * - Use this command if you want to install Commitizen on your local machine.
 
 ## Issues
