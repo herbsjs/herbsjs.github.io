@@ -23,14 +23,21 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          href: 'https://twitter.com/herbsjs',
+          className: 'twitter-icon',
+          'aria-label': 'Twitter',
           position: 'right',
         },
         {
-          href: 'https://github.com/herbsjs',
-          label: 'GitHub',
+          href: 'https://stackoverflow.com/questions/tagged/herbsjs',
+          className: 'stackoverflow-icon',
+          'aria-label': 'Stack Overflow',
+          position: 'right',
+        },
+        {
+          href: 'https://discord.gg/e3cQ66KDv5',
+          className: 'discord-icon',
+          'aria-label': 'Discord',
           position: 'right',
         },
       ],
