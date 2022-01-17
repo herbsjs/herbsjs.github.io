@@ -30,8 +30,9 @@
 	margin: 0 calc(-1 * var(--ifm-pre-padding));
 	padding: 0 var(--ifm-pre-padding);
 }
-.toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle- {
-	display: none;
+
+.navbar__items--right > :last-child {
+	margin-left: 12px;
 }
 
 .badge--primary {
