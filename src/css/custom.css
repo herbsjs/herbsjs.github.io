@@ -70,45 +70,48 @@
 	max-width: 20rem;
 }
 
-.stackoverflow-icon:before {
+.stackoverflow-icon {
 	background: url("../../static/img/logo-stack-overflow.png") no-repeat;
 
 	content: "";
 	display: flex;
 	align-items: center;
+	margin-left: 12px;
 	height: 24px;
 	width: 24px;
 }
 
 html[data-theme=dark]
-.stackoverflow-icon:before{
+.stackoverflow-icon {
 	background: url("../../static/img/logo-stack-overflow-dark-mode.png") no-repeat;
 }
 
-.twitter-icon:before {
+.twitter-icon {
 	background: url("../../static/img/logo-twitter.png") no-repeat;
 	content: "";
 	display: flex;
 	align-items: center;
+	margin-left: 12px;
 	height: 24px;
 	width: 24px;
 }
 
 html[data-theme=dark]
-.twitter-icon:before{
+.twitter-icon {
 	background: url("../../static/img/logo-twitter-dark-mode.png") no-repeat;
 }
 
-.discord-icon:before {
+.discord-icon {
 	background: url("../../static/img/logo-discord.png") no-repeat;
 	content: "";
 	display: flex;
 	align-items: center;
+	margin-left: 12px;
 	height: 24px;
 	width: 24px;
 }
 
 html[data-theme=dark]
-.discord-icon:before{
+.discord-icon {
 	background: url("../../static/img/logo-discord-dark-mode.png") no-repeat;
 }
