@@ -30,8 +30,9 @@
 	margin: 0 calc(-1 * var(--ifm-pre-padding));
 	padding: 0 var(--ifm-pre-padding);
 }
-.toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle- {
-	display: none;
+
+.navbar__items--right > :last-child {
+	margin-left: 12px;
 }
 
 .badge--primary {
@@ -67,4 +68,50 @@
 
 .footer__logo {
 	max-width: 20rem;
+}
+
+.stackoverflow-icon {
+	background: url("../../static/img/logo-stack-overflow.png") no-repeat;
+
+	content: "";
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+	height: 24px;
+	width: 24px;
+}
+
+html[data-theme=dark]
+.stackoverflow-icon {
+	background: url("../../static/img/logo-stack-overflow-dark-mode.png") no-repeat;
+}
+
+.twitter-icon {
+	background: url("../../static/img/logo-twitter.png") no-repeat;
+	content: "";
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+	height: 24px;
+	width: 24px;
+}
+
+html[data-theme=dark]
+.twitter-icon {
+	background: url("../../static/img/logo-twitter-dark-mode.png") no-repeat;
+}
+
+.discord-icon {
+	background: url("../../static/img/logo-discord.png") no-repeat;
+	content: "";
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+	height: 24px;
+	width: 24px;
+}
+
+html[data-theme=dark]
+.discord-icon {
+	background: url("../../static/img/logo-discord-dark-mode.png") no-repeat;
 }
