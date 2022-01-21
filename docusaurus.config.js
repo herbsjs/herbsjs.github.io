@@ -12,9 +12,6 @@ module.exports = {
     description: 'Herbs - Build your microservices in Node.js with Clean Architecture and Domain Driven Design.',
   },
   themeConfig: {
-    gtag: {
-      trackingID: 'G-LMCPKQXZHH'
-    },
     navbar: {
       logo: {
         alt: 'HerbsJs\'s logo',
@@ -108,6 +105,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-LMCPKQXZHH'
         },
       },
     ],
