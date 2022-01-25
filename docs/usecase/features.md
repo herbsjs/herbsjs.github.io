@@ -20,7 +20,7 @@ Example:
 ```javascript
 const { Ok, Err, usecase, step, ifElse } = require('@herbsjs/herbs')
 const createItem = usecase('Create Item', {
-    ... 
+    ...
 })
 ```
 
@@ -87,14 +87,14 @@ For example:
 const updateItem = (injection) =>
 
     usecase('Update Item', {
-        // Input/Request type validation 
+        // Input/Request type validation
         request: {
             id: Number,
             description: String,
             isDone: Boolean,
             position: Number
         }
-        
+
         'Retrieve the previous Item from the repository': step(async (ctx) => {
             const req = ctx.req // request values
             const ret = await repo.findByID(req.id)
@@ -114,12 +114,11 @@ const ret = await usecase.run(request)
 
 ## Response
 
-It is possible to define the response type as well. This information is used as metadata for Glues but it is not validated when running the use case.
+It is possible to define the response type as well. This information is used as metadata for glues but it is not validated when running the use case.
 
 `{ response: type }`, where:
 
 - `type`: response type.
-
 
 A use case will run all the steps sequencially or until one of the steps return a `Err`. The [result](/docs/usecase/result) of a use case is set by the result of the last step executed.
 
@@ -132,7 +131,11 @@ const createProduct = injection =>
         request: {
             name: String,
             ...
-        }
+        },
+
+        response: {
+            product: Product
+        },
 
         'Check if the Product is valid': step(ctx => {
             ...
@@ -142,7 +145,7 @@ const createProduct = injection =>
 
         'Save the Product on the repository': step(async ctx => {
             ...
-            ctx.ret = await repo.insert(product) // set the return value
+            ctx.ret.product = await repo.insert(product) // set the return value
             return Ok() // last step and return Ok
         }),
 ```
@@ -171,7 +174,7 @@ The validation will not validatate for presence, so `null` and `undefined` are a
 
 ## Setup
 
-Like a constructor, it is the first function to be executed before `authorize` and steps. Can be used to setup the dependency injection, for instance. 
+Like a constructor, it is the first function to be executed before `authorize` and steps. Can be used to setup the dependency injection, for instance.
 
 `{ setup: ctx => {} }`, where:
 
@@ -235,15 +238,15 @@ Result sample:
 {
     // object type
     type: 'use case',
-    
+
     // use case description
     description: 'Add or Update an Item on a to-do List',
-    
+
     // unique Id for each use case execution
-    transactionId: '9985fb70-f56d-466a-b466-e200d1d4848c', 
-    
+    transactionId: '9985fb70-f56d-466a-b466-e200d1d4848c',
+
     // total use case execution time in nanosecods
-    elapsedTime: 1981800n, 
+    elapsedTime: 1981800n,
 
     // the same user (object) provided on `usecase.authorize(user)`
     user: { name: 'John', id: '923b8b9a', isAdmin: true },
@@ -258,24 +261,78 @@ Result sample:
 
     // steps
     steps: [
-        { 
+        {
             // object type
-            type: 'step', 
-            
+            type: 'step',
+
             // use ase description
-            description: 'Check if the Item is valid', 
-            
+            description: 'Check if the Item is valid',
+
             // total step execution time in nanosecods
-            elapsedTime: 208201n , 
-            
+            elapsedTime: 208201n ,
+
             // step result
-            return: {} 
+            return: {}
         },
         ...
     ]
 }
 ```
 
-## Documentation
+## Metadata
 
-// TODO
+To access the metadata of a use case: `uc.doc()`
+
+Example:
+
+```javascript
+const createProduct = injection =>
+    usecase('Create Product', {
+
+        request: {
+            description: String,
+        },
+
+        response: {
+            product: Product,
+        },
+
+        'Check if the Product is valid': step({
+
+            'Validate Product origin': step(ctx => {
+                return Ok()
+            }),
+
+            'Validate Product information': step(ctx => {
+                return Ok()
+            }),
+        }),
+    })
+
+const uc = createProduct()
+
+console.log(uc.doc())
+// {
+//     type: "use case",
+//     description: "Create Product",
+//     request: {
+//         description: String
+//     },
+//     response: {
+//         product: Product
+//     },
+//     steps: [{
+//         type: "step",
+//         description: "Check if the Product is valid",
+//         steps: [{
+//             type: "step",
+//             description: "Validate Product origin",
+//             steps: null
+//         }, {
+//             type: "step",
+//             description: "Validate Product information",
+//             steps: null
+//         }]
+//     }]
+// }
+```

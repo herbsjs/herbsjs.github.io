@@ -319,6 +319,48 @@ user.errors // { password: [ { isTooShort: 6 } ] }
 user.isValid() // false
 ```
 
+## Metadata
+
+To access the metadata of an entity: `Entity.prototype.meta.schema`
+
+Example:
+
+```javascript
+const Item =
+    entity('Item', {
+        id: id(Number),
+        description: field(String, {
+            validation: {
+                presence: true,
+                length: { minimum: 6 }
+            }
+        }),
+        isDone: field(Boolean,)
+    })
+
+console.log(Item.prototype.meta.schema)
+
+// {
+//     id: {
+//         name: "id",
+//         options: { isId: true }
+//     },
+//     description: {
+//         name: "description",
+//         options: {
+//             validation: {
+//                 presence: true,
+//                 length: { minimum: 6 }
+//             }
+//         }
+//     },
+//     isDone: {
+//         name: "isDone",
+//         options: {}
+//     }
+// }
+```
+
 ## Serialization
 
 ### fromJSON(value)
