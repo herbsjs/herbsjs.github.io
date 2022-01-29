@@ -5,13 +5,13 @@ import Link from '@docusaurus/Link'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import { GitHub } from '@material-ui/icons'
 import BrowserOnly from '@docusaurus/BrowserOnly'
-import useThemeContext from '@theme/hooks/useThemeContext'
+import {useColorMode} from '@docusaurus/theme-common'
 
 const ImageSwitcher = () => {
 	return (
 		<BrowserOnly fallback={<img alt="herbsjs logo" src='img/logo-herbsjs.png' />}>
 			{() => {
-				const { isDarkTheme } = useThemeContext()
+				const { isDarkTheme } = useColorMode()
 				const imgSrc = isDarkTheme
 					? 'img/logo-herbsjs-douradoebranco.png'
 					: 'img/logo-herbsjs.png'
