@@ -142,6 +142,57 @@ class YourRepository extends Repository {
 
 ## Retrieving and Persisting Data
 
+### `find`
+Find entities matched by the filter, or empty array `[]` if there is no matching entity.
+
+Format: `.find(options)` where `options` is a optional object containing `{ where, limit, offset, orderBy }`
+
+Return: Entity array
+
+```javascript
+const repo = new ItemRepository(injection)
+const ret = await repo.find()
+```
+
+Options:
+
+- `where`
+Adds a filter to the query with given values.
+
+```javascript
+const repo = new ItemRepository(injection)
+const ret = await repo.find({ where: { name: ["Anne"] } })
+```
+
+- `limit`
+Adds a limit clause to the query.
+
+```javascript
+const repo = new ItemRepository(injection)
+const ret = await repo.find({ limit: 10 })
+```
+
+- `offset`
+Adds an offset clause to the query.
+
+```javascript
+const repo = new ItemRepository(injection)
+const ret = await repo.find({ offset: 5 })
+```
+
+- `orderBy`
+Adds an order by clause to the query. Column can be string, or list mixed with string and object.
+
+```javascript
+// order by collum
+const repo = new ItemRepository(injection)
+const ret = await repo.find({ orderBy: 'description'})
+
+// order by complex query
+const repo = new ItemRepository(injection)
+const ret = await repo.find({ orderBy: [{ column: 'nome', order: 'desc' }, 'email'] })
+```
+
 ### findByID
 Find entities by IDs
 
@@ -152,19 +203,6 @@ Return: Entity array
 ```javascript
 const repo = new ItemRepository(injection)
 const ret = await repo.findByID(10)
-```
-
-### findBy
-
-Find entities by any Entity field.
-
-Format: `.findBy(where)` where `where` is a object containing `{fieldName1: value1, fieldName2: value2, ...}`
-
-Return: Entity array
-
-```javascript
-const repo = new ItemRepository(injection)
-const ret = await repo.findBy({ name: ["Anne"] })
 ```
 
 ### insert
