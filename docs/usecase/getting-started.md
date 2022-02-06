@@ -123,6 +123,7 @@ console.info(usecase.auditTrail)
     steps: (2) [{…}, {…}],
     transactionId: '2bbc60d6-7843-4667-8732-341c22bae42e',
     elapsedTime: 172811500n,
+    request: { name: 'The best list' },
     return: {Ok: {…}},
     user: { canCreateList: true }
 }

@@ -63,6 +63,9 @@ console.log(createProduct.auditTrail)
     // `usecase.authorize(user)` return
     authorized: true,
 
+    // use case request
+    request: { name: 'The best product' },
+    
     // use case result
     return: {
         Ok: { id: 1, nickname: 'created_user', password: 's3cr37' }
