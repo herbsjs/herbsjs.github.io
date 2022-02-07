@@ -254,6 +254,9 @@ Result sample:
     // `usecase.authorize(user)` return
     authorized: true,
 
+    // use case request
+    request: { name: 'The best product' },
+
     // use case result
     return: {
         Ok: { item: { id: 100, name: 'Do not forget this', position: 9 } }
