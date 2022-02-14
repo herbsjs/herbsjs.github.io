@@ -166,7 +166,68 @@ const [gql, resolver] = usecase2mutation(givenAUseCase, resolverFunc, options)
 
 ### Apollo Errors and Err
 
-Herbs2gql translates Herbs [Known Errors​](/docs/usecase/result#known-errors) to Apollo Errors as described in the documentation.
+`herbs2gql` deals with errors in the default resolver. It translates the usecase's errors into graphql errors:
+
+| Usecase Error            | Apollo Error   |
+|--------------------------|----------------|
+| Permission Denied        | ForbiddenError |
+| Not Found                | ApolloError    |
+| Already Exists           | ApolloError    |
+| Unknown                  | ApolloError    |
+| Invalid Arguments        | UserInputError |
+| Invalid Entity           | UserInputError |
+| Any other kind of errors | UserInputError |
+
+However, it's behavior can be overridden in the `errorHandler` property of the options parameter:
+
+```javascript
+const { defaultResolver } = require("@herbsjs/herbs2gql")
+
+const myCustomErrorHandler = (usecaseResponse) => {
+  // handle the errors on your own way
+}
+
+const options = {
+  errorHandler: myCustomErrorHandler,
+}
+
+const updateUser = usecase("Update User", {
+  // usecase implementation
+})
+
+const [gql, resolver] = usecase2mutation(
+  updateUser(),
+  defaultResolver(updateUser, options)
+)
+```
+
+Your custom error handler can also utilize the `defaultErrorHandler` as a fallback:
+
+```javascript
+const { defaultResolver, defaultErrorHandler } = require("@herbsjs/herbs2gql")
+
+const myCustomErrorHandler = (usecaseResponse) => {
+  // handle the errors on your own way
+
+  // use the default error handler when there is no need of a specific treatment
+  return defaultErrorHandler(usecaseResponse)
+}
+
+const options = {
+  errorHandler: myCustomErrorHandler,
+}
+
+const updateUser = usecase("Update User", {
+  // usecase implementation
+})
+
+const [gql, resolver] = usecase2mutation(
+  updateUser(),
+  defaultResolver(updateUser, options)
+)
+```
+
+The [Known Errors​](/docs/usecase/result#known-errors) are described in the documentation.
 
 #### Example
 
