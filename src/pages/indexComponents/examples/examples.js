@@ -74,7 +74,7 @@ export default function Examples() {
         </div>
       </div>
       <div className={styles.exampleArrow}>
-        <img src='img/arrow.png' alt='down-arrow' />
+        <img src='img/arrow.svg' alt='down-arrow' />
       </div>
     </div>
   )

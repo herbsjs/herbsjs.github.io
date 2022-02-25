@@ -71,7 +71,7 @@
 }
 
 .stackoverflow-icon {
-	background: url("../../static/img/logo-stack-overflow.png") no-repeat;
+	background: url("../../static/img/logo-stack-overflow.svg") no-repeat;
 
 	content: "";
 	display: flex;
@@ -83,11 +83,11 @@
 
 html[data-theme=dark]
 .stackoverflow-icon {
-	background: url("../../static/img/logo-stack-overflow-dark-mode.png") no-repeat;
+	background: url("../../static/img/logo-stack-overflow-dark-mode.svg") no-repeat;
 }
 
 .twitter-icon {
-	background: url("../../static/img/logo-twitter.png") no-repeat;
+	background: url("../../static/img/logo-twitter.svg") no-repeat;
 	content: "";
 	display: flex;
 	align-items: center;
@@ -98,11 +98,11 @@ html[data-theme=dark]
 
 html[data-theme=dark]
 .twitter-icon {
-	background: url("../../static/img/logo-twitter-dark-mode.png") no-repeat;
+	background: url("../../static/img/logo-twitter-dark-mode.svg") no-repeat;
 }
 
 .discord-icon {
-	background: url("../../static/img/logo-discord.png") no-repeat;
+	background: url("../../static/img/logo-discord.svg") no-repeat;
 	content: "";
 	display: flex;
 	align-items: center;
@@ -113,5 +113,5 @@ html[data-theme=dark]
 
 html[data-theme=dark]
 .discord-icon {
-	background: url("../../static/img/logo-discord-dark-mode.png") no-repeat;
+	background: url("../../static/img/logo-discord-dark-mode.svg") no-repeat;
 }
