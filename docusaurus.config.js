@@ -101,7 +101,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/herbsjs/herbsjs.github.io',
+          'https://github.com/herbsjs/herbsjs.github.io/blob/master',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
