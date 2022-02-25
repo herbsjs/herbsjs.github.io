@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo-herbsjs.png',
+  favicon: 'img/logo-herbsjs.svg',
   organizationName: 'herbsjs',
   projectName: 'website',
   customFields: {
@@ -16,7 +16,7 @@ module.exports = {
       logo: {
         alt: 'HerbsJs\'s logo',
         src: 'img/herbsjs.svg',
-        srcDark: 'img/herbsjs-white.png',
+        srcDark: 'img/herbsjs-white.svg',
       },
       items: [
         {
@@ -42,7 +42,7 @@ module.exports = {
     footer: {
       logo: {
         alt: 'Herbs Logo',
-        src: 'img/logo-herbsjs-branco.png',
+        src: 'img/logo-herbsjs-branco.svg',
       },
       links: [
         {

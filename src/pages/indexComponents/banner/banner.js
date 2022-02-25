@@ -9,12 +9,12 @@ import {useColorMode} from '@docusaurus/theme-common'
 
 const ImageSwitcher = () => {
 	return (
-		<BrowserOnly fallback={<img alt="herbsjs logo" src='img/logo-herbsjs.png' />}>
+		<BrowserOnly fallback={<img alt="herbsjs logo" src='img/logo-herbsjs.svg' />}>
 			{() => {
 				const { isDarkTheme } = useColorMode()
 				const imgSrc = isDarkTheme
-					? 'img/logo-herbsjs-douradoebranco.png'
-					: 'img/logo-herbsjs.png'
+					? 'img/logo-herbsjs-douradoebranco.svg'
+					: 'img/logo-herbsjs.svg'
 				const fullImgSrc = useBaseUrl(imgSrc)
 				return <img src={fullImgSrc} />
 			}}
