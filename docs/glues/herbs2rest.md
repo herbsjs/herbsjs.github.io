@@ -15,13 +15,13 @@ Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/got
 ```
 ### Using
 
-Use the method generateRoutes or the generateRoutesWithHebarium to generate api rest routes based on usecases.
+Use the method generateRoutes to generate api rest routes based on usecases.
 
 herbs2rest works with [express](https://expressjs.com/) in version [4.x](https://expressjs.com/en/4x/api.html).
 
 #### Controller List
 
-The default method (generateRoutes) needs a list of controllers like the example below:
+The method needs a list of controllers like the example below:
 
 ```javascript
 const controllerList = [
@@ -80,23 +80,6 @@ const app = express()
 const routes = new express.Router()
 
 generateRoutes(controllerList, routes, true)  // true = console info endpoints
-
-app.use(routes)
-```
-
-#### Generate Routes With Herbarium
-
-As an alternative in a simpler way, if you already use Herbarium, a centralized and standardized repository and discovery service for Herbs objects, you can automatically generate and use new express routes:
-
-```javascript
-const express = require('express')
-const { herbarium } = require('@herbsjs/herbarium')
-const { generateRoutesWithHerbarium } = require('@herbsjs/herbs2rest')
-
-const app = express()
-const routes = new express.Router()
-
-generateRoutesWithHerbarium(herbarium, routes, true)  // true = console info endpoints
 
 app.use(routes)
 ```
