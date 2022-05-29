@@ -32,7 +32,7 @@ const Customer =
 const aCustomer = new Customer()
 ```
 
-## Fields
+### Fields
 
 Defines the fields (properties) of an entity.
 
@@ -65,6 +65,34 @@ const Order =
     ...
 })
 ```
+It is possible to access the fields metadata of an entity through the `schema.fields` static property:
+
+```javascript
+const orderFields = Order.schema.fields
+
+console.log(orderFields)
+// [
+//   Field {
+//     name: 'id',
+//     type: [Function: Number],
+//     options: { validation: [Object], isId: true },
+//     _validations: null
+//   },
+//   Field {
+//     name: 'date',
+//     type: [Function: Date],
+//     options: {},
+//     _validations: null
+//   },
+//   Field {
+//     name: 'items',
+//     type: [ [class OrderItem extends BaseEntity] ],
+//     options: {},
+//     _validations: null
+//   }
+// ]
+```
+
 ### ID Fields
 
 Defines a fields as ID of an entity.
@@ -95,6 +123,25 @@ const user = new User()
 
 //should be equals ```true```
 user.__proto__.meta.schema.id.options.isId
+
+```
+
+It is also possible to get all ids from the entity by the `schema.ids` static property:
+
+```javascript
+
+const userIds = User.schema.ids
+
+console.log(userIds)
+
+// [
+//   Field {
+//     name: 'id',
+//     type: [Function: Number],
+//     options: { isId: true },
+//     _validations: null
+//   }
+// ]
 
 ```
 
