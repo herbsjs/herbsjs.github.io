@@ -32,7 +32,7 @@ const Customer =
 const aCustomer = new Customer()
 ```
 
-## Fields
+### Fields
 
 Defines the fields (properties) of an entity.
 
@@ -321,44 +321,67 @@ user.isValid() // false
 
 ## Metadata
 
-To access the metadata of an entity: `Entity.prototype.meta.schema`
+### Fields metadata
 
-Example:
+It is possible to access the fields metadata of an entity through the `schema.fields` static property:
 
 ```javascript
-const Item =
-    entity('Item', {
-        id: id(Number),
-        description: field(String, {
-            validation: {
-                presence: true,
-                length: { minimum: 6 }
-            }
-        }),
-        isDone: field(Boolean,)
-    })
 
-console.log(Item.prototype.meta.schema)
+const Order = entity('Order', {
+    id: id(Number, {
+        validation: { presence: true, length: { minimum: 3 } }
+    }),
+    date: field(Date),
+    items: field([OrderItems])
+})
 
-// {
-//     id: {
-//         name: "id",
-//         options: { isId: true }
-//     },
-//     description: {
-//         name: "description",
-//         options: {
-//             validation: {
-//                 presence: true,
-//                 length: { minimum: 6 }
-//             }
-//         }
-//     },
-//     isDone: {
-//         name: "isDone",
-//         options: {}
-//     }
-// }
+const orderFields = Order.schema.fields
+
+console.log(orderFields)
+// [
+//   Field {
+//     name: 'id',
+//     type: [Function: Number],
+//     options: { validation: [Object], isId: true },
+//     _validations: null
+//   },
+//   Field {
+//     name: 'date',
+//     type: [Function: Date],
+//     options: {},
+//     _validations: null
+//   },
+//   Field {
+//     name: 'items',
+//     type: [ [class OrderItem extends BaseEntity] ],
+//     options: {},
+//     _validations: null
+//   }
+// ]
+```
+
+### Ids metadata
+It is possible to access the ids metadata of an entity by the `schema.ids` static property:
+
+```javascript
+
+const User = entity('User', {
+    id: id(Number),
+})
+
+const userIds = User.schema.ids
+
+console.log(userIds)
+
+// [
+//   Field {
+//     name: 'id',
+//     type: [Function: Number],
+//     options: { isId: true },
+//     _validations: null
+//   }
+// ]
+
 ```
 
 ## Serialization
