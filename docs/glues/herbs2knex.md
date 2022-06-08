@@ -124,6 +124,25 @@ class YourRepository extends Repository {
     ids: [`customerId`, `productId`]  // productItem.customerId , productItem.productId
     ```
 
+    It's is possible to omit this field if the entity already has fields defined on it with `field` and the `isId` option or `id` helper functions:
+
+    ```javascript
+    // entity definition
+    const Order = entity('Order', {
+        orderSequence: field(Number, { isId: true }),
+        customerId: id(Number)
+    })
+
+    // repository definition
+    class OrderRepository extends Repository {
+        constructor({
+            entity: Order,
+            ids: ['orderSequence', 'customerId'] // `this` field is optional, since herbs can discover it through the entity metadata
+        })
+    }
+
+    ```
+
 - `foreignKeys` (optional) - Foreign keys for the database table
 
     Usually, there is no corresponding fields declared in the entity for foreign keys. That is the reason it is necessary to inform the name and the type of the fields.
