@@ -1,7 +1,7 @@
 ---
 id: repository
-title: 3. Generating Repositories
-sidebar_label: 3. Generating Repositories
+title: 4. Generating Repositories
+sidebar_label: 4. Generating Repositories
 slug: /tutorial/repository
 ---
 

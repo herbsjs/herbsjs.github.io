@@ -1,7 +1,7 @@
 ---
 id: graphql
-title: 5. Generating GraphQL Endpoint
-sidebar_label: 5. Generating GraphQL Endpoint
+title: 7. Generating GraphQL Endpoint
+sidebar_label: 7. Generating GraphQL Endpoint
 slug: /tutorial/graphql
 ---
 

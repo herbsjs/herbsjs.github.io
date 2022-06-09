@@ -1,7 +1,7 @@
 ---
 id: refactoring
-title: 7. Refactoring
-sidebar_label: 7. Refactoring
+title: 9. Refactoring
+sidebar_label: 9. Refactoring
 slug: /tutorial/refactoring
 ---
 

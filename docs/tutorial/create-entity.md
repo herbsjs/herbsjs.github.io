@@ -1,7 +1,7 @@
 ---
 id: create-entity
-title: 2. Creating Entities
-sidebar_label: 2. Creating Entities
+title: 3. Creating Entities
+sidebar_label: 3. Creating Entities
 slug: /tutorial/create-entity
 ---
 
