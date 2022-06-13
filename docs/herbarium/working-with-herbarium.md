@@ -9,9 +9,11 @@ slug: /herbarium/working-with-herbarium
 
 `options`:
 - `initialPath`: (optional) default `process.cwd()`
-- `avoidFiles`: (optional) default `(fileName) => fileName.includes('test.js') ? false : fileName`
+- `avoidFiles`: (optional) default `(fileName) => (fileName.includes('.spec.js') || fileName.includes('.test.js') ? false : fileName)`
+- `onlySpecs`: (optional) default `(fileName) => (fileName.includes('.spec.js') ? fileName : false)`
 - `entitiesPath`: (optional) default `/src/domain/entities`
 - `usecasesPath`: (optional) default `/src/domain/usecases`
+- `specPath`: (optional) default `/src/domain/`
 - `repositoriesPath`: (optional) default `/src/infra/repositories`
 
 ### Adding Objects and Metadata
@@ -57,6 +59,22 @@ module.exports =
 ```
 
 The second parameter of the `herbarium.usecases.add` function is the usecase id for herbarium. It is optional and if none is provided, it uses the usecase description (`Create Item`).
+
+```javascript
+// src/domain/usecases/createItem.spec.js
+const { spec, scenario, given, check } = require('@herbsjs/aloe')
+
+const createItemSpec = spec({ 
+    ...
+    })
+
+module.exports =
+    herbarium.specs
+        .add(createItemSpec, 'CreateItemSpec')
+        .spec
+```
+
+The second parameter of the `herbarium.specs.add` function is the entity id for herbarium.
 
  #### Repository
 

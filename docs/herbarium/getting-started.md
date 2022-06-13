@@ -1,6 +1,6 @@
 ---
 id: gettingStarted
-title: Getting Started with Entities
+title: Getting Started with Herbarium
 sidebar_label: Getting Started
 slug: /herbarium/getting-started
 ---
