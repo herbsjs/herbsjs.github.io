@@ -28,7 +28,7 @@ export default function HowItWorks() {
 					<div className={styles.innerInnerCircleC}>
 						<h3>
 							<Link
-								to={useBaseUrl('docs/entity/getting-started')}
+								to={useBaseUrl('docs/specs/getting-started')}
 								className={styles.circleLink}
 							>
 								Specs
