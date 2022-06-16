@@ -11,6 +11,7 @@
 		'circle circle middleE badgeE';
 	max-width: 100%;
 	margin: auto;
+	margin-top: 6em;
 	column-gap: 5px;
 	-moz-column-gap: 5px;
 	row-gap: 5px;
