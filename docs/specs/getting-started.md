@@ -17,7 +17,9 @@ In doing that it also ensures that the scenario will exercise the application wi
 
 ### Installing
 
-```$ npm install @herbsjs/herbs```
+```bash
+$ npm install @herbsjs/herbs
+```
 
 ### Using
 

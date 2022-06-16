@@ -18,8 +18,8 @@ From Clean Architecture book: "Use cases orchestrate the flow of data to and fro
 
 ## Installing
 
-```
-npm install @herbsjs/herbs
+```bash
+$ npm install @herbsjs/herbs
 ```
 
 ## Using

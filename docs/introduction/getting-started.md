@@ -6,92 +6,28 @@ slug: /
 custom_edit_url: null
 ---
 
+ <p align="center"><img src="../../img/logo-herbsjs.svg" height="220" alt="herbsjs logo" style={{maxWidth: '50%'}}></img></p>  
+
+Herbs is an open source library for backend applications, allowing you to build your microservices in Node.js faster and future-proof. It is focused on achieving faster deliveries and with happier developers, without neglecting the long-term need to constantly evolve your application as requirements change. 
+
+Herbs uses a "**Domain-First**" approach in order to achieve this: you and your team focus on your business domain and let Herbs handles the infrastructure code. Herbs will extract metadata from your domain and dynamically generate, on the fly (no code generation), your transport and repositories layers using the best existing libraries in the ecosystem. 
+
+The world is complex and we know that we won't be able to solve all problems with just one approach, so being humble is part of Herbs' principles. While we believe Herbs will help you in most cases, we are aware that there will be advanced scenarios that the defaults won't be enough for your application to make a difference. This means having flexible conventions, an extensible library and not replacing or hiding any abstraction important to your application.
+
 ## Installation
 
-Herbs is available as an [npm package](https://www.npmjs.com/package/@herbsjs/herbs).
-
-To install and save in your package.json dependencies, run:
-
 ```bash
-# with npm
-npm install @herbsjs/herbs
-
-# with yarn
-yarn add @herbsjs/herbs
+$ npm i -g @herbsjs/herbs-cli 
+$ herbs new
 ```
 
-## Using
+## Take a tour of our tutorial
 
-Here's a quick example to get you started, it's literally all you need:
-
-```js
-import { entity, field, id, Ok, Err, usecase, step, ifElse  } from '@herbsjs/herbs'
-
-const Item = entity('Item', {
-  id: id(Number),
-  description: field(String),
-  isDone: field(Boolean),
-  position: field(Number)
-})
-
-const dependency = {
-    ItemRepository: require('../repositories/ItemRepository').ItemRepository,
-    ...
-}
-
-const addOrUpdateItem = (injection) =>
-
-    usecase('Add or Update an Item on a to-do List', {
-
-        // Input/Request type validation
-        request: { listId: Number, item: Item },
-
-        // Output/Response type
-        response: { item: Item },
-
-        // Authorization Audit
-        authorize: async (user) => user.isAdmin ? Ok() : Err(),
-
-        // Dependency Injection control
-        setup: (ctx) => ctx.di = Object.assign({}, dependency, injection),
-
-        // Step audit and description
-        'Check if the Item is valid': step((ctx) => {
-            ...
-            return item.validate() // Ok or Error
-        }),
-
-        'Check if the List exists': step(async (ctx) => {
-            ...
-            return Ok()
-        }),
-
-        // Conditional step
-        'Add or Update the Item': ifElse({
-
-            'If the Item exists': step(async (ctx) => {
-                ...
-                return Ok(newItem)
-            }),
-
-            'Then: Add a new Item to the List': step(async (ctx) => {
-                ...
-                return ctx.ret = await itemRepo.save(item) // Ok or Error
-            }),
-
-            'Else: Update Item on the List': step(async (ctx) => {
-                ...
-                return ctx.ret = await itemRepo.save(item) // Ok or Error
-            })
-        })
-    })
-```
+This [tutorial](/docs/tutorial/new-project) will take you step by step through how to create a Herbs application from scratch. From installing packages to having a microservice ready to deploy in a few minutes.
 
 ## Take a tour of our sample application
 
-We created an example repository, that you can see the applicability of Herbs in a project closer to the real world. This application consists in a GraphQL API using Herbs and a [template](https://github.com/herbsjs/todolist-on-herbs/generate) to use with this repository
-
-So, you can get started with HerbsJS by taking a look at the [sample repository](https://github.com/herbsjs/todolist-on-herbs), or follow this documentation to get more knowledge of how to use herbsJS
+We created an example repository, that you can see the applicability of Herbs in a project closer to the real world. This application consists in a microservice for a [To Do List using Herbs](https://github.com/herbsjs/todolist-on-herbs). It is possible to explore concepts like [Entities](/docs/entity/getting-started), [Use Cases](/docs/usecase/getting-started) and [Specs](/docs/specs/getting-started). 
 
 ## Issues & Discussions
 
