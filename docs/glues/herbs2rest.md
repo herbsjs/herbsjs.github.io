@@ -10,8 +10,8 @@ Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/got
 
 ## Getting started
 ### Installing
-```
-  npm install @herbsjs/herbs2rest
+```bash
+$ npm install @herbsjs/herbs2rest
 ```
 ### Using
 

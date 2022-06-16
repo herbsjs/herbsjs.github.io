@@ -13,7 +13,7 @@ With Suma and Suma2text native, you can translate all suma error codes, one by o
 
 ### Installing
 ```
-  npm install @herbsjs/suma2text
+$ npm install @herbsjs/suma2text
 ```
 
 ### Using

@@ -7,9 +7,9 @@ slug: /usecase/getting-started
 
 ## What's a Use Case?
 
-Conceptually, a use case reflects a single action exposed by the Domain to the end user.
+A use case is action that a user can perform in the domain.
 
-For exemple: _Reopen Ticket_, _Reply Message_, _Add User_
+For exemple: _Reopen Ticket_, _Reply Message_, _Add Product_
 
 Internally, a use case is responsible for controlling the interaction between entities, repositories and other domain components.
 
@@ -68,21 +68,13 @@ module.exports.createList = injection =>
 
 - Be modeled around business domain
 - Focused on value
-- Keep it simple by telling stories / flows (steps)
+- Keep it simple by telling stories / flows ([steps](/docs/usecase/steps))
 - Be reusable
-- Be testable
-- Have clear acceptance criteria
+- Be [testable](/docs/specs/getting-started)
+- Have clear [acceptance criteria](/docs/specs/getting-started)
 - Use Ubiquitous language
 - Avoid implement field __validations__ using use cases. Prefer Entities for that.
 - Enforce that use cases are the only entry point to your Domain
-
-**References**
-
-- [Clean Architecture book](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
-- [Service Layer](https://martinfowler.com/eaaCatalog/serviceLayer.html)
-- [Command Pattern](https://refactoring.guru/design-patterns/command)
-- [Use Case 2.0](https://www.ivarjacobson.com/sites/default/files/field_iji_file/article/use-case_2.0_final_rev3.pdf)
-- [Use Case diagram](http://www.agilemodeling.com/artifacts/useCaseDiagram.htm)
 
 ## Running
 

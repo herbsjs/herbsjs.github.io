@@ -13,8 +13,8 @@ It is a great way to communicate and collaborate between domain experts and deve
 ![Glues](/img/herbsshelf_screenshot.gif)
 
 ### Installing
-```
-  npm install @herbsjs/herbsshelf
+```bash
+$ npm install @herbsjs/herbsshelf
 ```
 
 ### Using 

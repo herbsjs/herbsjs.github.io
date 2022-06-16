@@ -10,8 +10,8 @@ slug: /glues/herbs2rpl
 
 ## Getting started
 ### Installing
- ```
-  npm install herbs2repl
+ ```bash
+$ npm install herbs2repl
  ```
  
 ### Using

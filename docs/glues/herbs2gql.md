@@ -10,8 +10,8 @@ herbs2gql creates GraphQL types based on herbs entities ([gotu](https://github.c
 
 ## Getting started
 ### Installing
-```
-   npm install @herbsjs/herbs2gql
+```bash
+$ npm install @herbsjs/herbs2gql
 ```
 ### Using
 

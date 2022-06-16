@@ -5,12 +5,13 @@ sidebar_label: Herbs2mongo
 slug: /glues/Herbs2mongo
 ---
 
-# herbs2mongo
+[BETA]
+
 herbs2mongo creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Mongo](https://docs.mongodb.com/drivers/node/current/).
 
 ### Installing
-```
-   npm install @herbsjs/herbs2mongo
+```bash
+$ npm install @herbsjs/herbs2mongo
 ```
 
 ### Using

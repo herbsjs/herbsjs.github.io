@@ -11,8 +11,8 @@ slug: /glues/Herbs2knex
 herbs2knex creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Knex](http://knexjs.org).
 
 ### Installing
-```
-   npm install @herbsjs/herbs2knex
+```bash
+$ npm install @herbsjs/herbs2knex
 ```
 ### Using
 
@@ -142,7 +142,7 @@ class YourRepository extends Repository {
 
 ## Retrieving and Persisting Data
 
-### `find`
+### find
 Find entities matched by the filter, or empty array `[]` if there is no matching entity.
 
 Format: `.find(options)` where `options` is a optional object containing `{ where, limit, offset, orderBy }`
