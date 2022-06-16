@@ -23,7 +23,7 @@ $ npm install @herbsjs/herbs
 
 [**Aloe**](https://github.com/herbsjs/aloe): Define your [specs](/docs/specs/getting-started).
 
-[**Suma**](https://github.com/herbsjs/suma): It is the base library for value [validation](/docs/validation/validations.md) used internally by Gotu and Buchu.
+[**Suma**](https://github.com/herbsjs/suma): It is the base library for value [validation](/docs/validation/getting-started) used internally by Gotu and Buchu.
 
 ## Glues
 
