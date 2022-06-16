@@ -12,9 +12,7 @@ Herbs goes in a completely different direction. Herbs was created to solve funda
 
 Let's delve deeper!
 
-## Reasons to use Herbs
-
-### Fast development: Now and Always
+## Fast development: Now and Always
 
 With Herbs it is very fast to create a new project. Using the Herbs CLI it is possible to create a new microservice focused on your business problem and in a short time deploy it to your preferred infrastructure.
 
@@ -22,7 +20,7 @@ However, it is not enough to be quick in creating a new project. You need to kee
 
 Herbs was designed with maintenance in mind from day one. So you can keep evolving your software with new business demands with the peace of mind that your system won't quickly turn into a big ball of mud.
 
-### More Time Spent On The Domain
+## More Time Spent On The Domain
 
 Software must deliver value to the business. Period. Why spend so much time writing code about worthless things like the URL format in the REST endpoint? POST or PUT? Or rewrite dozens of resolvers for your GraphQL? Postgres ou Mongo?
 
@@ -30,7 +28,7 @@ Some of this discussion has value, but it shouldn't be where we put most of our 
 
 With Herbs the focus of the discussion is on delivering value, not the accidental complexity of the software. The time spent is put into specs, use cases, entities, business rules, etc.
 
-### Domain Knowledge: Retention and Propagation
+## Domain Knowledge: Retention and Propagation
 
 Knowing languages and tools is not enough when we are developing software. One also needs to know about the application domain aka "business rules". 
 
@@ -38,7 +36,7 @@ So, new team members need to know and become familiar with the business rules. L
 
 With Herbs code and documentation go together. New developers can access the documentation or just read the code to learn about the business. And for those who leave the team, the impact is low because the knowledge is retained in the code.
 
-### Enterprise Features Out Of The Box
+## Enterprise Features Out Of The Box
 
 With Herbs, features such as authorization and execution audits are native. We believe that applications should be safe and reliable.
 
