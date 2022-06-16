@@ -25,6 +25,16 @@ export default function HowItWorks() {
 							</Link>
 						</h3>
 					</div>
+					<div className={styles.innerInnerCircleC}>
+						<h3>
+							<Link
+								to={useBaseUrl('docs/entity/getting-started')}
+								className={styles.circleLink}
+							>
+								Specs
+							</Link>
+						</h3>
+					</div>
 					<div className={styles.innerInnerCircleB}>
 						<h3>
 							<Link
