@@ -4,9 +4,7 @@ title: Validations
 sidebar_label: Validations
 slug: /validation/validations
 ---
-
-
-### Presence
+## Presence
 
 `presence` (boolean) - Validates that the specified value is not empty.
 
@@ -20,7 +18,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Allow Null
+## Allow Null
 
 `allowNull` (boolean) - Validates that the specified value is not `null` or `undefined`.
 
@@ -34,7 +32,13 @@ const result = validate(value, validations)
 } */
 ```
 
-### Presence vs allowNull
+## Null Values
+
+The `type`, `length`, `numericality`, `format` and `datetime` validators won't validate a value if it's `null` or `undefined`.
+
+To ensure your value is not null, use `allowNull: false` or `presence: true`.
+
+## Presence vs allowNull
 
 |           | presence: true | allowNull: false |
 | --------- | -------------- | ---------------- |
@@ -48,9 +52,7 @@ const result = validate(value, validations)
 | null      |                |                  |
 | undefined |                |                  |
 
-
-
-### Contains
+## Contains
 
 `contains` -  The contains validator is useful for validating allowance or restriction in certain values.
 It checks that the given value exists in the target given by the **allowed** or  **notAllowed** option.
@@ -146,7 +148,7 @@ const result = validate(value, validations)
 
 ```
 
-### Length
+## Length
 
 Validates the length of the value.
 
@@ -172,7 +174,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Numericality
+## Numericality
 
 Validates constraints to acceptable numeric values.
 
@@ -215,7 +217,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Datetime
+## Datetime
 
 Validates constraints to acceptable date and time values.
 
@@ -247,7 +249,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### E-mail
+## E-mail
 
 The email validator attempts to make sure the input is a valid email.
 Validating emails is tricky business due to the complex rules of email address formatting.
@@ -264,7 +266,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### Format
+## Format
 
 `format` (regex) -The format validator will validate a value against a regular expression of your chosing.
 
@@ -284,7 +286,7 @@ const result = validate(value, validations)
 
 
 
-### Type
+## Type
 
 Type validator ensures a value is of the correct JavaScript type or a custom type.
 
@@ -346,7 +348,7 @@ const result = validate(value, validations)
 ```
 
 
-### Javascript Identifier
+## Javascript Identifier
 
  The javascript identifier validator ensures that the input is a valid javascript identifier. Javascript identifiers validator rules can be found [`here`](https://developer.mozilla.org/pt-BR/docs/Glossary/Identifier).
 
@@ -361,7 +363,7 @@ const result = validate(value, validations)
 } */
 ```
 
-### URL
+## URL
 
  The URL validator ensures that the input is a valid URL. Validating URLs are pretty tricky but this validator is inspired on a gist that can be found [`here`](https://gist.github.com/dperini/729294).
 
@@ -398,5 +400,97 @@ const result = validate(value, validations)
     value: 'ftp://google.com',
     errors: []
 } */
+```
+
+
+## Custom functions
+
+Execute custom functions to specific validations cases
+
+`propName` (string) - Name of the validation rule returned on error - *this is optional, see below example of usage*
+
+`validation` (function: boolean) - Function that will be called with value argument *this is optional, see below example of usage*
+
+```javascript
+
+const cardNumber = "123467890123456"
+// Single function validation with valid value
+const validations = { custom: { invalidCardNumber: (value) => value.length === 16 } }
+const result = validate(cardNumber, validations);
+/* {
+    value: '123467890123456',
+    errors: []
+} */
+//
+
+const cardNumber = "1234"
+
+// Single function validation with invalid value
+const validations = { custom: { invalidCardNumber: (value) => value.length === 16 } }
+const result = validate(cardNumber, validations);
+/* {
+    value: '1234',
+    errors: [{ "invalidCardNumber": true }]
+} */
+//
+
+// Multiple functions validation with invalid value
+const validations = {
+    custom: {
+        invalidCardNumber: (value) => value.length === 16,
+        invalidDigit: (value) => value[0] !== "2",
+    },
+}
+const result = validate(cardNumber, validations)
+/* {
+    value: '1234',
+    errors: [
+        {  "invalidCardNumber": true },
+        {  "invalidDigit": true },
+    }]
+} */
+//
+
+
+// Multiple functions validation with parcial valid values
+const cardNumber = "12345678910111213"
+
+const validations = {
+    custom: {
+        invalidCardNumber: (value) => value.length === 16,
+        invalidDigit: (value) => value[0] !== "2",
+    },
+}
+const result = validate(cardNumber, validations)
+/* {
+    value: '12345678910111213',
+    errors: [
+        {  "invalidDigit": true },
+    }]
+} */
+//
+
+```
+
+You can also extract validation for variables, if you want to make your code more reusable and customizable
+
+```javascript
+
+// Single Validation with custom propName
+
+const cardNumber = "1234"
+
+const propName = "invalidCardNumber";
+const validation = (value) => value.length === 16
+const validations = {
+    custom: { [propName]: validation }, }
+
+const result = validate(cardNumber, validations);
+/* {
+    value: '1234',
+    errors: [{ "invalidCardNumber": true }]
+} */
+//
+
 ```
 

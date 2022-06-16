@@ -15,13 +15,13 @@ So, Specs capture the usage intent of an application through its scenarios.
 
 In doing that it also ensures that the scenario will exercise the application with known inputs and validate the expected outputs.
 
-### Installing
+## Installing
 
 ```bash
 $ npm install @herbsjs/herbs
 ```
 
-### Using
+## Using
 
 ```javascript
 const { spec, scenario, given, check, samples } = require('@herbsjs/herbs').specs
