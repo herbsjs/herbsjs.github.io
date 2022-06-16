@@ -7,7 +7,7 @@ const sidebar = {
   Entity: ['gettingStarted', 'features', 'validation'],
   Specs: ['gettingStarted', 'features'],
   Validation: ['what-suma', 'validations', 'checkers'],
-  Glues: ['whatisglue', 'herbs2gql', 'herbs2rest', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets', 'herbs2mongo']
+  Glues: ['whatisglue', 'herbsshelf', 'herbs2gql', 'herbs2rest', 'herbs2knex', 'herbs2mongo', 'herbs2repl', 'suma2text', 'herbs-snippets']
 
 }
 
