@@ -1,7 +1,7 @@
 ---
 id: suma2text
-title: Suma2text
-sidebar_label: Suma2text
+title: Error to Text - Suma2Text
+sidebar_label: Error to Text
 slug: /glues/suma2text
 ---
 
@@ -13,7 +13,7 @@ With Suma and Suma2text native, you can translate all suma error codes, one by o
 
 ### Installing
 ```
-  npm install @herbsjs/suma2text
+$ npm install @herbsjs/suma2text
 ```
 
 ### Using
@@ -120,9 +120,8 @@ const portugueseUserErrors = suma2text.errorsToText(user.errors, 'pt-BR')
 */
 ```
 
-## TODO
+## Languages
 
-Language localisation:
 - [ ] Arabic
 - [ ] Bangla
 - [ ] Chinese
@@ -133,36 +132,6 @@ Language localisation:
 - [ ] Italian
 - [ ] Korean
 - [X] Portuguese ('pt-BR')
-- [ ] Spanish
+- [X] Spanish
 - [ ] Swedish   
 - [ ] Tamil
-
-
-Text Formatting:
-- [X] Primitive types
-- [X] Strings types
-- [X] Number types 
-- [ ] Date Type and formating style
-- [ ] User Class instances types
-
-
-### Contribute
-Come with us to make an awesome *suma2text*.
-
-Now, if you do not have the technical knowledge but intend to help us, do not feel shy, [click here](https://github.com/herbsjs/suma2text/issues) to open an issue and collaborate with ideas. The contribution could be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/suma2text/blob/master/.github/CONTRIBUTING.md)
-
-### The Herb
-
-suma2text has been used historically to relieve congestion from upper respiratory infections and colds and for wound healing. It is very popular for treating varicose veins and memory loss.
-
-
-https://www.herbslist.net/
-
-https://en.wikipedia.org/wiki/Centella_asiatica
-
-### License
-
-**suma2text** is released under the
-[MIT license](https://github.com/herbsjs/suma2text/blob/master/LICENSE.md)

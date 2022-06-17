@@ -1,6 +1,6 @@
 {
   "name": "herbjs-website",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "HerbsJS website - Build your microservices in Node.js with DDD and Clean Achitecture",
   "keywords": [
     "herbjs",
@@ -22,16 +22,16 @@
     "get-contributors": "node githubGetAllContributors.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.15",
-    "@docusaurus/plugin-sitemap": "^2.0.0-beta.15",
-    "@docusaurus/preset-classic": "^2.0.0-beta.15",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
+    "@docusaurus/core": "^2.0.0-beta.18",
+    "@docusaurus/plugin-sitemap": "^2.0.0-beta.18",
+    "@docusaurus/preset-classic": "^2.0.0-beta.18",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.1.1",
     "docusaurus2-dotenv": "^1.4.0",
-    "logrocket": "^2.1.3",
-    "node-fetch": "^3.2.0",
+    "logrocket": "^2.2.1",
+    "node-fetch": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-live": "2.2.3"

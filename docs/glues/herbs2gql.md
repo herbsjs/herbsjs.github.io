@@ -1,17 +1,17 @@
 ---
 id: herbs2gql
-title: Herbs2gql
-sidebar_label: Herbs2gql
+title: GraphQL - Herbs2GQL
+sidebar_label: GraphQL
 slug: /glues/herbs2gql
 ---
 
-herbs2gql creates GraphQL types based on herbs entities ([gotu](https://github.com/herbsjs/gotu)) and usecases ([buchu](https://github.com/herbsjs/buchu)), based on [Apollo](https://www.apollographql.com/) GraphQL.
+Creates GraphQL types (queries, mutations, etc.) based on herbs [entities](/docs/entity/getting-started) and [usecases](/docs/usecase/getting-started), based on [Apollo](https://www.apollographql.com/) GraphQL.
 
 
 ## Getting started
 ### Installing
-```
-   npm install @herbsjs/herbs2gql
+```bash
+$ npm install @herbsjs/herbs2gql
 ```
 ### Using
 
@@ -232,15 +232,3 @@ The [Known Errors​](/docs/usecase/result#known-errors) are described in the do
 #### Example
 
 Additionally you can view a simple demo application of this library in [todolist-on-herbs](https://github.com/herbsjs/todolist-on-herbs).
-
-## Contribute
-Come with us to make an awesome *herbs2gql*.
-
-Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/herbs2gql/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2gql/blob/master/.github/CONTRIBUTING.md)
-
-## License
-
-**herbsshelf** is released under the
-[MIT license](https://github.com/herbsjs/herbs2gql/blob/master/LICENSE)

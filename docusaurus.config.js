@@ -26,12 +26,6 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://stackoverflow.com/questions/tagged/herbsjs',
-          className: 'stackoverflow-icon',
-          'aria-label': 'Stack Overflow',
-          position: 'right',
-        },
-        {
           href: 'https://discord.gg/e3cQ66KDv5',
           className: 'discord-icon',
           'aria-label': 'Discord',
@@ -58,10 +52,6 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/herbsjs',
-            },
-            {
               label: 'Discord',
               href: 'https://discord.gg/e3cQ66KDv5',
             },
@@ -85,12 +75,6 @@ module.exports = {
           ],
         },
       ],
-    },
-    colorMode: {
-      switchConfig: {
-        darkIcon: " ",
-        lightIcon: " ",
-      }
     }
   },
   presets: [

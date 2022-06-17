@@ -7,13 +7,16 @@ slug: /validation/checkers
 
 Checkers allow users to validate data with simple functions
 
-### isFunction
+
+```javascript
+const { checker } = require('@herbsjs/herbs')
+```
+
+## isFunction
 
 Validates the the value is a function
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 function sampleFunc () {}
 const ret = checker.isFunction(sampleFunc)
 console.log(ret)
@@ -21,13 +24,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isDefined
+## isDefined
 
 Validates if the value is different from null or undefined
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const samples = [
     null,
     undefined,
@@ -42,13 +43,11 @@ for (const value of samples) {
 /* Output: false, false, true */
 ```
 
-### isArray
+## isArray
 
 Validates if the value is a array
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = ['a', 'b', 'c']
 const ret = checker.isArray(value)
 console.log(ret)
@@ -56,13 +55,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isIterable
+## isIterable
 
 Validates if the value is iterable
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value =  [{ name: 'jhon', age: 35},{ name: 'marie', age: 29}]
 const ret = checker.isIterable(value)
 console.log(ret)
@@ -70,13 +67,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isString
+## isString
 
 Validates if the value is a string
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value =  'herbs validators'
 const ret = checker.isString(value)
 console.log(ret)
@@ -84,13 +79,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isBoolean
+## isBoolean
 
 Validates if the value is a boolean
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value =  false
 const ret = checker.isBoolean(value)
 console.log(ret)
@@ -98,13 +91,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isNumber
+## isNumber
 
 Validates if the value is a boolean
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value =  152
 const ret = checker.isNumber(value)
 console.log(ret)
@@ -112,13 +103,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isDate
+## isDate
 
 Validates if the value is a date
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = new Date(1900, 5, 1)
 const ret = checker.isDate(value)
 console.log(ret)
@@ -126,13 +115,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isRegExp
+## isRegExp
 
 Validates if the value is a regex expression
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = /^[0-9]{8}$/
 const ret = checker.isRegExp(value)
 console.log(ret)
@@ -140,13 +127,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isInstanceOf
+## isInstanceOf
 
 Validates if the value is a instance of a defined type
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 class CustomClass {}
 
 const value = new CustomClass()
@@ -156,13 +141,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isObject
+## isObject
 
 Validates if the value is an object
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 class SampleClass {}
 const samples = [
     {},
@@ -180,13 +163,11 @@ for (const value of samples) {
 /* Output: true, true, true, true, false, false */
 ```
 
-### isEmpty
+## isEmpty
 
 Validates if the value is empty
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const samples = [
     '',
     ' ',
@@ -203,13 +184,11 @@ for (const value of samples) {
 /* Output: true, true, true, true, false, false */
 ```
 
-### isValidFormat
+## isValidFormat
 
 Validates a regex expression to test a value
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 45125
 const ret = checker.isValidFormat(value, /^[0-9]{8}$/)
 console.log(ret)
@@ -217,13 +196,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isValidEmail
+## isValidEmail
 
 Validates if the value is an e-mail
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 'herbs@email.com'
 const ret = checker.isValidEmail(value)
 console.log(ret)
@@ -231,13 +208,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isValidURL
+## isValidURL
 
 Validates if the value is an url
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 'http://herbsjs.org'
 const ret = checker.isValidURL(value)
 console.log(ret)
@@ -245,13 +220,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isValidJavascriptIdentifier
+## isValidJavascriptIdentifier
 
 Validates if the value is a valid javascript identifier
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 'herbs'
 const ret = checker.isValidJavascriptIdentifier(value)
 console.log(ret)
@@ -260,13 +233,11 @@ console.log(ret)
 ```
 
 
-### isTooShort
+## isTooShort
 
 Validates if the value is greater than a defined minimum value 
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 'herbs'
 const ret = checker.isTooShort(value, 3)
 console.log(ret)
@@ -274,13 +245,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isTooLong
+## isTooLong
 
 Validates if the value is less than a defined maximum value
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 'herbs'
 const ret = checker.isTooLong(value, 10)
 console.log(ret)
@@ -288,13 +257,11 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isWrongLength
+## isWrongLength
 
 Validates if the value has a length equal to the defined value
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const value = 'herbs'
 const ret = checker.isWrongLength(value, 5)
 console.log(ret)
@@ -302,130 +269,110 @@ console.log(ret)
 /* Output: true */
 ```
 
-### isEqualTo
+## isEqualTo
 
 Validates if the first value is equals to second value
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isEqualTo(1520, 1520)
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isGreaterThan
+## isGreaterThan
 
 Validates if the first number is greater than second number
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isGreaterThan(100, 50)
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isGreaterThanOrEqualTo
+## isGreaterThanOrEqualTo
 
 Validates if the first number is greater than or equals to second number
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isGreaterThanOrEqualTo(100, 100)
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isLessThan
+## isLessThan
 
 Validates if the first number is less than second number
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isLessThan(50, 100)
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isLessThanOrEqualTo
+## isLessThanOrEqualTo
 
 Validates if the first number is less than or equals to second number
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isLessThanOrEqualTo(100, 100)
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isInteger
+## isInteger
 
 Validates if the value is a integer number
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isInteger(10)
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isBeforeThan
+## isBeforeThan
 
 Validates if the first date is before than second date
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isBeforeThan(new Date(1900, 2, 1), new Date(1991, 2, 1))
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isAfterThan
+## isAfterThan
 
 Validates if the first date is before than second date
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isBeforeThan(new Date(1991, 2, 1), new Date(1900, 2, 1))
 console.log(ret)
 
 /* Output: true */
 ```
 
-### isAt
+## isAt
 
 Validates if the first date is equals to second date
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const ret = checker.isAt(new Date(1991, 2, 1), new Date(1991, 2, 1))
 console.log(ret)
 
 /* Output: true */
 ```
 
-### contains
+## contains
 
 Validates if the value contains in the object or array
 
 ```javascript
-const { checker } = require('@herbsjs/suma')
-
 const values = ['apple', 'orange']
 const ret = checker.isAt(values, 'orange')
 console.log(ret)

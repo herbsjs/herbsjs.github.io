@@ -4,7 +4,6 @@ import styles from './styles.module.css'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Banner from './indexComponents/banner/banner'
 import Features from './indexComponents/features/features'
-import Examples from './indexComponents/examples/examples'
 import HowItWorks from './indexComponents/howItWorks/howItWorks'
 import packageVersion from '../services/package-version'
 import HerbsShelf from './indexComponents/herbsShelf/herbsShelf'
@@ -36,18 +35,7 @@ function Home () {
       <main style={{ zoom: userZoom }}>
         <Features />
         <div className={styles.section}>
-          <h1>Build your Microservices in Node.js Faster and Future Proof</h1>
-          <Examples />
-          <h2 className={styles.h2big}>Generated On The Fly</h2>
-          <div className={styles.badges}>
-            <span className='badge badge--primary'>Repository</span>
-            <span className='badge badge--primary'>GraphQL</span>
-            <span className='badge badge--primary'>REST</span>
-            <span className='badge badge--primary'>Herbs Shelf</span>
-          </div>
-        </div>
-        <div className={styles.section}>
-          <h2 className={styles.h2big}>How it works?</h2>
+          <h2 className={styles.h2big}>Build Node.js Microservices Faster and Future Proof</h2>
           <HowItWorks />
         </div>
         <div className={styles.section}>

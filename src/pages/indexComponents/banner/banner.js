@@ -45,7 +45,7 @@ const Banner = ({ version }) => {
 						)}
 						to='https://github.com/herbsjs'
 					>
-						<GitHub fontSize='small' /> Start
+						<GitHub fontSize='small' /> GitHub
 					</Link>
 				</div>
 				<div className={styles.versionInfo}>

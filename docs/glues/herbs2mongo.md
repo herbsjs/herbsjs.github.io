@@ -1,16 +1,17 @@
 ---
 id: herbs2mongo
-title: Herbs2mongo
-sidebar_label: Herbs2mongo
+title: Mongo - Herbs2mongo
+sidebar_label: Mongo
 slug: /glues/Herbs2mongo
 ---
 
-# herbs2mongo
+[BETA]
+
 herbs2mongo creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Mongo](https://docs.mongodb.com/drivers/node/current/).
 
 ### Installing
-```
-   npm install @herbsjs/herbs2mongo
+```bash
+$ npm install @herbsjs/herbs2mongo
 ```
 
 ### Using
@@ -271,45 +272,3 @@ const repo = new ItemRepository(injection)
 let filterDefinition = {  numberTest : [aModifiedInstance.numberTest] }
 const ret = await repo.deleteMany({ filter: filterDefinition })
 ```
-
-## TODO
-
-- [ ] Allow only scalar types for queries (don't allow entity / object types)
-- [ ] Allow to ommit schema's name
-
-Features:
-- [ ] Be able to change the conventions (injection)
-- [ ] Exclude / ignore fields on all query statement
-- [ ] Awareness of created/updated at/by fields
-- [X] Plug-and-play MongoDB
-
-Retrieving and Persist:
-- [X] insert
-    - [x] batchs
-- [X] update
-    - [x] batchs
-- [X] delete (id)
-    - [x] batchs
-- [ ] persist (upsert)
-- [X] find (ID)
-    - [ ] deal with entities / tables with multiples IDs
-- [X] find by (any field)
-    - [ ] deal with entities / tables with multiples IDs
-    - [x] order by
-    - [x] limit
-    - [x] skip
-- [x] find All
-    - [x] order by
-    - [x] limit
-    - [x] skip
-- [x] find with pages
-- [ ] agregations
-- [ ] replace
-- [ ] collation
-- [ ] watch
-- [ ] first
-- [ ] last
-
-Tests:
-- [X] Pure JS
-- [X] MongoDB
