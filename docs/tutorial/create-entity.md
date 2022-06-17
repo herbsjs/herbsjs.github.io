@@ -15,59 +15,84 @@ Entities have properties (fields), actions (methods) and often is uniquely ident
 
 For this project, the most basic entity is the User. The CLI generates it out-of-the-box, so let's understand how it works:
 
-## User Entity
+## Generated User Entity
 
-#### Entity name
-
-First, let's understand how is set the name for the entity:
+First, let's understand how entity code works:
 
 ```js
-// src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+// Path: src/domain/entities/user.js
 
-// The entity name is first argument of `entity()`
-const User = entity('User', {})
+/* 
+    First, import from herbsjs package the main functions 
+    to create a entity, define entity fields and make
+    entity avaible for application.
+*/
+const { entity, id, field } = require('@herbsjs/herbs')
+const { herbarium } = require('@herbsjs/herbarium')
+
+
+/*
+    Here we start a const called User, thats receives
+    from entity() function a instance of Entity that will
+    represent an User.
+    
+    The entity() function expects two arguments,
+    in this sintax entity(entity_name, entity_body).
+
+    - First argument entity_name is a string thats determines this Entity name 
+    - Second argument entity_body is a object with properties 
+    thats represents Entity attributes
+*/
+const User = entity('User', {
+    // The key of this object defines a field name.
+    // The value is the object type of determined by `field()` function.
+
+    // `id()` is a special field to define a entity unique identifier. 
+    id: id(Number),
+
+    // Both the fields "nickname" and "password" are texts, therefore we are using `String`.
+    nickname: field(String),
+    password: field(String)
+})
+
+/*
+    Finally we are exporting our entity, but we don't do
+    this direct like `module.exports = User`. 
+    
+    herbsjs works with automagic dependecy injection, so to do
+    magic works we will need use a herbarium to export our entities
+    and make it avaible for all application.
+    
+    It's only necessary pass to module.export, herbarium.entities.add().entity,
+    passing by add() as first argument our entity object, in this case is User,
+    and as second argument a string with a name of entity 'User'.    
+*/
+module.exports =
+  herbarium.entities
+    .add(User, 'User')
+    .entity
+
 ```
 
 #### Entity fields
 
-Now, we're going to see the fields for the User entity:
+In the User entity, we has seen the fields:
 
 - **id**: The unique identifier for the user.
 - **nickname**: The nickname for the user like "user123".
 - **password**: The user's access password.
 
-Within the entity fields properties, we have:
-
-- name
-- type
-- default value (optionally)
-- validation (optionally)
-
-```js
-// src/domain/entities/user.js
-const { entity, field, id } = require('@herbsjs/herbs')
-
-// The second argument is an object with the fields.
-const User = entity('User', {
-    // The key is the field name.
-    // The value is the object type of
-    // the field using the `field()`.
-
-    id: id(Number),
-
-    // Both the fields "nickname" and "password" are texts, therefore we are using `String`.
-    nickname: field(String),
-    password: field(String),
-})
-```
-
-The types of fields are Scalar types, there are some of them:
+But within the entity fields properties, we can do more,
+is possible set a default value for a field or make 
+some validation, for now, is important know the type
+of field are Scalar types, tere are some of them:
 
 - `Number`: double-precision 64-bit binary format IEEE 754 value
 - `String`: a UTF‐16 character sequence
 - `Boolean`: true or false
 - `Date`: represents a single moment in time in a platform-independent format.
+
+#### 🚧 From here on down are under construction
 
 #### Entity fields default value
 
@@ -136,3 +161,8 @@ const User = entity('User', {
 Feel free to implement more fields and add different kinds of validation to it.
 
 Now that we have the User entity, we are ready to go and use it, let's move on to Use Cases.
+
+
+## List Entity
+
+## Item Entity
