@@ -130,6 +130,17 @@ const resolverFunc = () => { }
 const [gql, resolver] = usecase2subscription(usecase, resolverFunc)
 ```
 
+### Herbarium to graphlq
+If your project uses `Herbarium` as discovery service you can generate mutations, queries and types with less code:
+
+```javascript
+const { herbarium } = require('@herbsjs/herbarium')
+const { herbs2gql } = require('@herbsjs/herbs2gql')
+
+const { mutations, queries, types } = herbs2gql(herbarium)
+```
+
+
 ### Custom Names or Conventions
 In Herbs it is possible to include personalized names for queries, mutations, inputs and types
 custom names are always prioritized
