@@ -5,7 +5,42 @@ sidebar_label: Working with Herbarium
 slug: /herbarium/working-with-herbarium
 ---
 
-### Advanced Options
+### Herbarium
+
+Herbarium is a centralized and standardized repository and discovery service for Herbs objects (entities, use cases, repositories) allowing glues (ex: Herbs Shelf, herbs2rest, herbs2gql, herbs2knex, etc) to access, explore and find these objects.
+
+### Installing
+
+```javascript
+$ npm install @herbsjs/herbarium
+```
+
+### Initializing
+
+To start using Herbarium it is necessary to load all the objects in the project.
+
+```javascript
+const { herbarium } = require('@herbs/herbarium')
+herbarium.requireAll(options)
+```
+
+This will find and require() all entities, use cases and repositories files. If these files are using Herbarium, it will load all the objects to be used later.
+
+You can check which files were found within the ```herbarium.requireAll(options)``` method using:
+
+```javascript
+const { herbarium } = require('@herbs/herbarium')
+const retqAll = herbarium.requireAll(options)
+
+/* Will return an object of array of files founded
+ {
+   entities:[],
+   usecases":[],
+   repositories:[]
+  }
+*/
+```
+ You can use advanced options off `requireAll()`
 
 `options`:
 - `initialPath`: (optional) default `process.cwd()`
@@ -102,6 +137,8 @@ The second parameter of the `herbarium.repositories.add` function is the reposit
 
 #### All
 
+Returns all objects of a given type.
+
 ```javascript
 const entities = herbarium.entities.all
 const usecases = herbarium.usecases.all
@@ -109,6 +146,10 @@ const repositories = herbarium.repositories.all
 ```
 
 #### findBy
+
+All operations you can do on any data can be boiled down to Create, Read, Update, and Delete (CRUD). You can create something new, you can read it, update it, and finally delete it if you wish. For that, you can assign the property that best fits your use case and then filter it through the method findBy()
+
+To find entities that matched by the filter:
 
 ```javascript
 const usecases = herbarium.usecases.findBy({
@@ -122,18 +163,10 @@ const usecases = herbarium.usecases.findBy({
 
 #### get by id
 
+To find entities by IDs.
+
 ```javascript
 const entity = herbarium.entities.get(1)
 const usecase = herbarium.usecases.get("a")
 const repository = herbarium.repositories.get(item)
 ```
-
-### Issues & Discussions
-
-Now, if you do not have technical knowledge and also have intend to help us, do not feel shy, [click here](https://github.com/herbsjs/herbarium/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbarium/blob/master/.github/CONTRIBUTING.md)
-
-We have a Discord server with our discussions and questions about the world around Herbs. If you have any questions, you can communicate with the community through this link: [Herbs Discord](https://discord.gg/e3cQ66KDv5)
-
-Come with us to make an awesome *Herbarium*.
