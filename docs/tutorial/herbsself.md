@@ -1,7 +1,7 @@
 ---
 id: herbsshelf
-title: 8. Generating Herbs Shelf
-sidebar_label: 8. Generating Herbs Shelf
+title: 7. Generating Herbs Shelf 💥
+sidebar_label: 7. Generating Herbs Shelf 💥
 slug: /tutorial/herbsshelf
 ---
 

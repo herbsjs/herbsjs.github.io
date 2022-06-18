@@ -1,7 +1,7 @@
 ---
 id: security
-title: 10. Security and Auditing
-sidebar_label: 10. Security and Auditing
+title: 9. Security and Auditing 💥
+sidebar_label: 9. Security and Auditing 💥
 slug: /tutorial/security
 ---
 

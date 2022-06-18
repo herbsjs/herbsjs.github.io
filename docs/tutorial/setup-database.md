@@ -1,8 +1,8 @@
 ---
-id: repository
-title: 4. Generating Repositories
-sidebar_label: 4. Generating Repositories
-slug: /tutorial/repository
+id: setup-database
+title: 4. Setting Up Databases 🚧
+sidebar_label: 4. Setting Up Databases 🚧
+slug: /tutorial/setup-database
 ---
 
 ## Database Config Files

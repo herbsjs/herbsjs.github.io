@@ -1,7 +1,7 @@
 ---
 id: create-entity
-title: 3. Creating Entities
-sidebar_label: 3. Creating Entities
+title: 3. Creating Entities ✔️ 
+sidebar_label: 3. Creating Entities ✔️ 
 slug: /tutorial/create-entity
 ---
 
@@ -92,45 +92,151 @@ of field are Scalar types, tere are some of them:
 - `Boolean`: true or false
 - `Date`: represents a single moment in time in a platform-independent format.
 
-#### 🚧 From here on down are under construction
 
-#### Entity fields default value
 
-The CLI gives you the base, but you can go further.
+## List Entity
 
-May be interesting to have default values for some fields.
+For our TODO api we need 2 entities, List and Item, first let's creates a list.
+for this entity let's reuse a User Entity previous auto generetade by ``herbs-cli``
 
-Just for exemple, imagine that we have a field `score` to store some kind of points to the user, we want this to be a number and to start with 0 as default value.
+1. Rename de file from user.js to list.js
+```src/domain/entities/user.js``` -> ```src/domain/entities/list.js```
+
+2. Inside a file let's rename User to List
+
+    From this
+    ```js
+    const User = entity('User', {  ...
+    ```
+
+    To this
+    ```js
+    const List = entity('List', {  ...
+    ```
+
+3. Rename in exports to
+
+    From this:
+    ```js
+    module.exports =
+    herbarium.entities
+        .add(User, 'User')
+        .entity
+    ```
+
+    To this:
+    ```js
+    module.exports =
+    herbarium.entities
+        .add(List, 'List')
+        .entity
+    ```
+4. Finaly, let's update fields for List Entity
+
+    From this:
+    ```js   
+    {     
+        id: id(Number),
+        nickname: field(String),
+        password: field(String)
+    }
+    ```
+    To this:
+    ```js   
+    {     
+        id: id(Number),
+        name: field(String),
+        description: field(String)
+    }
+    ```
+
+Finally our List entity code will looks like:
+```js 
+const { entity, id, field } = require('@herbsjs/herbs')
+const { herbarium } = require('@herbsjs/herbarium')
+
+const List = entity('List', { 
+    id: id(Number),
+    name: field(String),
+    description: field(String)
+})
+
+module.exports =
+    herbarium.entities
+        .add(List, 'List')
+        .entity
+
+```
+
+## Item Entity
+
+Let's create a new entity Item
+
+1. create a file  ```item.js``` inside folder ```src/domain/entities/```
+2. very similar with List lets create our Item entity code:
+    ```js 
+    //start a file importing dependencies:
+    const { entity, id, field } = require('@herbsjs/herbs')
+    const { herbarium } = require('@herbsjs/herbarium')
+
+    /*
+    create a const Item and assign a entity() 
+    passing all arguments needed with fields for the item
+    */
+    const Item = entity('Item', { 
+        id: id(Number),
+        name: field(String),
+        completed: field(Boolean)
+    })
+
+    // finally exports Item entity
+    module.exports =
+    herbarium.entities
+        .add(Item, 'Item')
+        .entity
+
+    ```
+
+
+## Entity fields default value
+
+When CLI generate code to us, we have a just a base, but we can go further.
+
+Just for example, imagine that Item entity as a task, so when we created it, the field `completed` must be
+false, because we don't do task yet.
+
+To make this happen, we can set a default value for field `completed`, we just need
+adapt our entity creating code to:
 
 ```js
-// src/domain/entities/user.js
-const { entity, field, id } = require('@herbsjs/herbs')
-
-const User = entity('User', {
+// src/domain/entities/item.js
+const Item = entity('Item', { 
     id: id(Number),
-    nickname: field(String),
-    password: field(String),
-
-    // Here we set the field. After the type we also pass an optional object with the key default as 0.
-    score: field(Number, {
-        default: 0
-    }),
+    name: field(String),
+    completed: field(Boolean, {
+        default: false
+    })
 })
 ```
 
 > Learn more about [default values](/docs/entity/features#default-value).
 
-#### Entity fields validation
+## Entity fields validation
 
-Once we have the fields set, we may want to implement validation to them
+Once we have the fields set, other important thing to do is implement validation to them. For example,
+when we create a List, we need indentify there, so we will set a name, but to prevents thats
+some user try save a list whitout a name we can set a validation to field name, thats make field be
+required.
 
 The validation is passed as an `Object` and it can have different kinds of parameters, such as presence, length and numericality. For example:
 
-```js
-// src/domain/entities/user.js
-const { entity, field, id } = require('@herbsjs/herbs')
 
-const User = entity('User', {
+In our List entity will set some validations in field `id` to make it required, just accept integer values an must be greater than 0 and field `name` to be required and have a minimum of three letters.
+
+```js
+// src/domain/entities/List.js
+...
+const List = entity('List', { 
     id: id(Number, {
         validation: {
             // The field MUST be present
@@ -143,14 +249,16 @@ const User = entity('User', {
             }
         }
     }),
-    nickname: field(String, {
+    name: field(String, {
         validation: {
+            // The field MUST be present
             presence: true,
-            // Here, the nickname MUST have 3 letters at least
+             // Here, the name MUST have 3 letters at least
             length: { minimum: 3 },
         }
     }),
-    password: field(String),
+    description: field(String)
+})
 })
 ```
 
@@ -160,9 +268,6 @@ const User = entity('User', {
 
 Feel free to implement more fields and add different kinds of validation to it.
 
-Now that we have the User entity, we are ready to go and use it, let's move on to Use Cases.
+Now that we have the List and Item entities, let's move on to setting up a database, where we will save our Lists and Items.
 
 
-## List Entity
-
-## Item Entity

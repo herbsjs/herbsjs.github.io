@@ -1,8 +1,8 @@
 ---
-id: create-list-usecase
-title: 5. Creating List Use Cases
-sidebar_label: 5. Creating List Use Cases
-slug: /tutorial/create-list-usecase
+id: create-usecases
+title: 5. Creating Use Cases 💥
+sidebar_label: 5. Creating Use Cases 💥
+slug: /tutorial/create-usecases
 ---
 
 ## Introduction to the Use Case concept
