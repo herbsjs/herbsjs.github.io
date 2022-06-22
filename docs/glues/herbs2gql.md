@@ -14,6 +14,17 @@ Creates GraphQL types (queries, mutations, etc.) based on herbs [entities](/docs
 $ npm install @herbsjs/herbs2gql
 ```
 ### Using
+If your project uses [Herbarium](https://github.com/herbsjs/herbarium) as discovery service you can generate mutations, queries and types with less code.
+
+```javascript
+const { herbarium } = require('@herbsjs/herbarium')
+const { herbs2gql } = require('@herbsjs/herbs2gql')
+
+const { mutations, queries, types } = herbs2gql(herbarium)
+```
+
+
+## Advanced Features
 
 All methods returns a string in GraphQL format representing the type based ([gql](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#gql)) and a [resolver](https://www.apollographql.com/docs/apollo-server/data/resolvers/) (when expected).
 
@@ -41,7 +52,6 @@ type User {
 }
 */
 ```
-## Features
 
 ### GraphQL Type
 
@@ -128,16 +138,6 @@ const usecase = usecase('New User Notification', {
 const resolverFunc = () => { }
 
 const [gql, resolver] = usecase2subscription(usecase, resolverFunc)
-```
-
-### Herbarium to graphlq
-If your project uses `Herbarium` as discovery service you can generate mutations, queries and types with less code:
-
-```javascript
-const { herbarium } = require('@herbsjs/herbarium')
-const { herbs2gql } = require('@herbsjs/herbs2gql')
-
-const { mutations, queries, types } = herbs2gql(herbarium)
 ```
 
 
