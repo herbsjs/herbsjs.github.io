@@ -261,7 +261,7 @@ await itemRepo.updateMany({ filter: filterDefinition, update: updateDefinition})
 ```
 
 ### deleteByID
-Delete an Entity..
+Delete an Entity.
 
 Format: `.deleteByID(id)` where `id` is an ObjectId string, this will be changed to _id automaticaly..
 
@@ -271,4 +271,32 @@ Return: true for success or false for error.
 const repo = new ItemRepository(injection)
 let filterDefinition = {  numberTest : [aModifiedInstance.numberTest] }
 const ret = await repo.deleteMany({ filter: filterDefinition })
+```
+
+### deleteMany
+Delete a group of Entities.
+
+Format: `.deleteMany(options = { filter})` where `options` is a set of filters to be deleted.
+
+Return: `true` for success or `false` for error
+
+```javascript
+
+const repo = new ItemRepository(injection)
+let filterDefinition = {  numberTest : [aModifiedInstance.numberTest] }
+const ret = await repo.deleteMany({ filter: filterDefinition })
+
+```
+
+### delete
+Delete an Entitie.
+
+Format: `.delete(entity)` where `entity` is a Entity instance to be deleted.
+
+Return: `true` for success or `false` for error
+
+```javascript
+
+const repo = new ItemRepository(injection)
+const ret = await repo.delete(aModifiedEntity)
 ```
