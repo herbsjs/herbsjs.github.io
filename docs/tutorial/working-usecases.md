@@ -7,6 +7,8 @@ slug: /tutorial/working-usecases
 
 ## Introduction to the Use Case concept
 
+and usecase files in `src/domain/usecases`
+
 A use case reflects a single action exposed by the Domain to the end user.
 
 For exemple: Reopen Ticket, Reply Message, Add User
