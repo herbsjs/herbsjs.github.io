@@ -1,7 +1,7 @@
 ---
 id: refactoring
-title: 8. Refactoring 💥
-sidebar_label: 8. Refactoring 💥
+title: 9. Linking List and Item Entities 🚧
+sidebar_label: 9. Linking List and Item Entities 🚧
 slug: /tutorial/refactoring
 ---
 

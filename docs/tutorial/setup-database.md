@@ -1,40 +1,25 @@
 ---
 id: setup-database
-title: 4. Setting Up Databases 🚧
-sidebar_label: 4. Setting Up Databases 🚧
+title: 4. Setting Up Databases ✔️
+sidebar_label: 4. Setting Up Databases ✔️
 slug: /tutorial/setup-database
 ---
 
 ## Database Config Files
 
-Before we start using the database, it's required to set up the configurations. We can choose between `mongo` and `postgres` database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
+Before we start using the database, it's required to set up the configurations. We can choose between `postgres`, `mysql`, `sqlserver` or `mongo`, database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
 
-- [Mongo](https://mongodb.com)
 - [PostgreSQL](https://www.postgresql.org)
-
-### Set up with Mongo
-
-The configuration file is `src/config/mongo.js`. It looks like this:
-
-```js
-// src/config/mongo.js
-const env = require('sugar-env')
-require('dotenv').config()
-
-module.exports = {
-  dbName: env.get(`$MONGO_DATABASE`, 'herbs-project'),
-  connstr: env.get(`$MONGO_CONN_STR`, 'mongodb://localhost:27017'),
-}
-```
-
-So you can provide a custom name and connection URL for the database using the environment variables or use the default ones.
+- [MySQL](https://www.mysql.com/)
+- [SQLServer](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
+- [Mongo](https://mongodb.com)
 
 ### Set up with PostgreSQL
 
-The configuration file is `src/config/postgres.js`. It looks like this:
+The configuration file is `src/infra/config/postgres.js`. It looks like this:
 
 ```js
-// src/config/postgres.js
+// src/infra/config/postgres.js
 const env = require('sugar-env')
 require('dotenv').config()
 
@@ -49,24 +34,96 @@ module.exports = {
 }
 ```
 
-Here you can change their values to match with your credentials, database name, host, etc.
+### Set up with MysqlSQL
 
-## Creating Database and Migration
-
-After creating the database with the name explained above, you can find the files to setup the database in `src/infra/data/`.
-
-There we have two folders:
-
-### `database/`
-
-To set up the database connection.
-
-With the [automatic project creation](/docs/tutorial/new-project), there is an `index.js` file making the connection with the database.
-
-This file depends on which database you choose, in the case of `mongo` it should be like this:
+The configuration file is `src/infra/config/mysql.js`. It looks like this:
 
 ```js
-// src/infra/data/database/index.js
+// src/infra/config/mysql.js
+require('dotenv').config()
+
+module.exports = {
+  herbsCLI: 'mysql',
+  client: 'mysql2',
+  connection: {
+    host: '127.0.0.1',
+    port: '3306',
+    user: 'root',
+    password: 'password',
+    database: 'herbs-mysql'
+  }
+}
+```
+
+### Set up with SQLServer
+
+The configuration file is `src/infra/config/mysql.js`. It looks like this:
+
+```js
+// src/infra/config/sqlserver.js
+require('dotenv').config()
+
+module.exports = {
+  herbsCLI: 'mssql',
+  client: 'mssql',
+  connection: {
+    server: '127.0.0.1',
+    port: 1433,
+    user: 'sa',
+    password: 'password',
+    database: 'herbs-sqlserve',
+    options: {
+      trustServerCertificate: true
+    }
+  }
+}
+```
+
+####  KnexFile
+Projects thats uses Postgres, MySQL or SQLServer use [Knex.js](http://knexjs.org/) under the hood, so in these settings we'll have a `knexFile.js` in root of project. Make sure your database access credentials are matched in the `knexFile.js` and in the appropriate configuration file founded in `src/infra/config/...`.
+
+The file `knexFile.js` it will should be like this:
+```js
+module.exports = {
+    development: {
+            client: 'postgresql',
+            connection: {
+            database: 'todo-api',
+            user: 'postgres',
+            password: 'postgres',
+            host: '127.0.0.1',
+            port: 5432
+        },
+        migrations: {
+            directory: './src/infra/data/database/migrations',
+            tableName: 'knex_migrations'
+        }
+    },
+    staging: {},
+    production: {}
+}
+```
+
+### Set up with Mongo
+
+The configuration file is `src/infra/config/mongo.js`. It should be like this:
+
+```js
+// src/infra/config/mongo.js
+const env = require('sugar-env')
+require('dotenv').config()
+
+module.exports = {
+  herbsCLI: 'mongo',
+  dbName: env.get(`$MONGO_DATABASE`, 'herbs-mongo'),
+  connstr: env.get(`$MONGO_CONN_STR`, 'mongodb://localhost:27017'),
+}
+```
+
+and in `src/infra/data/database/connection.js` we can see a mongodb instance configuration
+
+```js
+// src/infra/data/database/connection.js
 const { MongoClient } = require('mongodb')
 
 let dbInstance = null;
@@ -86,45 +143,7 @@ module.exports = {
 }
 ```
 
-### `repositories/`
+So you can provide a custom name and connection URL for the database using the environment variables or use the default ones.
 
-To develop the repositories for each entity.
+In these files you can change their values to match with your credentials, database name, host, etc.
 
-With the [automatic project creation](/docs/tutorial/new-project), there are two important files:
-
-- `index.js` - Requiring all the necessary repositories and providing the database connection to them.
-- `baseRepository.js` - To be used as a boilerplate and make it easy to create repositories.
-
-If you want to create your own files, or did not use `herbs-cli`, the `index.js` should be like this:
-
-```js
-// Receive the database connection
-async function factory(conn) {
-    return {
-        // Return each repository, providing the connection to them
-        userRepository: await new (require('./userRepository.js'))(conn)
-    }
-}
-
-module.exports = factory
-```
-
-## Repository Setup
-
-To setup a new repository, you may use the `BaseRepository` and then set the options as you want.
-
-For example, let's setup the list repository:
-
-```js
-// src/infra/data/repositories/listRepository.js
-const Repository = require('./baseRepository')
-
-module.exports = class ListRepository extends Repository {
-    constructor(mongoInstance){
-        super({ 
-            collection: 'list',  
-            mongo: mongoInstance  
-        })
-    }
-}
-```

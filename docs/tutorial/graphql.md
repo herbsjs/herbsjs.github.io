@@ -1,9 +1,14 @@
 ---
 id: graphql
-title: 6. Generating GraphQL Endpoint 💥
-sidebar_label: 6. Generating GraphQL Endpoint 💥
+title: 7. GraphQL 🚧
+sidebar_label: 7. GraphQL 🚧
 slug: /tutorial/graphql
 ---
+
+
+-- explicar o grapgql 
+-- como ver as queries e mutations do projeto
+
 
 > GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data.
 >
