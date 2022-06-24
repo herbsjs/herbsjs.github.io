@@ -1,30 +1,28 @@
 ---
-id: working-with-herbarium
-title: Working with Herbarium
-sidebar_label: Working with Herbarium
+id: gettingStarted
+title: Getting Started with Herbarium
+sidebar_label: Getting Started
 slug: /herbarium/working-with-herbarium
 ---
 
-### Herbarium
+Herbarium is a centralized and standardized repository and discovery service for Herbs objects (entities, use cases, repositories) inside a project allowing glues (ex: Herbs Shelf, herbs2rest, herbs2gql, herbs2knex, etc) to access, explore and find these objects.
 
-Herbarium is a centralized and standardized repository and discovery service for Herbs objects (entities, use cases, repositories) allowing glues (ex: Herbs Shelf, herbs2rest, herbs2gql, herbs2knex, etc) to access, explore and find these objects.
-
-### Installing
+## Installing
 
 ```javascript
 $ npm install @herbsjs/herbarium
 ```
 
-### Initializing
+## Initializing
 
-To start using Herbarium it is necessary to load all the objects in the project.
+To start using Herbarium it is necessary to load all the objects in the project with `requireAll`:
 
 ```javascript
 const { herbarium } = require('@herbs/herbarium')
 herbarium.requireAll(options)
 ```
 
-This will find and require() all entities, use cases and repositories files. If these files are using Herbarium, it will load all the objects to be used later.
+This will find and `require()` all entities, use cases and repositories files. If these files are using Herbarium, it will [load](#adding-objects-and-metadata) all the objects to be used later.
 
 You can check which files were found within the ```herbarium.requireAll(options)``` method using:
 
@@ -40,6 +38,7 @@ const retqAll = herbarium.requireAll(options)
   }
 */
 ```
+
  You can use advanced options off `requireAll()`
 
 `options`:
@@ -51,9 +50,9 @@ const retqAll = herbarium.requireAll(options)
 - `specPath`: (optional) default `/src/domain/`
 - `repositoriesPath`: (optional) default `/src/infra/repositories`
 
-### Adding Objects and Metadata
+## Adding Objects and Metadata
 
-#### Entities
+### Entities
 
 ```javascript
 // src/domain/entities/item.js
@@ -73,7 +72,7 @@ module.exports =
 
 The second parameter of the `herbarium.entities.add` function is the entity id for herbarium. It is optional and if none is provided, it uses the entity name (`Item`).
 
-#### Use Cases
+### Use Cases
 
 ```javascript
 // src/domain/usecases/item/createItem.js
@@ -96,7 +95,7 @@ module.exports =
 The second parameter of the `herbarium.usecases.add` function is the usecase id for herbarium. It is optional and if none is 
 provided, it uses the usecase description (`Create Item`).
 
-#### Specs
+### Specs
 
 ```javascript
 // src/domain/usecases/createItem.spec.js
@@ -114,7 +113,7 @@ module.exports =
 
 The second parameter of the `herbarium.specs.add` function is the entity id for herbarium.
 
- #### Repository
+ ### Repository
 
 ```javascript
 const { herbarium } = require('@herbsjs/herbarium')
@@ -136,9 +135,9 @@ module.exports =
 
 The second parameter of the `herbarium.repositories.add` function is the repository id for herbarium. It is optional and if none is provided, it uses the repository class name (`ItemRepository`).
 
-### Consuming Objects
+## Consuming Objects
 
-#### All
+### All
 
 Returns all objects of a given type.
 
@@ -148,7 +147,7 @@ const usecases = herbarium.usecases.all
 const repositories = herbarium.repositories.all
 ```
 
-#### findBy
+### Find By
 
 All operations you can do on any data can be boiled down to Create, Read, Update, and Delete (CRUD). You can create something new, you can read it, update it, and finally delete it if you wish. For that, you can assign the property that best fits your use case and then filter it through the method findBy()
 
@@ -164,7 +163,7 @@ const usecases = herbarium.usecases.findBy({
 })
 ```
 
-#### get by id
+### Get By ID
 
 To find entities by IDs.
 

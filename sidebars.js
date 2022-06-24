@@ -6,11 +6,9 @@ const sidebar = {
   UseCase: ['gettingStarted', 'features', 'steps', 'result'],
   Entity: ['gettingStarted', 'features', 'validation'],
   Specs: ['gettingStarted', 'features'],
+  Herbarium: ['gettingStarted'],
   Validation: ['what-suma', 'validations', 'checkers'],
   Glues: ['whatisglue', 'herbsshelf', 'herbs2gql', 'herbs2rest', 'herbs2knex', 'herbs2mongo', 'herbs2repl', 'suma2text', 'herbs-snippets'],
-  Herbarium: ['working-with-herbarium']
-
-
 }
 
 Object.keys(sidebar).map(property =>
