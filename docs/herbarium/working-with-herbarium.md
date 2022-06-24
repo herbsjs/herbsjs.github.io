@@ -95,6 +95,8 @@ module.exports =
 
 The second parameter of the `herbarium.usecases.add` function is the usecase id for herbarium. It is optional and if none is provided, it uses the usecase description (`Create Item`).
 
+*Specs*
+
 ```javascript
 // src/domain/usecases/createItem.spec.js
 const { spec, scenario, given, check } = require('@herbsjs/aloe')
