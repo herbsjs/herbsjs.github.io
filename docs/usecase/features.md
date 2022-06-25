@@ -112,6 +112,29 @@ const ret = await usecase.run(request)
 // { request: [{ id :[{ wrongType: "Number" }] }] }
 ```
 
+### Request From
+
+Requests can be imported by defined entities through `request.from(entity, settings)`, where:
+- `entity`: a defined entity with schema
+- `settings`: object containing settings for the entity
+    - `ignoreIDs`: bool indicating to remove ID from generated schema
+    - `ignore`: array containing fields to be removed from generated schema
+
+For example:
+
+```javascript
+const item = entity('item',{
+    id: id(Number),
+    description: field(String),
+    createdAt: field(Date)
+})
+
+const createItem = (injection) =>
+    usecase('Create Item', {
+        const settings = { ignoreIDs: true, ignore: ['createdAt'] }
+        request: request.from(item, settings)
+```
+
 ## Response
 
 It is possible to define the response type as well. This information is used as metadata for glues but it is not validated when running the use case.
