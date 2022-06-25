@@ -25,6 +25,16 @@ export default function HowItWorks() {
 							</Link>
 						</h3>
 					</div>
+					<div className={styles.innerInnerCircleC}>
+						<h3>
+							<Link
+								to={useBaseUrl('docs/specs/getting-started')}
+								className={styles.circleLink}
+							>
+								Specs
+							</Link>
+						</h3>
+					</div>
 					<div className={styles.innerInnerCircleB}>
 						<h3>
 							<Link
@@ -89,12 +99,12 @@ export default function HowItWorks() {
 				<div className={styles.gridMiddleE}>
 					<hr className={styles.line} />
 					<div className={styles.badgeMiddle}>
-						{/* <Link
+						<Link
 							to={useBaseUrl('docs/glues/Herbs2mongo')}
 							className={styles.badgeLink}
-						> */}
+						>
 							Herbs 2 Mongo
-						{/* </Link> */}
+						</Link>
 					</div>
 					<hr className={styles.line} />
 					<div className={styles.arrowRight} />

@@ -6,19 +6,19 @@ export default function Features() {
   const features = [
     {
       title: `Domain that matters`,
-      imageUrl: "/img/web.png",
+      imageUrl: "/img/web.svg",
       description:
         "Stop spending time with redundant and low impact code. Code your domain first using Herbs and the necessary infrastructure will be generated on the fly.",
     },
     {
       title: "Keep it clean",
-      imageUrl: "/img/stars.png",
+      imageUrl: "/img/stars.svg",
       description:
-        "No more sloppy, hard to change code. Create maintainable software using Clean Architecture and Domain Driven Design with Herbs.",
+        "No more sloppy, hard to change code. Create maintainable software, build your microservices in Node.js with Domain Driven Design and Clean Achitecture",
     },
     {
       title: "Auditable and Secure",
-      imageUrl: "/img/secure-shield.png",
+      imageUrl: "/img/secure-shield.svg",
       description:
         "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are available out of the box.",
     },

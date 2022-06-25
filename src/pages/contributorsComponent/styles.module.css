@@ -1,0 +1,22 @@
+.avatar {
+  width: 50px; 
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contributorList {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.contributorRow {
+  display: flex;
+  flex-direction: row; 
+  margin-bottom: 15px;
+}
+
+.contributorLogin {
+  margin-top: 13px;
+}

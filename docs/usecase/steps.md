@@ -5,7 +5,7 @@ sidebar_label: Steps
 slug: /usecase/steps
 ---
 
-Steps are the building blocks of a use case. Its main goal is to generate metadata before and during the execution of a use case like the code intention, audit trail, etc.
+Steps are the building blocks of a use case. Their main goal is to generate metadata before and during the execution of a use case like the code intention, audit trail, etc.
 
 ## The Basics
 
@@ -29,7 +29,7 @@ const createProduct = injection =>
         ...
 ```
 
-We think a code must define its [intention](/docs/introduction/motivation#code-intention) to make it easier to read as well as changing it.
+We think a code must define its [intention](/docs/project/motivation#code-intention) to make it easier to read as well as changing it.
 
 So, the first thing to note is that we encourage the description of the steps with the business intent (never the technical intent).
 
@@ -74,6 +74,10 @@ const createProduct = injection =>
 ## If / Then / Else
 
 With `ifElse` step it is possible create a conditional flow for a use case. 
+
+💡 **Should I use `ifElse` step or a simple `if` statement on my code?**
+
+Use `ifElse` when there is a fork in the business rule flow, thus capturing and documenting these rules. For other cases, use the `if` statement
 
 ```javascript
 '[conditional flow description]': ifElse({

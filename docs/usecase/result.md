@@ -33,7 +33,7 @@ if (response.isErr)
 return response.ok // response.ok has the returned value
 ```
 
-Results are a important run-time metadata to inform glues about the execution of a use case.
+Results are an important run-time metadata to inform glues about the execution of a use case.
 
 **Common Result Methods**
 
@@ -124,12 +124,12 @@ This is the list with all **known errors** and the expected behavior for the con
 Result | Check | HTTP / REST | GraphQL (Apollo) | gRPC  |
 -------|-------------|-------------|------------------|--------
 Ok() | ret.isOk | 200 - Ok | | OK
-Err.invalidArgument(options, args) | ret.isInvalidArgumentsError | 400 - Bad Request | BAD_USER_INPUT | INVALID_ARGUMENT
+Err.invalidArguments(options, args) | ret.isInvalidArgumentsError | 400 - Bad Request | BAD_USER_INPUT | INVALID_ARGUMENT
 Err.permissionDenied(options) | ret.isPermissionDeniedError | 403 - Forbidden |  FORBIDDEN | PERMISSION_DENIED
-Err.notFound(options) | ret.isNotFoundError | 404 - Not Found | (BAD_USER_INPUT) | NOT_FOUND
-Err.alreadyExists(options) | ret.isAlreadyExistsError | 409 - Conflict | (BAD_USER_INPUT) | ALREADY_EXISTS
-Err.invalidEntity(options) | ret.isInvalidEntityError | 422 - Unprocessable Entity | (BAD_USER_INPUT) | INVALID_ARGUMENT
-Err.unknown(options) | ret.isUnknownError | 500 - Internal Server Error | INTERNAL_SERVER_ERROR | UNKNOWN / INTERNAL
+Err.notFound(options) | ret.isNotFoundError | 404 - Not Found | NOT_FOUND (Custom) | NOT_FOUND
+Err.alreadyExists(options) | ret.isAlreadyExistsError | 409 - Conflict | ALREADY_EXISTS (Custom) | ALREADY_EXISTS
+Err.invalidEntity(options) | ret.isInvalidEntityError | 422 - Unprocessable Entity | BAD_USER_INPUT | INVALID_ARGUMENT
+Err.unknown(options) | ret.isUnknownError | 500 - Internal Server Error | UNKNOWN (Custom) | UNKNOWN / INTERNAL
 
 The `options` paramethers are:
 

@@ -5,16 +5,16 @@ import Link from '@docusaurus/Link'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import { GitHub } from '@material-ui/icons'
 import BrowserOnly from '@docusaurus/BrowserOnly'
-import useThemeContext from '@theme/hooks/useThemeContext'
+import {useColorMode} from '@docusaurus/theme-common'
 
 const ImageSwitcher = () => {
 	return (
-		<BrowserOnly fallback={<img src='img/logo-herbsjs.png' />}>
+		<BrowserOnly fallback={<img alt="herbsjs logo" src='img/logo-herbsjs.svg' />}>
 			{() => {
-				const { isDarkTheme } = useThemeContext()
+				const { isDarkTheme } = useColorMode()
 				const imgSrc = isDarkTheme
-					? 'img/logo-herbsjs-douradoebranco.png'
-					: 'img/logo-herbsjs.png'
+					? 'img/logo-herbsjs-douradoebranco.svg'
+					: 'img/logo-herbsjs.svg'
 				const fullImgSrc = useBaseUrl(imgSrc)
 				return <img src={fullImgSrc} />
 			}}
@@ -22,7 +22,7 @@ const ImageSwitcher = () => {
 	)
 }
 
-const Banner = () => {
+const Banner = ({ version }) => {
 	return (
 		<header className={clsx('hero', styles.heroBanner)}>
 			<div className='container'>
@@ -40,13 +40,16 @@ const Banner = () => {
 					</Link>{' '}
 					<Link
 						className={clsx(
-							'button button--primary button--md',
+							'button button--primary button--lg',
 							styles.getStarted
 						)}
 						to='https://github.com/herbsjs'
 					>
-						<GitHub fontSize='small' /> Start
+						<GitHub fontSize='small' /> GitHub
 					</Link>
+				</div>
+				<div className={styles.versionInfo}>
+					{version && <p>Last stable version <a href={`https://github.com/herbsjs/herbs/releases/tag/v${version}`} rel="noopener noreferrer" target="_blank"> {version} </a></p>}
 				</div>
 			</div>
 		</header>

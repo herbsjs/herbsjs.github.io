@@ -1,23 +1,23 @@
 ---
 id: herbs2rest
-title: Herbs2Rest
-sidebar_label: Herbs2Rest
+title: REST - Herbs2REST
+sidebar_label: REST
 slug: /glues/herbs2rest
 ---
 
-Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/gotu)) and usecases ([buchu](https://github.com/herbsjs/buchu)).
+Creates REST endpoints based on Herbs [entities](/docs/entity/getting-started) and [use cases](/docs/usecase/getting-started).
 
 
 ## Getting started
 ### Installing
-```
-  npm install @herbsjs/herbs2rest
+```bash
+$ npm install @herbsjs/herbs2rest
 ```
 ### Using
 
 Use the method generateRoutes to generate api rest routes based on usecases.
 
-herbs2rest works with [express](https://expressjs.com/) in version [4.x](https://expressjs.com/en/4x/api.html).
+Herbs2REST works with [express](https://expressjs.com/) in version [4.x](https://expressjs.com/en/4x/api.html).
 
 #### Controller List
 
@@ -38,11 +38,17 @@ const controllerList = [
 
 The `name` field is the name of the route (Ex. *https://example.com/lists*)
 
-The `id` field is the param's custom name of the route (GetById, Put and Delete), if the field does not exist, the parameter name will be "*id*".
+| field | controller |
+|---|---|
+|`getAll`| `GET /{name}/`|
+|`getById`| `GET /{name}/{id}`|
+|`post`| `POST /{name}/`|
+|`put`| `PUT /{name}/{id}`|
+|`delete`| `DELETE /{name}/{id}`|
 
-The controller field is to replace the default controller.
+The `id` field is a string representing the id field in the use case request and can be used for `GetById`, `Put` and `Delete`. The default value is "*id*".
 
-The other fields refer to http methods using usecases (GetAll, GetById, Post, Put and Delete).
+The `controller` field a function that replaces the default controller.
 
 #### Custom Controller
 
@@ -78,6 +84,10 @@ generateRoutes(controllerList, routes, true)  // true = console info endpoints
 app.use(routes)
 ```
 
+#### HTTP Status Code and Err
+
+Herbs2rest translates Herbs [Known Errors​](/docs/usecase/result#known-errors) to HTTP status code as described in the documentation.
+
 #### Authorization
 
 All use cases must implement the `authorize` method and receive a user for authentication if using the default controller.
@@ -103,13 +113,3 @@ const testUseCase = (injection) =>
 #### Example
 
 Additionally you can view a simple demo application of this library in [todolist-on-herbs](https://github.com/herbsjs/todolist-on-herbs).
-
-### How to contribute
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2rest/blob/master/.github/CONTRIBUTING.md)
-
----
-
-### License
-
-- [MIT License](https://github.com/herbsjs/herbs2rest/blob/master/LICENSE)

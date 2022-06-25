@@ -249,7 +249,7 @@ customer.errors // {"email":[{"invalidEmail":true}]}
 
 ## Format
 
-`format` (regex) - The format validator will validate a value against a regular expression of your chosing.
+`format` (regex) - The format validator will validate a value against a regular expression of your choosing.
 
 ```javascript
 const Customer =
@@ -301,4 +301,32 @@ customer.errors  // {"website":[{"invalidURL":true}],"ftp":[{"invalidURL":true}]
 
 The `type`, `length`, `numericality`, `format` and `datetime` validators won't validate a value if it's `null` or `undefined`.
 
-To ensure your your value is not null, use `allowNull: false` or `presence: true`.
+To ensure that your value is not null, use `allowNull: false` or `presence: true`.
+
+
+## Custom Validation
+
+For custom validation use `{ custom: { validationName: function(value), ... } }` on the field definition.
+
+The validation function receives the original `value` and must return `true` for valid or `false` for invalid value.
+
+```javascript
+const User =
+    entity('User', {
+        ...
+        password: field(String, validation: {
+            presence: true,
+            length: { minimum: 6 }
+        }),
+        cardNumber: field(String, validation: {
+          custom: { invalidCardNumber: (value) => value.length === 16 }
+        })
+    })
+
+const user = new User()
+user.password = '1234'
+user.cardNumber = '1234456'
+user.validate()
+user.errors // [{ password: [ { isTooShort: 6 } ] , { invalidCardNumber: true }]
+user.isValid // false
+```

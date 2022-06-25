@@ -7,7 +7,7 @@ slug: /tutorial/repository
 
 ## Database Config Files
 
-Before we start using the database, is required to set up the configurations. We can choose between `mongo` and `postgres` database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
+Before we start using the database, it's required to set up the configurations. We can choose between `mongo` and `postgres` database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
 
 - [Mongo](https://mongodb.com)
 - [PostgreSQL](https://www.postgresql.org)
@@ -53,7 +53,7 @@ Here you can change their values to match with your credentials, database name, 
 
 ## Creating Database and Migration
 
-After creating the database with the name explained above, you can found the files to setup the database in `src/infra/data/`.
+After creating the database with the name explained above, you can find the files to setup the database in `src/infra/data/`.
 
 There we have two folders:
 
@@ -63,7 +63,7 @@ To set up the database connection.
 
 With the [automatic project creation](/docs/tutorial/new-project), there is an `index.js` file making the connection with the database.
 
-This file is dependent of which database you choose, in the case of `mongo` it should be like this:
+This file depends on which database you choose, in the case of `mongo` it should be like this:
 
 ```js
 // src/infra/data/database/index.js
@@ -93,9 +93,9 @@ To develop the repositories for each entity.
 With the [automatic project creation](/docs/tutorial/new-project), there are two important files:
 
 - `index.js` - Requiring all the necessary repositories and providing the database connection to them.
-- `baseRepository.js` - To be used as a boilerplate and make easy to create repositories.
+- `baseRepository.js` - To be used as a boilerplate and make it easy to create repositories.
 
-If you want to create your own, or did not use `herbs-cli`, the `index.js` should be like this:
+If you want to create your own files, or did not use `herbs-cli`, the `index.js` should be like this:
 
 ```js
 // Receive the database connection

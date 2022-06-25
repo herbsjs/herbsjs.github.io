@@ -2,7 +2,7 @@
 id: architecture
 title: Architecture guides
 sidebar_label: Architecture guidelines
-slug: /introduction/architecture-guidelines
+slug: /project/architecture-guidelines
 custom_edit_url: null
 ---
 
@@ -16,7 +16,7 @@ Herbs is an evolutionary and open source library, so we would love to see you co
 
 - **Emit meta-data (Write programs to work together)** - Especially the primary libs need to send metadata about everything that is happening there, so you can more easily create the secondary libs or connect third party libraries. In addition, this makes the code much easier to understand, audit and log.
 
-- **Tests** - all, yes, all software here needs to be testable, we strongly believe in the benefit that well-tested software brings, that is why Herbs tries its best to embrace this cause, receive on your calls the possibility of dependency injections and thus bring insulation with external layers, thus facilitating the software's ability to test exactly what it needs to test.
+- **Tests** - all, yes, all softwares here need to be testable, we strongly believe in the benefit that well-tested software brings, that is why Herbs tries its best to embrace this cause. It receives on calls the possibility of dependency injections and thus bring insulation with external layers, facilitating the software's ability to test exactly what it needs to test.
 
 ![Libs herbsJS](/img/herbsjs_diagram.png)
 

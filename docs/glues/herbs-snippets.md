@@ -1,46 +1,11 @@
 ---
 id: herbs-snippets
-title: Herbs-snippets
-sidebar_label: Herbs-snippets
+title: Code Snippets
+sidebar_label: Code Snippets
 slug: /glues/herbs-snippets
 ---
 
 This extension for Visual Studio Code adds snippets for [HerbsJS](https://github.com/herbsjs).
-
------------
-
-## Usage Example
-Type the keywords in snippet e.g., "step" and press enter.
-Alternatively, one can also just press Ctrl+Space (Windows, Linux) or Cmd+Space (OSX) to access the available snippets in the editor.
-
-![](https://raw.githubusercontent.com/herbsjs/herbs-snippets/master/docs/example.gif)
-
------------
-
-## Snippets
-
-#### ◈ Buchu ◈
-
-| Trigger  | Content |
-| -------: | ------- |
-| `uc→`   | Generate **Buchu** entire UseCase `...  usecase("My use case definition", { ...`	|
-| `step→`   | Create a **Buchu** step `"Description of step": step( (ctx) => { return Ok() } )` |
-| `ifstep→`   | Create a **Buchu** conditional Step  `"Description of conditional rule": ifElse( {` |
-| `usec→`   | Generate instantiation of **Buchu** Usecase with all available functions |
-
-
-
-#### ◈ Gotu ◈
-
-| Trigger  | Content |
-| -------: | ------- |
-| `ent→`   | Generate entire **Gotu** entity `entity('user', { prop: field(type) } )`|
-| `fie→`   | Create a **Gotu** entity field `name: field(type)` |
-| `fiev→`   | Create a **Gotu** entity field with **Suma** validation params  `name: field(type, { validation: { presence: true } } } )` |
-| `fjs→`   | Generate instantiation **Gotu** Entity `Entity.fromJSON(params)` |
-
-----------
-
 
 ## Installation
 
@@ -51,21 +16,31 @@ Alternatively, one can also just press Ctrl+Space (Windows, Linux) or Cmd+Space 
 1. Choose the extension - Herbs Snippets
 1. Relaunch VS Code
 
------------
+## Usage
 
-## Releases 
+Type the keywords in snippet e.g., "step" and press enter.
+Alternatively, one can also just press Ctrl+Space (Windows, Linux) or Cmd+Space (OSX) to access the available snippets in the editor.
 
-### 1.0.2
+![](https://raw.githubusercontent.com/herbsjs/herbs-snippets/master/docs/example.gif)
 
-- Fix of the automatic deploy
+## Snippets
 
-### 1.0.1
+#### Use Case
 
-- Fix of **Gotu** snippets
-- Improve the documentation
+| Trigger  | Content |
+| -------: | ------- |
+| `uc→`   | Generates **Buchu** entire use case `...  usecase("My use case definition", { ...`	|
+| `step→`   | Creates a **Buchu** step `"Description of step": step( (ctx) => { return Ok() } )` |
+| `ifstep→`   | Creates a **Buchu** conditional Step  `"Description of conditional rule": ifElse( {` |
+| `usec→`   | Generates instantiation of **Buchu** use case with all available functions |
 
-### 1.0.0
 
-- Initial release of Herbs Snippets
 
-**Enjoy!**
+#### Entity
+
+| Trigger  | Content |
+| -------: | ------- |
+| `ent→`   | Generates entire **Gotu** entity `entity('user', { prop: field(type) } )`|
+| `fie→`   | Creates a **Gotu** entity field `name: field(type)` |
+| `fiev→`   | Creates a **Gotu** entity field with **Suma** validation params  `name: field(type, { validation: { presence: true } } } )` |
+| `fjs→`   | Generates instantiation **Gotu** Entity `Entity.fromJSON(params)` |

@@ -2,7 +2,7 @@
 id: CoC
 title: Contributor Covenant Code of Conduct
 sidebar_label: Code of Conduct
-slug: /institutional/CoC
+slug: /project/CoC
 custom_edit_url: null
 ---
 

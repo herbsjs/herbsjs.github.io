@@ -1,20 +1,20 @@
 ---
-id: herbs2rpl
-title: Herbs2rpl
-sidebar_label: Herbs2rpl
-slug: /glues/herbs2rpl
+id: herbs2repl
+title: REPL - Herbs2REPL
+sidebar_label: REPL
+slug: /glues/herbs2repl
 ---
 
+Creates a REPL (Read Evaluate Print Loop) based on Herbs [entities](/docs/entity/getting-started) and [usecases](/docs/usecase/getting-started).
 
 ![Herbs REPL](https://raw.githubusercontent.com/herbsjs/herbs2repl/main/doc/render1607020056527.gif)
 
-## Getting started
-### Installing
- ```
-  npm install herbs2repl
+## Installing
+ ```bash
+$ npm install herbs2repl
  ```
  
-### Using
+## Using
 
 `srs/domain/usecases/_uclist.js`:
 ```javascript
@@ -51,16 +51,6 @@ main().then()
 
 Then run on your terminal:
 
-     $ node ./src/infra/repl
-
-## Contribute
-Come with us to make an awesome *herbs2repl*.
-
-Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/herbs2repl/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2repl/blob/main/.github/CONTRIBUTING.md)
-
-## License
-
-**herbsshelf** is released under the
-[MIT license](https://github.com/herbsjs/herbs2repl/blob/main/LICENSE.md)
+```bash
+$ node ./src/infra/repl
+```     

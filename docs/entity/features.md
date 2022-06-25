@@ -1,6 +1,6 @@
 ---
 id: features
-title: Features
+title: Entity Features
 sidebar_label: Features
 slug: /entity/features
 ---
@@ -9,20 +9,20 @@ slug: /entity/features
 
 `entity(name, body)`, where:
 
-- `name`: name of the entity.
+- `name`: entity name.
 
-- `body`: object containing the entity structure: fields and methods.
+- `body`: object containing entity structure: fields and methods.
 
 - return: a Herbs entity class.
 
 Example:
 
 ```javascript
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const Customer = 
     entity('Customer', {
-        id: field(Number),
+        id: id(Number),
         name: field(String),
         isVIP() {
             ...
@@ -46,18 +46,18 @@ Defines the fields (properties) of an entity.
     
     Ex: `field([String])`.
 
-- `options`: defines the field options (ex: validations, default value, etc). 
+- `options`: defines the field options (ex: validations, default value, etc.). 
 
     Ex: `field(Number, { validation: { presence: true } })`
 
-- return: a entity field definition instance.
+- return: an entity field definition instance.
 
 Example:
 
 ```javascript
 const Order = 
     entity('Order', {
-    id: field(Number, {
+    id: id(Number, {
         validation: { presence: true, length: { minimum: 3 } }
     }),
     date: field(Date),
@@ -65,10 +65,42 @@ const Order =
     ...
 })
 ```
+### ID Fields
+
+Defines a fields as ID of an entity.
+
+```javascript
+// The explicit way
+const User =
+    entity('User', {
+        id: field(Number, { isId: true }),
+        ...
+    })
+
+// The short way
+const User =
+    entity('User', {
+        id: id(Number),
+        ...
+    })
+```
+
+It is allowed to have one or many ID fields on a entity. 
+
+To access the metadata:
+
+```javascript
+
+const user = new User()
+
+//should be equals ```true```
+user.__proto__.meta.schema.id.options.isId
+
+```
 
 ### Scalar types
 
-A field in an entity can be of basic types, the same as those used by JavaScript:
+A field in an entity can have basic types, the same as those used by JavaScript:
 
 `Number`: double-precision 64-bit binary format IEEE 754 value
 
@@ -92,7 +124,7 @@ const User =
 
 ### Entity type
 
-For complex types, with deep relationship between entities, a field can be of entity type:
+For complex types, with deep relationship between entities, a field can have an entity type:
 
 ```javascript
 const Plan = 
@@ -136,7 +168,7 @@ const User =
 
 ### Default value
 
-It is possible to define a default value when an entity instance is initiate.
+It is possible to define a default value when an entity instance is initiated.
 
 ```javascript
 const User = 
@@ -150,7 +182,7 @@ const user = new User()
 user.hasAccess // false
 ```
 
-If the default value is a `function` it will call the function and return the value as default value:
+If the default value is a `function`, it will call the function and it will return the value as default value:
 
 ```javascript
 const User = 
@@ -197,9 +229,9 @@ The values of an entity fields can be validated against the fields types or valu
 
 ### Check Validation
 
-`instance.isValid()`: returns `true` if all the validations passed. It call `.validate()` internally.
+`instance.isValid()`: returns `true` if all the validations passed. It calls `.validate()` internally.
 
-`instance.validate()`: process the validation and load all errors into `.errors`.
+`instance.validate()`: processes the validation and loads all errors into `.errors`.
 
 `instance.errors`: list of errors.
 
@@ -215,6 +247,10 @@ user.validate()
 user.errors // {}
 user.isValid() // true
 ```
+
+**Except IDs**
+
+It is possible to ignore [ID field](#id-fields) validation using `.isValid({ exceptIDs: true })`. It can be useful for creation use cases when the entity IDs star as `null` or `undefined` and will be generated later from the database.
 
 ### Type Validation
 
@@ -241,7 +277,7 @@ user.errors // { name: [ wrongType: 'String' ], plan: { monthlyCost: [ wrongType
 user.isValid() // false
 ```
 
-You can also simplify you validation method using `isValid()` method that execute validate for you entity and return true/false in a single execution.
+You can also simplify your validation method using `isValid()` method that executes a validation for you entity and returns true/false in a single execution.
 
 ```javascript
 
@@ -283,6 +319,48 @@ user.errors // { password: [ { isTooShort: 6 } ] }
 user.isValid() // false
 ```
 
+## Metadata
+
+To access the metadata of an entity: `Entity.prototype.meta.schema`
+
+Example:
+
+```javascript
+const Item =
+    entity('Item', {
+        id: id(Number),
+        description: field(String, {
+            validation: {
+                presence: true,
+                length: { minimum: 6 }
+            }
+        }),
+        isDone: field(Boolean,)
+    })
+
+console.log(Item.prototype.meta.schema)
+
+// {
+//     id: {
+//         name: "id",
+//         options: { isId: true }
+//     },
+//     description: {
+//         name: "description",
+//         options: {
+//             validation: {
+//                 presence: true,
+//                 length: { minimum: 6 }
+//             }
+//         }
+//     },
+//     isDone: {
+//         name: "isDone",
+//         options: {}
+//     }
+// }
+```
+
 ## Serialization
 
 ### fromJSON(value)
@@ -301,7 +379,7 @@ const user = User.fromJSON({ name: 'Beth'})
 const user = User.fromJSON(`{ "name": "Beth"}`)
 ```
 
-By default `fromJSON` serializes only keys that have been defined in the entity as fields. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
+By default, `fromJSON` serializes only keys that have been defined in the entity as fields. If you want to add other keys during serialization, use `.fromJSON(data, { allowExtraKeys: true })`.
 
 By default, `fromJSON` **default field** values will be applied for keys not present in `value`.
 
@@ -314,12 +392,12 @@ To serialize an entity to JSON string use `JSON.stringify` or `entity.toJSON` fu
 const json = JSON.stringify(user) // { "name": "Beth" }
 ```
 
-By default `toJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `entity.toJSON({ allowExtraKeys: true })`.
+By default, `toJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `entity.toJSON({ allowExtraKeys: true })`.
 
 
 ## Instance Type Check - `Entity.parentOf`
 
-Check if a instance is the same type from its parent entity class (similar to `instanceOf`).
+Checks if a instance is the same type from its parent entity class (similar to `instanceOf`).
 
 ```javascript
         const User = entity('User', {...})
@@ -334,7 +412,7 @@ Check if a instance is the same type from its parent entity class (similar to `i
 
 ## Entity Type Check - `entity.isEntity`
 
-Check if an object is a Gotu Entity class.
+Checks if an object is a Gotu Entity class.
 
 ```javascript
     const { entity } = require('@herbsjs/herbs')

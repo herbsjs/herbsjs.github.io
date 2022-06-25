@@ -1,22 +1,22 @@
 ---
 id: gettingStarted
-title: Getting Started
+title: Getting Started with Entities
 sidebar_label: Getting Started
 slug: /entity/getting-started
 ---
 
 ## What's an Entity?
 
-Entities are the natural place for abstractions from your domain. Usually big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc are entities. 
+Entities are the natural place for abstractions from your domain. Usually big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc. are entities. 
 
 Entities have properties (fields), actions (methods) and often is uniquely identified by an ID.
 
-Some entities in your domain need to be retrieved and persisted from a repository (ex: database). For that you can use a glue like [herbs2knex](/docs/glues/Herbs2knex).
+Some entities in your domain need to be retrieved and persisted from a repository (ex: database). For that you can use a glue like [herbs2knex](/docs/glues/Herbs2knex) or [herbs2mongo](/docs/glues/Herbs2mongo).
 
 ## Installing
 
-```
- npm install @herbsjs/herbs
+```bash
+$ npm install @herbsjs/herbs
 ```
 
 ## Using
@@ -26,11 +26,11 @@ This is an example of how to define an entity:
 `entities/user.js`:
 
 ```javascript
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const User = 
     entity('User', {
-        id: field(Number),
+        id: id(Number),
         name: field(String),
         lastAccess: field(Date),
         features: field([Feature]),

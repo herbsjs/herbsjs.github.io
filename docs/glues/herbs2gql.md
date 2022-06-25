@@ -1,28 +1,28 @@
 ---
 id: herbs2gql
-title: Herbs2gql
-sidebar_label: Herbs2gql
+title: GraphQL - Herbs2GQL
+sidebar_label: GraphQL
 slug: /glues/herbs2gql
 ---
 
-herbs2gql creates GraphQL types based on herbs entities ([gotu](https://github.com/herbsjs/gotu)) and usecases ([buchu](https://github.com/herbsjs/buchu)), based on [Apollo](https://www.apollographql.com/) GraphQL.
+Creates GraphQL types (queries, mutations, etc.) based on herbs [entities](/docs/entity/getting-started) and [usecases](/docs/usecase/getting-started), based on [Apollo](https://www.apollographql.com/) GraphQL.
 
 
 ## Getting started
 ### Installing
-```
-   npm install @herbsjs/herbs2gql
+```bash
+$ npm install @herbsjs/herbs2gql
 ```
 ### Using
 
 All methods returns a string in GraphQL format representing the type based ([gql](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#gql)) and a [resolver](https://www.apollographql.com/docs/apollo-server/data/resolvers/) (when expected).
 
 ``` js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 const { entity2type } = require('@herbsjs/herbs2gql')
 
 const user = entity('User', {
-    id: field(String),
+    id: id(String),
     name: field(String),
     document: field(String),
     age: field(Number),
@@ -49,7 +49,7 @@ To convert a Herbs Entity to GraphQL Type:
 
 ```javascript
 const entity = entity('User', {
-    id: field(String),
+    id: id(String),
     name: field(String),
     document: field(String),
     age: field(Number),
@@ -146,7 +146,7 @@ const gql = entity2input(givenAnInput, options)
 const gql = entity2type(givenAnEntity, options)
 
 //for mutation, query or subscription example using mutation
-const [gql, resolver] = usecase2mutation(givenAnUseCase, resolverFunc, options)
+const [gql, resolver] = usecase2mutation(givenAUseCase, resolverFunc, options)
 ```
 
 #### Conventions
@@ -161,21 +161,74 @@ const gql = entity2input(givenAnInput, options)
 const gql = entity2type(givenAnEntity, options)
 
 //for mutation, query or subscription example using mutation
-const [gql, resolver] = usecase2mutation(givenAnUseCase, resolverFunc, options)
+const [gql, resolver] = usecase2mutation(givenAUseCase, resolverFunc, options)
 ```
+
+### Apollo Errors and Err
+
+`herbs2gql` deals with errors in the default resolver. It translates the usecase's errors into graphql errors:
+
+| Usecase Error            | Apollo Error   |
+|--------------------------|----------------|
+| Permission Denied        | ForbiddenError |
+| Not Found                | ApolloError    |
+| Already Exists           | ApolloError    |
+| Unknown                  | ApolloError    |
+| Invalid Arguments        | UserInputError |
+| Invalid Entity           | UserInputError |
+| Any other kind of errors | UserInputError |
+
+However, it's behavior can be overridden in the `errorHandler` property of the options parameter:
+
+```javascript
+const { defaultResolver } = require("@herbsjs/herbs2gql")
+
+const myCustomErrorHandler = (usecaseResponse) => {
+  // handle the errors on your own way
+}
+
+const options = {
+  errorHandler: myCustomErrorHandler,
+}
+
+const updateUser = usecase("Update User", {
+  // usecase implementation
+})
+
+const [gql, resolver] = usecase2mutation(
+  updateUser(),
+  defaultResolver(updateUser, options)
+)
+```
+
+Your custom error handler can also utilize the `defaultErrorHandler` as a fallback:
+
+```javascript
+const { defaultResolver, defaultErrorHandler } = require("@herbsjs/herbs2gql")
+
+const myCustomErrorHandler = (usecaseResponse) => {
+  // handle the errors on your own way
+
+  // use the default error handler when there is no need of a specific treatment
+  return defaultErrorHandler(usecaseResponse)
+}
+
+const options = {
+  errorHandler: myCustomErrorHandler,
+}
+
+const updateUser = usecase("Update User", {
+  // usecase implementation
+})
+
+const [gql, resolver] = usecase2mutation(
+  updateUser(),
+  defaultResolver(updateUser, options)
+)
+```
+
+The [Known Errors​](/docs/usecase/result#known-errors) are described in the documentation.
 
 #### Example
 
 Additionally you can view a simple demo application of this library in [todolist-on-herbs](https://github.com/herbsjs/todolist-on-herbs).
-
-## Contribute
-Come with us to make an awesome *herbs2gql*.
-
-Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/herbs2gql/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2gql/blob/main/.github/CONTRIBUTING.md)
-
-## License
-
-**herbsshelf** is released under the
-[MIT license](https://github.com/herbsjs/herbs2gql/blob/main/LICENSE.md)

@@ -7,13 +7,13 @@ slug: /tutorial/create-entity
 
 ## Introduction to the Entity concept
 
-Entities are the natural place for abstractions from your domain. Usually big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc are entities.
+Entities are the natural place for abstractions from your domain. Usually, big things like User, Order, Contract Agreement, Shopping Cart, Schedule, etc. are entities.
 
 Entities have properties (fields), actions (methods) and often is uniquely identified by an ID.
 
 > Refer to [Getting Started - What's and Entity](/docs/entity/getting-started#whats-an-entity) to know more.
 
-For this project the most basic entity is the User. The CLI generates it out-of-the-box, so let's understand how it works:
+For this project, the most basic entity is the User. The CLI generates it out-of-the-box, so let's understand how it works:
 
 ## User Entity
 
@@ -46,7 +46,7 @@ Within the entity fields properties, we have:
 
 ```js
 // src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 // The second argument is an object with the fields.
 const User = entity('User', {
@@ -54,7 +54,7 @@ const User = entity('User', {
     // The value is the object type of
     // the field using the `field()`.
 
-    id: field(Number),
+    id: id(Number),
 
     // Both the fields "nickname" and "password" are texts, therefore we are using `String`.
     nickname: field(String),
@@ -79,10 +79,10 @@ Just for exemple, imagine that we have a field `score` to store some kind of poi
 
 ```js
 // src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const User = entity('User', {
-    id: field(Number),
+    id: id(Number),
     nickname: field(String),
     password: field(String),
 
@@ -103,10 +103,10 @@ The validation is passed as an `Object` and it can have different kinds of param
 
 ```js
 // src/domain/entities/user.js
-const { entity, field } = require('@herbsjs/herbs')
+const { entity, field, id } = require('@herbsjs/herbs')
 
 const User = entity('User', {
-    id: field(Number, {
+    id: id(Number, {
         validation: {
             // The field MUST be present
             presence: true,
