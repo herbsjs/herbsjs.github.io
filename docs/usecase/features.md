@@ -114,16 +114,16 @@ const ret = await usecase.run(request)
 
 ### Request From
 
-Requests can be imported by defined entities through `request.from(entity, settings)`, where:
-- `entity`: a defined entity with schema
-- `settings`: object containing settings for the entity
+Requests can be generated from an entity through `request.from(entity, settings)`, where:
+- `entity`: an entity
+- `settings`: object containing the following settings:
     - `ignoreIDs`: bool indicating to remove ID from generated schema
     - `ignore`: array containing fields to be removed from generated schema
 
 For example:
 
 ```javascript
-const item = entity('item',{
+const Item = entity('Item',{
     id: id(Number),
     description: field(String),
     createdAt: field(Date)
@@ -131,8 +131,8 @@ const item = entity('item',{
 
 const createItem = (injection) =>
     usecase('Create Item', {
-        const settings = { ignoreIDs: true, ignore: ['createdAt'] }
-        request: request.from(item, settings)
+        request: request.from(Item, { ignoreIDs: true, ignore: ['createdAt'] })
+        // request: { description: String }
 ```
 
 ## Response
