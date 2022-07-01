@@ -1,7 +1,7 @@
 ---
 id: new-project
-title: 2. Creating a New Herbs Project ✔️
-sidebar_label: 2. New Project ✔️
+title: 2. Creating a New Herbs Project
+sidebar_label: 2. New Project
 slug: /tutorial/new-project
 ---
 

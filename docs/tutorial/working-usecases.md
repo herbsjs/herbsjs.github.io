@@ -1,7 +1,7 @@
 ---
 id: working-usecases
-title: 6. Working with Use Cases ✔️
-sidebar_label: 6. Working with Use Cases ✔️
+title: 6. Working with Use Cases
+sidebar_label: 6. Working with Use Cases
 slug: /tutorial/working-usecases
 ---
 
@@ -343,3 +343,7 @@ You can also use `uc.doc()` to get an Object like this:
   ]
 }
 ```
+
+## Creating others use cases 🚧
+
+Our todo api will need more use cases, so let's see them!

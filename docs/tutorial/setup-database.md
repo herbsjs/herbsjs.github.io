@@ -1,7 +1,7 @@
 ---
 id: setup-database
-title: 4. Setting Up Databases ✔️
-sidebar_label: 4. Setting Up Databases ✔️
+title: 4. Setting Up Databases
+sidebar_label: 4. Setting Up Databases
 slug: /tutorial/setup-database
 ---
 

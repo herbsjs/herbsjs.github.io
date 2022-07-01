@@ -1,7 +1,7 @@
 ---
 id: migrations-repositories
-title: 5. Migrations & Repositories 🚧
-sidebar_label: 5. Migrations & Repositories 🚧
+title: 5. Migrations & Repositories
+sidebar_label: 5. Migrations & Repositories
 slug: /tutorial/migrations-repositories
 ---
 
@@ -55,11 +55,11 @@ Now we can see our project structure folder it should be like this:
         
 ```
 
-## Migrations
+## Migrations 🚧
 
 -- explicar migrations
 
--- rodar migrations com knex [colinha](http://perkframework.com/v1/guides/database-migrations-knex.html)
+-- referencia de como rodar migrations com knex [colinha](http://perkframework.com/v1/guides/database-migrations-knex.html)
 
 ### Running migrations
 

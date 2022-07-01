@@ -1,7 +1,7 @@
 ---
 id: introduction
-title: 1. Introduction ✔️
-sidebar_label: 1. Introduction ✔️
+title: 1. Introduction
+sidebar_label: 1. Introduction
 slug: /tutorial/Introduction
 ---
 

@@ -6,7 +6,4 @@ slug: /tutorial/consuming
 ---
 
 
--- passo a passo
-
-
--- gifzinho
+-- create examples using api with a request client
