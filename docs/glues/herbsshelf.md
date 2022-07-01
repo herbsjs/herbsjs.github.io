@@ -6,15 +6,15 @@ slug: /glues/herbsshelf
 ---
 
 
-Herbs Shelf is a self-generated documentation based on [use cases](/docs/usecase/getting-started) and [entities](/docs/entity/getting-started) from your domain.
+Herbs Shelf is a self-generated documentation based on [use cases](/docs/usecase/getting-started) and [entities](/docs/entity/getting-started) from your domain. 
 
-It is a great way to communicate and collaborate between domain experts and developers. 
+Herbs Shelf make it possible to collaborate between domain experts and developers without having to read any code.
 
 ![Glues](/img/herbsshelf_screenshot.gif)
 
 ### Installing
-```
-  npm install @herbsjs/herbsshelf
+```bash
+$ npm install @herbsjs/herbsshelf
 ```
 
 ### Using 

@@ -1,18 +1,15 @@
 ---
 id: herbs2knex
-title: Herbs2knex
-sidebar_label: Herbs2knex
+title: Knex - Herbs2Knex
+sidebar_label: Knex
 slug: /glues/Herbs2knex
 ---
 
-
-# herbs2knex
-
-herbs2knex creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Knex](http://knexjs.org).
+Creates repositories to retrieve and store [Entities](/docs/entity/getting-started) using [Knex](http://knexjs.org), a relational database query builder for Node.js.
 
 ### Installing
-```
-   npm install @herbsjs/herbs2knex
+```bash
+$ npm install @herbsjs/herbs2knex
 ```
 ### Using
 
@@ -142,7 +139,7 @@ class YourRepository extends Repository {
 
 ## Retrieving and Persisting Data
 
-### `find`
+### find
 Find entities matched by the filter, or empty array `[]` if there is no matching entity.
 
 Format: `.find(options)` where `options` is a optional object containing `{ where, limit, offset, orderBy }`
@@ -244,15 +241,15 @@ const repo = new ItemRepository(injection)
 const ret = await repo.delete(entity)
 ```
 
-### Conventions - Defaul implementation
+## Conventions - Defaul implementation
 
-#### Fields
+### Fields
 
 Code: Camel Case - ex: `productName`
 
 Database: Snake Case - ex: `product_name`
 
-### Object-Oriented versus Relational models - Relationships
+## Object-Oriented versus Relational models - Relationships
 
 An entity can define a reference for others entities but will not (and should not) define a foreign key. For instance:
 
@@ -285,38 +282,3 @@ const Order = entity('Order', {
 ```
 
 More about: https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch
-
-## TODO
-
-- [ ] Allow only scalar types for queries (don't allow entity / object types)
-- [ ] Allow to ommit schema's name
-
-Features:
-- [ ] Be able to change the conventions (injection)
-- [ ] Exclude / ignore fields on a sql statement
-- [ ] Awareness of created/updated at/by fields
-- [X] Plug-and-play knex
-- [ ] Easy access knex structure
-
-Retrieving and Persist:
-- [X] insert
-    - [ ] batchs
-- [X] update
-    - [ ] batchs
-- [X] delete
-- [ ] persist (upsert)
-- [X] find (ID)
-    - [ ] deal with entities / tables with multiples IDs
-- [X] find by (any field)
-    - [ ] deal with entities / tables with multiples IDs
-    - [ ] order by
-- [ ] find All
-    - [ ] order by
-- [ ] find with pages
-- [ ] first
-- [ ] last
-
-Tests:
-- [X] Pure JS
-- [X] Postgress
-- [X] Sql Server

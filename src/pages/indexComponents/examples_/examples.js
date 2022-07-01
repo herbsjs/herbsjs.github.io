@@ -1,3 +1,5 @@
+// TODO: Delete this file
+
 import React from 'react'
 import styles from './styles.module.css'
 import theme from 'prism-react-renderer/themes/nightOwlLight'

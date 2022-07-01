@@ -33,7 +33,7 @@ All the Herbs organization libraries uses semantic release and commitizen to :
 Please use this format for commit messages (https://semver.org/). 
 
 
-By default **herbs organization** uses [Angular Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
+By default **Herbs organization** uses [Angular Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
 
 Tools such as [commitizen](https://github.com/commitizen/cz-cli) or [commitlint](https://github.com/conventional-changelog/commitlint) can be used to help contributors and enforce valid commit messages.
 
@@ -48,7 +48,7 @@ The table below shows which commit message gets you which release type when `sem
 To help with this task we have implemented the commitizen to all libraries, just follow those steps:
 
 - `npm install -g commitizen`
-- Write a lot of good code to contribute to herbs 🌿
+- Write a lot of good code to contribute to Herbs 🌿
 - `git add yourChanges`
 - `git cz` or `npm run commit` or `npx cz` instead `git commit` 
 - `git push`

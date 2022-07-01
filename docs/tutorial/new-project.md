@@ -7,7 +7,7 @@ slug: /tutorial/new-project
 
 ## Introduction to Herbs
 
-Herbs helps you build backend applications faster and adds more value for your domain and business logic. You can find out more about it here [What's Herbs?](/docs/introduction/whats-herbs)
+Herbs helps you build backend applications faster and adds more value for your domain and business logic. You can find out more about it here [What's Herbs?](/docs/)
 
 If you don't want to see a step-by-step tutorial but an application running with Herbs, you can visit our [Getting Started](/docs) section.
 
