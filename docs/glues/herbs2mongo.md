@@ -1,16 +1,17 @@
 ---
 id: herbs2mongo
-title: Herbs2mongo
-sidebar_label: Herbs2mongo
+title: Mongo - Herbs2mongo
+sidebar_label: Mongo
 slug: /glues/Herbs2mongo
 ---
 
-# herbs2mongo
+[BETA]
+
 herbs2mongo creates repositories to retrieve and store [Entities](https://github.com/herbsjs/gotu) using [Mongo](https://docs.mongodb.com/drivers/node/current/).
 
 ### Installing
-```
-   npm install @herbsjs/herbs2mongo
+```bash
+$ npm install @herbsjs/herbs2mongo
 ```
 
 ### Using
@@ -260,7 +261,7 @@ await itemRepo.updateMany({ filter: filterDefinition, update: updateDefinition})
 ```
 
 ### deleteByID
-Delete an Entity..
+Delete an Entity.
 
 Format: `.deleteByID(id)` where `id` is an ObjectId string, this will be changed to _id automaticaly..
 
@@ -272,44 +273,30 @@ let filterDefinition = {  numberTest : [aModifiedInstance.numberTest] }
 const ret = await repo.deleteMany({ filter: filterDefinition })
 ```
 
-## TODO
+### deleteMany
+Delete a group of Entities.
 
-- [ ] Allow only scalar types for queries (don't allow entity / object types)
-- [ ] Allow to ommit schema's name
+Format: `.deleteMany(options = { filter})` where `options` is a set of filters to be deleted.
 
-Features:
-- [ ] Be able to change the conventions (injection)
-- [ ] Exclude / ignore fields on all query statement
-- [ ] Awareness of created/updated at/by fields
-- [X] Plug-and-play MongoDB
+Return: `true` for success or `false` for error
 
-Retrieving and Persist:
-- [X] insert
-    - [x] batchs
-- [X] update
-    - [x] batchs
-- [X] delete (id)
-    - [x] batchs
-- [ ] persist (upsert)
-- [X] find (ID)
-    - [ ] deal with entities / tables with multiples IDs
-- [X] find by (any field)
-    - [ ] deal with entities / tables with multiples IDs
-    - [x] order by
-    - [x] limit
-    - [x] skip
-- [x] find All
-    - [x] order by
-    - [x] limit
-    - [x] skip
-- [x] find with pages
-- [ ] agregations
-- [ ] replace
-- [ ] collation
-- [ ] watch
-- [ ] first
-- [ ] last
+```javascript
 
-Tests:
-- [X] Pure JS
-- [X] MongoDB
+const repo = new ItemRepository(injection)
+let filterDefinition = {  numberTest : [aModifiedInstance.numberTest] }
+const ret = await repo.deleteMany({ filter: filterDefinition })
+
+```
+
+### delete
+Delete an Entitie.
+
+Format: `.delete(entity)` where `entity` is a Entity instance to be deleted.
+
+Return: `true` for success or `false` for error
+
+```javascript
+
+const repo = new ItemRepository(injection)
+const ret = await repo.delete(aModifiedEntity)
+```

@@ -1,23 +1,23 @@
 ---
 id: herbs2rest
-title: Herbs2Rest
-sidebar_label: Herbs2Rest
+title: REST - Herbs2REST
+sidebar_label: REST
 slug: /glues/herbs2rest
 ---
 
-Create a REST API based on herbs entities ([gotu](https://github.com/herbsjs/gotu)) and use cases ([buchu](https://github.com/herbsjs/buchu)).
+Creates REST endpoints based on Herbs [entities](/docs/entity/getting-started) and [use cases](/docs/usecase/getting-started).
 
 
 ## Getting started
 ### Installing
-```
-  npm install @herbsjs/herbs2rest
+```bash
+$ npm install @herbsjs/herbs2rest
 ```
 ### Using
 
 Use the method generateRoutes to generate api rest routes based on usecases.
 
-herbs2rest works with [express](https://expressjs.com/) in version [4.x](https://expressjs.com/en/4x/api.html).
+Herbs2REST works with [express](https://expressjs.com/) in version [4.x](https://expressjs.com/en/4x/api.html).
 
 #### Controller List
 
@@ -113,13 +113,3 @@ const testUseCase = (injection) =>
 #### Example
 
 Additionally you can view a simple demo application of this library in [todolist-on-herbs](https://github.com/herbsjs/todolist-on-herbs).
-
-### How to contribute
-
-If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/herbs2rest/blob/master/.github/CONTRIBUTING.md)
-
----
-
-### License
-
-- [MIT License](https://github.com/herbsjs/herbs2rest/blob/master/LICENSE)
