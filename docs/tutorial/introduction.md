@@ -28,7 +28,9 @@ To help us in this process, we are using a [`herbs-cli`](https://github.com/herb
 
 ## Requirements
 
-- You need to have [Node.js](https://nodejs.org/en/) installed into your machine with LTS version
+- Previous Javascript knowlegds;
+- Be familiar Domain Driven Design (DDD) and Clean Architecture;
+- [Node.js](https://nodejs.org/en/) installed in LTS version, prefered >= v.14
 - herbs-cli installed globally
-- PostgreSQL installed or Running in a Docker Container
+- Any of these databases installed: PostgreSQL, MySql, SqlServe, Mongo.
 - A API Client to make requests and see responses, like Postman or Insomnia. Choose your favorite.

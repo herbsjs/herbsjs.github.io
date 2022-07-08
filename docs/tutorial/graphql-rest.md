@@ -1,8 +1,8 @@
 ---
-id: graphql
-title: 7. GraphQL 🚧
-sidebar_label: 7. GraphQL 🚧
-slug: /tutorial/graphql
+id: graphql-rest
+title: 7. GraphQL & Rest 🚧
+sidebar_label: 7. GraphQL & Rest 🚧
+slug: /tutorial/graphql-rest
 ---
 
 

@@ -1,8 +1,8 @@
 ---
-id: migrations-repositories
-title: 5. Migrations & Repositories
-sidebar_label: 5. Migrations & Repositories
-slug: /tutorial/migrations-repositories
+id: migrations
+title: 7. Migrations
+sidebar_label: 7. Migrations
+slug: /tutorial/migrations
 ---
 
 After creating our entities, setup the database and set databases credentials in configuration files. We will run a special `herbs-cli` command thats will generate migrations files in `src/infra/data/database/migrations`, repositories files in `src/infra/data/database/repositories`.

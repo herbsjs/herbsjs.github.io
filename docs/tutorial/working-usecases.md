@@ -1,7 +1,7 @@
 ---
 id: working-usecases
-title: 6. Working with Use Cases
-sidebar_label: 6. Working with Use Cases
+title: 4. Working with Use Cases
+sidebar_label: 4. Working with Use Cases
 slug: /tutorial/working-usecases
 ---
 

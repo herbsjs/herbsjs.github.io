@@ -1,8 +1,8 @@
 ---
-id: refactoring
+id: relations
 title: 9. Relations between entities 🚧
 sidebar_label: 9. Relations between entities 🚧
-slug: /tutorial/refactoring
+slug: /tutorial/relations
 ---
 
 ## Adding a Field

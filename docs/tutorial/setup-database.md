@@ -34,7 +34,7 @@ module.exports = {
 }
 ```
 
-### Set up with MysqlSQL
+### Set up with MySQL
 
 The configuration file is `src/infra/config/mysql.js`. It looks like this:
 
