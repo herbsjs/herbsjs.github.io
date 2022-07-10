@@ -5,7 +5,7 @@ sidebar_label: 1. Introduction
 slug: /tutorial/Introduction
 ---
 
-Herbs helps you build backend applications faster and adds more value for your domain and business logic. You can find out more about it here [What's Herbs?](/docs/introduction/whats-herbs)
+Herbs helps you build backend applications faster and adds more value for your domain and business logic. You can find out more about it here [Why Herbs?](/docs/introduction/why-herbs)
 
 If you don't want to see a step-by-step tutorial but an application running with Herbs, you can visit our [Getting Started](/docs) section.
 

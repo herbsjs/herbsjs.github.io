@@ -19,7 +19,7 @@ When you add a new use case, you have to add it to the setup files. Check out th
 
 ### GraphQL Setup
 
-As mentioned in [Generating GraphQL Endpoint](./graphql), the operations are set in the files: `queries.js` and `mutations.js`.
+As mentioned in [Generating GraphQL Endpoint], the operations are set in the files: `queries.js` and `mutations.js`.
 
 So, once you've created a new use case, you have to add it to one of them. If the use case creates or updates data, put it in `mutations.js`. If it just fetch data, put it in `queries.js`.
 
