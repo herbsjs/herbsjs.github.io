@@ -49,7 +49,7 @@ And call the shelf into you prefered rest route
       const shelf = renderShelfHTML(usecases())
       res.write(shelf)
       res.end()
- }
+ })
 
 ```
 
