@@ -1,102 +1,141 @@
 ---
 id: specs
-title: 5. specs
+title: 5. Specs
 sidebar_label: 5. Specs
 slug: /tutorial/specs
 ---
 
-After creating our entities, setup the database and set databases credentials in configuration files. We will run a special `herbs-cli` command thats will generate migrations files in `src/infra/data/database/migrations`, repositories files in `src/infra/data/database/repositories`.
+## Introduction to the Specs concept
 
-Let's run in terminal inside our project root:
-```bash
-herbs update
+While in use cases we have the actions that the user can use from the domain. Specs are the definition of scenarios that test the expected behavior of a use case.
+
+Previously with the execution of `herbs update` command, the initial code of our use cases was generated and for each of them a spec file was also generated.
+
+We can find them side by side with our use cases:
+```sh
+src
+└── domain
+    └── usecases
+        └── list
+            ├── createList.js
+            └── createList.spec.js
 ```
 
-In this moment some magic happens 🎉!!
-Now we can see our project structure folder it should be like this:
+> Refer to [Specs - Getting Started](/docs/specs/getting-started) to know more.
 
-```bash
-├── node_modules
-├── package-lock.json
-├── package.json
-├── knexFile.js
-└── src
-    ├── index.js
-    ├── domain
-    │   ├── entities
-    │   │   ├── Item.js
-    │   │   └── List.js
-    │   ├── usecases
-    │   │   ├── item
-    │   │   │    └── ...
-    │   │   └── list
-    │   │        └── ...
-    │   └── herbarium.js 
-    └── infra
-        ├── api
-        │   ├── graphql
-        │   │   ├── index.js
-        │   │   ├── queries.js
-        │   │   ├── mutations.js
-        │   │   └── types.js
-        │   └── server.js      
-        ├── config
-        │   ├── api.js
-        │   ├── index.js
-        │   └── postgres.js
-        ├── data
-        │   └── database
-        │       ├── migrations
-        │       │   └── ...
-        │       ├── repositories
-        │       │   └── ...
-        │       └── connection.js
-        └── index.js
-        
-```
+Now, let's use createList.spec.js to learn how to create scenarios that test and validate the intent of the use case createList.js , which as its name suggests, create a list.
 
-## Migrations 🚧
+## createList.spec 
 
--- explicar migrations
+So, what is happening here? follow comments in the code to understand.
 
--- referencia de como rodar migrations com knex [colinha](http://perkframework.com/v1/guides/database-migrations-knex.html)
-
-### Running migrations
-
-## Repositories
-
-A repository is a design pattern intended to decouple database code from your business logic.
-
-This pattern bring some important benefits. First, makes your code easier to read and maintain, because database code is not spread throughout application. Second, the code becomes significantly easier to unit test. Its be easily mock repositories while testing your business logic instead of having to set up databases, tables and seeding them with data. And third, the business logic does not depend strongly on a specific database platform.
-
-After `herbs update` run, its automatic create inside `src/infra/data/database/repositories`
-a repository file for each entity we previous created.
-
-These repositories files abstract `knex.js` to make queries in database and any class created in these files
-will be exported for `herbarium.repositories`, so we will can access theses repositories inside any place in our application importing `herbarium`.
-
-A repository file it should be like:
 ```javascript
-// src/infra/data/database/repositories/itemRepository.js
 
-const { Repository } = require("@herbsjs/herbs2knex")
+/*
+    Assert is a nodejs thats provides a set of assertions functions,
+    see more in section: docs > specs > features > assertion
+*/
+const assert = require('assert')
+
+/* Importing the main functions to create spec */
+const { spec, scenario, given, check, samples } = require('@herbsjs/herbs').specs
+
+/* 
+    Here we can see herbarium again! 
+    just remember thats herbarium stores all metadata for our application
+*/
 const { herbarium } = require('@herbsjs/herbarium')
-const Item = require('../../../domain/entities/item')
-const connection = require('../database/connection')
 
-class ItemRepository extends Repository {
-    constructor(injection) {
-        super({
-            entity: Item,
-            table: "items",
-            knex: connection
+/* Importing the use case thats we will explore scenarios */
+const createList = require('./createList')
+
+
+/*
+    We start a const createListSpec, thats assigned
+    with spec() function.
+
+    spec(), expects an object that we will reference
+    a use case and we will describe its test scenarios.
+*/
+const createListSpec = spec({
+
+    /* Setting createList entity as an use case of spec */
+    usecase: createList,
+
+
+    /* 
+        Here we a creating a string property, thats
+        cleary describes a scenario thats we wanna test,
+        'Create a new list when it is valid'.
+
+        And throught scenario() function we are setting
+        the scenario conditions and its assertions.
+    */
+    'Create a new list when it is valid': scenario({
+
+        /*
+            given() set to a use case of this spec,
+            a context mockup to test this scenario,
+            here is being passed request params to use case,
+            a user object for use case authorization and a injection
+            property thats contains all dependecies injections that
+            use case needs. 
+
+            given() provides data for the test context of the 
+            'Create a new list when it is valid' scenary
+        */
+        'Given a valid list': given({
+            request: {
+                name: 'a text',
+                description: 'a text'
+            },
+            user: { hasAccess: true },
+            injection: {
+                ListRepository: class ListRepository {
+                    async insert(list) { return (list) }
+                }
+            },
+        }),
+
+        // when: default when for use case
+
+        'Must run without errors': check((ctx) => {
+            assert.ok(ctx.response.isOk)  
+        }),
+
+        'Must return a valid list': check((ctx) => {
+            assert.strictEqual(ctx.response.ok.isValid(), true)
+            // TODO: check if it is really a list
         })
-    }
-}
+    }),
+
+
+    'Do not create a new list when it is invalid': scenario({
+        'Given a invalid list': given({
+            request: {
+            name: true,
+            description: true
+            },
+            user: { hasAccess: true },
+            injection: {
+                listRepository: new ( class ListRepository {
+                async insert(list) { return (list) }
+                })
+            },
+        }),
+
+        // when: default when for use case
+
+        'Must return an error': check((ctx) => {
+            assert.ok(ctx.response.isErr)  
+            // assert.ok(ret.isInvalidEntityError)
+        }),
+    }),
+})
 
 module.exports =
-    herbarium.repositories
-        .add(ItemRepository, 'ItemRepository')
-        .metadata({ entity: Item })
-        .repository
+herbarium.specs
+    .add(createListSpec, 'CreateListSpec')
+    .metadata({ usecase: 'CreateList' })
+    .spec
 ```
