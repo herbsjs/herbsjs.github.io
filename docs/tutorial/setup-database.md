@@ -1,7 +1,7 @@
 ---
 id: setup-database
-title: 4. Setting Up Databases
-sidebar_label: 4. Setting Up Databases
+title: 8. Setting up a database
+sidebar_label: 8. Setting up a database
 slug: /tutorial/setup-database
 ---
 
@@ -9,10 +9,35 @@ slug: /tutorial/setup-database
 
 Before we start using the database, it's required to set up the configurations. We can choose between `postgres`, `mysql`, `sqlserver` or `mongo`, database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
 
-- [PostgreSQL](https://www.postgresql.org)
-- [MySQL](https://www.mysql.com/)
-- [SQLServer](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
-- [Mongo](https://mongodb.com)
+- [PostgreSQL](/docs/tutorial/setup-database#set-up-with-postgresql)
+- [MySQL](/docs/tutorial/setup-database#set-up-with-mysql)
+- [SQLServer](/docs/tutorial/setup-database#set-up-with-sqlserver)
+- [Mongo](/docs/tutorial/setup-database#set-up-with-mongo)
+
+####  KnexFile
+Projects thats uses Postgres, MySQL or SQLServer use [Knex.js](http://knexjs.org/) under the hood, so in these settings we'll have a `knexFile.js` in root of project. Make sure your database access credentials are matched in the `knexFile.js` and in the appropriate configuration file founded in `src/infra/config/...`.
+
+The file `knexFile.js` it will should be like this:
+```js
+module.exports = {
+    development: {
+            client: 'postgresql',
+            connection: {
+            database: 'todo-api',
+            user: 'postgres',
+            password: 'postgres',
+            host: '127.0.0.1',
+            port: 5432
+        },
+        migrations: {
+            directory: './src/infra/data/database/migrations',
+            tableName: 'knex_migrations'
+        }
+    },
+    staging: {},
+    production: {}
+}
+```
 
 ### Set up with PostgreSQL
 
@@ -29,11 +54,10 @@ module.exports = {
     host: '127.0.0.1',
     user: 'postgres',
     password: 'postgres',
-    database: 'herbs-project'
+    database: 'todoApiDatabase'
   }
 }
 ```
-
 ### Set up with MySQL
 
 The configuration file is `src/infra/config/mysql.js`. It looks like this:
@@ -76,31 +100,6 @@ module.exports = {
       trustServerCertificate: true
     }
   }
-}
-```
-
-####  KnexFile
-Projects thats uses Postgres, MySQL or SQLServer use [Knex.js](http://knexjs.org/) under the hood, so in these settings we'll have a `knexFile.js` in root of project. Make sure your database access credentials are matched in the `knexFile.js` and in the appropriate configuration file founded in `src/infra/config/...`.
-
-The file `knexFile.js` it will should be like this:
-```js
-module.exports = {
-    development: {
-            client: 'postgresql',
-            connection: {
-            database: 'todo-api',
-            user: 'postgres',
-            password: 'postgres',
-            host: '127.0.0.1',
-            port: 5432
-        },
-        migrations: {
-            directory: './src/infra/data/database/migrations',
-            tableName: 'knex_migrations'
-        }
-    },
-    staging: {},
-    production: {}
 }
 ```
 

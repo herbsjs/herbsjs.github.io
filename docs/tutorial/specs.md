@@ -32,7 +32,7 @@ So, what is happening here? follow comments in the code to understand.
 ```javascript
 
 /*
-    Assert is a nodejs thats provides a set of assertions functions,
+    Assert is a nodejs package thats provides a set of assertions functions,
     see more in section: docs > specs > features > assertion
 */
 const assert = require('assert')
@@ -54,14 +54,13 @@ const createList = require('./createList')
     We start a const createListSpec, thats assigned
     with spec() function.
 
-    spec(), expects an object that we will reference
+    spec(), expects an object parameter that we will reference
     a use case and we will describe its test scenarios.
 */
 const createListSpec = spec({
 
     /* Setting createList entity as an use case of spec */
     usecase: createList,
-
 
     /* 
         Here we a creating a string property, thats
@@ -98,18 +97,23 @@ const createListSpec = spec({
         }),
 
         // when: default when for use case
-
+        /*
+            the follow two properties assigned with
+            check() function contains asserts it will be
+            tested
+        */
         'Must run without errors': check((ctx) => {
             assert.ok(ctx.response.isOk)  
         }),
 
         'Must return a valid list': check((ctx) => {
             assert.strictEqual(ctx.response.ok.isValid(), true)
-            // TODO: check if it is really a list
         })
     }),
 
-
+    /*
+        Here we can see another scenary test 
+    */
     'Do not create a new list when it is invalid': scenario({
         'Given a invalid list': given({
             request: {
@@ -127,8 +131,7 @@ const createListSpec = spec({
         // when: default when for use case
 
         'Must return an error': check((ctx) => {
-            assert.ok(ctx.response.isErr)  
-            // assert.ok(ret.isInvalidEntityError)
+            assert.ok(ctx.response.isErr)
         }),
     }),
 })
@@ -139,3 +142,8 @@ herbarium.specs
     .metadata({ usecase: 'CreateList' })
     .spec
 ```
+
+Finally we can run our specs to test our application, just run
+`npm test` and you can see something like this:
+
+![](../../static/img/spec-run-test.png)

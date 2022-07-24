@@ -5,98 +5,110 @@ sidebar_label: 7. Migrations
 slug: /tutorial/migrations
 ---
 
-After creating our entities, setup the database and set databases credentials in configuration files. We will run a special `herbs-cli` command thats will generate migrations files in `src/infra/data/database/migrations`, repositories files in `src/infra/data/database/repositories`.
+## Migrations in Herbs
 
-Let's run in terminal inside our project root:
-```bash
-herbs update
+Migrations, or rather database migrations, is a strategy for managing the changes that occur in an application's database throughout its life cycle. 
+
+We won't go into the details of this approach here, just present that within `herbs` you can use all the features that knex.js provides for dealing with database migrations.
+
+> Refer to [Knex.js Migrations Guide](http://knexjs.org/guide/migrations.html) to know more.
+
+A few steps back, a few times we execute the `herbs update` command, and as we can see, `herbs-cli` has created several files in our project based on our entities, the use cases, specs and repositories.
+
+The migrations files are part of this set and you can see them in:
+
+```sh
+src
+└── infra
+    └── data
+        └── database
+            └── migrations
+                ├── 20220710004557_lists.js
+                └── 20220710005004_items.js
 ```
 
-In this moment some magic happens 🎉!!
-Now we can see our project structure folder it should be like this:
+Inside these files you will find the definitions that have created new or modified tables in the database. 
 
-```bash
-├── node_modules
-├── package-lock.json
-├── package.json
-├── knexFile.js
-└── src
-    ├── index.js
-    ├── domain
-    │   ├── entities
-    │   │   ├── Item.js
-    │   │   └── List.js
-    │   ├── usecases
-    │   │   ├── item
-    │   │   │    └── ...
-    │   │   └── list
-    │   │        └── ...
-    │   └── herbarium.js 
-    └── infra
-        ├── api
-        │   ├── graphql
-        │   │   ├── index.js
-        │   │   ├── queries.js
-        │   │   ├── mutations.js
-        │   │   └── types.js
-        │   └── server.js      
-        ├── config
-        │   ├── api.js
-        │   ├── index.js
-        │   └── postgres.js
-        ├── data
-        │   └── database
-        │       ├── migrations
-        │       │   └── ...
-        │       ├── repositories
-        │       │   └── ...
-        │       └── connection.js
-        └── index.js
-        
+As an example, let's look at the schema that creates our list table and we can see that the same fields that we initially put in our List entity are being defined.
+
+```javascript
+exports.up = async function (knex) {
+    knex.schema.hasTable('lists')
+        .then(function (exists) {
+            if (exists) return
+            return knex.schema
+                .createTable('lists', function (table) {
+                    table.integer('id').primary()
+                    table.string('name')
+                    table.string('description')
+                    table.timestamps()
+                })
+        })
+}
+
+exports.down = function (knex) {
+    return knex.schema
+    .dropTableIfExists('lists')
+}
+
 ```
 
-## Migrations 🚧
+### Setting up a database
 
--- explicar migrations
+Now we are a few steps away from running our application and consuming its endpoints, but first we need to set up the connection to a database so that our data is saved and the application does its expected job.
 
--- referencia de como rodar migrations com knex [colinha](http://perkframework.com/v1/guides/database-migrations-knex.html)
+For this tutorial we have chosen to use postgres as the database, but with herbs we can choose between `postgres`, `mysql`, `sqlserver` or `mongo`. so the setup is slightly different for each one of them and in the next step will be exclusively for you to see how to set up other databases.
+
+### Set up with PostgreSQL
+
+The configuration file is `src/infra/config/postgres.js`. It looks like this:
+
+```js
+// src/infra/config/postgres.js
+const env = require('sugar-env')
+require('dotenv').config()
+
+module.exports = {
+  client: 'pg',
+  connection: {
+    host: '127.0.0.1',
+    user: 'postgres',
+    password: 'postgres',
+    database: 'todoApiDatabase'
+  }
+}
+```
+
+####  KnexFile
+Projects thats uses Postgres, MySQL or SQLServer use [Knex.js](http://knexjs.org/) under the hood, so in these settings we'll have a `knexFile.js` in root of project. Make sure your database access credentials are matched in the `knexFile.js` and in the appropriate configuration file founded in `src/infra/config/...`.
+
+The file `knexFile.js` it will should be like this:
+```js
+module.exports = {
+    development: {
+            client: 'postgresql',
+            connection: {
+            database: 'todoApiDatabase',
+            user: 'postgres',
+            password: 'postgres',
+            host: '127.0.0.1',
+            port: 5432
+        },
+        migrations: {
+            directory: './src/infra/data/database/migrations',
+            tableName: 'knex_migrations'
+        }
+    },
+    staging: {},
+    production: {}
+}
+```
 
 ### Running migrations
 
-## Repositories
+Now that we have set up the database connection and have a postgres instance running, let's run the asdge command which will create our tables in the database.
 
-A repository is a design pattern intended to decouple database code from your business logic.
-
-This pattern bring some important benefits. First, makes your code easier to read and maintain, because database code is not spread throughout application. Second, the code becomes significantly easier to unit test. Its be easily mock repositories while testing your business logic instead of having to set up databases, tables and seeding them with data. And third, the business logic does not depend strongly on a specific database platform.
-
-After `herbs update` run, its automatic create inside `src/infra/data/database/repositories`
-a repository file for each entity we previous created.
-
-These repositories files abstract `knex.js` to make queries in database and any class created in these files
-will be exported for `herbarium.repositories`, so we will can access theses repositories inside any place in our application importing `herbarium`.
-
-A repository file it should be like:
-```javascript
-// src/infra/data/database/repositories/itemRepository.js
-
-const { Repository } = require("@herbsjs/herbs2knex")
-const { herbarium } = require('@herbsjs/herbarium')
-const Item = require('../../../domain/entities/item')
-const connection = require('../database/connection')
-
-class ItemRepository extends Repository {
-    constructor(injection) {
-        super({
-            entity: Item,
-            table: "items",
-            knex: connection
-        })
-    }
-}
-
-module.exports =
-    herbarium.repositories
-        .add(ItemRepository, 'ItemRepository')
-        .metadata({ entity: Item })
-        .repository
+run in your terminal:
+```cmd 
+npm run knex:migrate
 ```
