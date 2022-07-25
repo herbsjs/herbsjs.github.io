@@ -1,114 +1,100 @@
 ---
 id: graphql-rest
-title: 7. GraphQL & Rest 🚧
-sidebar_label: 7. GraphQL & Rest 🚧
+title: 9. GraphQL & Rest
+sidebar_label: 9. GraphQL & Rest
 slug: /tutorial/graphql-rest
 ---
 
 
--- explicar o grapgql 
--- como ver as queries e mutations do projeto
+Herbs supports in REST **and** GraphQL APIs, which means that you can provide two options for the client's request using the same use case!
 
+The `herbs`, through the metadata that the `herbarium` stores, prepares all the mutation typing and queries for the graphql layer of the api, as well as all the routes that will be used, so now we just need to run our project and make the requests.
+
+It is not the intention of this tutorial to explain Graphql and Rest, we believe you already have some familiarity with these terms.
 
 > GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data.
 >
 > — [*Introduction to GraphQL | GraphQL*](https://graphql.org/learn)
 
-Herbs supports in REST **and** GraphQL APIs, which means that you can provide two options for the client's request using the same use case!
+## Running
 
-Let's walk through the required setup to use GraphQL layer with Herbs. The GraphQL server needs 3 main definitions to work:
+Let's start running follow commando to start application:
 
-- **Types**: to define the entities properties to the client.
-- **Queries**: to define the use cases which fetch data.
-- **Mutation**: to define the use cases which create or update data.
-
-Using [`herbs2gql`](/docs/glues/herbs2gql) it is really simple to set them all based on concepts we've seen before (eg. [entity](/docs/entity/getting-started) and [use case](/docs/usecase/getting-started)).
-
-## Types
-
-In this case, the type for User entity is set.
-
-For an entity like User:
-
-```js
-entity('User', {
-    id: id(Number),
-    nickname: field(String),
-    password: field(String),
-})
+```bash
+npm run start
 ```
 
-the type definition in the GraphQL syntax would be something like this:
+You will get a result in the terminal that looks like this:
+![](../../static/img/running-project.png)
 
+In the message we can see the Rest endpoints that were generated, following the graphql access route, a `herbsshelf` access route and finally the api main route and its port.
+
+## /graphql 
+
+Now it is time to access the graphql playground and start creating lists and items.
+
+Access the route `/graphql`, and you see a follow screen:
+
+![](../../static/img/graphql-studio01.png)
+
+Click on 'Query your server' and the next screen we will be able to start
+requests.
+
+In this panel that we see in the picture below,
+we build a Mutation to create a new list.
+![](../../static/img/graphql-studio-mutation-list.gif)
+
+Now we can check on database in table list that our new list are created:
+![](../../static/img/list-record-save.png)
+
+
+below are the mutation and variables used in this example
+
+**Graphql Mutation**
 ```graphql
-type User {
-    id: Float!
-    nickname: String!
-    password: String!
-}
-```
-
-But hopefully, we don't have to convert each entity by hand, we can use the function `entity2type` from `@herbsjs/herbs2gql`:
-
-```js
-// src/infra/api/graphql/types.js
-const { entity2type } = require('@herbs/herbs2gql')
-const entities = require('../../../domain/entities')
-
-// Set the default schema for the types.
-const defaultSchema = [`
-  type Query {
-    _: Boolean
+mutation CreateNewList($name: String, $description: String) {
+  createList(name: $name, description: $description) {
+    id
+    name
+    description
   }
-
-  type Mutation {
-    _: Boolean
-  }`]
-
-// For each entity in the list `entities` convert it to a type and put it in the list of `types`.
-const types = [defaultSchema].concat(Object
-  .keys(entities)
-  .map(entity => [entity2type(entities[entity])]))
-
-module.exports = types
-```
-
-## Queries
-
-The process to set up GraphQL is pretty similar to the previous one. The main difference is that with our CLI we use a factory function which receives the use case list.
-
-We are going to use the `usecase2query` util and the `defaultResolver`, both from `@herbsjs/herbs2gql`:
-
-```js
-// src/infra/api/graphql/queries.js
-const { usecase2query } = require('@herbs/herbs2gql')
-const defaultResolver = require('./defaultResolver')
-
-// Function require all the use cases in a list.
-function factory (usecases) {
-    // For each use case in the list `use cases` convert it to a query and put it in the list of `queries`.
-    const queries = usecases.map(usecase => usecase2query(usecase(), defaultResolver(usecase)))
-    return queries  
 }
-
-module.exports = { factory }
 ```
-
-## Mutations
-
-The same thing for mutations, but now we are using the `usecase2mutation` util:
-
-```js
-// src/infra/api/graphql/mutations.js
-const { usecase2query } = require('@herbs/herbs2gql')
-const defaultResolver = require('./defaultResolver')
-
-// Require all the use cases in a list.
-function factory (usecases) {
-    // For each use case in the list `use cases` convert it to a mutation and put it in the list of `mutations`.
-    const mutations = usecases.map(usecase => usecase2mutation(usecase(), defaultResolver(usecase)))
-    return mutations
+**Variables**
+```json
+{
+  "name": "My first list",
+  "description": "list description"
 }
-
-module.exports = { factory }
 ```
+
+
+## /herbsshelf
+
+Herbs Shelf is a self-generated documentation based on [use cases](/docs/usecase/getting-started) and [entities](/docs/entity/getting-started) from your domain. 
+
+Access this route in your web browser and know this powerfull and beautiful
+doc that `herbs` brings to you:
+
+![](../../static/assets/herbsshelf-tutorial.gif)
+
+> Refer [**Herbs Shelf**](/docs/glues/herbsshelf) to know more.
+
+## Requesting via Rest
+
+To close this tutorial, let's make the same request to save a list, only this time through the Rest layer of our application, using [insomnia](https://insomnia.rest/) to make this request.
+
+
+![](../../static/img/request-via-rest.png)
+
+And again, we can check on database in table lists, our records made:
+![](../../static/img/list-record-save2.png)
+
+## The last step
+
+Thank you very much and congratulations for getting here, herbs is a tool built with a lot of dedication and that is in constant evolution, we hope you can enjoy what herbs has to offer.
+
+Join our community and help us improve herbs even more.
+
+- [Discord](https://discord.gg/e3cQ66KDv5)
+- [Twitter](https://twitter.com/herbsjs)

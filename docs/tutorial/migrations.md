@@ -106,9 +106,18 @@ module.exports = {
 
 ### Running migrations
 
-Now that we have set up the database connection and have a postgres instance running, let's run the asdge command which will create our tables in the database.
+Now that we have set up the database connection and have a postgres instance running, let's run the command which will create our tables in the database.
 
 run in your terminal:
 ```cmd 
 npm run knex:migrate
 ```
+
+when the execution finishes, we can access the postgres terminal and verify that in our database the tables have been created:
+
+![](../../static/img/migrate-tables.png)
+
+
+### Next step
+
+Now we have everything we need to run our application and start making requests, we will see in the next step how to run our application and make requests to the endpoints that herbs delivers to us through the Graphql and Rest layers 

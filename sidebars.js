@@ -9,8 +9,8 @@ const sidebar = {
     'repositories',
     'migrations',
     'setup-database',
-    'graphql-rest',
-    'relations', 'consuming'],
+    'graphql-rest'
+  ],
   Project: [
     'motivation', 'architecture', 'ecosystem', 'roadmap', 'contributing', 'acknowledgements', 'logos', 'CoC', 'license'],
   UseCase: ['gettingStarted', 'features', 'steps', 'result'],
