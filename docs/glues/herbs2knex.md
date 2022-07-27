@@ -288,10 +288,10 @@ More about: https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mi
 
 Before we start using the database, it's required to set up the configurations. We can choose between `postgres`, `mysql`, `sqlserver` or `mongo`, database to store the data, so the setup is slightly different for each one of them. You can go directly to the one you've chosen:
 
-- [PostgreSQL](/docs/tutorial/setup-database#set-up-with-postgresql)
-- [MySQL](/docs/tutorial/setup-database#set-up-with-mysql)
-- [SQLServer](/docs/tutorial/setup-database#set-up-with-sqlserver)
-- [Mongo](/docs/tutorial/setup-database#set-up-with-mongo)
+- [PostgreSQL](#set-up-with-postgresql)
+- [MySQL](#set-up-with-mysql)
+- [SQLServer](#set-up-with-sqlserver)
+- [Mongo](#set-up-with-mongo)
 
 ####  KnexFile
 Projects thats uses Postgres, MySQL or SQLServer use [Knex.js](http://knexjs.org/) under the hood, so in these settings we'll have a `knexFile.js` in root of project. Make sure your database access credentials are matched in the `knexFile.js` and in the appropriate configuration file founded in `src/infra/config/...`.
