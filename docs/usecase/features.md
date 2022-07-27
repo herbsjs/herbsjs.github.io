@@ -1,15 +1,15 @@
 ---
 id: features
-title: Features
+title: Usecase Features
 sidebar_label: Features
 slug: /usecase/features
 ---
 
-## Create a Use Case
+## Creating a Use Case
 
 `usecase(description, body)`, where:
 
-- `description`: description of the use case, capturing the use case intent.
+- `description`: use case description, capturing the use case intent.
 
 - `body`: object containing the use case structure: request, response, setup, authorize and steps.
 
@@ -18,13 +18,37 @@ slug: /usecase/features
 Example:
 
 ```javascript
-const { Ok, Err, usecase, step, ifElse } = require('buchu')
+const { Ok, Err, usecase, step, ifElse } = require('@herbsjs/herbs')
 const createItem = usecase('Create Item', {
-    ... 
+    ...
 })
 ```
 
-## Running a Use Case
+**Good descriptions:**
+
+✅ Update User
+
+✅ Reopen Ticket
+
+✅ Request Report Generation
+
+**Bad descriptions:**
+
+❌ updateUsers
+
+❌ Report Gen
+
+## Authorizing and Running
+
+**Authorizing**
+
+`.authorize(user)`, where:
+
+- `user`: string or object containing a user payload.
+
+- return: `true` for authorized or `false` for unauthorized.
+
+**Running**
 
 `.run(request)`, where:
 
@@ -35,61 +59,121 @@ const createItem = usecase('Create Item', {
 Example:
 
 ```javascript
-const request = { name: 'The best list' }
-const response = await createItem.run(request)
+const usecase = createProduct()
+
+const hasAccess = await usecase.authorize(req.user)
+if (!hasAccess) {
+    ...
+    throw new ForbiddenError()
+}
+
+const request = { name: 'The best product' }
+const response = await usecase.run(request)
 ```
 
 ## Request
 
-Defines the request fields and its types. This information is used as metadata for Glues. It is also used to validate request payload before running the use case.
+First, a use case must define the request fields and its types. This information is used as metadata for Glues. It is also used to validate request payload before running the use case.
 
 `{ request: fields }`, where:
 
 - `fields`: object containing field names and types.
 
+During the use case execution it is possible to read the request value using `ctx.req`.
+
 For example:
 
 ```javascript
-const addOrUpdateItem = (injection) =>
+const updateItem = (injection) =>
 
-    usecase('Add or Update an Item on a to-do List', {
+    usecase('Update Item', {
+        // Input/Request type validation
+        request: {
+            id: Number,
+            description: String,
+            isDone: Boolean,
+            position: Number
+        }
 
-        // Input/Request type validation 
-        request: { listId: Number, item: Object },
-
-    ...
+        'Retrieve the previous Item from the repository': step(async (ctx) => {
+            const req = ctx.req // request values
+            const ret = await repo.findByID(req.id)
+            ...
+        }),
 ```
 
-For intance, when executed with an id that is a string the above use case returns is:
+As a validation example, when it's executed with an `id`, that is a string, the above use case return is:
 
 ```js
-const response = await usecase.run({ listId: '1' })
+const request = { id: '1' }
+const ret = await usecase.run(request)
 
-// response.err
-// { request: [{ listId :[{ wrongType: "Number" }] }] }
+// ret.err
+// { request: [{ id :[{ wrongType: "Number" }] }] }
+```
+
+### Request From
+
+Requests can be generated from an entity through `request.from(entity, settings)`, where:
+- `entity`: an entity
+- `settings`: object containing the following settings:
+    - `ignoreIDs`: bool indicating to remove ID from generated schema
+    - `ignore`: array containing fields to be removed from generated schema
+
+For example:
+
+```javascript
+const Item = entity('Item',{
+    id: id(Number),
+    description: field(String),
+    createdAt: field(Date)
+})
+
+const createItem = (injection) =>
+    usecase('Create Item', {
+        request: request.from(Item, { ignoreIDs: true, ignore: ['createdAt'] })
+        // request: { description: String }
 ```
 
 ## Response
 
-Defines the response type. This information is used as metadata for Glues. It is not validated when running the use case.
+It is possible to define the response type as well. This information is used as metadata for glues but it is not validated when running the use case.
 
 `{ response: type }`, where:
 
 - `type`: response type.
 
-For example:
+A use case will run all the steps sequencially or until one of the steps return a `Err`. The [result](/docs/usecase/result) of a use case is set by the result of the last step executed.
+
+The result value of a use case is set by `ctx.ret`. It is possible to set this variable any time at any step.
 
 ```javascript
-const addOrUpdateItem = (injection) =>
+const createProduct = injection =>
+    usecase('Create Product', {
 
-    usecase('Add or Update an Item on a to-do List', {
+        request: {
+            name: String,
+            ...
+        },
 
-        // Output/Response metadata
-        response: [Items],
-    ...
+        response: {
+            product: Product
+        },
+
+        'Check if the Product is valid': step(ctx => {
+            ...
+            if (!isValid) return Err(errors) // it stops the execution here and return a Err
+            return Ok() // go to the next step
+        }),
+
+        'Save the Product on the repository': step(async ctx => {
+            ...
+            ctx.ret.product = await repo.insert(product) // set the return value
+            return Ok() // last step and return Ok
+        }),
 ```
 
-## Request and Response types
+## Request and Response Types
 
 A field in a request or the response can be basic types from Javascript or entities:
 
@@ -111,9 +195,9 @@ For array of a certain type use: `[type]`. Ex: `id: [Number]` or `items: [Item]`
 
 The validation will not validatate for presence, so `null` and `undefined` are accepted as valid values.
 
-## Setup / DI
+## Setup
 
-Like a constructor, it is the first function to be executed before `authorize` and steps. Can be used to setup the dependency injection, for instance. 
+Like a constructor, it is the first function to be executed before `authorize` and steps. Can be used to setup the dependency injection, for instance.
 
 `{ setup: ctx => {} }`, where:
 
@@ -135,7 +219,7 @@ const addOrUpdateItem = (injection) =>
 
 A function executed before any steps to make sure the user is authorized to run the use case.
 
-`{ authorize: user => {} }`, where:
+`{ authorize: async (user) => {} }`, where:
 
 - `user`: an object containing the user's information - this information will be audited.
 
@@ -149,17 +233,25 @@ const addOrUpdateItem = (injection) =>
     usecase('Add or Update an Item on a to-do List', {
 
         // Authorization with Audit
-        authorize: user => (user.canAddOrUpdateList ? Ok() : Err()),
+        authorize: async (user) => (user.canAddOrUpdateList ? Ok() : Err()),
     ...
 ```
 
-## Use Case Return (ctx.ret)
+## Context (ctx)
 
-// TODO
+The `ctx` variable is used to access (read and write) the state of the use case and its steps during its execution.
+
+For more details about context, check step context.
 
 ## Audit
 
-`uc.auditTrail`: Retrieve the audit trail of a use case after its execution.
+`usecase.auditTrail`: Retrieve the audit trail of a use case after its execution.
+
+```javascript
+const request = { name: 'The best product' }
+const response = await createProduct.run(request)
+console.log(createProduct.auditTrail)
+```
 
 `process.env.HERBS_EXCEPTION = "audit"`: Recommended for **production environments** - Swallow and audit exceptions thrown during the use case execution. This will swallow the exceptions and return a Err on the step. If `process.env.HERBS_EXCEPTION` is not equal `audit` any exceptions thrown during a use case execution will be thrown.
 
@@ -169,21 +261,24 @@ Result sample:
 {
     // object type
     type: 'use case',
-    
-    // use ase description
+
+    // use case description
     description: 'Add or Update an Item on a to-do List',
-    
+
     // unique Id for each use case execution
-    transactionId: '9985fb70-f56d-466a-b466-e200d1d4848c', 
-    
+    transactionId: '9985fb70-f56d-466a-b466-e200d1d4848c',
+
     // total use case execution time in nanosecods
-    elapsedTime: 1981800n, 
+    elapsedTime: 1981800n,
 
     // the same user (object) provided on `usecase.authorize(user)`
     user: { name: 'John', id: '923b8b9a', isAdmin: true },
 
     // `usecase.authorize(user)` return
     authorized: true,
+
+    // use case request
+    request: { name: 'The best product' },
 
     // use case result
     return: {
@@ -192,24 +287,78 @@ Result sample:
 
     // steps
     steps: [
-        { 
+        {
             // object type
-            type: 'step', 
-            
+            type: 'step',
+
             // use ase description
-            description: 'Check if the Item is valid', 
-            
+            description: 'Check if the Item is valid',
+
             // total step execution time in nanosecods
-            elapsedTime: 208201n , 
-            
+            elapsedTime: 208201n ,
+
             // step result
-            return: {} 
+            return: {}
         },
         ...
     ]
 }
 ```
 
-## Documentation
+## Metadata
 
-// TODO
+To access the metadata of a use case: `uc.doc()`
+
+Example:
+
+```javascript
+const createProduct = injection =>
+    usecase('Create Product', {
+
+        request: {
+            description: String,
+        },
+
+        response: {
+            product: Product,
+        },
+
+        'Check if the Product is valid': step({
+
+            'Validate Product origin': step(ctx => {
+                return Ok()
+            }),
+
+            'Validate Product information': step(ctx => {
+                return Ok()
+            }),
+        }),
+    })
+
+const uc = createProduct()
+
+console.log(uc.doc())
+// {
+//     type: "use case",
+//     description: "Create Product",
+//     request: {
+//         description: String
+//     },
+//     response: {
+//         product: Product
+//     },
+//     steps: [{
+//         type: "step",
+//         description: "Check if the Product is valid",
+//         steps: [{
+//             type: "step",
+//             description: "Validate Product origin",
+//             steps: null
+//         }, {
+//             type: "step",
+//             description: "Validate Product information",
+//             steps: null
+//         }]
+//     }]
+// }
+```

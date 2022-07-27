@@ -1,30 +1,34 @@
 module.exports = {
-  title: 'HerbsJS',
+  title: 'HerbsJS - Build microservices with DDD and Clean Achitecture',
   tagline: 'Domain first - The core that matters',
-  url: 'https://herbsjs.github.io',
+  url: 'https://herbsjs.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo-herbsjs.png',
+  favicon: 'img/logo-herbsjs.svg',
   organizationName: 'herbsjs',
   projectName: 'website',
+  customFields: {
+    description: 'Herbs - Build your microservices in Node.js with Clean Architecture and Domain Driven Design.',
+  },
   themeConfig: {
     navbar: {
       logo: {
         alt: 'HerbsJs\'s logo',
         src: 'img/herbsjs.svg',
-        srcDark: 'img/herbsjs-white.png',
+        srcDark: 'img/herbsjs-white.svg',
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          href: 'https://twitter.com/herbsjs',
+          className: 'twitter-icon',
+          'aria-label': 'Twitter',
           position: 'right',
         },
         {
-          href: 'https://github.com/herbsjs',
-          label: 'GitHub',
+          href: 'https://discord.gg/e3cQ66KDv5',
+          className: 'discord-icon',
+          'aria-label': 'Discord',
           position: 'right',
         },
       ],
@@ -32,14 +36,14 @@ module.exports = {
     footer: {
       logo: {
         alt: 'Herbs Logo',
-        src: 'img/logo-herbsjs-branco.png',
+        src: 'img/logo-herbsjs-branco.svg',
       },
       links: [
         {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Documentation Guide',
               to: 'docs/',
             }
           ],
@@ -48,12 +52,8 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/herbsjs',
-            },
-            {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/herbsjs',
+              href: 'https://discord.gg/e3cQ66KDv5',
             },
             {
               label: 'Twitter',
@@ -63,20 +63,18 @@ module.exports = {
         },
         {
           title: 'More',
-          items: [           
+          items: [
             {
               label: 'GitHub',
               href: 'https://github.com/herbsjs',
             },
+            {
+              label: 'Acknowledgements',
+              to: 'docs/project/acknowledgements',
+            },
           ],
         },
       ],
-    },
-    colorMode: {
-      switchConfig: {
-        darkIcon: " ",
-        lightIcon: " ",
-      }
     }
   },
   presets: [
@@ -87,12 +85,22 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/herbsjs/herbsjs.github.io',
+          'https://github.com/herbsjs/herbsjs.github.io/blob/master',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          trackingID: 'G-LMCPKQXZHH'
+        },
       },
     ],
   ],
+  plugins: [
+    [
+      "docusaurus2-dotenv", {
+        systemvars: true,
+      },
+    ],
+  ]
 };

@@ -13,8 +13,9 @@
 
  h1 {
    font-size: 48px;
-   line-height: 2em;
+   line-height: 1.3em;
    font-weight: 300;
+   margin: 1em auto;
  }
 
  h2 {
@@ -22,7 +23,7 @@
    font-weight: 600;
  }
  h3 {
-   font-size: 30px;
+   font-size: 29px;
    font-weight: 600;
    text-transform: uppercase;
  }
@@ -33,6 +34,14 @@
    color: #505050;
    margin-bottom: 40px;
  }
+ 
+ .h2big {
+  font-size: 48px;
+  line-height: 1.3em;
+  text-align: center;
+  font-weight: 300;
+  margin: 1em auto;
+}
 
 .badges, .logos {
   text-align: center;
@@ -50,6 +59,14 @@
 }
 .getStarted svg{
   margin-right: 10px;
+}
+
+.textLeft {
+  text-align: left !important;
+}
+
+.textRight {
+  text-align: right !important;
 }
 
 @media screen and (max-width: 966px) {
@@ -77,6 +94,8 @@
   text-align: center;
 }
 
+
 .logosImage {
   max-width: 300px;
 }
+

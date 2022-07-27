@@ -1,9 +1,14 @@
 const sidebar = {
-  Introduction: ['getting-started','herbsjs', 'motivation',  'architecture', 'ecosystem'],
+  Introduction: ['getting-started', 'herbsjs'],
   Tutorial: ['new-project', 'create-entity', 'repository', 'create-usecase', 'graphql', 'herbsshelf', 'refactoring', 'security'],
-  UseCase: ['gettingStarted', 'features', 'steps', 'result', 'whatis'],
-  Entity: ['gettingStarted', 'features', 'validation', 'whatis'],
-  Glues: ['whatisglue', 'herbs2gql', 'herbs2knex', 'herbsshelf', 'herbs2rpl', 'suma2text', 'herbs-snippets'],
+  Project: [
+    'motivation', 'architecture', 'ecosystem', 'roadmap', 'contributing', 'acknowledgements', 'logos', 'CoC', 'license'],
+  UseCase: ['gettingStarted', 'features', 'steps', 'result'],
+  Entity: ['gettingStarted', 'features', 'validation'],
+  Specs: ['gettingStarted', 'features'],
+  Herbarium: ['gettingStarted'],
+  Validation: ['what-suma', 'validations', 'checkers'],
+  Glues: ['whatisglue', 'herbsshelf', 'herbs2gql', 'herbs2rest', 'herbs2knex', 'herbs2mongo', 'herbs2repl', 'suma2text', 'herbs-snippets'],
 }
 
 Object.keys(sidebar).map(property =>

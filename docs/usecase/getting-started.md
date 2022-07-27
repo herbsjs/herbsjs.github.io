@@ -1,13 +1,26 @@
 ---
 id: gettingStarted
-title: Getting started
-sidebar_label: Getting started
+title: Getting Started with Use Cases
+sidebar_label: Getting Started
 slug: /usecase/getting-started
 ---
 
+## What's a Use Case?
+
+A use case is action that a user can perform in the domain.
+
+For exemple: _Reopen Ticket_, _Reply Message_, _Add Product_
+
+Internally, a use case is responsible for controlling the interaction between entities, repositories and other domain components.
+
+From Clean Architecture book: "Use cases orchestrate the flow of data to and from the entities, and direct those entities to use their Critical Business Rules to achieve the goals of the use case." 
+
+
 ## Installing
 
-```$ npm install buchu```
+```bash
+$ npm install @herbsjs/herbs
+```
 
 ## Using
 
@@ -16,7 +29,9 @@ This is an example of how to set up a use case for creating a list (entity):
 `usecases/list/createList.js`:
 
 ```javascript
-const { usecase, step, Ok, Err } = require('buchu')
+const { usecase, step, Ok, Err } = require('@herbsjs/herbs')
+const { TodoList } = require('../entities/todoList')
+const dependency = {}
 
 module.exports.createList = injection =>
   usecase('Create List', {
@@ -30,7 +45,7 @@ module.exports.createList = injection =>
     setup: ctx => (ctx.di = Object.assign({}, dependency, injection)),
 
     // Authorization with Audit
-    authorize: user => (user.canCreateList ? Ok() : Err()),
+    authorize: async (user) => (user.canCreateList ? Ok() : Err()),
 
     // Step description and function
     'Check if the List is valid': step(ctx => {
@@ -49,6 +64,18 @@ module.exports.createList = injection =>
   })
 ```
 
+## Best Pratices for a Use Case
+
+- Be modeled around business domain
+- Focused on value
+- Keep it simple by telling stories / flows ([steps](/docs/usecase/steps))
+- Be reusable
+- Be [testable](/docs/specs/getting-started)
+- Have clear [acceptance criteria](/docs/specs/getting-started)
+- Use Ubiquitous language
+- Avoid implement field __validations__ using use cases. Prefer Entities for that.
+- Enforce that use cases are the only entry point to your Domain
+
 ## Running
 
 Use cases are likely to be called and audited indirectly by a [Glue](/docs/glues). But for didactic purposes or advanced scenarios, this is how to run and audit a use case:
@@ -57,7 +84,7 @@ Use cases are likely to be called and audited indirectly by a [Glue](/docs/glues
 
 ```javascript
 /* Authorization */
-const hasAccess = usecase.authorize(user)
+const hasAccess = await usecase.authorize(user)
 if (hasAccess === false) {
     console.info(usecase.auditTrail)
     throw new ForbiddenError() // Or any other behavior for a unauthorized user
@@ -88,6 +115,7 @@ console.info(usecase.auditTrail)
     steps: (2) [{…}, {…}],
     transactionId: '2bbc60d6-7843-4667-8732-341c22bae42e',
     elapsedTime: 172811500n,
+    request: { name: 'The best list' },
     return: {Ok: {…}},
     user: { canCreateList: true }
 }

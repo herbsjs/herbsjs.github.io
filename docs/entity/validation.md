@@ -1,85 +1,29 @@
 ---
 id: validation
-title: Field Validations
-sidebar_label: Field Validations
+title: Validations
+sidebar_label: Validations
 slug: /entity/validation
 ---
 
-// TODO - Change suma to gotu entity examples
-
-## Type
-
-Type validator ensures a value is of the correct JavaScript type or a custom type.
-
-`type` - A valid native JavaScript type, a custom type or a array with type
-
-Native JavaScript types:
-
-`Number` - double-precision 64-bit binary format IEEE 754 value
-
-`String` - a UTF‐16 character sequence
-
-`Boolean` - true or false
-
-`Date` - represents a single moment in time in a platform-independent format. 
-
-`Object` - the Object class represents one of JavaScript's data types.
-
-`Array` - the Array class is a object that is used in the construction of arrays. 
-
-```javascript
-const value = '2001'
-const validations = { type: Date }
-const result = validate(value, validations)
-/* {
-    value: '2001',
-    errors:[{ wrongType: 'Date' }]
-} */
-
-```
-
-Custom types:
-
-```javascript
-
-class User { ... }
-
-const value = 'Admin'
-const validations = { type: User }
-const result = validate(value, validations)
-/* {
-    value: 'Admin',
-    errors:[{ wrongType: 'User' }]
-} */
-
-```
-
-Lists - Array with types:
-
-It is possible to validate the type of elements of an array. Just use `[type]`.
-
-```javascript
-const value = ['2']
-const validations = { type: [Number] }
-const result = validate(value, validations)
-/* {
-    value: ['2'],
-    errors:[{ wrongType: ['Number'] }]
-} */
-```
+The values of an entity fields can be validated against the fields types or values validations.
 
 ## Presence
 
 `presence` (boolean) - Validates that the specified value is not empty.
 
 ```javascript
-const value = ''
-const validations = { presence: true }
-const result = validate(value, validations) 
-/* {
-    value: '',
-    errors: [{ cantBeEmpty: true }]
-} */
+const User = 
+    entity('User', {
+        ...
+        password: field(String, {
+            validation: { presence: true }
+        })
+    })
+
+const user = new User()
+user.password = ''
+user.isValid() // false
+user.errors // {"password":[{"cantBeEmpty":true}]}
 ```
 
 ## Allow Null
@@ -87,29 +31,33 @@ const result = validate(value, validations)
 `allowNull` (boolean) - Validates that the specified value is not `null` or `undefined`.
 
 ```javascript
-const value = null
-const validations = { allowNull: false }
-const result = validate(value, validations) 
-/* {
-    value: null,
-    errors: [{ cantBeNull: true }]
-} */
+const User = 
+    entity('User', {
+        ...
+        password: field(String, {
+            validation: { allowNull: false }
+        })
+    })
+
+const user = new User()
+user.password = null
+user.isValid() // false
+user.errors // {"password":[{"cantBeNull":true}]}
 ```
 
-## Presence vs allowNull
+## presence vs allowNull
 
-|               | presence: true    | allowNull: false  | 
-| ------------- | ------------------| ----------------  |
-| 'Text'        |       Valid       |       Valid       | 
-| 123           |       Valid       |       Valid       |
-| 0             |       Valid       |       Valid       |
-| ' '           |                   |       Valid       |
-| ''            |                   |       Valid       |
-| []            |                   |       Valid       |
-| {}            |                   |       Valid       |
-| null          |                   |                   |  
-| undefined     |                   |                   |  
-
+|               | presence: true    | allowNull: false| 
+| ------------- | ------------------| ----------------|
+| 'Text'        |       ✅          |       ✅       | 
+| 123           |       ✅          |       ✅       |
+| 0             |       ✅          |       ✅       |
+| ' '           |       ❌          |       ✅       |
+| ''            |       ❌          |       ✅       |
+| []            |       ❌          |       ✅       |
+| {}            |       ❌          |       ✅       |
+| null          |       ❌          |       ❌       |  
+| undefined     |       ❌          |       ❌       |  
 
 
 ## Contains
@@ -121,91 +69,74 @@ You can specify the validator as a list, string or as an object (in which case t
 
 **allowed option examples:**
 
+Array Example:
+
 ```javascript
+const TShirt = 
+    entity('TShirt', {
+        ...
+        size: field(String, {
+            validation: { contains: { allowed: ["small", "medium", "large"] } } 
+        })
+    })
 
-const value = 'xlarge'
-const validations = { contains: { allowed: ["small", "medium", "large"] } }
-const result = validate(value, validations) 
-/* {
-    value: 'xlarge',
-    errors: [{ notContains: ["small", "medium", "large"] }]
-} */
+const tshirt = new TShirt()
+tshirt.size = 'xlarge'
+tshirt.isValid() // false
+tshirt.errors // {"size":[{"notContains":["small","medium","large"]}]}
+```
 
-const value = 'hello'
-const validations = { contains: { allowed: "lorem ipsum dolor" } }
-const result = validate(value, validations) 
-/* {
-    value: 'hello',
-    errors: [{ notContains: "lorem ipsum dolor" }]
-} */
+String Example:
 
+```javascript
+const Post = 
+    entity('Post', {
+        ...
+        body: field(String, {
+            validation: { contains: { allowed: "lorem ipsum dolor" } }
+        })
+    })
 
-const attr = 'price'
-const validations = { contains: { allowed: {type:"Fiat", model:"500", color:"white"} } }
-const result = validate(attr, validations) 
-/* {
-    value: 'price',
-     errors: [{ notContains: {type:"Fiat", model:"500", color:"white"} }]
-} */
-
+const post = new Post()
+post.body = 'hello'
+post.isValid() // false
+post.errors // {"body":[{"notContains":"lorem ipsum dolor"}]}
 ```
 
 **notAllowed option examples:**
 
+Array Example:
+
 ```javascript
+const TShirt = 
+    entity('TShirt', {
+        ...
+        size: field(String, {
+            validation: { contains: { notAllowed: ["xsmall", "xlarge"] } } 
+        })
+    })
 
-const value = 'small'
-const validations = { contains: { notAllowed: ["small", "medium", "large"] } }
-const result = validate(value, validations) 
-/* {
-    value: 'small',
-    errors: [{ contains: ["small", "medium", "large"] }]
-} */
-
-
-const value = 'hello'
-const validations = { contains: { notAllowed: "hello world" } }
-const result = validate(value, validations) 
-/* {
-    value: 'hello',
-    errors: [{ contains: "hello world" }]
-} */
-
-
-const attr = 'type'
-const validations = { contains: { notAllowed: {type:"Fiat", model:"500", color:"white"} } }
-const result = validate(attr, validations) 
-/* {
-     value: 'type',
-     errors: [{ contains: {type:"Fiat", model:"500", color:"white"} }]
-} */
-
+const tshirt = new TShirt()
+tshirt.size = 'xlarge'
+tshirt.isValid() // false
+tshirt.errors // {"size":[{"contains":["xsmall","xlarge"]}]}
 ```
 
-**using both options examples:**
+String Example:
 
 ```javascript
+const Post = 
+    entity('Post', {
+        ...
+        body: field(String, {
+            validation: { contains: { notAllowed: "hello world" } }
+        })
+    })
 
-const value = 'regular'
-const validations = { contains: { notAllowed: ["xlarge", "xxlarge", "tiny"], allowed: ["small", "medium", "large"] } }
-const result = validate(value, validations) 
-/* {
-    value: 'regular',
-    errors: [{ notContains: ["small", "medium", "large"] }]
-} */
-
-const value = 'xlarge'
-const validations = { contains: { notAllowed: ["xlarge", "xxlarge", "tiny"], allowed: ["small", "medium", "large"] } }
-const result = validate(value, validations) 
-/* {
-    value: 'xlarge',
-    errors: [
-             { notContains: ["small", "medium", "large"] },
-             { contains: ["xlarge", "xxlarge", "tiny"] }
-            ]
-} */
-
-
+const post = new Post()
+post.body = 'hello'
+post.isValid() // false
+post.errors // {"body":[{"contains":"hello world"}]}
 ```
 
 ## Length
@@ -221,24 +152,28 @@ It is possible to specify length constraints in different ways:
 `is` (number) - The value length must be equal to the given length
 
 ```javascript
-const value = 'john'
-const validations = { length: { minimum: 5, maximum: 3, is: 1 } }
-const result = validate(value, validations) 
-/* {
-    value: 'john',
-    errors: [
-        { isTooShort: 5 },
-        { isTooLong: 3 },
-        { wrongLength: 1 }
-    ]
-} */
+const Post = 
+    entity('Post', {
+        title: field(String, {
+            validation: { length: { is: 10 } }
+        }),
+        body: field(String, {
+            validation: { length: { minimum: 3, maximum: 140 } }
+        })
+    })
+
+const post = new Post()
+post.title = 'hello'
+post.body = 'hi'
+post.isValid() // false
+post.errors // {"title":[{"wrongLength":10}],"body":[{"isTooShort":3}]}
 ```
 
 ## Numericality
 
-Validates constraints to acceptable numeric values.
+Validates constraints to acceptable numeric values. 
 
-It must be a valid `Number` JS object. Use `{ type: Number }` to validate if the value is a valid JS `Number` object.
+The value must be a valid `Number`. 
 
 `equalTo` (number) - Specifies the value must be equal to the supplied value. 
 
@@ -253,28 +188,17 @@ It must be a valid `Number` JS object. Use `{ type: Number }` to validate if the
 `onlyInteger` (boolean) - To specify that only integral numbers are allowed.
 
 ```javascript
-const value = 123.4
-const validations = {
-    numericality: {
-        equalTo: 123,
-        greaterThan: 200,
-        greaterThanOrEqualTo: 123,
-        lessThan: 0,
-        lessThanOrEqualTo: 123,
-        onlyInteger: true
-    }
-}
-const result = validate(value, validations) 
-/* {
-    value: 123.4,
-    errors: [
-        { notEqualTo: 123 },
-        { notGreaterThan: 200 },
-        { notLessThan: 0 },
-        { notLessThanOrEqualTo: 123 },
-        { notAnInteger: true }
-    ]
-} */
+const Order =
+    entity('Order', {
+        price: field(Number, {
+            validation: { numericality: { greaterThan: 1 } }
+        })
+    })
+
+const order = new Order()
+order.price = 0
+order.isValid() // false
+order.errors // {"price":[{"notGreaterThan":1}]}
 ```
 
 ## Datetime
@@ -290,58 +214,57 @@ It must be a valid `Date` time JS object. Use `{ type: Date }` to validate if th
 `isAt` (date) - A date must be equal to value to be valid 
 
 ```javascript
-const value = new Date('2001-01-02')
-const validations = {
-    datetime : {
-            before: new Date('2001-01-01'),
-            after: new Date('2001-01-03'),
-            isAt: new Date('2001-02-02')
-        }
-}
-const result = validate(value, validations) 
-/* {
-    value: '2001-01-02T00:00:00.000Z',
-    errors: [
-        { tooLate: '2001-01-01T00:00:00.000Z' },
-        { tooEarly: '2001-01-03T00:00:00.000Z') },
-        { notAt: '2001-02-02T00:00:00.000Z') }
-    ]
-} */
+const Order =
+    entity('Order', {
+        deliveredAt: field(Date, {
+            validation: { datetime: { before: new Date('2010-01-01') } }
+        })
+    })
+
+const order = new Order()
+order.deliveredAt = new Date('2011-01-01')
+order.isValid() // false
+order.errors // {"deliveredAt":[{"tooLate":"2010-01-01T00:00:00.000Z"}]}
 ```
 
 ## E-mail
 
-The email validator attempts to make sure the input is a valid email.
-Validating emails is tricky business due to the complex rules of email address formatting.
+`email` (bool) - The email validator attempts to make sure the input is a valid email. Validating emails is tricky business due to the complex rules of email address formatting.
 
 For example **john.doe@gmail** is a perfectly valid email but it's most likely just the case that John has forgotten to write .com at the end.
 
 ```javascript
-const value = 'just\"not\"right@example.com'
-const validations = { email: true }
-const result = validate(value, validations) 
-/* {
-    value: 'just\"not\"right@example.com'
-    errors: [{ invalidEmail: true }]
-} */
+const Customer =
+    entity('Customer', {
+        email: field(String, {
+            validation: { email: true } 
+        })
+    })
+
+const customer = new Customer()
+customer.email = 'just@notright@example.com'
+customer.isValid() // false
+customer.errors // {"email":[{"invalidEmail":true}]}
 ```
 
 ## Format
 
-`format` (regex) -The format validator will validate a value against a regular expression of your chosing.
+`format` (regex) - The format validator will validate a value against a regular expression of your choosing.
 
 ```javascript
+const Customer =
+    entity('Customer', {
+        ssn: field(String, {
+            validation: {
+                format: /^([0-9]{3}[-]*[0-9]{2}[-]*[0-9]{4})*$/ // or you can use new RegExp('...') 
+            }
+        })
+    })
 
-const pattern = /^[0-9]{8}$/ // or you can use new RegExp('^[0-9]{8}$')
-const value = '05547-022'
-const validations = { format: pattern }
-const result = validate(value, validations) 
-/* {
-    value: '05547-022',
-    errors: [{ invalidFormat: true }]
-} */
-
-
+const customer = new Customer()
+customer.ssn = '1234'
+customer.isValid() // false
+customer.errors  // {"ssn":[{"invalidFormat":true}]}
 ```
 
 ## URL
@@ -357,34 +280,53 @@ const result = validate(value, validations)
 `allowDataUrl` (boolean) - A boolean that if true allows data URLs as defined in [`RFC 2397`](https://tools.ietf.org/html/rfc2397). The default is **false**
 
 ```javascript
-const value = "google.com"
-const validations = { url: true }
-const result = validate(value, validations) 
-/* {
-    value: 'google.com',
-    errors: [{ invalidURL: true }]
-} */
+const Customer =
+    entity('Customer', {
+        website: field(String, {
+            validation: { url: true }
+        }),
+        ftp: field(String, {
+            validation: { url: { schemes: ['ftp'] } }
+        })
+    })
 
-const value = "http://localhost"
-const validations = { url: {allowLocal: true} }
-const result = validate(value, validations) 
-/* {
-    value: 'http://localhost',
-    errors: []
-} */
-
-const options = {schemes: ['ftp']}
-const value = "ftp://google.com"
-const validations = { url: options }
-const result = validate(value, validations) 
-/* {
-    value: 'ftp://google.com',
-    errors: []
-} */
+const customer = new Customer()
+customer.website = 'google.com'
+customer.ftp = 'http://google.com'
+customer.isValid() // false
+customer.errors  // {"website":[{"invalidURL":true}],"ftp":[{"invalidURL":true}]}
 ```
 
 ## Null Values
 
 The `type`, `length`, `numericality`, `format` and `datetime` validators won't validate a value if it's `null` or `undefined`.
 
-To ensure your your value is not null, use `allowNull: false` or `presence: true`.
+To ensure that your value is not null, use `allowNull: false` or `presence: true`.
+
+
+## Custom Validation
+
+For custom validation use `{ custom: { validationName: function(value), ... } }` on the field definition.
+
+The validation function receives the original `value` and must return `true` for valid or `false` for invalid value.
+
+```javascript
+const User =
+    entity('User', {
+        ...
+        password: field(String, validation: {
+            presence: true,
+            length: { minimum: 6 }
+        }),
+        cardNumber: field(String, validation: {
+          custom: { invalidCardNumber: (value) => value.length === 16 }
+        })
+    })
+
+const user = new User()
+user.password = '1234'
+user.cardNumber = '1234456'
+user.validate()
+user.errors // [{ password: [ { isTooShort: 6 } ] , { invalidCardNumber: true }]
+user.isValid // false
+```

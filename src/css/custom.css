@@ -6,53 +6,112 @@
  */
 
 /* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
 :root {
-  --ifm-color-primary: #C99846;
-  --ifm-color-primary-dark: #937147;
-  --ifm-color-primary-darker: #937147;
-  --ifm-color-primary-darkest: rgba(147, 113, 71, 0.6);
-  --ifm-color-primary-light: rgba(147, 113, 71, 0.6);
-  --ifm-color-primary-lighter: rgba(147, 113, 71, 0.6);
-  --ifm-color-primary-lightest: rgba(147, 113, 71, 0.6);
-  --ifm-code-font-size: 95%;
-  --ifm-heading-color: #937147;
-  --ifm-footer-background-color: #C99846;
-  --ifm-footer-color: #FFFFFF;
-  --ifm-footer-link-color: #FFFFFF;
+	--ifm-color-primary: #c99846;
+	--ifm-color-primary-dark: #937147;
+	--ifm-color-primary-darker: #937147;
+	--ifm-color-primary-darkest: rgba(147, 113, 71, 0.6);
+	--ifm-color-primary-light: rgba(147, 113, 71, 0.6);
+	--ifm-color-primary-lighter: rgba(147, 113, 71, 0.6);
+	--ifm-color-primary-lightest: rgba(147, 113, 71, 0.6);
+	--ifm-code-font-size: 95%;
+	--ifm-heading-color: #937147;
+	--ifm-footer-background-color: #c99846;
+	--ifm-footer-color: #ffffff;
+	--ifm-footer-link-color: #ffffff;
+	--ifm-footer-link-hover-color: #90642d;
 }
 
 .docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
-}
-.toggle_node_modules-\@docusaurus-theme-classic-lib-next-theme-Toggle-{
-  display: none;
+	background-color: rgb(72, 77, 91);
+	display: block;
+	margin: 0 calc(-1 * var(--ifm-pre-padding));
+	padding: 0 var(--ifm-pre-padding);
 }
 
-.badge--primary{
-  background-color: rgba(147, 113, 71, 0.6);
-  font-size: 1.3em;
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 600;
-  border: 2px dashed #937147;
-  box-sizing: border-box;
-  border-radius: 100px;
-  margin: 10px;
-  padding: 15px 30px;
+.navbar__items--right > :last-child {
+	margin-left: 12px;
+}
+
+.badge--primary {
+	background-color: rgba(147, 113, 71, 0.6);
+	font-size: 1.3em;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-weight: 600;
+	border: 2px dashed #937147;
+	box-sizing: border-box;
+	border-radius: 100px;
+	margin: 10px;
+	padding: 15px 30px;
 }
 
 .footer .container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
 }
 
 .footer__links {
-  text-align: right;
+	text-align: right;
+	max-width: 55%;
+	min-width: 45%;
+}
+.footer__title {
+	text-transform: capitalize;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 0;
 }
 
 .footer__logo {
-  max-width: 20rem;
+	max-width: 20rem;
+}
+
+.stackoverflow-icon {
+	background: url("../../static/img/logo-stack-overflow.svg") no-repeat;
+
+	content: "";
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+	height: 24px;
+	width: 24px;
+}
+
+html[data-theme=dark]
+.stackoverflow-icon {
+	background: url("../../static/img/logo-stack-overflow-dark-mode.svg") no-repeat;
+}
+
+.twitter-icon {
+	background: url("../../static/img/logo-twitter.svg") no-repeat;
+	content: "";
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+	height: 24px;
+	width: 24px;
+}
+
+html[data-theme=dark]
+.twitter-icon {
+	background: url("../../static/img/logo-twitter-dark-mode.svg") no-repeat;
+}
+
+.discord-icon {
+	background: url("../../static/img/logo-discord.svg") no-repeat;
+	content: "";
+	display: flex;
+	align-items: center;
+	margin-left: 12px;
+	height: 24px;
+	width: 24px;
+}
+
+html[data-theme=dark]
+.discord-icon {
+	background: url("../../static/img/logo-discord-dark-mode.svg") no-repeat;
 }
