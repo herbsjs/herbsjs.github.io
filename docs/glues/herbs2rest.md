@@ -47,7 +47,7 @@ The `name` field is the name of the route (Ex. *https://example.com/lists*)
 |`put`| `PUT /{name}/{id}`|
 |`delete`| `DELETE /{name}/{id}`|
 
-The `id` field is a string representing the id field in the use case request and can be used for GetById, Put and Delete. If you want to declare the id name dynamically with the entity field id, you need to declare the "entity" property in your controller list. The default value is *id*.
+The `id` field is a string representing the id field in the use case request and can be used for `GetById`, `Put` and `Delete`. If an entity is informed, its **ID** field will be used as a reference for the endpoint. If neither an entity nor a string is informed, the default id field will be *id*.
 
 The `controller` field a function that replaces the default controller.
 
