@@ -31,5 +31,5 @@ To help us in this process, we are using a [`herbs-cli`](https://github.com/herb
 - Be familiar Domain Driven Design (DDD) and Clean Architecture;
 - [Node.js](https://nodejs.org/en/) installed in LTS version, prefered >= v.14;
 - herbs-cli installed globally;
-- Any of these databases installed: PostgreSQL, MySql, SqlServe, Mongo;
+- Database [PostgreSQL](https://www.postgresql.org/) installed;
 - A API Client to make requests and see responses, like Postman or Insomnia. Choose your favorite.

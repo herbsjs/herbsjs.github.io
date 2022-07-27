@@ -59,7 +59,7 @@ const createList = require('./createList')
 */
 const createListSpec = spec({
 
-    /* Setting createList entity as an use case of spec */
+    /* Setting createList as the use case for this spec */
     usecase: createList,
 
     /* 

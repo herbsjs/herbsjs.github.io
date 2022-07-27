@@ -8,7 +8,6 @@ const sidebar = {
     'specs',
     'repositories',
     'migrations',
-    'setup-database',
     'graphql-rest'
   ],
   Project: [

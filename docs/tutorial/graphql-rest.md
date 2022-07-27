@@ -1,7 +1,7 @@
 ---
 id: graphql-rest
-title: 9. GraphQL & Rest
-sidebar_label: 9. GraphQL & Rest
+title: 8. GraphQL & Rest
+sidebar_label: 8. GraphQL & Rest
 slug: /tutorial/graphql-rest
 ---
 

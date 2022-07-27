@@ -268,7 +268,11 @@ module.exports =
     .usecase
 ```
 
-### Auditing
+### To help you analyze
+
+To help you in your daily development routine, in the metadata analysis of a use case, 
+let's take a brief look at .auditTrail and .doc()
+#### Auditing
 
 You can retrieve useful information about a use case execution with `usecase.auditTrail`.
 
@@ -332,7 +336,7 @@ console.log(createListt.auditTrail)
 
 > Refer to [Audit with HerbsJS](../usecase/features#audit) to know more.
 
-### Generate a use case self documentation
+#### Generate a use case self documentation
 
 You can also use `uc.doc()` to get an Object like this:
 
