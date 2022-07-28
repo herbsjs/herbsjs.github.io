@@ -64,6 +64,7 @@ function filterLoginBlackList(contributors) {
         'maikvortx',
         'eduardo-vortx',
         'vma-vortx',
+        'vxksf',
         'dlojudice-vortx',
         'cpp-vortx',
         'isabelaalonsovortx'
