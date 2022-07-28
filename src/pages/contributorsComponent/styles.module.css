@@ -5,14 +5,16 @@
 }
 
 .contributorList {
-  padding: 0;
   list-style-type: none;
-  display: flex;
-  flex-direction: column;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
 }
 
 .contributorRow {
   display: flex;
+  float: left;
+  min-width: 51%;
   flex-direction: row; 
   margin-bottom: 15px;
 }

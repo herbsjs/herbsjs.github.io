@@ -1,6 +1,6 @@
 {
   "name": "herbjs-website",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "HerbsJS website - Build your microservices in Node.js with DDD and Clean Achitecture",
   "keywords": [
     "herbjs",
@@ -31,7 +31,7 @@
     "clsx": "^1.1.1",
     "docusaurus2-dotenv": "^1.4.0",
     "logrocket": "^2.2.1",
-    "node-fetch": "^3.2.3",
+    "node-fetch": "^3.2.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-live": "2.2.3",
