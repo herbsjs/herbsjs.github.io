@@ -21,9 +21,9 @@ export default function ReadMeDoc({ docURL }) {
 				<ReactMarkdown children={markdown} />
 			) : (
 				<div>
-					<h3>Não foi possível carregar a documentação neste momento.</h3>
+					<h3>We could not load the documentation at this moment.</h3>
 					<p>
-						Confira no <a href={environment.herbsGithub}>Github.</a>
+						Check it out at <a href={environment.herbsGithub}>Github.</a>
 					</p>
 				</div>
 			)}
