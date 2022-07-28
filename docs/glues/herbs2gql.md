@@ -7,5 +7,5 @@ hide_title: true
 
 import ReadMeDoc from '../../src/components/ReadMeDoc'
 
-<ReadMeDoc docURL='https://raw.githubusercontent.com/herbsjs/herbs2gql/master/README.md'/>
+<ReadMeDoc docURL='/herbs2gql/master/README.md'/>
 

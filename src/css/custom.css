@@ -23,6 +23,10 @@
 	--ifm-footer-link-color: #ffffff;
 	--ifm-footer-link-hover-color: #90642d;
 }
+pre {
+	background-color: rgb(41 45 61);
+	color: rgb(191, 199, 213);
+}
 
 .docusaurus-highlight-code-line {
 	background-color: rgb(72, 77, 91);
