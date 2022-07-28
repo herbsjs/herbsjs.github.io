@@ -1,6 +1,6 @@
 {
   "name": "herbjs-website",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "HerbsJS website - Build your microservices in Node.js with DDD and Clean Achitecture",
   "keywords": [
     "herbjs",
