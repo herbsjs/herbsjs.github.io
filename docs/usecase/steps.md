@@ -160,7 +160,7 @@ There are a few reserved variables inside `ctx`:
 
 `ctx.req` - Contains the use case request payload. Declared when running a use case.
 
-`ctx.user` - Contains the user passed in authorization function of the use cas.
+`ctx.user` - Contains the user passed in authorization function of the use case.
 
 `ctx.ret` - Defines the use case result value.
 
