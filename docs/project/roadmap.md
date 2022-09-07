@@ -28,13 +28,13 @@ Enjoy!
 
     *Where to start?* [issue](https://github.com/herbsjs/herbsjs.github.io/issues/138)
 
-- **Greater Support For Entity Relationships**
+- **Better Support For Entity Relationships**
 
     Currently most glues have some kind of support for relationships between entities (entities that are linked in some way to each other - 1:1, 1:N, N:N). However, this support can be improved, especially in repository glues and the CLI. This support must happen in the translation of the object-oriented paradigm to relational or documents. It should also support migrations.
 
     *Where to start?* [issue](https://github.com/herbsjs/herbs-cli/issues/145), [issue](https://github.com/herbsjs/herbs2knex/issues/57)
 
-- **Sample Aplications**
+- **Sample Applications**
 
     The To Do List sample application is a great way to learn how to use Herbs and is used by many people as an application reference. However, this example is currently out of date and does not reflect the current state of the project. The idea is to create a new sample application that uses the latest version of Herbs and is built with the CLI.
 
