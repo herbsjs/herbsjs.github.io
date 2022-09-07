@@ -20,39 +20,47 @@ Some already have implementations or proof-of-concepts in progress, some don't h
 
 Enjoy!
 
-*(Last update Dez/21)*
+*(Last update Sep/22)*
 
-- **CLI - Issues and Bugs** - [issue](https://github.com/herbsjs/herbs-cli/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+- **New Web Site**
 
-    *Why?* Developer Experience (DX) - The CLI is the first contact a dev will have with Herbs. They should have a amazing experience and signal the best software quality possible.
+    The site has several functions, and informing is the most obvious. However, it is also the best opportunity to create a good first impression on new users. We hope the new website conveys the attributes that are also found in the library: high quality, great usability, concern for details and finishes.
 
-- **Convert a Entity to an UC Request** - [issue](https://github.com/herbsjs/buchu/issues/53)
+    *Where to start?* [issue](https://github.com/herbsjs/herbsjs.github.io/issues/138)
 
-    *Why?* Improve DX, specially for CLI, so devs don't have to change UC request when a entity changes. 
+- **Greater Support For Entity Relationships**
 
-- **Herbarium - Object Discovery** - [issue](https://github.com/herbsjs/herbs/issues/11), [issue](https://github.com/herbsjs/herbs-cli/issues/85), [issue](https://github.com/herbsjs/herbs2gql/issues/38), [issue](https://github.com/herbsjs/herbs2rest/issues/22)
+    Currently most glues have some kind of support for relationships between entities (entities that are linked in some way to each other - 1:1, 1:N, N:N). However, this support can be improved, especially in repository glues and the CLI. This support must happen in the translation of the object-oriented paradigm to relational or documents. It should also support migrations.
 
-    *Why?* Currently it's hard to find a object like use cases and entities in a project. 
+    *Where to start?* [issue](https://github.com/herbsjs/herbs-cli/issues/145), [issue](https://github.com/herbsjs/herbs2knex/issues/57)
 
-- **ID Field** - [issue](https://github.com/herbsjs/gotu/issues/46), [issue](https://github.com/herbsjs/herbs-cli/issues/82), [issue](https://github.com/herbsjs/herbs2rest/issues/21), [issue](https://github.com/herbsjs/herbs2knex/issues/35)
+- **Sample Aplications**
 
-    *Why?* Improve DX and metadata for glues like Knex, Shelf and others.
+    The To Do List sample application is a great way to learn how to use Herbs and is used by many people as an application reference. However, this example is currently out of date and does not reflect the current state of the project. The idea is to create a new sample application that uses the latest version of Herbs and is built with the CLI.
 
-- **Shelf - Bugs** - [issue](https://github.com/herbsjs/herbsshelf/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+    Another work front would be to have an open source application that is at the same time an example of using Herbs but also has real applicability, regardless of the details of its construction.
 
-    *Why?* Shelf is a big part of DX. 
+- **CLI Improvements**
 
-- **Context inside uc.authorize()** - [issue](https://github.com/herbsjs/buchu/issues/44)
+    The CLI is great for everyday use and has become one of the most important and central tools in the Herbs ecosystem. However the CLI was created as a proof of concept and has been extended ever since without the same architectural rigors found in other modules. The next steps for the CLI should be a refactoring or rewrite that takes into account automated tests per module, better UX and documentation on this site.
 
-    *Why?* Sometimes it will be necessary to access repositories on uc.authorize(). This is a hard issue to solve since it can easily bring some breaking changes.
+- **Authorization / Authentication**
+
+    Currently, Herbs supports authorization via Use Cases (`authorize`) and allows custom authentication via files generated in the CLI. However, the developer experience is not good. For example, there are no options in the CLI to choose glues and libs from the javascript ecosystem for authorization or authentication. Another example, it is unclear how to customize the CLI generated files to implement microservice authentication.
+
+- **Library Documentation Improvements**
+
+    Documentation is currently concentrated on this site, but many repositories have their own README files, which can confuse users looking for information. Since some of these files are not in sync with this site, the idea is to centralize all the docs here.
+
+    *Where to start?* [issue](https://github.com/herbsjs/herbsjs.github.io/issues/145)
 
 ## Bigger Goals
 
-**First We Need To Bring Harmony**
+**Harmony and Stability**
 
 We grew up quickly, with many wonderful and innovative ideas and contributions. But we need to bring harmony between these various contributions, creating integrations between the new parts that have emerged in the project recently.
 
-This goal is important as new Herbs users should find a more peaceful and integrated experience. To achieve this it is necessary to (1) fix bugs, (2) improve the implementations in the glues so that they absorb and make use of the innovations that happened in Buchu and Gotu and (3) improve the CLI experience. Check the [short term goals](#short-term).
+This goal is important as new Herbs users should find a more peaceful and integrated experience. To achieve this it is necessary to (1) fix bugs, (2) improve the implementations in the glues so that they absorb and make use of the innovations that happened in Buchu, Gotu and Aloe and (3) improve the CLI experience. Check the [short term goals](#short-term).
 
 **Changing And Evolving Our Domain Should Be A Pleasure**
 
@@ -60,13 +68,7 @@ Creating a project from scratch is always a pleasure but as the project grows th
 
 For that we need to look into how CLI and glues can improve this constant changing experience, whether in the context of a sprint or in the development cycle within the developer's terminal trying to model the domain.
 
-For example, the CLI not only needs to create an initial code but to understand that domains evolve (use cases, entities, etc.) and that the infrastructure needs to evolve together, such as migrations, repositories, etc.
-
-**Capturing Intentions - Scenarios And Tests**
-
-As a project premise and vision, automated testing is an inseparable part of Herbs. However, we understand that we have not yet explored the full potential of this tool.
-
-For example, when we look at the tests that currently exercise use cases, we see business scenarios that should be exposed and validated by other stakeholders (product managers, business analysts, QA, etc.), just as it is possible to do today with the use cases and their steps.
+For example, the CLI not only needs to create an initial code but to understand that domains evolve (use cases, entities, specs, etc.) and that the infrastructure needs to evolve together, such as migrations, repositories, etc.
 
 **A Bigger Garden - Growing The Ecosystem**
 
