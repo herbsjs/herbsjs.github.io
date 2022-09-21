@@ -160,6 +160,8 @@ There are a few reserved variables inside `ctx`:
 
 `ctx.req` - Contains the use case request payload. Declared when running a use case.
 
+`ctx.user` - Contains the information about the user authorized to run the use case. Declared at [authorize](/docs/usecase/features#authorize) function.
+
 `ctx.ret` - Defines the use case result value.
 
 `ctx.stop()` -  Informs that the current step will be the last to be executed in the use case context, regardless the step result (Ok or Err).
