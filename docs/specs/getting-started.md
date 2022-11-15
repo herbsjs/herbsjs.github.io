@@ -28,7 +28,9 @@ Firts, you need to create a spec file, for example, `taskCount.spec.js`:
 
 ```javascript
 const { spec, scenario, given, check, samples } = require('@herbsjs/herbs').specs
+const { herbarium } = require('@herbsjs/herbarium')
 
+// Define the spec
 const taskCountSpec = spec({
     'Change count for the task': scenario({
         'Given a valid task': given({ task: 'do it', count: 0 }),
@@ -36,6 +38,12 @@ const taskCountSpec = spec({
         'Must have a increased count': check((ctx) => { assert.ok(ctx.count === 1) }),
     }),
 })
+
+// Export using herbarium
+module.exports =
+    herbarium.specs
+        .add(taskCountSpec, 'taskCountSpec')
+        .spec
 ```
 
 Then, you can run it:

@@ -66,6 +66,13 @@ const updateUserSpec = spec({
         'Must confirm update': check((ctx) => { assert.ok(ctx.response.ok === true) })
     }),
 })
+
+// Export using herbarium and metadata
+module.exports =
+    herbarium.specs
+        .add(updateUserSpec, 'updateUserSpec')
+        .metadata({ usecase: 'UpdateUser' })
+        .spec
 ```
 
 In order to run, the scenario expects a `given` returning a object with `request`, `user` (for use case authentication) and `injection`. 
