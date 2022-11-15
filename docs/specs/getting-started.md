@@ -19,9 +19,12 @@ In doing that it also ensures that the scenario will exercise the application wi
 
 ```bash
 $ npm install @herbsjs/herbs
+$ npm install @herbsjs/herbs-cli
 ```
 
 ## Using
+
+Firts, you need to create a spec file, for example, `taskCount.spec.js`:
 
 ```javascript
 const { spec, scenario, given, check, samples } = require('@herbsjs/herbs').specs
@@ -34,3 +37,13 @@ const taskCountSpec = spec({
     }),
 })
 ```
+
+Then, you can run it:
+
+```bash
+$ herbs spec
+```
+
+This will run all specs files (ending with `.spec.js`) in the project.
+
+To learn more about how to use Specs, check the [features](/docs/specs/features) page.
