@@ -44,7 +44,7 @@ const billingSpec = spec({
 
 ## Use Case Spec
 
-When informed a use case the spec will assume all the scenarios are about this use case.
+When informed a use case (it is optional) the spec will assume all the scenarios are about this use case.
 
 This will change the behavior of each scenario since it will not necessary to declare a `when`. 
 
