@@ -4,7 +4,7 @@ title: Entity Features
 sidebar_label: Features
 slug: /entity/features
 ---
-   
+
 ## Creating an Entity
 
 `entity(name, body)`, where:
