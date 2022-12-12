@@ -10,7 +10,9 @@ custom_edit_url: null
 
 Herbs Assist is an AI assistant that helps developers create use cases and specs using OpenAI Codex. It simplifies the workflow by generating natural language specifications and Herbs spec and use case files based on the provided information.
 
-[Video]
+<video controls width="720" height="405">
+  <source src="/assets/herbs-assist-full.mp4"/>
+</video>
 
 ## Prerequisites
 
