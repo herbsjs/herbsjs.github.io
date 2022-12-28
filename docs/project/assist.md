@@ -25,7 +25,11 @@ For more information on how to get your keys, please refer to the [OpenAI Codex 
 
 ## Usage
 
-To use Herbs Assist, follow these steps:
+```bash
+$ herbs assist
+```
+
+The use should be self-explanatory, but here are the steps to use Herbs Assist:
 
 1. On your terminal or command-line interface, type `herbs assist`.
 

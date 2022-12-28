@@ -1,3 +1,24 @@
+.section {
+  margin: auto;
+  width: 100%;
+  padding: 3%;
+}
+.section h1 {
+  text-align: center;
+}
+
+.h2big {
+  font-size: 48px;
+  line-height: 1.3em;
+  text-align: center;
+  font-weight: 300;
+  margin: 1em auto;
+}
+
+.textRight {
+  text-align: right !important;
+}
+
 .container {
   box-sizing: border-box;
   width: 100%;
@@ -6,10 +27,12 @@
   flex-wrap: nowrap;
 }
 
+.container_grey{
+  background-color: #f1f1f1;
+}
+
 .container .animation {
   flex: 1;
-  padding: 50px;
-  background-color: #f1f1f1;
 }
 
 .container .animation img {
