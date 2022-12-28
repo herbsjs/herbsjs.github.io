@@ -12,13 +12,13 @@ We will use herbs-cli to start our project. Visit [`herbs-cli`](https://github.c
 1. Install [`herbs-cli`](https://github.com/herbsjs/herbs-cli) globally:
 
 ```sh
-npm i -g @herbsjs/herbs-cli 
+$ npm i -g @herbsjs/herbs-cli 
 ```
 
 2. Create a new project using it:
 
 ```sh
-herbs new
+$ herbs new
 ```
 
 3. Answer the questions to create the project:

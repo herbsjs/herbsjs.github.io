@@ -5,22 +5,24 @@ import clsx from "clsx";
 export default function Features() {
   const features = [
     {
-      title: `Domain that matters`,
+      title: `Domain-first Development`,
       imageUrl: "/img/web.svg",
       description:
-        "Stop spending time with redundant and low impact code. Code your domain first using Herbs and the necessary infrastructure will be generated on the fly.",
+        `HerbsJS is a domain-first development framework that allows you to build maintainable applications by using the same language and terms as your stakeholders.`
     },
     {
-      title: "Keep it clean",
-      imageUrl: "/img/stars.svg",
-      description:
-        "No more sloppy, hard to change code. Create maintainable software, build your microservices in Node.js with Domain Driven Design and Clean Achitecture",
-    },
-    {
-      title: "Auditable and Secure",
+      title: "Low-code Infrastructure",
       imageUrl: "/img/secure-shield.svg",
       description:
-        "Enterprise grade features are standard on Herbs even for simple applications. Authorization and auditing are available out of the box.",
+        `REST and GraphQL endpoints running on the same project. 
+        Move your data transport layer without changing your code. 
+        That's the magic of a domain-first development.`
+    },
+    {
+      title: "AI-Assisted",
+      imageUrl: "/img/stars.svg",
+      description:
+        "With HerbsJS, developers can create code for their domain faster with the help of built-in AI.",
     },
   ];
   return (

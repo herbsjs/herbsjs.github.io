@@ -11,7 +11,7 @@ const sidebar = {
     'graphql-rest'
   ],
   Project: [
-    'motivation', 'roadmap', 'architecture', 'ecosystem', 'contributing', 'acknowledgements', 'logos', 'CoC', 'license'],
+    'motivation', 'roadmap', 'architecture', 'ecosystem', 'assist', 'contributing', 'acknowledgements', 'logos', 'CoC', 'license'],
   UseCase: ['gettingStarted', 'features', 'steps', 'result'],
   Entity: ['gettingStarted', 'features', 'validation'],
   Specs: ['gettingStarted', 'features'],

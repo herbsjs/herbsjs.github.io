@@ -11,8 +11,9 @@ import HerbsCli from './indexComponents/herbsCli/herbsCli'
 import clsx from 'clsx'
 import LogRocket from 'logrocket'
 import environment from '../config/environment'
+import Assist from './indexComponents/assist/assist'
 
-function Home () {
+function Home() {
   const context = useDocusaurusContext()
   const [version, setVersion] = useState(null)
 
@@ -38,18 +39,13 @@ function Home () {
           <h2 className={styles.h2big}>Build Node.js Microservices Faster and Future Proof</h2>
           <HowItWorks />
         </div>
-        <div className={styles.section}>
-          <h2 className={clsx([styles.h2big, styles.textLeft])}>
-            Generate documentation based on your domain
-          </h2>
-          <HerbsShelf />
-        </div>
-        <div className={styles.section}>
-          <h2 className={clsx([styles.h2big, styles.textRight])}>
-            Use Herbs CLI to speed up your development
-          </h2>
-          <HerbsCli />
-        </div>
+
+        <Assist />
+
+        <HerbsShelf />
+
+        <HerbsCli />
+        
       </main>
     </Layout>
   )
