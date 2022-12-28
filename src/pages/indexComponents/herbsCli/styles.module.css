@@ -27,8 +27,12 @@
   flex-wrap: nowrap;
 }
 
+html[data-theme=dark]
+.container {
+  color: #37362b;
+}
 .container_grey{
-  background-color: #f1f1f1;
+  background-color: #d6d5c9;
 }
 
 .container .animation {
