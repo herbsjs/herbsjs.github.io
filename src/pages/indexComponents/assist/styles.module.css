@@ -33,6 +33,11 @@ html[data-theme=dark]
 }
 
 .container_grey{
+  background-color: #f1f1f1;
+}
+
+html[data-theme=dark]
+.container_grey{
   background-color: #d6d5c9;
 }
 
