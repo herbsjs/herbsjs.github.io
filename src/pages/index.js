@@ -36,7 +36,6 @@ function Home() {
       <main style={{ zoom: userZoom }}>
         <Features />
         <div className={styles.section}>
-          <h2 className={styles.h2big}>Build Node.js Microservices Faster and Future Proof</h2>
           <HowItWorks />
         </div>
 
