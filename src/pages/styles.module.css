@@ -7,35 +7,40 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap');
 
- h1, h2, h3, h4 {
-   font-family: 'Barlow Semi Condensed', sans-serif;
- }
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
 
- h1 {
-   font-size: 48px;
-   line-height: 1.3em;
-   font-weight: 300;
-   margin: 1em auto;
- }
+h1 {
+  font-size: 48px;
+  line-height: 1.3em;
+  font-weight: 300;
+  margin: 1em auto;
+}
 
- h2 {
-   font-size: 32px;
-   font-weight: 600;
- }
- h3 {
-   font-size: 29px;
-   font-weight: 600;
-   text-transform: uppercase;
- }
- h4 {
-   font-size: 32px;
-   font-weight: 300;
-   text-transform: uppercase;
-   color: #505050;
-   margin-bottom: 40px;
- }
- 
- .h2big {
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 29px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #505050;
+  margin-bottom: 40px;
+}
+
+.h2big {
   font-size: 48px;
   line-height: 1.3em;
   text-align: center;
@@ -43,21 +48,25 @@
   margin: 1em auto;
 }
 
-.badges, .logos {
+.badges,
+.logos {
   text-align: center;
 }
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
+
 .getStarted {
   margin-right: 10px;
   display: flex;
   align-items: center;
 }
-.getStarted svg{
+
+.getStarted svg {
   margin-right: 10px;
 }
 
@@ -90,6 +99,7 @@
   width: 100%;
   padding: 3%;
 }
+
 .section h1 {
   text-align: center;
 }
@@ -98,4 +108,3 @@
 .logosImage {
   max-width: 300px;
 }
-
