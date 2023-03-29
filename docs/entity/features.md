@@ -418,6 +418,40 @@ const json = JSON.stringify(user) // { "name": "Beth" }
 
 By default, `toJSON` serializes only keys that have been defined in the entity. If you want to add other keys during serialization, use `entity.toJSON({ allowExtraKeys: true })`.
 
+## Parse
+
+### tryParse(value)
+
+After load an entity with data (from JSON, database, etc), it is not guaranteed that the data conforms to the entity fields types.
+
+`tryParse` is a helper function that tries to parse the data to the entity fields types.
+
+The parser has a conservative approach. For the most standard javascript types, it will try to parse the value to the expected type. For example, if the field is a `Number` and the value is '1' (`String`), it will be parsed to 1 (`Number`). However, types like `Date` or `Array` can generate non expected results. In order to avoid this, the parser will avoid non trivial conversions.
+
+For `Date` fields, the parser will try to parse the value only if the string "looks like" a date. For example, if the value is `2019-01-01` (just an example), it will be parsed to a `Date` object. However, if the value is `1`, it will not be parsed. Many date formats are supported.
+
+```javascript
+const User = 
+    entity('User', {
+        name: field(String),
+        age: field(Number)
+        active: field(Boolean)
+        created: field(Date)
+    })
+
+const user = User.fromJSON({ name: 'Beth', age: '42', active: 'true', created: '2019-01-01' })
+user.name // 'Beth'
+user.age // '42'
+user.active // 'true'
+user.created // '2019-01-01'
+
+user.tryParse()
+user.name // 'Beth'
+user.age // 42
+user.active // true
+user.created // Date('2019-01-01')
+```
+```
 
 ## Instance Type Check - `Entity.parentOf`
 
