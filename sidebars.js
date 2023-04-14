@@ -1,51 +1,58 @@
 const sidebar = {
-  Introduction: ["getting-started", "herbsjs"],
+  Introduction: [
+    "introduction/getting-started",
+    "introduction/herbsjs"],
   Tutorial: [
-    "introduction",
-    "new-project",
-    "create-entity",
-    "working-usecases",
-    "specs",
-    "repositories",
-    "migrations",
-    "graphql-rest",
-  ],
-  Project: [
-    "motivation",
-    "roadmap",
-    "architecture",
-    "ecosystem",
-    "assist",
-    "contributing",
-    "acknowledgements",
-    "communitycontent",
-    "logos",
-    "CoC",
-    "license",
-  ],
-  UseCase: ["gettingStarted", "features", "steps", "result"],
-  Entity: ["gettingStarted", "features", "validation"],
-  Specs: ["gettingStarted", "features"],
-  Herbarium: ["gettingStarted"],
-  Validation: ["what-suma", "validations", "checkers"],
+    "tutorial/introduction",
+    "tutorial/new-project",
+    "tutorial/create-entity",
+    "tutorial/working-usecases",
+    "tutorial/specs",
+    "tutorial/repositories",
+    "tutorial/migrations",
+    "tutorial/graphql-rest"],
+  ['Herbs Core']: [{
+    ['Use Case']: [
+      "usecase/gettingStarted",
+      "usecase/features",
+      "usecase/steps",
+      "usecase/result"],
+    Entity: [
+      "entity/gettingStarted",
+      "entity/features",
+      "entity/validation"],
+    Specs: [
+      "specs/gettingStarted",
+      "specs/features"],
+    Herbarium: [
+      "herbarium/gettingStarted"],
+    Validation: [
+      "validation/what-suma",
+      "validation/validations",
+      "validation/checkers"],
+  }],
   Glues: [
-    "whatisglue",
-    "herbsshelf",
-    "herbs2gql",
-    "herbs2rest",
-    "herbs2knex",
-    "herbs2mongo",
-    "herbs2repl",
-    "suma2text",
-    "herbs-snippets",
-  ],
-};
-
-Object.keys(sidebar).map(
-  (property) =>
-    (sidebar[property] = sidebar[property].map(
-      (item) => `${property.toLowerCase()}/${item}`
-    ))
-);
+    "glues/whatisglue",
+    "glues/herbsshelf",
+    "glues/herbs2gql",
+    "glues/herbs2rest",
+    "glues/herbs2knex",
+    "glues/herbs2mongo",
+    "glues/herbs2repl",
+    "glues/suma2text",
+    "glues/herbs-snippets"],
+  Project: [
+    "project/motivation",
+    "project/roadmap",
+    "project/architecture",
+    "project/ecosystem",
+    "project/assist",
+    "project/contributing",
+    "project/acknowledgements",
+    "project/communitycontent",
+    "project/logos",
+    "project/CoC",
+    "project/license"],
+}
 
 module.exports = { sidebar };
