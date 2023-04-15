@@ -18,7 +18,7 @@ export default function Assist() {
                         </p>
                     </section>
                     <section className={styles.animation}>
-                        <Link to={useBaseUrl('docs/tutorial/new-project#with-herbs-cli')} >
+                        <Link to={useBaseUrl('docs/project/assist')} >
                             <img src={useBaseUrl('/assets/herbs-assist.gif')} />
                         </Link>
                     </section>

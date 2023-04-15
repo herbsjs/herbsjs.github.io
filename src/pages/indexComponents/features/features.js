@@ -8,7 +8,7 @@ export default function Features() {
       title: `Domain-first Development`,
       imageUrl: "/img/web.svg",
       description:
-        `HerbsJS is a domain-first development framework that allows you to build maintainable applications by using the same language and terms as your stakeholders.`
+        `HerbsJS is a domain-first development framework (non-MVC approach), that allows you to build maintainable applications by using the same language and terms as your stakeholders.`
     },
     {
       title: "Low-code Infrastructure",

@@ -6,6 +6,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 export default function HowItWorks() {
 	return (
 		<>
+			<h2 className={styles.h2big}>Build Node.js Microservices Faster and Future Proof</h2>
+			<section className={styles.container_mobile}>
+				<Link to={useBaseUrl('docs/project/architecture-guidelines')} >
+					<img src={useBaseUrl('/img/how-it-works.png')} />
+				</Link>
+			</section>
 			<div className={styles.container}>
 				<div className={styles.circlesContent}>
 					<div className={styles.outerCircle}>
@@ -74,14 +80,14 @@ export default function HowItWorks() {
 					<div className={styles.arrowRight} />
 				</div>
 				<div className={styles.gridMiddleC}>
-					<hr className={styles.line}/>
+					<hr className={styles.line} />
 					<div className={styles.badgeMiddle}>
 						<Link to={useBaseUrl('docs/glues/herbs2rest')} className={styles.badgeLink}>
 							Herbs 2 Rest
 						</Link>
 					</div>
-					<hr className={styles.line}/>
-					<div className={styles.arrowRight}/>
+					<hr className={styles.line} />
+					<div className={styles.arrowRight} />
 				</div>
 				<div className={styles.gridMiddleD}>
 					<hr className={styles.line} />
