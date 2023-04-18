@@ -44,7 +44,7 @@
     "net": false,
     "stream": false,
     "tls": false
-    },
+  },
   "browserslist": {
     "production": [
       ">0.5%",

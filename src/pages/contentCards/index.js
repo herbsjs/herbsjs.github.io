@@ -23,7 +23,7 @@ export default function AltCard() {
         alignItems="flex-start"
       >
         {contentList.map((elem) => (
-          <Grid item xs={12} sm={6} md={6} key={contentList.indexOf(elem)}>
+          <Grid item xs={12} sm={4} md={4} key={contentList.indexOf(elem)}>
             <Card {...elem} />
           </Grid>
         ))}
