@@ -59,6 +59,7 @@ function filterLoginBlackList(contributors) {
         'BrsPontes-Vortx',
         'anahelenamagit',
         'gmo-vortx',
+        'DanielRSous',
         'jhomarolo-vortx',
         'm7vicente-vortx',
         'maikvortx',

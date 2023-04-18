@@ -14,6 +14,7 @@ const sidebar = {
     "motivation",
     "roadmap",
     "architecture",
+    "development",
     "ecosystem",
     "assist",
     "contributing",
