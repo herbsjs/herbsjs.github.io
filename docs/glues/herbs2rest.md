@@ -36,14 +36,15 @@ module.exports =
 
 Herbs2REST works with [express](https://expressjs.com/) in version [4.x](https://expressjs.com/en/4x/api.html).
 
+#### Herbarium
 
-#### Controller List
-
-Use the method generateRoutes to generate api rest routes based on usecases.
+The default method needs a list of controllers returned by the generateControllers function using Herbarium.
 
 ```javascript
 const controllersList = generateControllers({ herbarium })
 ```
+
+#### Controller List
 
 You can pass a list of controllers like the example below, instead of generate controllers with herbarium:
 
