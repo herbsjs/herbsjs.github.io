@@ -20,6 +20,8 @@ To use herbs2rest, the use cases must be exported with Herbarium, along with som
 
 The operation is exported by Herbarium in `herbarium.crud` and can be: `create`, `read`, `readAll`, `update`, `delete`, or `other`. This `operation` field is utilized by Herbs2Rest, following specific conventions to determine the type of REST endpoint to be created for Express, whether it is a `GET` or `POST` endpoint, according to the use case metadata.
 
+Example:
+
 ```javascript
 module.exports = 
   herbarium.usecases
@@ -40,11 +42,7 @@ Herbs2REST works with [express](https://expressjs.com/) in version [4.x](https:/
 Use the method generateRoutes to generate api rest routes based on usecases.
 
 ```javascript
-const controllers = generateControllers({ herbarium })
-
-const showEndpoints = true
-
-generateRoutes(controllers, routes, showEndpoints)
+const controllersList = generateControllers({ herbarium })
 ```
 
 You can pass a list of controllers like the example below, instead of generate controllers with herbarium:
@@ -106,7 +104,9 @@ const { generateRoutes } = require('@herbsjs/herbs2rest')
 const app = express()
 const routes = new express.Router()
 
-generateRoutes(controllerList, routes, true)  // true = console info endpoints
+const showEndpoints = true
+
+generateRoutes(controllerList, routes, showEndpoints)
 
 app.use(routes)
 ```
@@ -153,9 +153,14 @@ module.exports =
       group: 'User',
       operation: herbarium.crud.create,
       entity: User,
-      REST: { post: '/createuser' } // Changes from POST /User to POST /createuser
+      REST: { post: '/createuser' }
     }) 
     .usecase
+```
+
+Route generated:
+```bash
+POST /createuser -> Create User
 ```
 
 You can also customize the resourceName by providing a string within the REST object. This will update the default route for the use case, adhering to conventions. By default, the resourceName is derived from the group in the metadata.
@@ -170,9 +175,14 @@ module.exports =
       group: 'User',
       operation: herbarium.crud.create,
       entity: User,
-      REST: { resourceName: 'customer' } // Changes from POST /User to POST /customer
+      REST: { resourceName: 'customer' }
     })
     .usecase
+```
+
+Route generated:
+```bash
+POST /customer -> Create User
 ```
 
 By using custom endpoints and verbs, you can create a more flexible API that better suits your application's needs. This allows for more intuitive paths and better organization of your API resources.
