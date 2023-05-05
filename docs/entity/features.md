@@ -249,9 +249,13 @@ user.errors // {}
 user.isValid() // true
 ```
 
-**Except IDs**
+**ID Validation**
 
-It is possible to ignore [ID field](#id-fields) validation using `.isValid({ exceptIDs: true })`. It can be useful for creation use cases when the entity IDs star as `null` or `undefined` and will be generated later from the database.
+It is possible to ignore or only validate [ID fields](#id-fields) using `.isValid({ exceptIDs: true })` or `.isValid({ onlyIDs: true })`. 
+
+`exceptIDs` can be useful for creation use cases when the entity IDs start as `null` or `undefined` and later on they are set to a valid value. 
+
+`onlyIDs` can be useful, for instance, when there is a reference to an entity and only the IDs are known.
 
 ### Type Validation
 
