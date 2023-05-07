@@ -257,6 +257,25 @@ It is possible to ignore or only validate [ID fields](#id-fields) using `.isVali
 
 `onlyIDs` can be useful, for instance, when there is a reference to an entity and only the IDs are known.
 
+**Reference Validation**
+
+It is possible to send validation options only to [reference fields](#entity-type) using `.isValid({ references: { onlyIDs: true } })` or `.isValid({ references: { exceptIDs: true } })`.
+
+The reference validation is useful, for instance, on creation use cases when the entity IDs are unknown and for the reference fields only the IDs are needed.
+
+```js
+const Product = 
+    entity('Product', {
+        id: id(Number),
+        name: field(String),
+        category: field(Category),
+    })
+
+const product = Product.fromJSON({ name: "Product 1", category: { id: 1 } })
+
+product.isValid({ exceptIDs: true, references: { onlyIDs: true } })
+```
+
 ### Type Validation
 
 It is possible to validate the type of a value .
