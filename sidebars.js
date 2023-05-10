@@ -36,7 +36,11 @@ const sidebar = {
     "glues/herbsshelf",
     "glues/herbs2gql",
     "glues/herbs2rest",
-    "glues/herbs2knex",
+    { Knex: [
+      "glues/herbs2knex/herbs2knex",
+      "glues/herbs2knex/features",
+      "glues/herbs2knex/relationships",
+    ]},
     "glues/herbs2mongo",
     "glues/herbs2repl",
     "glues/suma2text",

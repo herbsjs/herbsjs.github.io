@@ -1,70 +1,10 @@
 ---
-id: herbs2knex
-title: Knex - Herbs2Knex
-sidebar_label: Knex
-slug: /glues/Herbs2knex
+id: features
+title: Herbs2Knex Features
+sidebar_label: Features
+slug: /herbs2knex/features.md
 ---
 
-Creates repositories to retrieve and store [Entities](/docs/entity/getting-started) using [Knex](http://knexjs.org), a relational database query builder for Node.js.
-
-### Installing
-```bash
-$ npm install @herbsjs/herbs2knex
-```
-### Using
-
-`connection.js` - Knex initialization:
-```javascript
-const knex = require('knex')
-const config = require('./config')
-module.exports = knex(config)
-```
-
-`itemRepository.js`:
-```javascript
-const { Repository } = require('@herbsjs/herbs2knex')
-const connection = require('connection')
-const { Item } = require('../domain/entities/item')
-
-class ItemRepository extends Repository {
-    constructor() {
-        super({
-            entity: Item,
-            table: 'aTable',
-            ids: ['id'],
-            knex: connection
-        })
-    }
-
-    excludedItemFromLastWeek() {
-        ...
-    }
-}
-```
-
-`someUsecase.js`:
-```javascript
-const repo = new ItemRepository()
-const ret = await repo.findByID(1)
-```
-
-### What is a Repository?
-
-A repository, by [definition](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks), is part of the layer to retrieve and store entities abstracting the underlying implementation. By using repositories, details of these implementation such as relational database, document-oriented databases, etc., should not leak to the domain code. In other words, no raw SQL queries on your use case or entity files.
-
-### Herbs2knex Repository
-
-In order to boost productivity, Herbs2knex provides ways to dynamically generate, on the fly (no code generation), a repository class based on your Entities and other metadata. 
-
-These metadata are necessary to close the gap between OOP concepts and paradigms and those of relational databases. For example, it is necessary to specify primary keys and foreign keys as these information do not exist in the description of your domain.
-
-Following Herbs architecture principals, it is not the intention of this lib to create yet another ORM or query builder but to create a bridge between your domain and an existing one (Knex).
-
-### Why Knex?
-
-Herbs2knex is just one of many bridges possible between Herbs and other packages.
-
-The advantage of using Knex is that is a simple and flexible SQL query builder. It also supports Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle and Amazon Redshift. Therefore, you can build your system using these databases out of the box.
 
 ### Repository setup
 
@@ -155,6 +95,8 @@ class YourRepository extends Repository {
 - `knex` - Knex initialize instance
     
     Check Knex [documentation](http://knexjs.org/#Installation-client)
+
+
 
 ## Retrieving and Persisting Data
 
@@ -268,40 +210,6 @@ Code: Camel Case - ex: `productName`
 
 Database: Snake Case - ex: `product_name`
 
-## Object-Oriented versus Relational models - Relationships
-
-An entity can define a reference for others entities but will not (and should not) define a foreign key. For instance:
-
-    +------------------+         +------------------+         +------------------+
-    |      Orders      |         |    OrderItems    |         |     Products     |
-    +------------------+         +------------------+         +------------------+
-    | id: int          |----\    | id: int          |       --| id: int          |
-    | customer_id: int |     ----| order_id: int    |  ----/  | name: string     |
-    +------------------+         | product_id: int  |-/       +------------------+
-                                +------------------+                             
-
-```javascript
-const Product = entity('Product', {
-    id: id(Number),
-    name: field(String),
-    ...
-})
-
-const OrderItem = entity('Order Items', {
-    id: id(Number),
-    product: field(Product),    // optional
-    ...
-})
-
-const Order = entity('Order', {
-    id: id(Number),
-    item: field([OrderItem]),     // optional
-    ...
-})
-```
-
-More about: https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch
-
 
 ## Setting up a database - Config Files
 
@@ -400,46 +308,3 @@ module.exports = {
   }
 }
 ```
-
-### Set up with Mongo
-
-The configuration file is `src/infra/config/mongo.js`. It should be like this:
-
-```js
-// src/infra/config/mongo.js
-const env = require('sugar-env')
-require('dotenv').config()
-
-module.exports = {
-  herbsCLI: 'mongo',
-  dbName: env.get(`$MONGO_DATABASE`, 'herbs-mongo'),
-  connstr: env.get(`$MONGO_CONN_STR`, 'mongodb://localhost:27017'),
-}
-```
-
-and in `src/infra/data/database/connection.js` we can see a mongodb instance configuration
-
-```js
-// src/infra/data/database/connection.js
-const { MongoClient } = require('mongodb')
-
-let dbInstance = null;
-
-module.exports = {
-    factory: async (config) => {
-        if (dbInstance) {
-            return new Promise((resolve) => resolve(dbInstance))
-        }
-        const client = await new MongoClient(config.database.connstr, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }).connect()
-        dbInstance = client.db(config.database.name)
-        return dbInstance
-    }
-}
-```
-
-So you can provide a custom name and connection URL for the database using the environment variables or use the default ones.
-
-In these files you can change their values to match with your credentials, database name, host, etc.
