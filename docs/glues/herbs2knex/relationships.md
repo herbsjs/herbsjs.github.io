@@ -485,10 +485,10 @@ class AddressRepository extends Repository {
 }
 ```
 
-TO DO
-
 <details>
 <summary>Usage</summary>
+
+TO DO
 
 **Find, FindByID, FindAll**
 
@@ -531,3 +531,7 @@ const Address = entity('Address', {
 </details>
 
 Because of this, Herbs2Knex does not support many-to-many relationships directly. An alternative is to use a one-to-many through relationship.
+
+### Self-Referencing
+
+TO DO

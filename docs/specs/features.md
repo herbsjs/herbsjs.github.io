@@ -42,6 +42,21 @@ const billingSpec = spec({
 })
 ```
 
+### Only
+
+It is possible to run only one scenario by using `only`:
+
+```javascript
+const updateUserSpec = spec({
+    'Update valid User': scenario({ ... }),
+    'Do not update invalid User': scenario.only({ ... }),
+})
+```
+
+:::note
+It is possible to use `only` on `scenario` but not on `spec`.
+:::
+
 ## Use Case Spec
 
 When informed a use case (it is optional) the spec will assume all the scenarios are about this use case.
@@ -120,7 +135,7 @@ const updateUserSpec = spec({
 
     'Update a existing user': scenario({
         'Given a valid user': given({ name: 'Claudia' }),
-        'Print user name': check((ctx) => { console.log(ctx.name) }),
+        'Print user name': check((ctx) => { console.log(ctx.name) }), // ctx.name === 'Claudia'
         ...
 ```
 
@@ -135,7 +150,7 @@ const updateUserSpec = spec({
             { name: 'Claudio' },               // item 2
         ]),
         'Given a valid user': given((ctx) => ctx.sample),
-        'Print user name': check((ctx) => { console.log(ctx.name) }),
+        'Print user name': check((ctx) => { console.log(ctx.name) }), // ctx.name === 'Claudia' or 'Claudio'
         ...
 ```
 
