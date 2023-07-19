@@ -173,6 +173,14 @@ Without the entity metadata, it would not be possible to know which field is the
 
 ## Advanced Scenarios
 
+### Avoid Generating Endpoints
+
+It is possible to avoid generating endpoints for a specific use case.
+
+```javascript
+herbarium.usecases.get('SearchUser').metadata({ REST: false })
+```
+
 ### Multiple Endpoints for the Same Use Case
 
 It is possible to create multiple endpoints for the same use case. This is useful when it is necessary to use different HTTP methods or different paths for the same use case.
