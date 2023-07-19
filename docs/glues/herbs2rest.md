@@ -82,7 +82,7 @@ REST metadata:
 
 - `parameters`: These are used to create the final path if applicable.
 
-    Example: `{ params: { id: 'id' }, query: { name: 'name' } }`
+    Example: `{ params: { id: Number }, query: { name: String } }`
 
     Parameters source: `params`, `query`, `body`, `headers`, `cookies`, etc.
 
@@ -185,42 +185,44 @@ herbarium.usecases.get('SearchUser').metadata({ REST: [{ method: 'GET' }, { meth
 
 It is possible to create versioned endpoints for the same use case. 
 
-- Single use case with multiple versions:
+**For all use cases**
 
-    This is useful when a use case changes but it is necessary to maintain old endpoints versions working.
+  This is useful when is necessary to version all endpoints.
 
-    ```javascript
-    const parametersHandler = (req, parameters) => {
-      return {
-        id: req.params.id,
-        searchTerms: req.query.searchTerms,
-      }
+  ```javascript
+  populateMetadata({ herbarium, controller, version: 'v1' })
+  populateMetadata({ herbarium, controller, version: 'v2' })
+  ```
+
+**Single use case with multiple versions**
+
+  This is useful when a use case changes but it is necessary to maintain old endpoints versions working.
+
+  ```javascript
+  const parametersHandler = (req, parameters) => {
+    return {
+      id: req.params.id,
+      searchTerms: req.query.searchTerms,
     }
+  }
 
-    herbarium.usecases.get('SearchUser').metadata({ REST: [
-      { version: 'v1', parametersHandler, method: 'POST' }, 
-      { version: 'v2' } // use the defaults 
-    ]})
+  herbarium.usecases.get('SearchUser').metadata({ REST: [
+    { version: 'v1', parametersHandler, method: 'POST' }, 
+    { version: 'v2' } // use the defaults 
+  ]})
 
-    // Generate the endpoints:
-    // v1: POST /v1/users/search
-    // v2: GET /v2/users/search
-    ```
+  // Generate the endpoints:
+  // v1: POST /v1/users/search
+  // v2: GET /v2/users/search
+  ```
 
 :::tip
 If your project uses multiple versions, it is recommended to use multiple files to organize the use cases. For example, `src/infra/api/rest/v1.js` and `src/infra/api/rest/v2.js`.
 :::
 
-- For all use cases
-
-    This is useful when is necessary to version all endpoints.
-
-    ```javascript
-    populateMetadata({ herbarium, controller, version: 'v1' })
-    populateMetadata({ herbarium, controller, version: 'v2' })
-    ```
-
+:::tip
 It is possible to use both methods together: override the specifics and use the default behavior for the rest.
+:::
 
 ### Custom Controller
 
@@ -262,14 +264,29 @@ The current default implementation also deal with type casting. Be aware that ov
 
 ### Custom Authorization Handler
 
+**For all use cases**
+
+It is possible to replace the default authorization handler for all use cases.
+
+```javascript
+function myAuthorizationHandler(req) {
+    return req.authInfo
+}
+populateMetadata({ herbarium, controller, authorizationHandler: myAuthorizationHandler })
+```
+
+**For a single use case**
+
 It is possible to replace the default authorization handler for a use case. It useful when it is necessary to use a different authorization mechanism for that specific use case.
 
 ```javascript
 function myAuthorizationHandler(req) {
-    return req.user
+    return req.authInfo
 }
 
 herbarium.usecases.get('SearchUser').metadata({ REST: [{ authorizationHandler: myAuthorizationHandler }] })
+
+populateMetadata({ herbarium, controller })
 ```
 
 Function description: `authorizationHandler(req)`. The default will return `authInfo` from the request object.
