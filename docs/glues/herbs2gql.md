@@ -240,6 +240,3 @@ const [gql, resolver] = usecase2mutation(
 
 The [Known Errors​](/docs/usecase/result#known-errors) are described in the documentation.
 
-#### Example
-
-Additionally you can view a simple demo application of this library in [todolist-on-herbs](https://github.com/herbsjs/todolist-on-herbs).

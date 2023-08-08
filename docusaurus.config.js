@@ -11,6 +11,11 @@ module.exports = {
   customFields: {
     description: 'Herbs - Build your microservices in Node.js with Clean Architecture and Domain Driven Design.',
   },
+  scripts: [
+    {
+      src: '/scripts/typograms.js',
+    }
+  ],
   themeConfig: {
     navbar: {
       logo: {
@@ -19,6 +24,14 @@ module.exports = {
         srcDark: 'img/herbsjs-white.svg',
       },
       items: [
+        {
+          to: 'docs/',
+          label: 'Docs',
+        },
+        {
+          to: 'blog/',
+          label: 'Blog',
+        },
         {
           href: 'https://twitter.com/herbsjs',
           className: 'twitter-icon',
@@ -96,6 +109,13 @@ module.exports = {
         gtag: {
           trackingID: 'G-LMCPKQXZHH'
         },
+        blog: {
+          blogTitle: 'HerbsJS Blog',
+          blogDescription: 'We talk about DDD, Clean Architecture, Microservices, Node.js and HerbsJS, of course.',
+          path: 'blog',
+          showReadingTime: true,
+          authorsMapPath: 'authors.yml',
+        }
       },
     ],
   ],

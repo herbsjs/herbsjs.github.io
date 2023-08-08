@@ -3,7 +3,12 @@ id: relationships
 title: Herbs2Knex - Handling Relationships
 sidebar_label: Relationships
 slug: /herbs2knex/relationships.md
+draft: true
 ---
+
+:::warning
+This is not the current implementation of Herbs2Knex. This is a proposal for the next version of Herbs2Knex.
+:::
 
 In this guide, we will explore how Herbs2Knex handles relationships between entities while bridging the gap between domain modeling and relational database modeling.
 

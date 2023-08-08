@@ -384,8 +384,8 @@ console.log(orderFields)
 // ]
 ```
 
-### Ids metadata
-It is possible to access the ids metadata of an entity by the `schema.ids` static property:
+### IDs metadata
+It is possible to access the IDs metadata of an entity by the `schema.ids` static property:
 
 ```javascript
 

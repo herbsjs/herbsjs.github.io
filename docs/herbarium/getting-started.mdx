@@ -1,0 +1,208 @@
+---
+id: gettingStarted
+title: Getting Started with Herbarium
+sidebar_label: Getting Started
+slug: /herbarium/working-with-herbarium
+---
+import Typogram from '../../src/components/typogram'
+import { HerbariumDiagram } from './herbariumDiagram'
+
+Herbarium is a centralized repository of all objects in a project and the link between them. 
+It is also a discovery service that allows [glues](/docs/glues) to find and explore these objects. 
+Herbarium is what we call the Domain Graph and is a key component to expose the domain's metadata.
+
+In a regular project, this is the graph expected:
+
+<Typogram>
+    {HerbariumDiagram()}
+</Typogram>
+
+Once the objects are loaded into Herbarium and the links are created, 
+it is possible to explore the graph. With these metadata, it is possible to create [glues](/docs/glues) 
+that can be used to generate code, documentation, tests, etc.
+
+## Initializing
+
+To start using Herbarium it is necessary to load all the objects in the project with `requireAll`:
+
+```javascript
+const { herbarium } = require('@herbs/herbarium')
+herbarium.requireAll(options)
+```
+
+This will find and `require()` all domain files (entities, use cases, specs, repositories, etc) and load them into Herbarium. If these files are using Herbarium, it will [load](#adding) all the objects to be used later.
+
+You can check which files were found within the ```herbarium.requireAll(options)``` method using:
+
+To load all files in the project:
+
+```javascript
+const { herbarium } = require('@herbs/herbarium')
+const retqAll = herbarium.requireAll(options)
+
+/* Will return an object of array of files founded
+ {
+   entities:[],
+   usecases":[],
+   repositories:[]
+  }
+*/
+```
+
+`options`:
+- `initialPath`: (optional) default `process.cwd()`
+- `avoidFiles`: (optional) default `(fileName) => (fileName.includes('.spec.js') || fileName.includes('.test.js') ? false : fileName)`
+- `onlySpecs`: (optional) default `(fileName) => (fileName.includes('.spec.js') ? fileName : false)`
+- `entitiesPath`: (optional) default `/src/domain/entities`
+- `usecasesPath`: (optional) default `/src/domain/usecases`
+- `specPath`: (optional) default `/src/domain/`
+- `repositoriesPath`: (optional) default `/src/infra/repositories`
+
+
+## Adding
+### Adding an Object
+
+To add a new object to Herbarium, use the `add` method.
+
+```javascript
+// src/domain/entities/item.js
+const { herbarium } = require('@herbsjs/herbarium')
+
+const Item =
+    entity('Item', {
+        ...
+    })
+
+module.exports =
+    herbarium.nodes
+        .add('Item', Item, herbarium.node.entity)
+        .value
+```
+
+The `add` method receives three parameters:
+
+- `id`: `String` - The id of the object. Must be unique for all objects, independent of type.
+- `value`: `Object` - The object itself.
+- `type`: `String` - The type of the object. The most common types can be found in `herbarium.node` (entity, usecase, spec, repository, etc). 
+
+### Adding Metadata
+
+To add metadata to an object, use the `metadata` method.
+
+```javascript
+// src/domain/usecases/item/createItem.js
+const { herbarium } = require('@herbsjs/herbarium')
+
+const createItem = (injection) =>
+    usecase('Create Item', {
+        ...
+    })
+
+module.exports =
+    herbarium.nodes
+        .add('CreateItem', createItem, herbarium.node.usecase)
+        .metadata({ operation: herbarium.crud.create })
+        .value
+```
+
+The `metadata` method receives an object with the metadata to be added to the object. 
+
+A special metadata is the `operation` metadata, which is used to identify CRUD use cases. The standard operations can be found in `herbarium.crud` (create, read, readAll, update, delete).
+
+### Adding a Link
+
+To add a link between two objects, use the `link` method.
+
+```javascript
+// src/domain/usecases/item/createItem.js
+const { herbarium } = require('@herbsjs/herbarium')
+
+const createItem = (injection) =>
+    usecase('Create Item', {
+        ...
+    })
+
+module.exports =
+    herbarium.nodes
+        .add('CreateItem', createItem, herbarium.node.usecase)
+        .metadata({ operation: herbarium.crud.create })
+        .link('Item')
+        .value
+```
+
+The `link` method receives the id of the object to be linked to.
+
+There are a expected links on a regular project:
+
+<Typogram>
+    {HerbariumDiagram()}
+</Typogram>
+
+## Consuming Objects
+
+### Get Node By ID
+
+`herbarium.nodes.get(id)` - Returns the object with the given id.
+
+```javascript
+const entity = herbarium.nodes.get('Item')
+```
+
+### Find Nodes
+
+`herbarium.nodes.find(criteria)` - Returns all objects that match the criteria.
+
+```javascript
+const entities = herbarium.nodes.find({ type: herbarium.node.entity })
+```
+
+### All Links of a Node
+
+`node.links(criteria)` - Returns all links of the object that match the criteria. Criteria is optional.
+
+Return all links of a node:
+
+```javascript
+const usecase = herbarium.nodes.get('CreateItem')
+const links = usecase.links()
+```
+
+Return all links of a node with a specific type:
+
+```javascript
+const usecase = herbarium.nodes.get('CreateItem')
+const links = usecase.links({ type: herbarium.link.API })
+```
+
+### Finds Nodes Linked To
+
+`node.linkedTo(criteria)` - Returns all objects that are linked to the object that match the criteria. Criteria is optional.
+
+Return all objects that are linked to a node:
+
+```javascript
+const usecase = herbarium.nodes.get('CreateItem')
+const entities = usecase.linkedTo({ type: herbarium.node.entity })
+```
+
+### Finds Nodes Connected With Links Of
+
+`node.linksOf(criteria)` - Returns all objects that are connected with the links of the object that match the criteria.
+
+Return all objects that are connected with the links of a node:
+
+```javascript
+const entity = herbarium.nodes.get('Item')
+const CRUDUseCases = entity.linksOf({ type: herbarium.link.CRUD })
+```
+
+## Resetting
+
+To reset Herbarium, use the `reset` method.
+
+```javascript
+const { herbarium } = require('@herbsjs/herbarium')
+herbarium.reset()
+```
+
+It can be useful to reset Herbarium between tests, to avoid objects from previous tests to interfere with the current test.
