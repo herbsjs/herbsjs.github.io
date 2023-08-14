@@ -31,7 +31,7 @@ const sidebar = {
       "validation/validations",
       "validation/checkers"],
   }],
-  Glues: [
+  ['Herbs Glues']: [
     "glues/whatisglue",
     "glues/herbsshelf",
     "glues/herbs2gql",

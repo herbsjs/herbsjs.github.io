@@ -9,10 +9,15 @@ Creates GraphQL types (queries, mutations, etc.) based on herbs [entities](/docs
 
 
 ## Getting started
-### Installing
+
+- If the project will be created with the Herbs CLI, choose 'Yes' when prompted for the GraphQL option.
+
+- Otherwise, install the package using the following command:
+
 ```bash
 $ npm install @herbsjs/herbs2gql
 ```
+
 ### Using
 If your project uses [Herbarium](https://github.com/herbsjs/herbarium) as discovery service you can generate mutations, queries and types with less code.
 
